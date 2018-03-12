@@ -1,0 +1,17 @@
+<h2>My Phones</h2>
+<ul class="heroes">
+  <li *ngFor="let phone of phones"
+      [class.selected]="phone === selectedPhone"
+      (click)="onSelect(phone)">
+    <span class="badge">{{phone.id}}</span> {{phone.name}}
+  </li>
+</ul>
+<div *ngIf="selectedPhone">
+<h2>{{ selectedPhone.name | uppercase }} Details</h2>
+<div><span>id: </span>{{selectedPhone.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="selectedPhone.name" placeholder="name">
+  </label>
+</div>
+</div>
