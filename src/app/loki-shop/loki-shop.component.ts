@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Phone } from '../phone';
-import { PHONES } from '../mock-phones';
+import { PhoneService } from '../phone.service';
 @Component({
   selector: 'app-loki-shop',
   templateUrl: './loki-shop.component.html',
   styleUrls: ['./loki-shop.component.css']
 })
 export class LokiShopComponent implements OnInit {
-  phones = PHONES;
-  selectedPhone: Phone;
+  phones: Phone[];
 
-  constructor() { }
-
+  constructor(private phoneService: PhoneService) { }
+  getPhones(): void{
+	  this.phoneService.getPhones().subscribe(phones => this.phones = phones);
+  }
   ngOnInit() {
+	  this.getPhones();
   }
-  onSelect(phone:Phone): void{
-    this.selectedPhone = phone;
-  }
+  
 
 }
