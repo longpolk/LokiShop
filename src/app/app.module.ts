@@ -13,6 +13,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { PhoneSearchComponent } from './phone-search/phone-search.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,10 +26,15 @@ import { InMemoryDataService }  from './in-memory-data.service';
     LokiShopComponent,
     PhoneDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    PhoneSearchComponent
   ],
   imports: [
     BrowserModule,
+	AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
     FormsModule,
     AppRoutingModule,
 	HttpClientModule,

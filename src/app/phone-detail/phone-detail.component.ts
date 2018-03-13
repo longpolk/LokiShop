@@ -3,6 +3,7 @@ import { Phone } from '../phone';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PhoneService }  from '../phone.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-phone-detail',
@@ -38,7 +39,7 @@ save(): void {
 updatePhone (phone: Phone): Observable<any> {
   return this.http.put(this.phonesUrl, phone, httpOptions).pipe(
     tap(_ => this.log(`updated phone id=${phone.id}`)),
-    catchError(this.handleError<any>('updatePhone'))
+    catchError(this.phoneService.handleError<any>('updatePhone'))
   );
 }
 }
