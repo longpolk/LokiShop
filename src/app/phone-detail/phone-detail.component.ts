@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PhoneService }  from '../phone.service';
 import { Observable } from 'rxjs/Observable';
-
+import { catchError, map, tap } from 'rxjs/operators';
 @Component({
   selector: 'app-phone-detail',
   templateUrl: './phone-detail.component.html',
@@ -37,8 +37,8 @@ save(): void {
  }
  /** PUT: update the hero on the server */
 updatePhone (phone: Phone): Observable<any> {
-  return this.http.put(this.phonesUrl, phone, httpOptions).pipe(
-    tap(_ => this.log(`updated phone id=${phone.id}`)),
+  return this.phoneService.http.put(this.phonesUrl, phone, httpOptions).pipe(
+    tap(_ => this.phoneService.log(`updated phone id=${phone.id}`)),
     catchError(this.phoneService.handleError<any>('updatePhone'))
   );
 }
