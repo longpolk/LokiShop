@@ -28,7 +28,7 @@ export class PhoneSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.phones$ = this.searchTerms.pipe(
+    /*this.phones$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),
 
@@ -36,7 +36,7 @@ export class PhoneSearchComponent implements OnInit {
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.phoneService.searchPhone(term)),
-    );
+      switchMap((term: string) => this.phoneService.searchPhone(term))
+    );*/
   }
 }

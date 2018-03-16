@@ -7,7 +7,6 @@ import { Phone } from './phone';
 import { MessageService } from './messages.service';
  
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
  
 const httpOptions = {
@@ -19,10 +18,11 @@ export class PhoneService {
  
   public phoneUrl = 'api/phones';  // URL to web api
   postsCol: AngularFirestoreCollection<Phone[]>;
-  postsDoc: AngularFirestoreDocument<Phone>;
-  posts: Observable<Phone[]>;
+  postDoc: AngularFirestoreDocument<Phone>;
+  posts: any;
+  post: Observable<Phone>;
   constructor(
-    private http: HttpClient,
+    public http: HttpClient,
     private messageService: MessageService,
 	private angularFirestore: AngularFirestore
 	) { }
@@ -33,7 +33,7 @@ export class PhoneService {
 	this.posts = this.postsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
-          const data = a.payload.doc.data() as Post;
+          const data = a.payload.doc.data() as Phone;
           const id = a.payload.doc.id;
           return { id, data };
         });
@@ -59,17 +59,16 @@ export class PhoneService {
   }
  
   /** GET hero by id. Will 404 if id not found */
-  getPhone(id: number): Observable<Phone> {
-    this.postsCol = this.angularFirestore.collection('phones');
-    this.posts = this.postsCol.valueChanges();
-	const url = `${this.phoneUrl}/${id}`;
-    return this.http.get<Phone>(url).pipe(
+  getPhone(id: string): Observable<Phone> {
+    this.postDoc = this.angularFirestore.doc('phones/'+id);
+    this.post = this.postDoc.valueChanges();
+    return this.post.pipe(
       tap(_ => this.log(`fetched phone id=${id}`)),
       catchError(this.handleError<Phone>(`getPhone id=${id}`))
     );
   }
  
-  /* GET heroes whose name contains search term */
+  /* GET heroes whose name contains search term 
   searchPhone(term: string): Observable<Phone[]> {
     if (!term.trim()) {
       // if not search term, return empty phone array.
@@ -79,7 +78,7 @@ export class PhoneService {
 	this.posts = this.postsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
-          const data = a.payload.doc.data() as Post;
+          const data = a.payload.doc.data() as Phone;
           const id = a.payload.doc.id;
           return { id, data };
         });
@@ -92,8 +91,8 @@ export class PhoneService {
     /*return this.http.get<Phone[]>(`api/phones/?name=${term}`).pipe(
       tap(_ => this.log(`found phones matching "${term}"`)),
       catchError(this.handleError<Phone[]>('searchPhones', []))
-    );*/
-  }
+    );
+  }*/
  
   //////// Save methods //////////
  

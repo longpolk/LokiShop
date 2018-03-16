@@ -3,8 +3,7 @@ import { Phone } from '../phone';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PhoneService }  from '../phone.service';
-import { Observable } from 'rxjs/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-phone-detail',
   templateUrl: './phone-detail.component.html',
@@ -24,7 +23,7 @@ export class PhoneDetailComponent implements OnInit {
 	  this.getPhone();
   }
   getPhone(): void{
-	  const id = +this.route.snapshot.paramMap.get('id'); //add '+' before 'this.' to return number
+	  const id = this.route.snapshot.paramMap.get('id'); //add '+' before 'this.' to return number
       this.phoneService.getPhone(id)
     .subscribe(phone => this.phone = phone);
   }
@@ -35,11 +34,4 @@ save(): void {
    this.phoneService.updatePhone(this.phone)
      .subscribe(() => this.goBack());
  }
- /** PUT: update the hero on the server */
-updatePhone (phone: Phone): Observable<any> {
-  return this.phoneService.http.put(this.phonesUrl, phone, httpOptions).pipe(
-    tap(_ => this.phoneService.log(`updated phone id=${phone.id}`)),
-    catchError(this.phoneService.handleError<any>('updatePhone'))
-  );
-}
 }
