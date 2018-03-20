@@ -1,10 +1,15 @@
 <h2>My Phones</h2>
 <div>
-  <label>Phone name:
+  <label>Phone details:
     <input #phoneName />
+	<input #phoneId />
+	<input #phoneAge />
+	<input #phoneImageUrl />
+	<input #phoneSnippet />
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(phoneName.value); phoneName.value=''">
+  <button (click)="add(phoneId.value, phoneName.value, phoneAge.value, phoneImageUrl.value, phoneSnippet.value); phoneName.value=''; phoneId.value=''; 
+  phoneAge.value=''; phoneImageUrl.value=''; phoneSnippet.value=''">
     add
   </button>
 </div>

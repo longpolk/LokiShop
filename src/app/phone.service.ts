@@ -96,12 +96,15 @@ export class PhoneService {
  
   //////// Save methods //////////
  
-  /** POST: add a new hero to the server */
+  /** POST: add a new hero to the server 
   addPhone (phone: Phone): Observable<Phone> {
     return this.http.post<Phone>(this.phoneUrl, phone, httpOptions).pipe(
       tap((phone: Phone) => this.log(`added phone w/ id=${phone.id}`)),
       catchError(this.handleError<Phone>('addPhone'))
     );
+  }*/
+  addPhone(id: string, name: string, age: number, image: string, snippet: string) {
+    this.angularFirestore.collection('phones').add({'age': age,'id': id, 'imageUrl': image,'name': name, 'snippet': snippet});
   }
  
   /** DELETE: delete the hero from the server */
