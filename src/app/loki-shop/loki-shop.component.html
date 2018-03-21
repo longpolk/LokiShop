@@ -1,3 +1,15 @@
+<section class="overview">
+    <div class="container">
+        <div *ngFor="let phone of phones">
+            <i class="fa fa-mobile"></i>
+            <h2>
+              <a routerLink="/detail/{{phone.data.id}}">{{phone.data.name}}</a>
+            </h2>
+            <p>{{phone.data.snippet}}</p>
+        </div>
+    </div>
+</section>
+<!--
 <h2>My Phones</h2>
 <div>
   <label>Phone details:
@@ -7,7 +19,7 @@
 	<input #phoneImageUrl />
 	<input #phoneSnippet />
   </label>
-  <!-- (click) passes input value to add() and then clears the input -->
+  <!-- (click) passes input value to add() and then clears the input
   <button (click)="add(phoneId.value, phoneName.value, phoneAge.value, phoneImageUrl.value, phoneSnippet.value); phoneName.value=''; phoneId.value=''; 
   phoneAge.value=''; phoneImageUrl.value=''; phoneSnippet.value=''">
     add
@@ -22,3 +34,4 @@
     (click)="delete(phone)">x</button>
   </li>
 </ul>
+-->
