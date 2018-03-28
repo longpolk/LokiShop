@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LokiShopComponent } from './loki-shop/loki-shop.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PhoneDetailComponent }  from './phone-detail/phone-detail.component';
+import { AdministratorComponent } from './administrator/administrator.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', component: DashboardComponent, pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: PhoneDetailComponent },
-  { path: 'phones', component: LokiShopComponent }
+  { path: 'phones', component: LokiShopComponent },
+  { path: 'admin', component: AdministratorComponent}
+  //{ path: 'adminDashboard', component: AdministratorComponent}
   ];
 
 @NgModule({

@@ -19,6 +19,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { AdministratorComponent } from './administrator/administrator.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { environment } from '../environments/environment';
     PhoneDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    PhoneSearchComponent
+    PhoneSearchComponent,
+    AdministratorComponent
   ],
   imports: [
     BrowserModule,
@@ -41,13 +44,14 @@ import { environment } from '../environments/environment';
 	// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.
 // Remove it when a real server is ready to receive requests.
-HttpClientInMemoryWebApiModule.forRoot(
+/*HttpClientInMemoryWebApiModule.forRoot(
   InMemoryDataService, { dataEncapsulation: false }
-)
+)*/
   ],
   providers: [
 	PhoneService,
-	MessageService
+	MessageService,
+	UserService
   ],
   bootstrap: [AppComponent]
 })
