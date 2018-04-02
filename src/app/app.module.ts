@@ -21,6 +21,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { UserService } from './user.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserService } from './user.service';
     MessagesComponent,
     DashboardComponent,
     PhoneSearchComponent,
-    AdministratorComponent
+    AdministratorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

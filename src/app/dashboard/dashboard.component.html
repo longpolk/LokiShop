@@ -1,4 +1,80 @@
 
+<section class="menu cid-qMWBE73CTl" once="menu" id="menu1-e">
+
+
+  <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <div class="menu-logo">
+      <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="/">
+                         <img src="assets/images/logo-3-122x122.jpg" alt="LokiShop" title="LokiShop"
+                              style="height: 3.8rem;">
+                    </a>
+                </span>
+        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="/">LokiShop</a></span>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+        <li class="nav-item dropdown">
+          <a class="nav-link link text-white dropdown-toggle display-4" href="lokishop-2018.firebaseapp.com"
+             data-toggle="dropdown-submenu" aria-expanded="false">
+            <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
+            Services
+          </a>
+          <div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="lokishop-2018.firebaseapp.com">New
+            Item</a></div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link text-white display-4" href="lokishop-2018.firebaseapp.com">
+            <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+            About Us
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-buttons mbr-section-btn">
+        <a class="btn btn-sm btn-primary display-4" href='/login'>
+        <span class="mbri-save mbr-iconfont mbr-iconfont-btn "></span>
+        Đăng Nhập
+      </a></div>
+    </div>
+  </nav>
+</section>
+
+<section class="mbr-section content5 cid-qN2LeZYUze mbr-parallax-background" id="content5-w">
+
+
+  <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(51, 51, 51);">
+  </div>
+
+  <div class="container">
+    <div class="media-container-row">
+      <div class="title col-12 col-md-8">
+        <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1">
+          LokiShop</h2>
+        <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">Chinh phục mọi
+          ánh nhìn!</h3>
+        <p class="mbr-text align-center mbr-white pb-3 mbr-fonts-style display-7">
+          Chuyên cung cấp phụ kiện chính hãng &amp; nhận order các thương hiệu cao cấp</p>
+        <div class="mbr-section-btn align-center"><a class="btn btn-success display-4" href="lokishop-2018.firebaseapp.com"><span
+          class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>Mua sản phẩm</a>
+          <a class="btn btn-white-outline display-4" href="lokishop-2018.firebaseapp.com"><span
+            class="mbri-paper-plane mbr-iconfont mbr-iconfont-btn"></span>Order sản phẩm</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="mbr-gallery mbr-slider-carousel cid-qNv8umrOTW" id="gallery2-y">
 
 
@@ -19,15 +95,23 @@
               <div *ngFor="let phone of phones" class="mbr-gallery-item mbr-gallery-item--p2" data-video-url="false" data-tags="Dành cho phone">
                 <div href="#lb-gallery2-y" data-slide-to="0" data-toggle="modal"><img src="{{phone.data.imageUrl}}"
                                                                                       alt=""><span
-                  class="icon-focus"></span><span
-                  class="mbr-gallery-title mbr-fonts-style display-7">{{phone.data.name}}</span></div>
+                  class="icon-focus"></span>
+                  <a routerLink="/detail/{{phone.data.id}}">
+                  <span
+                  class="mbr-gallery-title mbr-fonts-style display-7">{{phone.data.name}}</span>
+                </a>
+                </div>
               </div>
 			 
               <div *ngFor="let phone of phones" class="mbr-gallery-item mbr-gallery-item--p2" data-video-url="false" data-tags="Tablet">
                 <div href="#lb-gallery2-y" data-slide-to="4" data-toggle="modal"><img src="{{phone.data.imageUrl}}"
                                                                                       alt=""><span
-                  class="icon-focus"></span><span
-                  class="mbr-gallery-title mbr-fonts-style display-7">{{phone.data.name}}</span></div>
+                  class="icon-focus"></span>
+                  <a routerLink="/detail/{{phone.data.id}}">
+                  <span
+                  class="mbr-gallery-title mbr-fonts-style display-7">{{phone.data.name}}</span>
+                </a>
+                </div>
               </div>
               
               

@@ -8,7 +8,8 @@ import { MessageService } from './messages.service';
  
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
- 
+import { Router } from "@angular/router";
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -16,7 +17,7 @@ const httpOptions = {
 @Injectable()
 export class UserService {
  
-  public phoneUrl = 'api/phones';  // URL to web api
+  public UserUrl = 'api/Users';  // URL to web api
   postsCol: AngularFirestoreCollection<User[]>;
   postDoc: AngularFirestoreDocument<User>;
   posts: any;
@@ -24,83 +25,84 @@ export class UserService {
   constructor(
     public http: HttpClient,
     private messageService: MessageService,
-	private angularFirestore: AngularFirestore
+	private angularFirestore: AngularFirestore,
+  private router: Router
 	) { }
  
   /** GET heroes from the server */
-  getPhones (): Observable<Phone[]> {
-    this.postsCol = this.angularFirestore.collection('phones');
+  getUsers (): Observable<User[]> {
+    this.postsCol = this.angularFirestore.collection('Users');
 	this.posts = this.postsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
-          const data = a.payload.doc.data() as Phone;
+          const data = a.payload.doc.data() as User;
           const id = a.payload.doc.id;
           return { id, data };
         });
       });
 	  return this.posts.pipe(
-        tap(phone => this.log(`fetched phone`)),
-        catchError(this.handleError('getPhones', []))
+        tap(User => this.log(`fetched User`)),
+        catchError(this.handleError('getUsers', []))
       );
   }
  
   /** GET hero by id. Return `undefined` when id not found */
-  getPhoneNo404<Data>(id: number): Observable<Phone> {
-    const url = `${this.phoneUrl}/?id=${id}`;
-    return this.http.get<Phone[]>(url)
+  getUserNo404<Data>(id: number): Observable<User> {
+    const url = `${this.UserUrl}/?id=${id}`;
+    return this.http.get<User[]>(url)
       .pipe(
-        map(phones => phones[0]), // returns a {0|1} element array
+        map(Users => Users[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} phone id=${id}`);
+          this.log(`${outcome} User id=${id}`);
         }),
-        catchError(this.handleError<Phone>(`getPhone id=${id}`))
+        catchError(this.handleError<User>(`getUser id=${id}`))
       );
   }
  
   /** GET hero by id. Will 404 if id not found */
-  getPhone(id: string): Observable<Phone> {
-    this.postDoc = this.angularFirestore.doc('phones/'+id);
+  getUser(id: string): Observable<User> {
+    this.postDoc = this.angularFirestore.doc('Users/'+id);
     this.post = this.postDoc.valueChanges();
     return this.post.pipe(
-      tap(_ => this.log(`fetched phone id=${id}`)),
-      catchError(this.handleError<Phone>(`getPhone id=${id}`))
+      tap(_ => this.log(`fetched User id=${id}`)),
+      catchError(this.handleError<User>(`getUser id=${id}`))
     );
   }
  
   /* GET heroes whose name contains search term 
-  searchPhone(term: string): Observable<Phone[]> {
+  searchUser(term: string): Observable<User[]> {
     if (!term.trim()) {
-      // if not search term, return empty phone array.
+      // if not search term, return empty User array.
       return of([]);
     }
 	this.postsCol = this.angularFirestore.collection('posts', ref => ref.where('name', '==', 'Dell Venue'));
 	this.posts = this.postsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
-          const data = a.payload.doc.data() as Phone;
+          const data = a.payload.doc.data() as User;
           const id = a.payload.doc.id;
           return { id, data };
         });
       });
 	  return this.posts
 	  .pipe(
-      tap(_ => this.log(`found phones matching "${term}"`)),
-      catchError(this.handleError<Phone[]>('searchPhones', []))
+      tap(_ => this.log(`found Users matching "${term}"`)),
+      catchError(this.handleError<User[]>('searchUsers', []))
     );
-    /*return this.http.get<Phone[]>(`api/phones/?name=${term}`).pipe(
-      tap(_ => this.log(`found phones matching "${term}"`)),
-      catchError(this.handleError<Phone[]>('searchPhones', []))
+    /*return this.http.get<User[]>(`api/Users/?name=${term}`).pipe(
+      tap(_ => this.log(`found Users matching "${term}"`)),
+      catchError(this.handleError<User[]>('searchUsers', []))
     );
   }*/
  
   //////// Save methods //////////
  
   /** POST: add a new hero to the server 
-  addPhone (phone: Phone): Observable<Phone> {
-    return this.http.post<Phone>(this.phoneUrl, phone, httpOptions).pipe(
-      tap((phone: Phone) => this.log(`added phone w/ id=${phone.id}`)),
-      catchError(this.handleError<Phone>('addPhone'))
+  addUser (User: User): Observable<User> {
+    return this.http.post<User>(this.UserUrl, User, httpOptions).pipe(
+      tap((User: User) => this.log(`added User w/ id=${User.id}`)),
+      catchError(this.handleError<User>('addUser'))
     );
   }*/
   userLogin(id: string, password: string) {
@@ -110,6 +112,7 @@ export class UserService {
             .get().then(function(doc) {
                 if (doc.exists && doc.data()['password']==password) {
 					console.log("Document data:", doc.data());
+          this.router.navigate(['/admin']);
                 } else {
                     console.log("No such document!");
                 }
@@ -119,21 +122,21 @@ export class UserService {
   }
  
   /** DELETE: delete the hero from the server */
-  deletePhone (phone: Phone | number): Observable<Phone> {
-    const id = typeof phone === 'number' ? phone : phone.id;
-    const url = `${this.phoneUrl}/${id}`;
+  deleteUser (User: User | number): Observable<User> {
+    const id = typeof User === 'number' ? User : User.id;
+    const url = `${this.UserUrl}/${id}`;
  
-    return this.http.delete<Phone>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted phone id=${id}`)),
-      catchError(this.handleError<Phone>('deletePhone'))
+    return this.http.delete<User>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted User id=${id}`)),
+      catchError(this.handleError<User>('deleteUser'))
     );
   }
  
   /** PUT: update the hero on the server */
-  updatePhone (phone: Phone): Observable<any> {
-    return this.http.put(this.phoneUrl, phone, httpOptions).pipe(
-      tap(_ => this.log(`updated phone id=${phone.id}`)),
-      catchError(this.handleError<any>('updatePhone'))
+  updateUser (User: User): Observable<any> {
+    return this.http.put(this.UserUrl, User, httpOptions).pipe(
+      tap(_ => this.log(`updated User id=${User.id}`)),
+      catchError(this.handleError<any>('updateUser'))
     );
   }
  
@@ -159,6 +162,6 @@ export class UserService {
  
   /** Log a HeroService message with the MessageService */
   public log(message: string) {
-    this.messageService.add('PhoneService: ' + message);
+    this.messageService.add('UserService: ' + message);
   }
 }
