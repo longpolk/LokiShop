@@ -6,8 +6,19 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  styleUrls: [ './assets/web/assets/mobirise-icons/mobirise-icons.css',
+  './assets/tether/tether.min.css',
+  './assets/bootstrap/css/bootstrap.min.css',
+  './assets/bootstrap/css/bootstrap-grid.min.css',
+  './assets/bootstrap/css/bootstrap-reboot.min.css',
+  './assets/animatecss/animate.min.css',
+  './assets/socicon/css/styles.css',
+  './assets/dropdown/css/style.css',
+  './assets/theme/css/style.css',
+  './assets/gallery/style.css',
+  './assets/mobirise/css/mbr-additional.css']
 })
+
 export class DashboardComponent implements OnInit {
   phones: Phone[] = [];
  
