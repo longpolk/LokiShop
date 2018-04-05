@@ -1,0 +1,5 @@
+- Trang chủ: hiển thị thông tin + hình ảnh + giá top 10 sản phẩm mới nhất (phân theo danh mục “loại mặt hàng”)
+- Trang chi tiết sản phẩm: chứa các hình ảnh + thông tin chi tiết + giá + số lượng còn lại + chức năng thêm vào giỏ hàng (or đăng kí email nhận thông báo hàng về nếu hết hàng). 
+- Trang giỏ hàng: chứa các thông tin về sản phẩm đã đặt + thông tin người mua + tổng tiền. Chức năng thanh toán online sẽ dùng Paypal để demo.
+- Trang đăng nhập: chức năng hiện tại chỉ dành cho admin login vào hệ thống để thực hiện thay đổi trong database.
+- Trang admin dashboard: Nơi làm việc của admin. Hiển thị các thông tin về tất cả sản phẩm + chức năng thêm, xóa, sửa thông tin các sản phẩm
