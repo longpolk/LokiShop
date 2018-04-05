@@ -6,17 +6,20 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './assets/web/assets/mobirise-icons/mobirise-icons.css',
-  './assets/tether/tether.min.css',
-  './assets/bootstrap/css/bootstrap.min.css',
-  './assets/bootstrap/css/bootstrap-grid.min.css',
-  './assets/bootstrap/css/bootstrap-reboot.min.css',
-  './assets/animatecss/animate.min.css',
-  './assets/socicon/css/styles.css',
-  './assets/dropdown/css/style.css',
-  './assets/theme/css/style.css',
-  './assets/gallery/style.css',
-  './assets/mobirise/css/mbr-additional.css']
+  styleUrls: [ 
+    './LokiShop-2018_files/bootstrap.min.css',
+	'./LokiShop-2018_files/font-awesome.min.css',
+	'./LokiShop-2018_files/owl.carousel.min.css',
+	'./LokiShop-2018_files/base.scss.css',
+	'./LokiShop-2018_files/style.scss.css',
+	'./LokiShop-2018_files/update.scss.css',
+	'./LokiShop-2018_files/module.scss.css',
+	'./LokiShop-2018_files/responsive.scss.css',
+  './LokiShop-2018_files/update_stylesheets.scss.css',
+  './LokiShop-2018_files/css.css',
+  './LokiShop-2018_files/menu-stylesheets.scss.css',
+  './LokiShop-2018_files/popup-cart.scss.css'
+]
 })
 
 export class DashboardComponent implements OnInit {
