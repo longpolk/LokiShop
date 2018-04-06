@@ -22,6 +22,8 @@ import { environment } from '../environments/environment';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { UserService } from './user.service';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { LoginComponent } from './login/login.component';
     DashboardComponent,
     PhoneSearchComponent,
     AdministratorComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

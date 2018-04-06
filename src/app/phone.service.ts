@@ -29,7 +29,7 @@ export class PhoneService {
  
   /** GET heroes from the server */
   getPhones (): Observable<Phone[]> {
-    this.postsCol = this.angularFirestore.collection('phones');
+    this.postsCol = this.angularFirestore.collection('category/phones/phone-list');
 	this.posts = this.postsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
@@ -60,7 +60,7 @@ export class PhoneService {
  
   /** GET hero by id. Will 404 if id not found */
   getPhone(id: string): Observable<Phone> {
-    this.postDoc = this.angularFirestore.doc('phones/'+id);
+    this.postDoc = this.angularFirestore.doc('category/phones/phone-list/'+id);
     this.post = this.postDoc.valueChanges();
     return this.post.pipe(
       tap(_ => this.log(`fetched phone id=${id}`)),

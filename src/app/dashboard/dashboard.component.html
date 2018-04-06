@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <section class="awe-section-1">
     <section class="section-privacy">
         <div class="container">
@@ -65,8 +67,6 @@
         </div>
     </section>
 </section>
-
-
 
 
 <section class="awe-section-2">
@@ -161,8 +161,6 @@
 </section>
 
 
-
-
 <section class="awe-section-3">
     <section class="section-main">
         <div class="container">
@@ -216,7 +214,7 @@
                                                             </h3>
                                                             <div class="price-box price-loop-style">
                                                                 <span class="special-price">
-                                                                    <span class="price">{{item.data.price}}</span>
+                                                                    <span class="price">{{item.data.price | number:'1.2-2'}}₫</span>
                                                                 </span>
                                                                 <span class="old-price">
                                                                     <span class="price">
@@ -3356,8 +3354,6 @@
 </section>
 
 
-
-
 <section class="awe-section-4">
     <section class="section-banner banner-item">
         <div class="container">
@@ -3375,8 +3371,6 @@
         </div>
     </section>
 </section>
-
-
 
 
 <section class="awe-section-5">
@@ -4318,3 +4312,5 @@
         </div>
     </section>
 </section>
+
+<app-footer></app-footer>
