@@ -1,16 +1,1603 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>LokiShop</title>
-  <base href="/">
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://lokishop-2018.bizwebvietnam.net/ -->
+<html lang="vi">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="./assets/icons/logo-03.jpg">
-  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+<head>
+	<meta http-equiv="Content-Type" content="text/css; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>
+		LokiShop
+	</title>
+	<base href="/">
+	<!-- ================= Page description ================== -->
+
+	<meta name="description" content="">
+
+	<!-- ================= Meta ================== -->
+	<meta name="keywords" content="dkt, theme bizweb, theme responsive, accent">
+	<link rel="canonical" href="http://lokishop-2018.bizwebvietnam.net/">
+	<meta name="revisit-after" content="1 days">
+	<meta name="robots" content="noodp,index,follow">
+	<!-- ================= Favicon ================== -->
+
+	<link rel="icon" href="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/favicon.png?1522816147817" type="image/x-icon">
+
+	<!-- ================= Google Fonts ================== -->
+
+
+
+
+
+
+
+
+	<!-- Facebook Open Graph meta tags -->
+
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="LokiShop-2018">
+	<!--meta property="og:image" content="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/logo.png?1522816147817">
+	<meta property="og:image:secure_url" content="https://bizweb.dktcdn.net/100/305/798/themes/650335/assets/logo.png?1522816147817"-->
+
+	<meta property="og:description" content="">
+	<meta property="og:url" content="http://lokishop-2018.bizwebvietnam.net">
+	<meta property="og:site_name" content="LokiShop-2018">
+
+	<!-- Plugin CSS -->
+	
+
+	<!-- Header JS -->
+	<script type="text/javascript" async="" src="./LokiShop-2018_files/analytics.js"></script>
+	<script async="" src="./LokiShop-2018_files/gtm.js"></script>
+	<script type="text/javascript" async="" src="./LokiShop-2018_files/305798.js"></script>
+	<script src="./LokiShop-2018_files/jquery-2.2.3.min.js" type="text/javascript"></script>
+
+	<!-- Bizweb javascript customer -->
+
+
+	<!--link href="LokiShop-2018_files/menu-stylesheets.scss.css" rel="stylesheet" type="text/css"-->
+	<script src="./LokiShop-2018_files/menu-scripts.js" type="text/javascript"></script>
+
+	<!-- Bizweb conter for header -->
+	<script>
+		var Bizweb = Bizweb || {};
+		Bizweb.store = 'lokishop-2018.bizwebvietnam.net';
+		Bizweb.id = '305798';
+		Bizweb.theme = { "id": 650335, "role": "main", "name": "DefaultTheme" };
+		Bizweb.template = 'index';
+	</script>
+
+	<script>
+		(function () {
+			function asyncLoad() {
+				var urls = [];
+				for (var i = 0; i < urls.length; i++) {
+					var s = document.createElement('script');
+					s.type = 'text/javascript';
+					s.async = true;
+					s.src = urls[i];
+					s.src = urls[i];
+					var x = document.getElementsByTagName('script')[0];
+					x.parentNode.insertBefore(s, x);
+				}
+			}
+			window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);
+		})();
+	</script>
+
+	<script type="text/javascript">
+		(function () {
+			var log = document.createElement('script'); log.type = 'text/javascript'; log.async = true;
+			log.src = 'http://stats.bizweb.vn/delivery/305798.js?lang=vi';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(log, s);
+		})();
+	</script>
+
+	<!-- Google Tag Manager -->
+	<noscript>
+		&lt;iframe src='http://www.googletagmanager.com/ns.html?id=GTM-MS77Z9' height='0' width='0' style='display:none;visibility:hidden'&gt;&lt;/iframe&gt;
+	</noscript>
+	<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'http://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-MS77Z9');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+
+	<script type="text/javascript">
+		function getStyle(el, styleProp) {
+			var x = el;
+			if (x.currentStyle)
+				var y = x.currentStyle[styleProp];
+			else if (window.getComputedStyle)
+				var y = document.defaultView.getComputedStyle(x, null).getPropertyValue(styleProp);
+			return y;
+		}
+
+		function doShift(down) {
+			var allElements = document.getElementsByTagName('*');
+			for (var i = 0; i < allElements.length; i++) {
+				if (allElements[i].id != "admin_bar_iframe" && getStyle(allElements[i], "position") == "fixed")
+					allElements[i].style.top = parseInt(getStyle(allElements[i], "top"), 10) + (down ? 40 : -40) + "px";
+			}
+		}
+		window.onload = function () {
+			doShift(true);
+		}
+
+		if (window.addEventListener) { addEventListener("message", receiveABMessage, false); }
+		else { window.attachEvent("onmessage", receiveABMessage) }
+
+		function setABVCookie(value) {
+			var ex = new Date();
+			ex.setDate(ex.getDate() + 720);
+			document.cookie = "_abv=" + value + ";expires=" + ex.toUTCString() + ";path=/";
+		}
+
+		function receiveABMessage(event) {
+			if (event.origin != 'https://lokishop-2018.bizwebvietnam.net') {
+				return;
+			}
+
+			if (event.data == '1') {
+				document.body.style.position = 'relative';
+				document.documentElement.style.paddingTop = "40px";
+				doShift(true);
+				var element = document.getElementById("admin_bar_iframe");
+				element.style.width = '100%';
+				element.style.backgroundColor = '#191919';
+				element.style.right = 'auto';
+				element.style.left = 0;
+				setABVCookie('1');
+			} else if (event.data == '0') {
+				document.body.style.position = 'relative';
+				document.documentElement.style.paddingTop = "0px";
+				doShift(false);
+				var element = document.getElementById("admin_bar_iframe");
+				element.style.backgroundColor = 'transparent';
+				element.style.right = '0px';
+				element.style.left = 'auto';
+				element.style.width = '40px';
+				setABVCookie('0');
+			}
+		}
+	</script>
+
 </head>
+
 <body>
-  <app-root></app-root>
-  
+
+	<!-- Get default value setup for store informations -->
+
+
+	<!-- end getting default value -->
+
+	<!-- Main content -->
+	<header>
+		<div class="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="hidden-xs col-sm-9 col-md-10 col-lg-10 welcome-text">
+						<span>Chào mừng bạn đến với LokiShop-2018 !</span>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 checkout">
+						<a href="http://lokishop-2018.bizwebvietnam.net/checkout" title="Tới trang thanh toán">
+							<i class="fa fa-shopping-cart"></i>
+							<span>Thanh toán</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mainbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 logo">
+						<a href="http://lokishop-2018.bizwebvietnam.net/" title="Trang chủ">
+							<img class="img-responsive" src="./LokiShop-2018_files/logo.png" alt="Logo">
+						</a>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-6 col-lg-6 search-header">
+						<div class="search_padding">
+							<form action="http://lokishop-2018.bizwebvietnam.net/search" method="get">
+								<div class="input-group search_form_action">
+									<i class="fa fa-search"></i>
+									<input type="text" class="form-control" maxlength="70" name="query" id="search" placeholder="Tìm kiếm ...">
+									<span class="input-group-btn">
+										<button class="btn btn-default btn-search" type="submit">
+											Tìm kiếm
+										</button>
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 account">
+
+						<a href="http://lokishop-2018.bizwebvietnam.net/account/login">Đăng nhập</a>
+						<span>hoặc</span>
+						<a href="http://lokishop-2018.bizwebvietnam.net/account/register">Đăng ký</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="menu-nav">
+			<nav class="menu-header hidden-sm hidden-xs sticky" style="top: -40px;">
+				<ul id="nav" class="nav container">
+
+
+					<li class="nav-item active">
+						<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/" title="Trang chủ">
+							Trang chủ
+						</a>
+					</li>
+
+
+
+					<li class="nav-item">
+						<a href="http://lokishop-2018.bizwebvietnam.net/collections/all" class="nav-link" title="Sản phẩm">
+							Sản phẩm
+							<i class="fa fa-caret-down" data-toggle="dropdown"></i>
+						</a>
+						<ul class="dropdown-menu">
+
+
+							<li class="nav-item-lv2">
+								<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/collections/all" title="Tất cả sản phẩm">
+									<i class="fa fa-angle-right"></i>
+									<span>Tất cả sản phẩm</span>
+								</a>
+							</li>
+
+
+
+							<li class="nav-item-lv2">
+								<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/frontpage" title="Sản phẩm mới">
+									<i class="fa fa-angle-right"></i>
+									<span>Sản phẩm mới</span>
+								</a>
+							</li>
+
+
+
+							<li class="nav-item-lv2">
+								<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/san-pham-noi-bat" title="Sản phẩm nổi bật">
+									<i class="fa fa-angle-right"></i>
+									<span>Sản phẩm nổi bật</span>
+								</a>
+							</li>
+
+
+
+							<li class="nav-item-lv2">
+								<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/san-pham-khuyen-mai" title="Sản phẩm khuyến mãi">
+									<i class="fa fa-angle-right"></i>
+									<span>Sản phẩm khuyến mãi</span>
+								</a>
+							</li>
+
+
+						</ul>
+					</li>
+
+
+
+					<li class="nav-item">
+						<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/tin-tuc" title="Blog">
+							Blog
+						</a>
+					</li>
+
+
+
+					<li class="nav-item">
+						<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/gioi-thieu" title="Giới thiệu">
+							Giới thiệu
+						</a>
+					</li>
+
+
+
+					<li class="nav-item">
+						<a class="nav-link" href="http://lokishop-2018.bizwebvietnam.net/lien-he" title="Liên hệ">
+							Liên hệ
+						</a>
+					</li>
+
+
+
+					<li class="sticky_logo" onclick="window.location.href=&#39;/&#39;">
+						<img src="./LokiShop-2018_files/sticky_logo.png" alt="Logo">
+					</li>
+
+					<div class="cart-header">
+						<div class="top-cart-contain f-right">
+							<div class="mini-cart text-xs-center">
+								<div class="heading-cart">
+									<a href="http://lokishop-2018.bizwebvietnam.net/cart">
+										<span class="cartCount count_item_pr" id="cart-total">9</span>
+										<br>sản phẩm
+									</a>
+								</div>
+								<div class="top-cart-content">
+									<ul id="cart-sidebar" class="mini-products-list count_li">
+										<ul class="list-item-cart">
+											<li class="item productid-17441886">
+												<a class="product-image" href="http://lokishop-2018.bizwebvietnam.net/laptop-asus-zenbook-ux305f-fc089h" title="Laptop Asus Zenbook UX305F-FC089H">
+													<img alt="Laptop Asus Zenbook UX305F-FC089H" src="./LokiShop-2018_files/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg">
+												</a>
+												<div class="detail-item">
+													<div class="product-details">
+														<a href="javascript:;" data-id="17441886" title="Xóa" class="remove-item-cart fa fa-times-circle">&nbsp;</a>
+														<p class="product-name text3line">
+															<a href="http://lokishop-2018.bizwebvietnam.net/laptop-asus-zenbook-ux305f-fc089h" title="Laptop Asus Zenbook UX305F-FC089H">Laptop Asus Zenbook UX305F-FC089H</a>
+														</p>
+													</div>
+													<div class="product-details-bottom">
+														<span class="price">17.990.000₫</span>
+														<div class="quantity-select">
+															<input class="variantID" type="hidden" name="variantId" value="17441886">
+															<input type="text" maxlength="12" min="0" class="input-text number-sidebar qty17441886" id="qty17441886" name="Lines"
+															 size="4" value="9">
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+										<div class="top-subtotal">Thành tiền:
+											<span class="price">161.910.000₫</span>
+										</div>
+										<div class="actions">
+											<a href="http://lokishop-2018.bizwebvietnam.net/cart" class="btn btn-style btn-transition btn-to-cart" title="Tới giỏ hàng">
+												<span>
+													<i class="fa fa-shopping-cart"></i> Giỏ hàng</span>
+											</a>
+											<a href="http://lokishop-2018.bizwebvietnam.net/checkout" class="btn btn-style btn-transition btn-checkout" title="Tiến hành thành toán">
+												<span>
+													<i class="fa fa-check"></i> Thanh toán</span>
+											</a>
+										</div>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ul>
+			</nav>
+			<div class="sidebar-menu sidebar_menu site-nav-mobile menu-header hidden-md hidden-lg sticky" style="top: 40px;">
+				<div class="sidebar-menu-title module-header">
+					<div class="module-title">
+
+						<a href="http://lokishop-2018.bizwebvietnam.net/" class="sticky_logo">
+							<img src="./LokiShop-2018_files/sticky_logo.png" alt="Logo">
+						</a>
+
+						<i class="fa fa-bars"></i>
+						<span>MENU</span>
+					</div>
+					<a class="mobile-cart" href="http://lokishop-2018.bizwebvietnam.net/cart">
+						<span class="cart-count-mobile">9</span>
+					</a>
+				</div>
+				<div class="sidebar-menu-content">
+					<div class="sidebar-linklists">
+						<ul>
+
+
+							<li class="sidebar-menu-list menu-item collection-sidebar-menu active">
+								<a class="ajaxLayer" href="http://lokishop-2018.bizwebvietnam.net/" title="Trang chủ">
+									<span>Trang chủ</span>
+								</a>
+
+							</li>
+
+							<li class="sidebar-menu-list menu-item collection-sidebar-menu">
+								<a class="ajaxLayer" href="http://lokishop-2018.bizwebvietnam.net/collections/all" title="Sản phẩm">
+									<span>Sản phẩm</span>
+								</a>
+								<em>
+									<i class="fa fa-angle-down" aria-hidden="true"></i>
+								</em>
+
+								<ul style="display: none" class="lv2">
+
+									<li>
+										<a class="ajaxLayer a_lv2" href="http://lokishop-2018.bizwebvietnam.net/collections/all" title="Tất cả sản phẩm">
+											<span>Tất cả sản phẩm</span>
+										</a>
+
+									</li>
+
+									<li>
+										<a class="ajaxLayer a_lv2" href="http://lokishop-2018.bizwebvietnam.net/frontpage" title="Sản phẩm mới">
+											<span>Sản phẩm mới</span>
+										</a>
+
+									</li>
+
+									<li>
+										<a class="ajaxLayer a_lv2" href="http://lokishop-2018.bizwebvietnam.net/san-pham-noi-bat" title="Sản phẩm nổi bật">
+											<span>Sản phẩm nổi bật</span>
+										</a>
+
+									</li>
+
+									<li>
+										<a class="ajaxLayer a_lv2" href="http://lokishop-2018.bizwebvietnam.net/san-pham-khuyen-mai" title="Sản phẩm khuyến mãi">
+											<span>Sản phẩm khuyến mãi</span>
+										</a>
+
+									</li>
+
+								</ul>
+
+							</li>
+
+							<li class="sidebar-menu-list menu-item collection-sidebar-menu">
+								<a class="ajaxLayer" href="http://lokishop-2018.bizwebvietnam.net/tin-tuc" title="Blog">
+									<span>Blog</span>
+								</a>
+
+							</li>
+
+							<li class="sidebar-menu-list menu-item collection-sidebar-menu">
+								<a class="ajaxLayer" href="http://lokishop-2018.bizwebvietnam.net/gioi-thieu" title="Giới thiệu">
+									<span>Giới thiệu</span>
+								</a>
+
+							</li>
+
+							<li class="sidebar-menu-list menu-item collection-sidebar-menu">
+								<a class="ajaxLayer" href="http://lokishop-2018.bizwebvietnam.net/lien-he" title="Liên hệ">
+									<span>Liên hệ</span>
+								</a>
+
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<h1 class="hidden">LokiShop</h1>
+
+	<app-root></app-root>
+	<footer class="footer">
+
+		<div class="brands">
+			<div class="container">
+				<div class="row">
+					<div class="owl-carousel owl-theme nav-enable nav-center owl-loaded owl-drag" data-lg-items="6" data-md-items="5" data-sm-items="4"
+					 data-xs-items="3" data-xxs-items="2" data-margin="10" data-auto-play="true" data-nav="true">
+
+						<div class="owl-stage-outer">
+							<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 1377px;">
+								<div class="owl-item active" style="width: 186.667px; margin-right: 10px;">
+									<div class="item">
+										<a href="http://lokishop-2018.bizwebvietnam.net/" title="">
+											<img class="img-responsive" alt="LokiShop-2018" src="./LokiShop-2018_files/brand_1_image.png">
+										</a>
+									</div>
+								</div>
+								<div class="owl-item active" style="width: 186.667px; margin-right: 10px;">
+									<div class="item">
+										<a href="http://lokishop-2018.bizwebvietnam.net/" title="">
+											<img class="img-responsive" alt="LokiShop-2018" src="./LokiShop-2018_files/brand_2_image.png">
+										</a>
+									</div>
+								</div>
+								<div class="owl-item active" style="width: 186.667px; margin-right: 10px;">
+									<div class="item">
+										<a href="http://lokishop-2018.bizwebvietnam.net/" title="">
+											<img class="img-responsive" alt="LokiShop-2018" src="./LokiShop-2018_files/brand_3_image.png">
+										</a>
+									</div>
+								</div>
+								<div class="owl-item active" style="width: 186.667px; margin-right: 10px;">
+									<div class="item">
+										<a href="http://lokishop-2018.bizwebvietnam.net/" title="">
+											<img class="img-responsive" alt="LokiShop-2018" src="./LokiShop-2018_files/brand_4_image.png">
+										</a>
+									</div>
+								</div>
+								<div class="owl-item active" style="width: 186.667px; margin-right: 10px;">
+									<div class="item">
+										<a href="http://lokishop-2018.bizwebvietnam.net/" title="">
+											<img class="img-responsive" alt="LokiShop-2018" src="./LokiShop-2018_files/brand_5_image.png">
+										</a>
+									</div>
+								</div>
+								<div class="owl-item active" style="width: 186.667px; margin-right: 10px;">
+									<div class="item">
+										<a href="http://lokishop-2018.bizwebvietnam.net/" title="">
+											<img class="img-responsive" alt="LokiShop-2018" src="./LokiShop-2018_files/brand_6_image.png">
+										</a>
+									</div>
+								</div>
+								<div class="owl-item" style="width: 186.667px; margin-right: 10px;">
+									<div class="item">
+										<a href="http://lokishop-2018.bizwebvietnam.net/" title="">
+											<img class="img-responsive" alt="LokiShop-2018" src="./LokiShop-2018_files/brand_7_image.png">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="owl-nav">
+							<div class="owl-prev">
+								<i class="fa fa-angle-left"></i>
+							</div>
+							<div class="owl-next">
+								<i class="fa fa-angle-right"></i>
+							</div>
+						</div>
+						<div class="owl-dots disabled"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="subscribe_and_socials">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+						<div class="subscribe">
+							<h4>Đăng ký nhận tin</h4>
+							<div class="form-subscribe">
+
+
+
+								<form action="http://dkt.us13.list-manage.com/subscribe/post?u=0bafe4be7e17843051883e746&amp;id=3bdd6e9e3b" method="post"
+								 id="mc-embedded-subscribe-form" class="mtSubcribeForm" name="mc-embedded-subscribe-form" target="_blank">
+									<input id="email" name="EMAIL" type="email" value="" class="input_newsletter subcribe-email form-control" placeholder="Email nhận tin">
+									<button type="submit" id="subscribe" name="subscribe" class="btn btn-subscribe">
+										<i class="fa fa-envelope"></i>
+										<span>Đăng ký</span>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+						<div class="socials">
+							<ul class="social-info">
+
+
+
+
+
+								<!-- defined style classes could be found in update_stylesheet.scss.bwt -->
+								<li>
+									<a href="http://lokishop-2018.bizwebvietnam.net/#" class="bg-facebook hv-txt-facebook btn-transition" title="facebook">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+
+
+
+
+
+								<!-- defined style classes could be found in update_stylesheet.scss.bwt -->
+								<li>
+									<a href="http://lokishop-2018.bizwebvietnam.net/#" class="bg-twitter hv-txt-twitter btn-transition" title="twitter">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+
+
+
+
+
+								<!-- defined style classes could be found in update_stylesheet.scss.bwt -->
+								<li>
+									<a href="http://lokishop-2018.bizwebvietnam.net/#" class="bg-google-plus hv-txt-google-plus btn-transition" title="google plus">
+										<i class="fa fa-google-plus"></i>
+									</a>
+								</li>
+
+
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="foo_info">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 store-detail">
+						<a class="logo" href="http://lokishop-2018.bizwebvietnam.net/" title="LokiShop-2018">
+							<img class="img-responsive" src="./LokiShop-2018_files/logo-footer.png" alt="Logo">
+						</a>
+
+
+						<p class="store-description">
+							Accent đã và đang tiếp tục khẳng định vị trí của người dẫn đầu thị trường cung cấp sản phẩm thiết bị điện tử và thiết bị
+							di động liên tục cho thị trường trong nhiều năm qua.
+						</p>
+
+
+
+						<div class="foo-content payment-methods">
+							<ul class="list-menu">
+
+
+
+
+
+
+
+								<li class="payment_method">
+									<img src="./LokiShop-2018_files/payment_1_image.png" alt="lokishop-2018" title="LokiShop-2018" class="img-responsive">
+								</li>
+
+
+
+
+
+
+
+								<li class="payment_method">
+									<img src="./LokiShop-2018_files/payment_2_image.png" alt="lokishop-2018" title="LokiShop-2018" class="img-responsive">
+								</li>
+
+
+
+
+
+
+
+								<li class="payment_method">
+									<img src="./LokiShop-2018_files/payment_3_image.png" alt="lokishop-2018" title="LokiShop-2018" class="img-responsive">
+								</li>
+
+
+
+
+
+
+
+								<li class="payment_method">
+									<img src="./LokiShop-2018_files/payment_4_image.png" alt="lokishop-2018" title="LokiShop-2018" class="img-responsive">
+								</li>
+
+
+
+							</ul>
+						</div>
+
+					</div>
+
+
+
+
+
+					<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col">
+						<h4 class="foo-title">
+							Về chúng tôi
+						</h4>
+						<div class="foo-content foo-menu">
+							<ul class="list-menu">
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/" title="Trang chủ">
+										<i class="fa fa-angle-right"></i>
+										<span>Trang chủ</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/collections/all" title="Sản phẩm">
+										<i class="fa fa-angle-right"></i>
+										<span>Sản phẩm</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/tin-tuc" title="Blog">
+										<i class="fa fa-angle-right"></i>
+										<span>Blog</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/gioi-thieu" title="Giới thiệu">
+										<i class="fa fa-angle-right"></i>
+										<span>Giới thiệu</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/lien-he" title="Liên hệ">
+										<i class="fa fa-angle-right"></i>
+										<span>Liên hệ</span>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+
+
+
+
+					<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col">
+						<h4 class="foo-title">
+							Hỗ trợ
+						</h4>
+						<div class="foo-content foo-menu">
+							<ul class="list-menu">
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/" title="Trang chủ">
+										<i class="fa fa-angle-right"></i>
+										<span>Trang chủ</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/collections/all" title="Sản phẩm">
+										<i class="fa fa-angle-right"></i>
+										<span>Sản phẩm</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/tin-tuc" title="Blog">
+										<i class="fa fa-angle-right"></i>
+										<span>Blog</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/gioi-thieu" title="Giới thiệu">
+										<i class="fa fa-angle-right"></i>
+										<span>Giới thiệu</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/lien-he" title="Liên hệ">
+										<i class="fa fa-angle-right"></i>
+										<span>Liên hệ</span>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+
+
+
+
+					<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col">
+						<h4 class="foo-title">
+							Hướng dẫn
+						</h4>
+						<div class="foo-content foo-menu">
+							<ul class="list-menu">
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/" title="Trang chủ">
+										<i class="fa fa-angle-right"></i>
+										<span>Trang chủ</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/collections/all" title="Sản phẩm">
+										<i class="fa fa-angle-right"></i>
+										<span>Sản phẩm</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/tin-tuc" title="Blog">
+										<i class="fa fa-angle-right"></i>
+										<span>Blog</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/gioi-thieu" title="Giới thiệu">
+										<i class="fa fa-angle-right"></i>
+										<span>Giới thiệu</span>
+									</a>
+								</li>
+
+								<li class="foo-list-item">
+									<a href="http://lokishop-2018.bizwebvietnam.net/lien-he" title="Liên hệ">
+										<i class="fa fa-angle-right"></i>
+										<span>Liên hệ</span>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+
+
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col">
+						<h4 class="foo-title">
+							Liên hệ
+						</h4>
+						<div class="foo-content foo-contact demo">
+							<ul class="list-menu">
+
+								<li>
+									<span class="foo-icon">
+										<i class="fa fa-map-marker"></i>
+									</span>
+									<span class="foo-detail foo-address">Tầng 4, tòa nhà Hà Nội Group, 442 Đội Cấn, Ba Đình, Hà Nội.</span>
+								</li>
+
+
+								<li>
+									<span class="foo-icon">
+										<i class="fa fa-phone"></i>
+									</span>
+									<span class="foo-detail">
+										<a href="tel:0466742332">04.6674.2332</a>
+									</span>
+								</li>
+
+
+								<li>
+									<span class="foo-icon">
+										<i class="fa fa-envelope"></i>
+									</span>
+									<span class="foo-detail">
+										<a href="mailto:support@bizweb.vn">support@bizweb.vn</a>
+									</span>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span>© Bản quyền thuộc về
+							<strong>Avent Team</strong>
+						</span>
+						<span class="hidden-xs"> | </span>
+						<span>Cung cấp bởi
+							<a href="http://www.bizweb.vn/?utm_source=site-khach-hang&amp;utm_campaign=referral_bizweb&amp;utm_medium=footer&amp;utm_content=cung-cap-boi-bizweb"
+							 rel="nofollow" target="_blank">Bizweb</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</footer>
+
+	<!-- Bizweb javascript -->
+	<script src="./LokiShop-2018_files/option-selectors.js" type="text/javascript"></script>
+	<script src="./LokiShop-2018_files/api.jquery.js" type="text/javascript"></script>
+
+	<!-- Plugin JS -->
+	<script src="./LokiShop-2018_files/owl.carousel.min.js" type="text/javascript"></script>
+	<script src="./LokiShop-2018_files/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	 crossorigin="anonymous"></script>
+
+	<!-- Add to cart -->
+	<div class="ajax-load" style="top: 40px;">
+		<span class="loading-icon">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+			 height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+				<rect x="0" y="7.77699" width="4" height="14.446" fill="#333" opacity="0.2">
+					<animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s" repeatCount="indefinite"></animate>
+				</rect>
+				<rect x="8" y="9.72301" width="4" height="10.554" fill="#333" opacity="0.2">
+					<animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite"></animate>
+				</rect>
+				<rect x="16" y="7.22301" width="4" height="15.554" fill="#333" opacity="0.2">
+					<animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite"></animate>
+				</rect>
+			</svg>
+		</span>
+	</div>
+
+	<div class="loading awe-popup" style="top: 40px;">
+		<div class="overlay" style="top: 40px;"></div>
+		<div class="loader" title="2" style="top: 437px;">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+			 height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+				<rect x="0" y="7.77699" width="4" height="14.446" fill="#333" opacity="0.2">
+					<animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s" repeatCount="indefinite"></animate>
+				</rect>
+				<rect x="8" y="9.72301" width="4" height="10.554" fill="#333" opacity="0.2">
+					<animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s" repeatCount="indefinite"></animate>
+				</rect>
+				<rect x="16" y="7.22301" width="4" height="15.554" fill="#333" opacity="0.2">
+					<animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite"></animate>
+					<animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s" repeatCount="indefinite"></animate>
+				</rect>
+			</svg>
+		</div>
+
+	</div>
+
+	<div class="addcart-popup product-popup awe-popup" style="top: 40px;">
+		<div class="overlay no-background" style="top: 40px;"></div>
+		<div class="content">
+			<div class="row row-noGutter">
+				<div class="col-xl-6 col-xs-12">
+					<div class="btn btn-full btn-primary a-left popup-title">
+						<i class="fa fa-check"></i>Thêm vào giỏ hàng thành công
+					</div>
+					<a href="javascript:void(0)" class="close-window close-popup">
+						<i class="fa fa-close"></i>
+					</a>
+					<div class="info clearfix">
+						<div class="product-image margin-top-5">
+							<img alt="popup" src="./LokiShop-2018_files/logo.png" style="max-width:150px; height:auto">
+						</div>
+						<div class="product-info">
+							<p class="product-name"></p>
+							<p class="quantity color-main">
+								<span>Số lượng: </span>
+							</p>
+							<p class="total-money color-main">
+								<span>Tổng tiền: </span>
+							</p>
+
+						</div>
+						<div class="actions">
+							<button class="btn  btn-primary  margin-top-5 btn-continue">Tiếp tục mua hàng</button>
+							<button class="btn btn-gray margin-top-5" onclick="window.location=&#39;/cart&#39;">Kiểm tra giỏ hàng</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="error-popup awe-popup" style="top: 40px;">
+		<div class="overlay no-background" style="top: 40px;"></div>
+		<div class="popup-inner content">
+			<div class="error-message"></div>
+		</div>
+	</div>
+	<script>
+		Bizweb.updateCartFromForm = function (cart, cart_summary_id, cart_count_id) {
+			if ((typeof cart_summary_id) === 'string') {
+				var cart_summary = jQuery(cart_summary_id);
+				if (cart_summary.length) {
+					// Start from scratch.
+					cart_summary.empty();
+					// Pull it all out.        
+					jQuery.each(cart, function (key, value) {
+						if (key === 'items') {
+
+							var table = jQuery(cart_summary_id);
+							if (value.length) {
+								jQuery('<ul class="list-item-cart"></ul>').appendTo(table);
+								jQuery.each(value, function (i, item) {
+
+									var src = Bizweb.resizeImage(item.image, 'small');
+									if (src == null) {
+										src = "//bizweb.dktcdn.net/thumb/small/100/305/798/themes/650335/assets/no-image.png?1522816147817";
+									}
+
+									var buttonQty = "";
+									if (item.quantity == '1') {
+										buttonQty = 'disabled';
+									} else {
+										buttonQty = '';
+									}
+									if (item.variant_title == 'Default Title') {
+										var item_variant_title = "";
+									} else {
+										var item_variant_title = '<p class="hover-cart-variant-title"><span>' + item.variant_title + '</span></p>';
+									}
+									jQuery('<li class="item productid-' + item.variant_id + '">'
+										+ '<a class="product-image" href="' + item.url + '" title="' + item.name + '">'
+										+ '<img alt="' + item.name + '" src="' + src + '"\>'
+										+ '</a>'
+										+ '<div class="detail-item">'
+										+ '<div class="product-details">'
+										+ '<a href="javascript:;" data-id="' + item.variant_id + '" title="Xóa" class="remove-item-cart fa fa-times-circle">&nbsp;</a>'
+										+ '<p class="product-name text3line">'
+										+ '<a href="' + item.url + '" title="' + item.name + '">' + item.title + '</a>'
+										+ '</p>'
+										+ item_variant_title
+										+ '</div>'
+										+ '<div class="product-details-bottom">'
+										+ '<span class="price">'
+										+ Bizweb.formatMoney(item.price, "{{amount_no_decimals_with_comma_separator}}₫")
+										+ '</span>'
+										+ '<div class="quantity-select">'
+										+ '<input class="variantID" type="hidden" name="variantId" value="' + item.variant_id + '">'
+										+ '<input type="text" maxlength="12" min="0" class="input-text number-sidebar qty' + item.variant_id + '" id="qty' + item.variant_id + '" name="Lines" id="updates_' + item.variant_id + '" size="4" value="' + item.quantity + '">'
+										+ '</div>'
+										+ '</div>'
+										+ '</div>'
+										+ '</li>').appendTo(table.children('.list-item-cart'));
+								});
+								jQuery('<div class="top-subtotal">Thành tiền: <span class="price">' + Bizweb.formatMoney(cart.total_price, "{{amount_no_decimals_with_comma_separator}}₫") + '</span></div>').appendTo(table);
+								jQuery('<div class="actions">'
+									+ '<a href="/cart" class="btn btn-style btn-transition btn-to-cart" title="Tới giỏ hàng">'
+									+ '<span><i class="fa fa-shopping-cart"></i> Giỏ hàng</span>'
+									+ '</a>'
+									+ '<a href="/checkout" class="btn btn-style btn-transition btn-checkout" title="Tiến hành thành toán">'
+									+ '<span><i class="fa fa-check"></i> Thanh toán</span>'
+									+ '</a>'
+									+ '</div>').appendTo(table);
+							}
+							else {
+								jQuery('<div class="no-item"><p>Không có sản phẩm nào trong giỏ hàng.</p></div>').appendTo(table);
+
+							}
+						}
+					});
+				}
+			}
+			updateCartDesc(cart);
+			var numInput = document.querySelector('#cart-sidebar input.input-text');
+			if (numInput != null) {
+				// Listen for input event on numInput.
+				numInput.addEventListener('input', function () {
+					// Let's match only digits.
+					var num = this.value.match(/^\d+$/);
+					if (num == 0) {
+						// If we have no match, value will be empty.
+						this.value = 1;
+					}
+					if (num === null) {
+						// If we have no match, value will be empty.
+						this.value = "";
+					}
+				}, false)
+			}
+		}
+
+		Bizweb.updateCartPageForm = function (cart, cart_summary_id, cart_count_id) {
+			if ((typeof cart_summary_id) === 'string') {
+				var cart_summary = jQuery(cart_summary_id);
+				if (cart_summary.length) {
+					// Start from scratch.
+					cart_summary.empty();
+					// Pull it all out.        
+					jQuery.each(cart, function (key, value) {
+						if (key === 'items') {
+							var table = jQuery(cart_summary_id);
+							if (value.length) {
+								var pageCart = '<div class="cart page_cart cart_des_page hidden-xs-down">'
+									+ '<div class="col-lg-12">'
+									+ '<div class="form-cart">'
+									+ '<form action="/cart" method="post">'
+									+ '<div class="table-cart">'
+									+ '<table class="table">'
+									+ '<thead>'
+									+ '<tr style="background: #f23534; color: #fff;">'
+									+ '<th style="width:65px;">Xóa</th>'
+									+ '<th style="width:190px;">Ảnh sản phẩm</th>'
+									+ '<th style="min-width:150px;">Tên sản phẩm</th>'
+									+ '<th style="width:150px; text-align:center">Giá</th>'
+									+ '<th style="width:110px;">Số lượng</th>'
+									+ '<th style="width:140px;">Thành tiền</th>'
+									+ '</tr>'
+									+ '</thead>'
+									+ '<tbody>'
+									+ '</tbody>'
+									+ '</table>'
+									+ '</div>'
+									+ '</form>'
+									+ '</div>'
+									+ '</div>';
+								var pageCartCheckout = '<div class="col-lg-5">'
+									+ '<div class="form-cart-button mtb">'
+									+ '<div class="">'
+									+ '<a href="/collections/all" class="form-cart-continue">Tiếp tục mua hàng</a>'
+									+ '</div>'
+									+ '</div>'
+									+ '</div>'
+									+ '<div class="col-lg-5 col-lg-offset-2 bg_cart">'
+									+ '<div class="table-total">'
+									+ '<table class="table ">'
+									+ '<tr>'
+									+ '<td>Tổng giá sản phẩm</td>'
+									+ '<td class="txt-right totals_price">' + Bizweb.formatMoney(cart.total_price, "{{amount_no_decimals_with_comma_separator}}₫") + '</td>'
+									+ '</tr>'
+									+ '<tr>'
+									+ '<td>Tiền vận chuyển</td>'
+									+ '<td class="txt-right">Tính khi thanh toán</td>'
+									+ '</tr>'
+									+ '<tr>'
+									+ '<td>TỔNG TIỀN THANH TOÁN</td>'
+									+ '<td class="txt-right totals_price">' + Bizweb.formatMoney(cart.total_price, "{{amount_no_decimals_with_comma_separator}}₫") + '</td>'
+									+ '</tr>'
+									+ '</table>'
+									+ '</div>'
+									+ '<a onclick="window.location.href=\'/checkout\'" class="btn-checkout-cart">Thanh toán ngay</a>'
+									+ '</div>';
+								jQuery(pageCart).appendTo(table);
+								jQuery.each(value, function (i, item) {
+									var buttonQty = "";
+									if (item.quantity == '1') {
+										buttonQty = 'disabled';
+									} else {
+										buttonQty = '';
+									}
+									var link_img1 = Bizweb.resizeImage(item.image, 'compact');
+									if (link_img1 == "null" || link_img1 == '' || link_img1 == null) {
+										link_img1 = "//bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/no-image.png?1522816147817";
+									}
+									var pageCartItem = '<tr class="productid-' + item.variant_id + '">'
+										+ '<td>'
+										+ '<a class="button remove-item remove-item-cart" title="Xóa" href="javascript:;" data-id="' + item.variant_id + '"><i class="fa fa-times" aria-hidden="true"></i></a>'
+										+ '</td>'
+										+ '<td class="cartImg">'
+										+ '<a href="' + item.url + '" title="' + item.name + '">'
+										+ '<img alt="' + item.name + item.variant_title + '" src="' + link_img1 + '" alt="' + item.name + '">'
+										+ '</a>'
+										+ '</td>'
+										+ '<td class="title_cart">'
+										+ '<a href="' + item.url + '" title="' + item.name + '">' + item.title + '</a><br><span class="variant-title">' + item.variant_title + '</span>'
+										+ '</td>'
+										+ '<td class="price_cart tRight">' + Bizweb.formatMoney(item.price, "{{amount_no_decimals_with_comma_separator}}₫")
+										+ '</td>'
+										+ '<td class="input_qty_pr cart-quantity tRight">'
+										+ '<input class="variantID" type="hidden" name="variantId" value="' + item.variant_id + '">'
+										+ '<button onClick="var result = document.getElementById(\'qtyItemc' + item.variant_id + '\'); var qtyItemc' + item.variant_id + ' = result.value; if( !isNaN( qtyItemc' + item.variant_id + ' )) result.value++;return false;" class="increase_pop items-count btn-plus" type="button"><i class="fa fa-caret-up" aria-hidden="true"></i></button><button onClick="var result = document.getElementById(\'qtyItemc' + item.variant_id + '\'); var qtyItemc' + item.variant_id + ' = result.value; if( !isNaN( qtyItemc' + item.variant_id + ' ) &amp;&amp; qtyItemc' + item.variant_id + ' &gt; 1 ) result.value--;return false;" ' + buttonQty + ' class="reduced_pop items-count btn-minus" type="button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>'
+										+ '<input type="text" maxlength="12" min="1" class="input-text number-sidebar input_pop input_pop qtyItemc' + item.variant_id + '" id="qtyItemc' + item.variant_id + '" name="Lines" id="updates_' + item.variant_id + '" size="4" value="' + item.quantity + '" disabled>'
+										+ '</td>'
+										+ '<td class="price_cart2 tRight">' + Bizweb.formatMoney(item.price * item.quantity, "{{amount_no_decimals_with_comma_separator}}₫")
+										+ '</td>'
+										+ '</tr>';
+
+									jQuery(pageCartItem).appendTo(table.find('tbody'));
+									if (item.variant_title == 'Default Title') {
+										$('.variant-title').hide();
+									}
+								});
+								jQuery(pageCartCheckout).appendTo(table.children('.page_cart'));
+							} else {
+								jQuery('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">'
+									+ '<div class="style-form">'
+									+ '<p>Không có sản phẩm nào trong giỏ hàng</p>'
+									+ '<a href="/collections/all" class="form-cart-continue">Tiếp tục mua hàng</a>'
+									+ '</div>'
+									+ '</div>').appendTo(table);
+								jQuery('.bg-cart-page').css('min-height', 'auto');
+							}
+						}
+					});
+				}
+			}
+			jQuery('.total-price').html(Bizweb.formatMoney(cart.total_price, "{{amount_no_decimals_with_comma_separator}}₫"));
+			updateCartDesc(cart);
+			jQuery('#wait').hide();
+		}
+
+		Bizweb.updateCartPageFormMobile = function (cart, cart_summary_id, cart_count_id) {
+			if ((typeof cart_summary_id) === 'string') {
+				var cart_summary = jQuery(cart_summary_id);
+				if (cart_summary.length) {
+					// Start from scratch.
+					cart_summary.empty();
+					// Pull it all out.        
+					jQuery.each(cart, function (key, value) {
+						if (key === 'items') {
+							var table = jQuery(cart_summary_id);
+							if (value.length) {
+								var pageCart = '<div class="cart_mb cart_ct_mobile">'
+									+ '<div class="cart_mobile_content">'
+									+ '<form action="/cart" method="post" novalidate></form>'
+									+ '<div class="body-item"></div>'
+									+ '</div>'
+									+ '</div>';
+								var pageCartCheckout = '<div class="row">'
+									+ '<div class="col-lg-5">'
+									+ '<div class="form-cart-button mta">'
+									+ '<div class="">'
+									+ '<a href="/collections/all" class="form-cart-continue">Tiếp tục mua hàng</a>'
+									+ '</div>'
+									+ '</div>'
+									+ '</div>'
+									+ '<div class="col-lg-5 col-lg-offset-2 bg_cart">'
+									+ '<div class="table-total">'
+									+ '<table class="table ">'
+									+ '<tr>'
+									+ '<td>Tổng giá sản phẩm</td>'
+									+ '<td class="txt-right totals_price">' + Bizweb.formatMoney(cart.total_price, "{{amount_no_decimals_with_comma_separator}}₫") + '</td>'
+									+ '</tr>'
+									+ '<tr>'
+									+ '<td>Tiền vận chuyển</td>'
+									+ '<td class="txt-right">Tính khi thanh toán</td>'
+									+ '</tr>'
+									+ '<tr>'
+									+ '<td>TỔNG TIỀN THANH TOÁN</td>'
+									+ '<td class="txt-right totals_price">' + Bizweb.formatMoney(cart.total_price, "{{amount_no_decimals_with_comma_separator}}₫") + '</td>'
+									+ '</tr>'
+									+ '</table>'
+									+ '</div>'
+									+ '<a onclick="window.location.href=\'/checkout\'" class="btn-checkout-cart">Thanh toán ngay</a>'
+									+ '</div>'
+									+ '</div>';
+								jQuery(pageCart).appendTo(table);
+								jQuery.each(value, function (i, item) {
+									var buttonQty = "";
+									if (item.quantity == '1') {
+										buttonQty = 'disabled';
+									} else {
+										buttonQty = '';
+									}
+									var link_img2 = Bizweb.resizeImage(item.image, 'compact');
+									if (link_img2 == "null" || link_img2 == '' || link_img2 == null) {
+										link_img2 = "//bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/no-image.png?1522816147817";
+									}
+									var ww = $(window).width();
+									var itemname = item.name;
+									if (ww >= 480) {
+										if (itemname.length > 100) {
+											itemname = item.name.slice(0, 100) + '...';
+										}
+									} else if (ww >= 375 && ww < 480) {
+										if (itemname.length > 70) {
+											itemname = item.name.slice(0, 70) + '...';
+										}
+									} else {
+										if (itemname.length > 40) {
+											itemname = item.name.slice(0, 40) + '...';
+										}
+									}
+
+									$(window).on('resize', function () {
+										if (ww >= 480) {
+											if (itemname.length > 100) {
+												itemname = item.name.slice(0, 100) + '...';
+											}
+										} else if (ww >= 375 && ww < 480) {
+											if (itemname.length > 70) {
+												itemname = item.name.slice(0, 70) + '...';
+											}
+										} else {
+											if (itemname.length > 40) {
+												itemname = item.name.slice(0, 40) + '...';
+											}
+										}
+									});
+
+									var pageCartItem = '<div class="item_cart productid-' + item.variant_id + '">'
+										+ '<div class="image_cart_mobile">'
+										+ '<a title="' + item.name + '" href="' + item.url + '">'
+										+ '<img alt="' + item.name + '" src="' + link_img2 + '">'
+										+ '</a>'
+										+ '</div>'
+										+ '<div class="name_item_cart">'
+										+ '<h3>'
+										+ '<a href="' + item.url + '" title="' + item.name + '">' + itemname + '</a>'
+										+ '</h3>'
+										+ '<span class="variant-title">' + item.variant_title + '</span>'
+										+ '<span class="item-price">Giá : '
+										+ '<span class="price">' + Bizweb.formatMoney(item.price, "{{amount_no_decimals_with_comma_separator}}₫") + '</span>'
+										+ '</span>'
+										+ '</div>'
+										+ '<div class="slg_cart">'
+										+ '<div class="qty_mb">'
+										+ '<input class="variantID" type="hidden" name="variantId" value="' + item.variant_id + '">'
+										+ '<input type="text" maxlength="12" min="0" class="input-text number-sidebar qtymb' + item.variant_id + '" id="qtymb' + item.variant_id + '" name="Lines" id="updates_' + item.variant_id + '" size="4" value="' + item.quantity + '">'
+										+ '<a class="remove-item-cart" href="javascript:;" data-id="' + item.variant_id + '" title="Xoá" style="display:block;margin:5px 0px 5px 10px; color:#111;">'
+										+ '<i class="fa fa-times" aria-hidden="true"></i>'
+										+ '</a>'
+										+ '<button onClick="var result = document.getElementById(\'qtymb' + item.variant_id + '\'); var qtymb' + item.variant_id + ' = result.value; if( !isNaN( qtymb' + item.variant_id + ' )) result.value++;return false;" class="btn_increase increase items-count btn-plus" type="button">'
+										+ '<i class="button_item fa fa-caret-up" aria-hidden="true"></i>'
+										+ '</button>'
+										+ '<button onClick="var result = document.getElementById(\'qtymb' + item.variant_id + '\'); var qtymb' + item.variant_id + ' = result.value; if( !isNaN( qtymb' + item.variant_id + ' ) &amp;&amp; qtymb' + item.variant_id + ' &gt; 1 ) result.value--;return false;" class="btn_reduced reduced items-count btn-minus" ' + buttonQty + ' type="button">'
+										+ '<i class="button_item fa fa-caret-down" aria-hidden="true"></i>'
+										+ '</button>'
+										+ '</div>'
+										+ '</div>'
+										+ '</div>';
+									jQuery(pageCartItem).appendTo(table.find('.body-item'));
+									if (item.variant_title == 'Default Title') {
+										$('.variant-title').hide();
+									}
+								});
+								jQuery(pageCartCheckout).appendTo(table.children('.cart_mb'));
+							}
+						}
+					});
+				}
+			}
+			updateCartDesc(cart);
+			jQuery('#wait').hide();
+		}
+
+		Bizweb.updateCartPopupForm = function (cart, cart_summary_id, cart_count_id) {
+			if ((typeof cart_summary_id) === 'string') {
+				var cart_summary = jQuery(cart_summary_id);
+				if (cart_summary.length) {
+					// Start from scratch.
+					cart_summary.empty();
+					// Pull it all out.        
+					jQuery.each(cart, function (key, value) {
+						if (key === 'items') {
+							var table = jQuery(cart_summary_id);
+							if (value.length) {
+								jQuery.each(value, function (i, item) {
+									var src = Bizweb.resizeImage(item.image, 'small');
+									if (src == null) {
+										src = "//bizweb.dktcdn.net/thumb/small/100/305/798/themes/650335/assets/no-image.png?1522816147817";
+									}
+									var buttonQty = "";
+									if (item.quantity == '1') {
+										buttonQty = 'disabled';
+									} else {
+										buttonQty = '';
+									}
+									var pageCartItem = '<div class="item-popup productid-' + item.variant_id + '">'
+										+ '<div style="width: 80%;" class="text-left">'
+										+ '<div class="item-image">'
+										+ '<a class="product-image" href="' + item.url + '" title="' + item.name + '">'
+										+ '<img alt="' + item.name + '" src="' + src + '"\>'
+										+ '</a>'
+										+ '<p class="item-remove">'
+										+ '<a href="javascript:;" class="remove-item-cart" title="Xóa" data-id="' + item.variant_id + '">'
+										+ '<i class="fa fa-times-circle"></i> Xóa'
+										+ '</a>'
+										+ '</p>'
+										+ '</div>'
+										+ '<div class="item-info">'
+										+ '<p class="item-name">'
+										+ '<a href="' + item.url + '" title="' + item.name + '">'
+										+ item.title
+										+ '</a>'
+										+ '</p>'
+										+ '<p class="variant-tit">'
+										+ item.variant_title
+										+ '</p>'
+										+ '</div>'
+										+ '</div>'
+										+ '<div style="width: 20%;" class="text-right">'
+										+ '<div class="item-price">'
+										+ '<span class="price">' + Bizweb.formatMoney(item.price, "{{amount_no_decimals_with_comma_separator}}₫") + '</span>'
+										+ '</div>'
+										+ '<div class="fixab">'
+										+ '<input class="variantID" type="hidden" name="variantId" value="' + item.variant_id + '">'
+										+ '<input type="text" maxlength="12" min="0" class="input-text number-sidebar qtyItem' + item.variant_id + '" id="qtyItem' + item.variant_id + '" name="Lines" id="updates_' + item.variant_id + '" size="4" value="' + item.quantity + '" disabled>'
+										+ '</div>'
+										+ '</div>';
+									jQuery(pageCartItem).appendTo(table);
+									var itemvariant = $('.productid-' + item.variant_id + ' .variant-tit').text();
+									if (itemvariant == 'Default Title') {
+										$('.productid-' + item.variant_id + ' .variant-tit').hide();
+									}
+									$('.link_product').text();
+								});
+							}
+						}
+					});
+				}
+			}
+			jQuery('.total-price').html(Bizweb.formatMoney(cart.total_price, "{{amount_no_decimals_with_comma_separator}}₫"));
+			updateCartDesc(cart);
+		}
+
+
+		function updateCartDesc(data) {
+			var $cartPrice = Bizweb.formatMoney(data.total_price, "{{amount_no_decimals_with_comma_separator}}₫"),
+				$cartMobile = $('#header .cart-mobile .quantity-product'),
+				$cartDesktop = $('.count_item_pr'),
+				$cartDesktopList = $('.cart-counter-list'),
+				$cartPopup = $('.cart-popup-count');
+			$cartCountMobile = $('.cart-count-mobile');
+
+			switch (data.item_count) {
+				case 0:
+					$cartMobile.text('0');
+					$cartDesktop.text('0');
+					$cartDesktopList.text('0');
+					$cartPopup.text('0');
+					$cartCountMobile.text('0');
+
+					break;
+				case 1:
+					$cartMobile.text('1');
+					$cartDesktop.text('1');
+					$cartDesktopList.text('1');
+					$cartPopup.text('1');
+					$cartCountMobile.text('1');
+
+					break;
+				default:
+					$cartMobile.text(data.item_count);
+					$cartDesktop.text(data.item_count);
+					$cartDesktopList.text(data.item_count);
+					$cartPopup.text(data.item_count);
+					$cartCountMobile.text(data.item_count);
+
+					break;
+			}
+			$('.top-cart-content .top-subtotal .price, aside.sidebar .block-cart .subtotal .price, .popup-total .total-price').html($cartPrice);
+			$('.popup-total .total-price').html($cartPrice);
+			$('.shopping-cart-table-total .totals_price').html($cartPrice);
+			$('.header-cart-price .totals_price_mobile').html($cartPrice);
+			$('.cartCount').html(data.item_count);
+			$('.table-total .totals_price').html($cartPrice);
+			$('.header-cart-price .totals_price_mobile').html($cartPrice);
+		}
+
+		Bizweb.onCartUpdate = function (cart) {
+			Bizweb.updateCartFromForm(cart, '.mini-products-list');
+			Bizweb.updateCartPopupForm(cart, '#popup-cart-desktop .tbody-popup');
+
+		};
+		Bizweb.onCartUpdateClick = function (cart, variantId) {
+			jQuery.each(cart, function (key, value) {
+				if (key === 'items') {
+					jQuery.each(value, function (i, item) {
+						if (item.variant_id == variantId) {
+							$('.productid-' + variantId).find('.price_cart2').html(Bizweb.formatMoney(item.price * item.quantity, "{{amount_no_decimals_with_comma_separator}}₫"));
+							$('.productid-' + variantId).find('.items-count').prop("disabled", false);
+							$('.productid-' + variantId).find('.number-sidebar').prop("disabled", false);
+							$('.productid-' + variantId + ' .number-sidebar').val(item.quantity);
+							if (item.quantity == '1') {
+								$('.productid-' + variantId).find('.items-count.btn-minus').prop("disabled", true);
+							}
+						}
+					});
+				}
+			});
+			updateCartDesc(cart);
+		}
+
+		Bizweb.onCartRemoveClick = function (cart, variantId) {
+			jQuery.each(cart, function (key, value) {
+				if (key === 'items') {
+					jQuery.each(value, function (i, item) {
+						if (item.variant_id == variantId) {
+							$('.productid-' + variantId).remove();
+						}
+					});
+				}
+			});
+			updateCartDesc(cart);
+		}
+		$(window).ready(function () {
+			$.ajax({
+				type: 'GET',
+				url: '/cart.js',
+				async: false,
+				cache: false,
+				dataType: 'json',
+				success: function (cart) {
+					Bizweb.updateCartFromForm(cart, '.mini-products-list');
+					Bizweb.updateCartPopupForm(cart, '#popup-cart-desktop .tbody-popup');
+
+				}
+			});
+		});
+
+	</script>
+	<!--link href="./LokiShop-2018_files/popup-cart.scss.css" rel="stylesheet" type="text/css"-->
+
+	<div id="popup-cart" class="modal fade" role="dialog" style="top: 40px;">
+		<div id="popup-cart-desktop" class="clearfix">
+			<div class="title-popup-cart">
+				<span class="pop-title">
+					<i class="fa fa-check check" aria-hidden="true"></i> Sản phẩm
+					<span class="cart-popup-name"></span> đã thêm vào giỏ hàng</span>
+				<div class="content-popup-cart">
+					<div class="tbody-popup">
+						<div class="item-popup productid-17441886">
+							<div style="width: 80%;" class="text-left">
+								<div class="item-image">
+									<a class="product-image" href="http://lokishop-2018.bizwebvietnam.net/laptop-asus-zenbook-ux305f-fc089h" title="Laptop Asus Zenbook UX305F-FC089H">
+										<img alt="Laptop Asus Zenbook UX305F-FC089H" src="./LokiShop-2018_files/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg">
+									</a>
+									<p class="item-remove">
+										<a href="javascript:;" class="remove-item-cart" title="Xóa" data-id="17441886">
+											<i class="fa fa-times-circle"></i> Xóa</a>
+									</p>
+								</div>
+								<div class="item-info">
+									<p class="item-name">
+										<a href="http://lokishop-2018.bizwebvietnam.net/laptop-asus-zenbook-ux305f-fc089h" title="Laptop Asus Zenbook UX305F-FC089H">Laptop Asus Zenbook UX305F-FC089H</a>
+									</p>
+									<p class="variant-tit" style="display: none;">Default Title</p>
+								</div>
+							</div>
+							<div style="width: 20%;" class="text-right">
+								<div class="item-price">
+									<span class="price">17.990.000₫</span>
+								</div>
+								<div class="fixab">
+									<input class="variantID" type="hidden" name="variantId" value="17441886">
+									<input type="text" maxlength="12" min="0" class="input-text number-sidebar qtyItem17441886" id="qtyItem17441886"
+									 name="Lines" size="4" value="9" disabled="">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tfoot-popup">
+						<div class="tfoot-popup-1 clearfix">
+							<div class="pull-left popup-ship">
+							</div>
+							<div class="pull-right popup-total">
+								<p>Tổng tiền:
+									<span class="total-price">161.910.000₫</span>
+								</p>
+							</div>
+							<a href="http://lokishop-2018.bizwebvietnam.net/collections/all" class="button btn-continue" title="Tiếp tục mua hàng">
+								<span>
+									<i class="fa fa-caret-left" aria-hidden="true"></i> Tiếp tục mua hàng</span>
+							</a>
+						</div>
+						<div class="tfoot-popup-2 clearfix">
+							<a class="button btn-proceed-checkout" title="Tiến hành đặt hàng" href="http://lokishop-2018.bizwebvietnam.net/checkout">
+								<span>Tiến hành đặt hàng</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<a title="Close" class="quickview-close close-window" href="javascript:;" onclick="$(&#39;#popup-cart&#39;).modal(&#39;hide&#39;);">
+					<i class="fa  fa-close"></i>
+				</a>
+			</div>
+		</div>
+
+	</div>
+	<div id="myModal" class="modal fade" role="dialog" style="top: 40px;">
+	</div>
+	<script src="./LokiShop-2018_files/cs.script.js" type="text/javascript"></script>
+
+
+	<!-- Main JS -->
+	<script src="./LokiShop-2018_files/main.js" type="text/javascript"></script>
+	<script src="./LokiShop-2018_files/update_scripts.js" type="text/javascript"></script>
+
+	<!-- Product detail JS,CSS -->
+
+
+	<!--iframe id="admin_bar_iframe" src="./LokiShop-2018_files/bar.html" style="height: 40px; position:fixed; top:0; left:0; right:0; z-index:2147483647;background:#191919"
+	 width="100%" frameborder="0" allowtransparency="true">{}</iframe-->
+	<div>
+		<div style="display:none">
+			<img src="./LokiShop-2018_files/Logging">
+		</div>
+	</div>
 <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+
 </html>

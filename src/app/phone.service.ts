@@ -4,10 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Phone } from './phone';
+import { Laptop } from './laptop';
 import { MessageService } from './messages.service';
  
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
+
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,11 +17,12 @@ const httpOptions = {
  
 @Injectable()
 export class PhoneService {
- 
   public phoneUrl = 'api/phones';  // URL to web api
-  postsCol: AngularFirestoreCollection<Phone[]>;
+  phoneCol: AngularFirestoreCollection<Phone[]>;
+  laptopCol: AngularFirestoreCollection<Laptop[]>;
   postDoc: AngularFirestoreDocument<Phone>;
-  posts: any;
+  phonePosts: any;
+  laptopPosts: any;
   post: Observable<Phone>;
   constructor(
     public http: HttpClient,
@@ -29,8 +32,8 @@ export class PhoneService {
  
   /** GET heroes from the server */
   getPhones (): Observable<Phone[]> {
-    this.postsCol = this.angularFirestore.collection('category/phones/phone-list');
-	this.posts = this.postsCol.snapshotChanges()
+    this.phoneCol = this.angularFirestore.collection('category/phones/phone-list');
+	this.phonePosts = this.phoneCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Phone;
@@ -38,12 +41,26 @@ export class PhoneService {
           return { id, data };
         });
       });
-	  return this.posts.pipe(
+	  return this.phonePosts.pipe(
         tap(phone => this.log(`fetched phone`)),
         catchError(this.handleError('getPhones', []))
       );
   }
- 
+  getLaptops (): Observable<Laptop[]> {
+    this.laptopCol = this.angularFirestore.collection('category/laptops/laptop-list');
+	this.laptopPosts = this.laptopCol.snapshotChanges()
+      .map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Laptop;
+          const id = a.payload.doc.id;
+          return { id, data };
+        });
+      });
+	  return this.laptopPosts.pipe(
+        tap(phone => this.log(`fetched laptop`)),
+        catchError(this.handleError('getLaptops', []))
+      );
+  }
   /** GET hero by id. Return `undefined` when id not found */
   getPhoneNo404<Data>(id: number): Observable<Phone> {
     const url = `${this.phoneUrl}/?id=${id}`;
