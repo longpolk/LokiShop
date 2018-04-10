@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="vi">
 
-<head>
+<head *ngIf="phone" >
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>
-        Laptop Asus Zenbook UX305F-FC089H LokiShop-2018
+        Chi tiết sản phẩm - {{phone.name}}
     </title>
     <!-- ================= Page description ================== -->
 
     <meta name="description" content="Asus Zenbook UX305F-FC089H l&#224; chiếc Ultrabook si&#234;u mỏng, si&#234;u nhẹ của h&#227;ng Asus, m&#225;y được sở hữu chip xử l&#253; Intel Core M, Ram 8GB v&#224; SSD 128GB. M&#225;y t&#237;nh x&#225;ch">
 
     <!-- ================= Meta ================== -->
-    <meta name="keywords" content="Laptop Asus Zenbook UX305F-FC089H, Sản phẩm nổi bật, Sản phẩm mới, LokiShop-2018, lokishop-2018.bizwebvietnam.net"
+    <meta name="keywords" content="{{phone.name}}, Sản phẩm nổi bật, Sản phẩm mới, LokiShop-2018, lokishop-2018"
     />
     <link rel="canonical" href="http://lokishop-2018.bizwebvietnam.net/laptop-asus-zenbook-ux305f-fc089h" />
     <meta name='revisit-after' content='1 days' />
@@ -222,279 +222,7 @@
     <!-- end getting default value -->
 
     <!-- Main content -->
-    <header>
-        <div class="topbar">
-            <div class="container">
-                <div class="row">
-                    <div class="hidden-xs col-sm-9 col-md-10 col-lg-10 welcome-text">
-                        <span>Chào mừng bạn đến với LokiShop-2018 !</span>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 checkout">
-                        <a href="/checkout" title="Tới trang thanh toán">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Thanh toán</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mainbar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 logo">
-                        <a href="/" title="Trang chủ">
-                            <img class="img-responsive" src="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/logo.png?1522816147817" alt="Logo">
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6 search-header">
-                        <div class="search_padding">
-                            <form action="/search" method="get">
-                                <div class="input-group search_form_action">
-                                    <i class="fa fa-search"></i>
-                                    <input type="text" class="form-control" maxlength="70" name="query" id="search" placeholder="Tìm kiếm ...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default btn-search" type="submit">
-                                            Tìm kiếm
-                                        </button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 account">
-
-                        <a href="/account/login">Đăng nhập</a>
-                        <span>hoặc</span>
-                        <a href="/account/register">Đăng ký</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-nav">
-            <nav class="menu-header hidden-sm hidden-xs">
-                <ul id="nav" class="nav container">
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/" title="Trang chủ">
-                            Trang chủ
-                        </a>
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a href="/collections/all" class="nav-link" title="Sản phẩm">
-                            Sản phẩm
-                            <i class="fa fa-caret-down" data-toggle="dropdown"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-
-
-                            <li class="nav-item-lv2">
-                                <a class="nav-link" href="/collections/all" title="Tất cả sản phẩm">
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Tất cả sản phẩm</span>
-                                </a>
-                            </li>
-
-
-
-                            <li class="nav-item-lv2">
-                                <a class="nav-link" href="/frontpage" title="Sản phẩm mới">
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Sản phẩm mới</span>
-                                </a>
-                            </li>
-
-
-
-                            <li class="nav-item-lv2">
-                                <a class="nav-link" href="/san-pham-noi-bat" title="Sản phẩm nổi bật">
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Sản phẩm nổi bật</span>
-                                </a>
-                            </li>
-
-
-
-                            <li class="nav-item-lv2">
-                                <a class="nav-link" href="/san-pham-khuyen-mai" title="Sản phẩm khuyến mãi">
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Sản phẩm khuyến mãi</span>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tin-tuc" title="Blog">
-                            Blog
-                        </a>
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/gioi-thieu" title="Giới thiệu">
-                            Giới thiệu
-                        </a>
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/lien-he" title="Liên hệ">
-                            Liên hệ
-                        </a>
-                    </li>
-
-
-
-                    <li class="sticky_logo" onClick="window.location.href='/'">
-                        <img src="http://bizweb.dktcdn.net/thumb/small/100/305/798/themes/650335/assets/sticky_logo.png?1522816147817" alt="Logo" />
-                    </li>
-
-                    <div class="cart-header">
-                        <div class="top-cart-contain f-right">
-                            <div class="mini-cart text-xs-center">
-                                <div class="heading-cart">
-                                    <a href="/cart">
-                                        <span class="cartCount count_item_pr" id="cart-total"></span>
-                                        <br>sản phẩm
-                                    </a>
-                                </div>
-                                <div class="top-cart-content">
-                                    <ul id="cart-sidebar" class="mini-products-list count_li">
-                                        <li class="list-item">
-                                            <ul></ul>
-                                        </li>
-                                        <li class="action">
-                                            <ul>
-                                                <li class="li-fix-1">
-                                                    <div class="top-subtotal">
-                                                        Tổng tiền thanh toán:
-                                                        <span class="price"></span>
-                                                    </div>
-                                                </li>
-                                                <li class="li-fix-2" style="">
-                                                    <div class="actions">
-                                                        <a href="/cart" class="btn btn-primary">
-                                                            <span>Giỏ hàng</span>
-                                                        </a>
-                                                        <a href="/checkout" class="btn btn-checkout btn-gray">
-                                                            <span>Thanh toán</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </ul>
-            </nav>
-            <div class="sidebar-menu sidebar_menu site-nav-mobile menu-header hidden-md hidden-lg">
-                <div class="sidebar-menu-title module-header">
-                    <div class="module-title">
-
-                        <a href="/" class="sticky_logo">
-                            <img src="http://bizweb.dktcdn.net/thumb/small/100/305/798/themes/650335/assets/sticky_logo.png?1522816147817" alt="Logo" />
-                        </a>
-
-                        <i class="fa fa-bars"></i>
-                        <span>MENU</span>
-                    </div>
-                    <a class="mobile-cart" href="/cart">
-                        <span class="cart-count-mobile">0</span>
-                    </a>
-                </div>
-                <div class="sidebar-menu-content">
-                    <div class="sidebar-linklists">
-                        <ul>
-
-
-                            <li class="sidebar-menu-list menu-item collection-sidebar-menu">
-                                <a class="ajaxLayer" href="/" title="Trang chủ">
-                                    <span>Trang chủ</span>
-                                </a>
-
-                            </li>
-
-                            <li class="sidebar-menu-list menu-item collection-sidebar-menu">
-                                <a class="ajaxLayer" href="/collections/all" title="Sản phẩm">
-                                    <span>Sản phẩm</span>
-                                </a>
-
-                                <ul style="display: none" class="lv2">
-
-                                    <li>
-                                        <a class="ajaxLayer a_lv2" href="/collections/all" title="Tất cả sản phẩm">
-                                            <span>Tất cả sản phẩm</span>
-                                        </a>
-
-                                    </li>
-
-                                    <li>
-                                        <a class="ajaxLayer a_lv2" href="/frontpage" title="Sản phẩm mới">
-                                            <span>Sản phẩm mới</span>
-                                        </a>
-
-                                    </li>
-
-                                    <li>
-                                        <a class="ajaxLayer a_lv2" href="/san-pham-noi-bat" title="Sản phẩm nổi bật">
-                                            <span>Sản phẩm nổi bật</span>
-                                        </a>
-
-                                    </li>
-
-                                    <li>
-                                        <a class="ajaxLayer a_lv2" href="/san-pham-khuyen-mai" title="Sản phẩm khuyến mãi">
-                                            <span>Sản phẩm khuyến mãi</span>
-                                        </a>
-
-                                    </li>
-
-                                </ul>
-
-                            </li>
-
-                            <li class="sidebar-menu-list menu-item collection-sidebar-menu">
-                                <a class="ajaxLayer" href="/tin-tuc" title="Blog">
-                                    <span>Blog</span>
-                                </a>
-
-                            </li>
-
-                            <li class="sidebar-menu-list menu-item collection-sidebar-menu">
-                                <a class="ajaxLayer" href="/gioi-thieu" title="Giới thiệu">
-                                    <span>Giới thiệu</span>
-                                </a>
-
-                            </li>
-
-                            <li class="sidebar-menu-list menu-item collection-sidebar-menu">
-                                <a class="ajaxLayer" href="/lien-he" title="Liên hệ">
-                                    <span>Liên hệ</span>
-                                </a>
-
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <app-header></app-header>
 
     <section class="breadcrumbs">
         <div class="container">
@@ -518,7 +246,7 @@
 
                         <li>
                             <strong>
-                                <span itemprop="title">Laptop Asus Zenbook UX305F-FC089H</span>
+                                <span itemprop="title">{{phone.name}}</span>
                             </strong>
                             <li>
 
@@ -554,8 +282,8 @@
                             <a href="http://bizweb.dktcdn.net/thumb/1024x1024/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207"
                                 class="large_image_url checkurl dp-flex" data-rel="prettyPhoto[product-gallery]">
 
-                                <img id="zoom_01" class="img-responsive" src="http://bizweb.dktcdn.net/thumb/grande/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207"
-                                    alt="laptop-asus-zenbook-ux305f-fc089h">
+                                <img id="zoom_01" class="img-responsive" src="{{phone.thumb}}"
+                                    alt="{{phone.name}}">
 
                             </a>
                         </div>
@@ -611,7 +339,7 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 details-pro">
-                        <h1 class="title-head">Laptop asus zenbook ux305f-fc089h</h1>
+                        <h1 class="title-head">{{phone.name}}</h1>
 
 
 
@@ -628,7 +356,7 @@
 
 
                             <span class="special-price">
-                                <span class="price" itemprop="price">17.990.000₫</span>
+                                <span class="price" itemprop="price">{{phone.price | number}}₫</span>
                                 <meta itemprop="priceCurrency" content="VND">
                             </span>
                             <span class="old-price">
@@ -642,11 +370,18 @@
 
 
                             <span class="availability in-stock" itemscope itemtype="http://schema.org/ItemAvailability">
-                                <span itemprop="supersededBy">
-
-                                    Còn hàng
+                                <ng-container *ngIf="phone.inStock; then thenBlock else elseBlock">
+                                <span #thenBlock itemprop="supersededBy">
+                                    <!--Hết hàng-->
+                                    
 
                                 </span>
+                                <span #elseBlock itemprop="supersededBy">
+
+                                    Số lượng: {{phone.inStock}}
+
+                                </span>
+                            </ng-container>
                             </span>
                         </div>
 
@@ -657,9 +392,7 @@
                         <div class="product-summary product_description">
                             <div class="rte description">
 
-                                Asus Zenbook UX305F-FC089H là chiếc Ultrabook siêu mỏng, siêu nhẹ của hãng Asus, máy được sở hữu chip xử lý Intel Core M,
-                                Ram 8GB và SSD 128GB. Máy tính xách tay Asus Zenbook UX305F-FC089H có trọng lượng nhẹ chỉ
-                                1.2kg rất dễ dàng cho bạn mang theo khi đi ra ngoài công tác. Máy tính xác...
+                                {{phone.snippet}}
 
                             </div>
                         </div>
@@ -680,7 +413,7 @@
                                         class="reduced btn btn-ipnb" type="button">-</button>
                                     <input type="text" class="form-control text-xs-center qty" title="Số lượng" value="1" maxlength="3" id="qty" name="quantity"
                                         onkeyup="valid(this,'numbers')" onblur="valid(this,'numbers')">
-                                    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1000) result.value++;return false;"
                                         class="increase btn btn-ipnb" type="button">+</button>
                                 </div>
 
@@ -3046,481 +2779,7 @@
             }
         });
     </script>
-    <footer class="footer">
-
-        <div class="brands">
-            <div class="container">
-                <div class="row">
-                    <div class="owl-carousel owl-theme nav-enable nav-center" data-lg-items="6" data-md-items="5" data-sm-items="4" data-xs-items="3"
-                        data-xxs-items="2" data-margin="10" data-auto-play="true" data-nav="true">
-
-
-
-
-
-
-                        <div class="item">
-                            <a href="" title="">
-                                <img class="img-responsive" alt="LokiShop-2018" src="http://bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/brand_1_image.png?1522816147817"
-                                />
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="item">
-                            <a href="" title="">
-                                <img class="img-responsive" alt="LokiShop-2018" src="http://bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/brand_2_image.png?1522816147817"
-                                />
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="item">
-                            <a href="" title="">
-                                <img class="img-responsive" alt="LokiShop-2018" src="http://bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/brand_3_image.png?1522816147817"
-                                />
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="item">
-                            <a href="" title="">
-                                <img class="img-responsive" alt="LokiShop-2018" src="http://bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/brand_4_image.png?1522816147817"
-                                />
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="item">
-                            <a href="" title="">
-                                <img class="img-responsive" alt="LokiShop-2018" src="http://bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/brand_5_image.png?1522816147817"
-                                />
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="item">
-                            <a href="" title="">
-                                <img class="img-responsive" alt="LokiShop-2018" src="http://bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/brand_6_image.png?1522816147817"
-                                />
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="item">
-                            <a href="" title="">
-                                <img class="img-responsive" alt="LokiShop-2018" src="http://bizweb.dktcdn.net/thumb/compact/100/305/798/themes/650335/assets/brand_7_image.png?1522816147817"
-                                />
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="subscribe_and_socials">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-                        <div class="subscribe">
-                            <h4>Đăng ký nhận tin</h4>
-                            <div class="form-subscribe">
-
-
-
-                                <form action="//dkt.us13.list-manage.com/subscribe/post?u=0bafe4be7e17843051883e746&amp;id=3bdd6e9e3b" method="post" id="mc-embedded-subscribe-form"
-                                    class="mtSubcribeForm" name="mc-embedded-subscribe-form" target="_blank">
-                                    <input id="email" name="EMAIL" type="email" value="" class="input_newsletter subcribe-email form-control" placeholder="Email nhận tin">
-                                    <button type="submit" id="subscribe" name="subscribe" class="btn btn-subscribe">
-                                        <i class="fa fa-envelope"></i>
-                                        <span>Đăng ký</span>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                        <div class="socials">
-                            <ul class="social-info">
-
-
-
-
-
-                                <!-- defined style classes could be found in update_stylesheet.scss.bwt -->
-                                <li>
-                                    <a href="#" class="bg-facebook hv-txt-facebook btn-transition" title="facebook">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-
-
-
-
-
-                                <!-- defined style classes could be found in update_stylesheet.scss.bwt -->
-                                <li>
-                                    <a href="#" class="bg-twitter hv-txt-twitter btn-transition" title="twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-
-
-
-
-
-                                <!-- defined style classes could be found in update_stylesheet.scss.bwt -->
-                                <li>
-                                    <a href="#" class="bg-google-plus hv-txt-google-plus btn-transition" title="google plus">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="foo_info">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 store-detail">
-                        <a class="logo" href="/" title="LokiShop-2018">
-                            <img class="img-responsive" src="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/logo-footer.png?1522816147817" alt="Logo"
-                            />
-                        </a>
-
-
-                        <p class="store-description">
-                            Accent đã và đang tiếp tục khẳng định vị trí của người dẫn đầu thị trường cung cấp sản phẩm thiết bị điện tử và thiết bị
-                            di động liên tục cho thị trường trong nhiều năm qua.
-                        </p>
-
-
-
-                        <div class="foo-content payment-methods">
-                            <ul class="list-menu">
-
-
-
-
-
-
-
-                                <li class="payment_method">
-                                    <img src="http://bizweb.dktcdn.net/thumb/thumb/100/305/798/themes/650335/assets/payment_1_image.png?1522816147817" alt="lokishop-2018"
-                                        title="LokiShop-2018" class="img-responsive" />
-                                </li>
-
-
-
-
-
-
-
-                                <li class="payment_method">
-                                    <img src="http://bizweb.dktcdn.net/thumb/thumb/100/305/798/themes/650335/assets/payment_2_image.png?1522816147817" alt="lokishop-2018"
-                                        title="LokiShop-2018" class="img-responsive" />
-                                </li>
-
-
-
-
-
-
-
-                                <li class="payment_method">
-                                    <img src="http://bizweb.dktcdn.net/thumb/thumb/100/305/798/themes/650335/assets/payment_3_image.png?1522816147817" alt="lokishop-2018"
-                                        title="LokiShop-2018" class="img-responsive" />
-                                </li>
-
-
-
-
-
-
-
-                                <li class="payment_method">
-                                    <img src="http://bizweb.dktcdn.net/thumb/thumb/100/305/798/themes/650335/assets/payment_4_image.png?1522816147817" alt="lokishop-2018"
-                                        title="LokiShop-2018" class="img-responsive" />
-                                </li>
-
-
-
-                            </ul>
-                        </div>
-
-                    </div>
-
-
-
-
-
-                    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col">
-                        <h4 class="foo-title">
-                            Về chúng tôi
-                        </h4>
-                        <div class="foo-content foo-menu">
-                            <ul class="list-menu">
-
-                                <li class="foo-list-item">
-                                    <a href="/" title="Trang chủ">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Trang chủ</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/collections/all" title="Sản phẩm">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Sản phẩm</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/tin-tuc" title="Blog">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Blog</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/gioi-thieu" title="Giới thiệu">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Giới thiệu</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/lien-he" title="Liên hệ">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Liên hệ</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col">
-                        <h4 class="foo-title">
-                            Hỗ trợ
-                        </h4>
-                        <div class="foo-content foo-menu">
-                            <ul class="list-menu">
-
-                                <li class="foo-list-item">
-                                    <a href="/" title="Trang chủ">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Trang chủ</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/collections/all" title="Sản phẩm">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Sản phẩm</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/tin-tuc" title="Blog">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Blog</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/gioi-thieu" title="Giới thiệu">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Giới thiệu</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/lien-he" title="Liên hệ">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Liên hệ</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 col">
-                        <h4 class="foo-title">
-                            Hướng dẫn
-                        </h4>
-                        <div class="foo-content foo-menu">
-                            <ul class="list-menu">
-
-                                <li class="foo-list-item">
-                                    <a href="/" title="Trang chủ">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Trang chủ</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/collections/all" title="Sản phẩm">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Sản phẩm</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/tin-tuc" title="Blog">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Blog</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/gioi-thieu" title="Giới thiệu">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Giới thiệu</span>
-                                    </a>
-                                </li>
-
-                                <li class="foo-list-item">
-                                    <a href="/lien-he" title="Liên hệ">
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Liên hệ</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col">
-                        <h4 class="foo-title">
-                            Liên hệ
-                        </h4>
-                        <div class="foo-content foo-contact demo">
-                            <ul class="list-menu">
-
-                                <li>
-                                    <span class="foo-icon">
-                                        <i class="fa fa-map-marker"></i>
-                                    </span>
-                                    <span class="foo-detail foo-address">Tầng 4, tòa nhà Hà Nội Group, 442 Đội Cấn, Ba Đình, Hà Nội.</span>
-                                </li>
-
-
-                                <li>
-                                    <span class="foo-icon">
-                                        <i class="fa fa-phone"></i>
-                                    </span>
-                                    <span class="foo-detail">
-                                        <a href="tel:0466742332">04.6674.2332</a>
-                                    </span>
-                                </li>
-
-
-                                <li>
-                                    <span class="foo-icon">
-                                        <i class="fa fa-envelope"></i>
-                                    </span>
-                                    <span class="foo-detail">
-                                        <a href="mailto:support@bizweb.vn">support@bizweb.vn</a>
-                                    </span>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <span>© Bản quyền thuộc về
-                            <strong>Avent Team</strong>
-                        </span>
-                        <span class="hidden-xs"> | </span>
-                        <span>Cung cấp bởi
-                            <a href="//www.bizweb.vn/?utm_source=site-khach-hang&utm_campaign=referral_bizweb&utm_medium=footer&utm_content=cung-cap-boi-bizweb"
-                                rel="nofollow" target="_blank">Bizweb</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </footer>
+    <app-footer></app-footer>
 
     <!-- Bizweb javascript -->
     <script src='http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/option-selectors.js?1522816147817' type='text/javascript'></script>

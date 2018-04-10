@@ -19,11 +19,15 @@ const httpOptions = {
 export class PhoneService {
   public phoneUrl = 'api/phones';  // URL to web api
   phoneCol: AngularFirestoreCollection<Phone[]>;
+  phoneCol2: AngularFirestoreCollection<Phone>;
   laptopCol: AngularFirestoreCollection<Laptop[]>;
   postDoc: AngularFirestoreDocument<Phone>;
   phonePosts: any;
   laptopPosts: any;
   post: Observable<Phone>;
+  posts: Observable<Phone[]>;
+  listPhone: Phone[] = [];
+  phones: Phone[] = [];
   constructor(
     public http: HttpClient,
     private messageService: MessageService,
@@ -45,6 +49,17 @@ export class PhoneService {
         tap(phone => this.log(`fetched phone`)),
         catchError(this.handleError('getPhones', []))
       );
+  }
+  getPhones_2(): any{
+    
+   this.getPhones().subscribe(phones => this.phones = phones.slice(0, 10));
+   this.phones.forEach(phone => {
+    this.listPhone.push(
+      new Phone(phone.brand, phone.category_id, phone.id, phone.imageUrl, phone.inStock, phone.name,
+         phone.postDate, phone.price, phone.sale_price, phone.snippet, phone.sold, phone.thumb));
+   
+   });
+    return this.listPhone;
   }
   getLaptops (): Observable<Laptop[]> {
     this.laptopCol = this.angularFirestore.collection('category/laptops/laptop-list');

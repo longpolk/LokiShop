@@ -35,10 +35,11 @@ export class DashboardComponent implements OnInit {
  
   getPhones(): void {
     this.phoneService.getPhones()
-      .subscribe(phones => this.phones = phones.slice(1, 10));
+      .subscribe(phones => this.phones = phones.slice(0, 10));
   }
   getLaptops(): void {
     this.phoneService.getLaptops()
-      .subscribe(laptops => this.laptops = laptops.slice(1, 10));
+      .subscribe(laptops => this.laptops = laptops.slice(0, 10));
+      console.log(this.laptops.length);
   }
 }

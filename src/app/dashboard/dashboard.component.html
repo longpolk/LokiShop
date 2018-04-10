@@ -184,24 +184,27 @@
                         <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 module_new_products">
                             <div class="module-header">
                                 <div class="module-title title-style-3">
-                                    <a href="frontpage" title="Sản phẩm mới">
+                                    <a href="/san-pham-moi" title="Sản phẩm mới">
                                         <span>Sản phẩm mới</span>
                                     </a>
                                 </div>
                             </div>
                             <div class="module-content">
-
+                                <!--Hiển thị phones mới nhất-->
                                 <div class="owl-carousel owl-theme nav-enable nav-top lg4" data-lg-items="4" data-md-items="3" data-sm-items="3" data-xs-items="2"
                                     data-xxs-items="2" data-nav="true" data-auto-play="true" data-auto-height="true">
-                                    <div class="owl-item active" style="width:212px;" *ngFor="let phone of phones">
-                                    <div class="item">
+                                    <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
+                                        <div class="owl-item"-->
+                                   
+                                            <div *ngFor="let phone of phones" class="owl-item active" style="width: 212px;">
+                                                <div class="item">
 
                                         <div class="product-box product-grid-item">
                                             <div class="product-thumbnail">
 
                                                 <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
                                                     <picture class="dp-flex">
-                                                            <img class="img-responsive" src="{{phone.data.imageUrl}}" alt="{{phone.data.name}}" />
+                                                        <img class="img-responsive" src="{{phone.data.thumb}}" alt="{{phone.data.name}}" />
 
                                                     </picture>
                                                 </a>
@@ -214,7 +217,7 @@
                                                 </h3>
                                                 <div class="price-box price-loop-style">
                                                     <span class="special-price">
-                                                        <span class="price">{{phone.data.price | number:'1.2-2'}}₫</span>
+                                                        <span class="price">{{phone.data.price | number}}₫</span>
                                                     </span>
                                                     <span class="old-price">
                                                         <span class="price">
@@ -236,11 +239,199 @@
                                             </div>
                                         </div>
                                     </div>
+                                            </div>
+                                    
+                                    
+                                    <!--/div-->
+                                    <!--/div-->
+                                    <div class="item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <div class="product-box product-grid-item">
+                                            <div class="product-thumbnail">
+
+                                                <a href="http://lokishop-2018.bizwebvietnam.net/bo-chia-cong-usb-ibuffalo-4-cong" title="Bộ chia cổng USB iBuffalo 4 cổng">
+                                                    <picture class="dp-flex">
+
+                                                        <source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 992px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 768px) and (max-width: 991px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 571px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 320px) and (max-width: 570px)" srcset="//bizweb.dktcdn.net/thumb/compact/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(max-width: 319px)" srcset="//bizweb.dktcdn.net/thumb/small/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <img class="img-responsive" src="./LokiShop-2018-original_files/hub-usb-ibuffalo-bsh4u06bk.jpg" alt="bo-chia-cong-usb-ibuffalo-4-cong">
+
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <h3 class="product-name text1line">
+                                                    <a href="http://lokishop-2018.bizwebvietnam.net/bo-chia-cong-usb-ibuffalo-4-cong" title="Bộ chia cổng USB iBuffalo 4 cổng">
+                                                        Bộ chia cổng usb ibuffalo 4 cổng
+                                                    </a>
+                                                </h3>
+
+
+
+
+
+
+
+
+
+
+
+                                                <div class="price-box price-loop-style">
+
+
+
+                                                    <span class="special-price">
+                                                        <span class="price">260.000₫</span>
+                                                    </span>
+                                                    <span class="old-price">
+                                                        <span class="price">
+
+                                                        </span>
+                                                    </span>
+
+
+
+                                                </div>
+
+
+
+                                                <div class="product-action-btn product-action">
+                                                    <form action="http://lokishop-2018.bizwebvietnam.net/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190"
+                                                        enctype="multipart/form-data">
+                                                        <input class="hidden" type="hidden" name="variantId" value="17441893">
+
+                                                        <button class="btn btn-cart addtocart btn-transition btn_choose_product choose-pro btn-accent" title="Chọn sản phẩm" type="button"
+                                                            onclick="window.location.href=&#39;/bo-chia-cong-usb-ibuffalo-4-cong&#39;">
+                                                            <span>
+                                                                <i class="fa fa-cog"></i> Tuỳ chọn</span>
+                                                        </button>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <div class="product-box product-grid-item">
+                                            <div class="product-thumbnail">
+
+                                                <a href="http://lokishop-2018.bizwebvietnam.net/bo-chia-cong-usb-ibuffalo-4-cong" title="Bộ chia cổng USB iBuffalo 4 cổng">
+                                                    <picture class="dp-flex">
+
+                                                        <source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 992px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 768px) and (max-width: 991px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 571px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(min-width: 320px) and (max-width: 570px)" srcset="//bizweb.dktcdn.net/thumb/compact/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <source media="(max-width: 319px)" srcset="//bizweb.dktcdn.net/thumb/small/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133">
+                                                        <img class="img-responsive" src="./LokiShop-2018-original_files/hub-usb-ibuffalo-bsh4u06bk.jpg" alt="bo-chia-cong-usb-ibuffalo-4-cong">
+
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <h3 class="product-name text1line">
+                                                    <a href="http://lokishop-2018.bizwebvietnam.net/bo-chia-cong-usb-ibuffalo-4-cong" title="Bộ chia cổng USB iBuffalo 4 cổng">
+                                                        Bộ chia cổng usb ibuffalo 4 cổng
+                                                    </a>
+                                                </h3>
+
+
+
+
+
+
+
+
+
+
+
+                                                <div class="price-box price-loop-style">
+
+
+
+                                                    <span class="special-price">
+                                                        <span class="price">260.000₫</span>
+                                                    </span>
+                                                    <span class="old-price">
+                                                        <span class="price">
+
+                                                        </span>
+                                                    </span>
+
+
+
+                                                </div>
+
+
+
+                                                <div class="product-action-btn product-action">
+                                                    <form action="http://lokishop-2018.bizwebvietnam.net/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190"
+                                                        enctype="multipart/form-data">
+                                                        <input class="hidden" type="hidden" name="variantId" value="17441893">
+
+                                                        <button class="btn btn-cart addtocart btn-transition btn_choose_product choose-pro btn-accent" title="Chọn sản phẩm" type="button"
+                                                            onclick="window.location.href=&#39;/bo-chia-cong-usb-ibuffalo-4-cong&#39;">
+                                                            <span>
+                                                                <i class="fa fa-cog"></i> Tuỳ chọn</span>
+                                                        </button>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
 
-
                                 </div>
+                                <!--Hiển thị laptops mới nhất>
                                 <div class="owl-carousel owl-theme nav-enable nav-top lg4" data-lg-items="4" data-md-items="3" data-sm-items="3" data-xs-items="2"
                                     data-xxs-items="2" data-nav="true" data-auto-play="true" data-auto-height="true">
                                     <div class="owl-item active" style="width:212px;" *ngFor="let laptop of laptops">
@@ -290,7 +481,7 @@
 
 
 
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -313,7 +504,7 @@
                             <div class="module-header">
                                 <div class="module-title title-style-3">
                                     <a href="san-pham-noi-bat" title="Sản phẩm nổi bật">
-                                        <span>Laptop mới</span>
+                                        <span>Sản phẩm nổi bật</span>
                                     </a>
                                 </div>
                             </div>
