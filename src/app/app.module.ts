@@ -24,6 +24,7 @@ import { UserService } from './user.service';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,12 +48,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     AppRoutingModule,
 	HttpClientModule,
-	// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-// and returns simulated server responses.
-// Remove it when a real server is ready to receive requests.
-/*HttpClientInMemoryWebApiModule.forRoot(
-  InMemoryDataService, { dataEncapsulation: false }
-)*/
+	BrowserAnimationsModule 
   ],
   providers: [
 	PhoneService,

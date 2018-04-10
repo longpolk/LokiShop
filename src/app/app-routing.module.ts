@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'phones', component: LokiShopComponent },
   { path: 'admin', component: AdministratorComponent},
   { path: 'login', component: LoginComponent}
+  
   //{ path: 'adminDashboard', component: AdministratorComponent}
   ];
 

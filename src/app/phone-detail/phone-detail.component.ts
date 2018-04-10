@@ -1,18 +1,24 @@
-import { Component, OnInit, Input, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input, AfterContentInit, ViewEncapsulation } from '@angular/core';
 import { Phone } from '../phone';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PhoneService }  from '../phone.service';
+import {trigger, state, style, animate, transition} from '@angular/animations';
+
 
 declare var Jarallax: any;
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-phone-detail',
   templateUrl: './phone-detail.component.html',
-  styleUrls: [ './phone-detail.component.css']
+  styleUrls: [ 
+    './phone-detail.component.css'
+]
 })
 export class PhoneDetailComponent implements OnInit {
 	
   @Input() phone: Phone;
+  @Input() mainImageUrl: string;
   constructor(
 	private route: ActivatedRoute,
 	private phoneService: PhoneService,
@@ -22,6 +28,10 @@ export class PhoneDetailComponent implements OnInit {
 
   ngOnInit(): void {
 	  this.getPhone();
+  }
+  setImage(imageUrl: string) {
+    this.mainImageUrl = imageUrl;
+    document.getElementById('zoom_01').setAttribute('src',this.mainImageUrl);
   }
   getPhone(): void{
 	  const id = this.route.snapshot.paramMap.get('id'); //add '+' before 'this.' to return number
