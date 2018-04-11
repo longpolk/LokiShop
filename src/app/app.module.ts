@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LokiShopComponent } from './loki-shop/loki-shop.component';
 import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
-import { PhoneService } from './phone.service';
+import { PhoneService } from './services/phone.service';
 import { MessagesComponent } from './messages/messages.component';
-import { MessageService } from './messages.service';
+import { MessageService } from './services/messages.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService }  from './services/in-memory-data.service';
 import { PhoneSearchComponent } from './phone-search/phone-search.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -20,11 +20,16 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AdministratorComponent } from './administrator/administrator.component';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ShoppingCartItem } from './cart/shopping-cart-item/shopping-cart-item';
+import { shoppingCart } from './cart/shopping-cart/shopping-cart';
+import { ShoppingList } from './cart/shopping-list/shopping-list';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdministratorComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ShoppingCartItem,
+    shoppingCart,
+    ShoppingList
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
 	PhoneService,
 	MessageService,
-	UserService
+  UserService,
+  CartService
   ],
   bootstrap: [AppComponent]
 })

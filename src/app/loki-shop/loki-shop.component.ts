@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Phone } from '../phone';
-import { PhoneService } from '../phone.service';
+import { PhoneService } from '../services/phone.service';
 @Component({
   selector: 'app-loki-shop',
   templateUrl: './loki-shop.component.html',

@@ -60,3 +60,16 @@ h4 {
     min-width: 60px;
   }
 }*/
+.list-items {
+  display: flex;
+
+  justify-content: left;
+
+  flex-flow: row wrap;
+  align-content: flex-end;
+}
+
+.list-item {
+  margin-left: 5px;
+  margin-right: 5px;
+}

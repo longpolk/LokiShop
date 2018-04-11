@@ -14,9 +14,10 @@ export class Phone {
   snippet: string;
   sold: number;
   thumb: string;
+  added: boolean;
 
   constructor(_brand: string, _category_id: string , _id: string, _imageUrl: Array<string>, _inStock: number, _name: string, 
-    _postDate: string, _price: number, _sale_price: number, _snippet: string, _sold: number, _thumb: string){
+    _postDate: string, _price: number, _sale_price: number, _snippet: string, _sold: number, _thumb: string, _added: boolean){
 
   }
 }

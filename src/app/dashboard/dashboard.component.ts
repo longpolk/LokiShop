@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Phone } from '../phone';
-import { PhoneService } from '../phone.service';
+import { PhoneService } from '../services/phone.service';
 import { RouterLink } from '@angular/router';
 import { Laptop } from '../laptop';
  
@@ -8,8 +8,8 @@ import { Laptop } from '../laptop';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [ 
-    './LokiShop-2018_files/bootstrap.min.css',
+  styleUrls: [ './dashboard.component.css'
+    /*'./LokiShop-2018_files/bootstrap.min.css',
 	'./LokiShop-2018_files/font-awesome.min.css',
 	'./LokiShop-2018_files/owl.carousel.min.css',
 	'./LokiShop-2018_files/base.scss.css',
@@ -20,7 +20,7 @@ import { Laptop } from '../laptop';
   './LokiShop-2018_files/update_stylesheets.scss.css',
   './LokiShop-2018_files/css.css',
   './LokiShop-2018_files/menu-stylesheets.scss.css',
-  './LokiShop-2018_files/popup-cart.scss.css'
+  './LokiShop-2018_files/popup-cart.scss.css'*/
 ]
 })
 

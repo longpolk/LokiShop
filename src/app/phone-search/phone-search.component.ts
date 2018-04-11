@@ -9,7 +9,7 @@ import {
  } from 'rxjs/operators';
 
 import { Phone } from '../phone';
-import { PhoneService } from '../phone.service';
+import { PhoneService } from '../services/phone.service';
 
 @Component({
   selector: 'app-phone-search',

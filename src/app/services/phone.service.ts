@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { of } from "rxjs/observable/of";
 import { catchError, map, tap } from "rxjs/operators";
-import { Phone } from "./phone";
-import { Laptop } from "./laptop";
+import { Phone } from "../phone";
+import { Laptop } from "../laptop";
 import { MessageService } from "./messages.service";
 
 import {
@@ -74,7 +74,8 @@ export class PhoneService {
           phone.sale_price,
           phone.snippet,
           phone.sold,
-          phone.thumb
+          phone.thumb,
+          phone.added
         )
       );
     });

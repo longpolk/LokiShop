@@ -2,7 +2,7 @@ import { Component, OnInit, Input, AfterContentInit, ViewEncapsulation } from '@
 import { Phone } from '../phone';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { PhoneService }  from '../phone.service';
+import { PhoneService }  from '../services/phone.service';
 import {trigger, state, style, animate, transition} from '@angular/animations';
 
 
