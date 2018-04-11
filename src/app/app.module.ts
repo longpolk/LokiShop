@@ -30,6 +30,9 @@ import { ShoppingCartItem } from './cart/shopping-cart-item/shopping-cart-item';
 import { shoppingCart } from './cart/shopping-cart/shopping-cart';
 import { ShoppingList } from './cart/shopping-list/shopping-list';
 import { CartService } from './services/cart.service';
+import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
+import {Location, CommonModule} from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { CartService } from './services/cart.service';
     FooterComponent,
     ShoppingCartItem,
     shoppingCart,
-    ShoppingList
+    ShoppingList,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,8 @@ import { CartService } from './services/cart.service';
 	PhoneService,
 	MessageService,
   UserService,
-  CartService
+  CartService,
+  Location
   ],
   bootstrap: [AppComponent]
 })

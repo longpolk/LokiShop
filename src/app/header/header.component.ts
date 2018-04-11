@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Phone } from '../phone';
+import { CartService } from '../services/cart.service';
+import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,8 +23,16 @@ import { Component, OnInit } from '@angular/core';
   './LokiShop-2018_files/popup-cart.scss.css']
 })
 export class HeaderComponent implements OnInit {
+  public shoppingCartItems$: Observable<Phone[]>;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    public location: Location, 
+    private cartService: CartService) {
+    this.shoppingCartItems$ = this.cartService.getItems();
+    this.shoppingCartItems$.subscribe(_ => _);
+    console.log(this.shoppingCartItems$);
+  }
 
   ngOnInit() {
   }
