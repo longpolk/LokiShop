@@ -32,7 +32,7 @@ import { ShoppingList } from './cart/shopping-list/shopping-list';
 import { CartService } from './services/cart.service';
 import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
 import {Location, CommonModule} from '@angular/common';
-
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,11 @@ import {Location, CommonModule} from '@angular/common';
     FormsModule,
     AppRoutingModule,
 	HttpClientModule,
-	BrowserAnimationsModule 
+  BrowserAnimationsModule,
+  LocalStorageModule.withConfig({
+    prefix: 'LokiShop',
+    storageType: 'localStorage'
+}) 
   ],
   providers: [
 	PhoneService,

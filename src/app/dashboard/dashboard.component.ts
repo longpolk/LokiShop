@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Phone } from '../phone';
 import { PhoneService } from '../services/phone.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
 import { Laptop } from '../laptop';
- 
+import { CartService } from '../services/cart.service';
+import { Location } from '@angular/common'; 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -27,7 +29,12 @@ import { Laptop } from '../laptop';
 export class DashboardComponent implements OnInit {
   phones: Phone[] = [];
   laptops: Laptop[] = [];
-  constructor(private phoneService: PhoneService) { }
+  constructor(
+    private phoneService: PhoneService,
+    private route: ActivatedRoute,
+    public location: Location, 
+    private cartService: CartService
+  ) { }
  
   ngOnInit() {
     this.getPhones();
@@ -41,5 +48,9 @@ export class DashboardComponent implements OnInit {
     this.phoneService.getLaptops()
       .subscribe(laptops => this.laptops = laptops.slice(0, 10));
       console.log(this.laptops.length);
+  }
+
+  public addToCart(product: Phone) {
+    this.cartService.addToCart(product);
   }
 }
