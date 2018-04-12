@@ -43,6 +43,7 @@ export class CartService {
 
   public addToCart(item: Phone) {
     this.itemsInCartSubject.next([...this.itemsInCart, item]);
+    console.log(this.itemsInCartSubject);
     this.saveLocalstorage(this.itemsInCart);
   }
 
@@ -53,8 +54,10 @@ export class CartService {
   }
 
   public getItems(): Observable<Phone[]> {
-    //return this.loadLocalstorage();
     return this.itemsInCartSubject;
+  }
+  public getItemslocal(): Observable<Phone[]>{
+    return this.loadLocalstorage();
   }
 
   public getTotalAmount(): Observable<number> {

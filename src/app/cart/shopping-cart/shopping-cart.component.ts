@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: CartService) {
     this.shoppingCartItems$ = this
       .cartService
-      .getItems();
+      .getItemslocal();
 
     this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
   }

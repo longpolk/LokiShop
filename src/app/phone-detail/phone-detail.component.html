@@ -1,4 +1,4 @@
-<section class="breadcrumbs">
+<section *ngIf="phone" class="breadcrumbs">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -38,7 +38,7 @@
 
 
 
-    <section class="product-template product" itemscope itemtype="http://schema.org/Product">
+    <section *ngIf="phone" class="product-template product" itemscope itemtype="http://schema.org/Product">
         <div class="container">
             <div class="row">
                 <div class="details-product">
@@ -98,18 +98,19 @@
 
 
                             <span class="availability in-stock" itemscope itemtype="http://schema.org/ItemAvailability">
-                                <ng-container *ngIf="phone.inStock; then thenBlock else elseBlock">
-                                    <span #thenBlock itemprop="supersededBy">
-                                        <!--Hết hàng-->
+                                
+                                    <span *ngIf="phone.inStock < 1;else elseBlock" id="thenBlock" itemprop="supersededBy">
+                                        Hết hàng
 
 
                                     </span>
-                                    <span #elseBlock itemprop="supersededBy">
+                                    <ng-template #elseBlock>
+                                    <span id="elseBlock" itemprop="supersededBy">
 
                                         Còn lại: {{phone.inStock}} sản phẩm
 
                                     </span>
-                                </ng-container>
+                                </ng-template>
                             </span>
                         </div>
 
@@ -150,11 +151,11 @@
 
                                 <div class="form-group product_quantity ">
                                     <label class="form-control-label">Số lượng</label>
-                                    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
+                                    <button [disabled]="phone.inStock < 1" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
                                         class="reduced btn btn-ipnb" type="button">-</button>
-                                    <input type="text" class="form-control text-xs-center qty" title="Số lượng" value="1" maxlength="3" id="qty" name="quantity"
+                                    <input [disabled]="phone.inStock < 1" type="text" class="form-control text-xs-center qty" title="Số lượng" value="1" maxlength="3" id="qty" name="quantity"
                                         onkeyup="valid(this,'numbers')" onblur="valid(this,'numbers')">
-                                    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                    <button [disabled]="phone.inStock < 1" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                         class="increase btn btn-ipnb" type="button">+</button>
                                 </div>
 
@@ -164,7 +165,7 @@
 
 
 
-                                    <button (click)="addToCart(product)" type="submit" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart" title="Thêm vào giỏ hàng">
+                                    <button [disabled]="phone.inStock < 1" (click)="addToCart(phone)" type="submit" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart" title="Thêm vào giỏ hàng">
                                         <span>
                                             <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</span>
                                     </button>
@@ -173,6 +174,14 @@
 
                                 </div>
                                 <!-- END BUTTON ACTIONS -->
+                            </form>
+                            <form [hidden]="phone.inStock > 0" class="form-inline" enctype="multipart/form-data" id="subscribe-email" action="/email/subscribe" method="post">
+                                <input type="email" style="width: 250px" [disabled]="phone.inStock > 0" type="text" class="form-control text-xs-center qty" title="Nhận thư cập nhật sản phẩm"  maxlength="100" id="sub-email" name="sub-email"
+                                        onkeyup="validEmail(this)" onblur="validEmail(this)" placeholder="Nhận thư cập nhật sản phẩm...">
+                                <button [disabled]="phone.inStock > 0" (click)="addToCart(product)" type="submit" class="increase btn btn-ipnb" title="Đăng kí" style="width: 120px">
+                                                <span>
+                                                    <i class="fa fa-check"></i> Đăng kí</span>
+                                            </button>
                             </form>
                         </div>
 
@@ -261,41 +270,7 @@
 
                         <div id="tab-1" class="tab-content">
                             <div class="rte">
-                                <p>Asus Zenbook UX305F-FC089H là chiếc Ultrabook siêu mỏng, siêu nhẹ của hãng Asus, máy được
-                                    sở hữu chip xử lý Intel Core M, Ram 8GB và SSD 128GB.</p>
-
-                                <p>Máy tính xách tay Asus Zenbook UX305F-FC089H có trọng lượng nhẹ chỉ 1.2kg rất dễ dàng cho
-                                    bạn mang theo khi đi ra ngoài công tác.</p>
-
-                                <p>Máy tính xách tay Asus Zenbook UX305F-FC089H thiết kế mỏng đẹp, sang trọng.</p>
-
-                                <p style="text-align: center;">
-                                    <img src="https:http://bizweb.dktcdn.net/thumb/large/100/004/438/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg"
-                                    />
-                                </p>
-
-                                <p>Đặc điểm nổi bật:</p>
-
-                                <p>- Thiết kế Zenbook siêu mỏng</p>
-
-                                <p>- Mang phong cách hiện đại và thiết kế có tính di chuyển cao</p>
-
-                                <p>- Bộ xử lý tốt</p>
-
-                                <p>- Bộ xử lý Intel Core M, thanh Ram vượt trội với dung lượng 8GB, SSD 128GB</p>
-
-                                <p>- Màn hình laptop 13.3 inch</p>
-
-                                <p>- Cho chất lượng hiển thị tốt với độ phân giải Full HD</p>
-
-                                <p>- Truyền dữ liệu nhanh chóng với USB 3.0</p>
-
-                                <p>- Các cổng kết nối: USB, HDMI, khe cắm thẻ thớ, jack cắm tai nghe</p>
-
-                                <p style="text-align: center;">
-                                    <img src="https:http://bizweb.dktcdn.net/thumb/large/100/004/438/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-02.jpg"
-                                    />
-                                </p>
+                                <!--Chi tiết sản phẩm-->
                             </div>
                         </div>
 
@@ -2322,7 +2297,21 @@
             'numbers': /[^\d]/g
         }
     </script>
+    <script>
+        
+        function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Địa chỉ email không hợp lệ!');
+            return false;
+        }
+
+        return true;
+
+}
+    </script>
     <script>
         var ww = $(window).width();
 

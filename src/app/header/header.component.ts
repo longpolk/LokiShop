@@ -24,14 +24,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public shoppingCartItems$: Observable<Phone[]>;
-
+  public shoppingCartItems_local$: Observable<Phone[]>;
   constructor(
     private route: ActivatedRoute,
     public location: Location, 
     private cartService: CartService) {
-    this.shoppingCartItems$ = this.cartService.getItems();
+
+    this.shoppingCartItems$ = this.cartService.getItemslocal();
     this.shoppingCartItems$.subscribe(_ => _);
+    
     console.log(this.shoppingCartItems$);
+    //this.shoppingCartItems_local$ = this.cartService.getItemslocal();
+    //this.shoppingCartItems_local$.subscribe(_ => _);
+
+    
+    //console.log(this.shoppingCartItems_local$);
   }
 
   ngOnInit() {
