@@ -28,7 +28,7 @@ import { Location } from '@angular/common';
 
 export class DashboardComponent implements OnInit {
   phones: Phone[] = [];
-  laptops: Laptop[] = [];
+  laptops: Phone[] = [];
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
@@ -38,16 +38,18 @@ export class DashboardComponent implements OnInit {
  
   ngOnInit() {
     this.getPhones();
+    this.getLaptops();
   }
  
   getPhones(): void {
     this.phoneService.getPhones()
-      .subscribe(phones => this.phones = phones.slice(0, 10));
+      .subscribe(phones => this.phones = phones.slice(0, 5));
   }
   getLaptops(): void {
     this.phoneService.getLaptops()
-      .subscribe(laptops => this.laptops = laptops.slice(0, 10));
-      console.log(this.laptops.length);
+      .subscribe(laptops => this.laptops = laptops.slice(0, 4));
+      console.log('list laptops: ');
+      console.log(this.laptops);
   }
 
   public addToCart(product: Phone) {

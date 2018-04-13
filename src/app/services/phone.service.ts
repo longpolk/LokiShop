@@ -65,6 +65,7 @@ export class PhoneService {
         new Phone(
           phone.brand,
           phone.category_id,
+          phone.colors,
           phone.id,
           phone.imageUrl,
           phone.inStock,
@@ -81,7 +82,7 @@ export class PhoneService {
     });
     return this.listPhone;
   }
-  getLaptops(): Observable<Laptop[]> {
+  getLaptops(): Observable<Phone[]> {
     this.laptopCol = this.angularFirestore.collection(
       "category/laptops/laptop-list"
     );

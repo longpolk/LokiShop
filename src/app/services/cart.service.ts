@@ -70,7 +70,14 @@ export class CartService {
   public saveLocalstorage(cart: Phone[]) {
     //convert each item in cart to json
     var anonymousCart = JSON.stringify(cart);
+    //check if the current cart is saved in the local storage
+    if(this.localStorageService.get('anonymousCart')){
+      console.log('Existing!');
+    }
+    else{
     this.localStorageService.set('anonymousCart',anonymousCart);
+    console.log('New cart is added');
+    }
     console.log(anonymousCart);
   }
 

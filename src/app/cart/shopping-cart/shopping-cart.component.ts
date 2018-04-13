@@ -20,6 +20,10 @@ export class ShoppingCartComponent implements OnInit {
       .getItemslocal();
 
     this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
+    //this.cartService.getItemslocal()
+      //.subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
+      console.log("Items from cart: ");
+      console.log(this.shoppingCartItems);
   }
 
   ngOnInit() {

@@ -33,6 +33,7 @@ import { CartService } from './services/cart.service';
 import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
 import {Location, CommonModule} from '@angular/common';
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { LocalStorageModule } from 'angular-2-local-storage';
     ShoppingCartItem,
     shoppingCart,
     ShoppingList,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

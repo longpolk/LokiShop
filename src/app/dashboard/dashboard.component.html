@@ -189,7 +189,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="module-content">
+                            <div class="module-content" style="width: 120%">
                                 <!--Hiển thị phones mới nhất-->
                                 <div id="latestProducts" class="list-items">
                                     <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
@@ -246,31 +246,33 @@
 
 
                                 </div>
-                                <!--Hiển thị laptops mới nhất>
-                                <div class="owl-carousel owl-theme nav-enable nav-top lg4" data-lg-items="4" data-md-items="3" data-sm-items="3" data-xs-items="2"
-                                    data-xxs-items="2" data-nav="true" data-auto-play="true" data-auto-height="true">
-                                    <div class="owl-item active" style="width:212px;" *ngFor="let laptop of laptops">
-                                    <div class="item">
+                                <!--Hiển thị laptops mới nhất-->
+                                <div id="latestProducts" class="list-items" *ngIf="laptops">
+                                    <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
+                                        <div class="owl-item"-->
+                                   
+                                            <div *ngFor="let phone of laptops" class="list-item" style="width: 212px;">
+                                                <div class="item">
 
                                         <div class="product-box product-grid-item">
                                             <div class="product-thumbnail">
 
-                                                <a routerLink="/detail/{{laptop.data.id}}" title="{{laptop.data.name}}">
+                                                <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
                                                     <picture class="dp-flex">
-                                                            <img class="img-responsive" src="{{laptop.data.imageUrl}}" alt="{{laptop.data.name}}" />
+                                                        <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}" />
 
                                                     </picture>
                                                 </a>
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="product-name text1line">
-                                                    <a routerLink="/detail/{{laptop.data.id}}" title="{{laptop.data.name}}">
-                                                        {{laptop.data.name}}
+                                                    <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
+                                                        {{phone.data.name}}
                                                     </a>
                                                 </h3>
                                                 <div class="price-box price-loop-style">
                                                     <span class="special-price">
-                                                        <span class="price">{{laptop.data.price | number:'1.2-2'}}₫</span>
+                                                        <span class="price">{{phone.data.price | number}}₫</span>
                                                     </span>
                                                     <span class="old-price">
                                                         <span class="price">
@@ -282,7 +284,7 @@
                                                     <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
                                                         <input class="hidden" type="hidden" name="variantId" value="17441893" />
 
-                                                        <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
+                                                        <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
                                                             <span>
                                                                 <i class="fa fa-shopping-cart"></i> Mua hàng</span>
                                                         </button>
@@ -292,11 +294,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
+                                            </div>
+                                    
+                                    
+                                    <!--/div-->
+                                    <!--/div-->
 
 
-
-                                </div-->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -325,88 +330,46 @@
                             </div>
                             <div class="module-content">
 
-                                <div class="owl-carousel owl-theme nav-enable nav-top lg4" data-lg-items="4" data-md-items="3" data-sm-items="3" data-xs-items="2"
-                                    data-xxs-items="2" data-nav="true" data-auto-play="true" data-auto-height="true">
-
-                                    <div *ngFor="let laptop of laptops" class="item">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                <div id="latestProducts" class="list-items" *ngIf="laptops">
+                                    <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
+                                        <div class="owl-item"-->
+                                   
+                                            <div *ngFor="let phone of laptops" class="list-item" style="width: 212px;">
+                                                <div class="item">
 
                                         <div class="product-box product-grid-item">
                                             <div class="product-thumbnail">
 
-                                                <a routerLink="/detail/{{laptop.data.id}}" title="{{laptop.data.name}}">
+                                                <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
                                                     <picture class="dp-flex">
-
-                                                        <img class="img-responsive" src="{{laptop.data.imageUrl}}" alt="{{laptop.data.name}}" />
+                                                        <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}" />
 
                                                     </picture>
                                                 </a>
                                             </div>
-                                            <div class=" product-info ">
-                                                <h3 class="product-name text1line ">
-                                                    <a routerLink="/detail/{{laptop.data.id}} " title="{{laptop.data.name}} ">
-                                                        {{laptop.data.name}}
+                                            <div class="product-info">
+                                                <h3 class="product-name text1line">
+                                                    <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
+                                                        {{phone.data.name}}
                                                     </a>
                                                 </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">{{phone.data.price | number:'1.2-2'}}₫</span>
+                                                <div class="price-box price-loop-style">
+                                                    <span class="special-price">
+                                                        <span class="price">{{phone.data.price | number}}₫</span>
                                                     </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
+                                                    <span class="old-price">
+                                                        <span class="price">
 
                                                         </span>
                                                     </span>
-
-
-
                                                 </div>
+                                                <div class="product-action-btn product-action">
+                                                    <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
+                                                        <input class="hidden" type="hidden" name="variantId" value="17441893" />
 
-
-
-                                                <div class="product-action-btn product-action ">
-                                                    <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250197 " enctype="multipart/form-data ">
-                                                        <input class="hidden " type="hidden " name="variantId " value="17441914 " />
-
-                                                        <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
+                                                        <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
                                                             <span>
-                                                                <i class="fa fa-shopping-cart "></i> Mua hàng</span>
+                                                                <i class="fa fa-shopping-cart"></i> Mua hàng</span>
                                                         </button>
 
                                                     </form>
@@ -414,6 +377,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                            </div>
+                                    
+                                    
+                                    <!--/div-->
+                                    <!--/div-->
+
 
                                 </div>
 
