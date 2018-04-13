@@ -1,5 +1,5 @@
 Đồ án cơ sở:
-- Trang chủ: hiển thị thông tin + hình ảnh + giá top 10 sản phẩm mới nhất (phân theo danh mục “loại mặt hàng”)
+- Trang chủ: (hiển thị thông tin + hình ảnh + giá) Sản phẩm mới nhất, Sản phẩm nổi bật(được mua nhiều), Bộ sưu tập laptop/điện thoại (các phụ kiện liên quan + mới), Sản phẩm giới thiệu (các sản phẩm cũ hơn 1 tháng + ít người mua nhất + có giảm giá) 
 - Trang chi tiết sản phẩm: chứa các hình ảnh + thông tin chi tiết + giá + số lượng còn lại + chức năng thêm vào giỏ hàng (or đăng kí email nhận thông báo hàng về nếu hết hàng). 
 - Trang giỏ hàng: chứa các thông tin về sản phẩm đã đặt + thông tin người mua + tổng tiền. Chức năng thanh toán online sẽ là COD (Cash on delivery) để demo(sẽ thêm Paypal trong Đồ án chuyên ngành).
 - Trang đăng nhập: chức năng hiện tại chỉ dành cho admin login vào hệ thống để thực hiện thay đổi trong database.(Sẽ thêm chức năng login Google, Facebook trong đồ án chuyên ngành)
