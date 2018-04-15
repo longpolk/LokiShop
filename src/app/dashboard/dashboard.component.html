@@ -69,7 +69,7 @@
 <section class="awe-section-2">
     <section class="section_slider">
         <div class="container">
-            <div class="row">
+            <div class="row" *ngIf="sliders">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 index-slider">
                     <div class="owl-carousel owl-theme" data-lg-items="1" data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'
                         data-auto-play="true" data-nav="true">
@@ -89,68 +89,26 @@
 
 
 
-
-
-
-
-                        <div class="item banner-item">
-                            <a href="#" class="clearfix" title="LokiShop-2018">
-                                <figure>
-                                    <img src="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/slider_2_image.png?1522816147817" alt="LokiShop-2018">
-                                </figure>
-                            </a>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="item banner-item">
-                            <a href="#" class="clearfix" title="LokiShop-2018">
-                                <figure>
-                                    <img src="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/slider_3_image.png?1522816147817" alt="LokiShop-2018">
-                                </figure>
-                            </a>
-                        </div>
-
-
                     </div>
                 </div>
                 <div class="hidden-xs col-sm-12 col-md-4 col-lg-4">
-                    <div class="row">
+                    <div class="row" *ngIf="banners">
 
 
 
 
 
 
-                        <div class="hidden-xs col-sm-6 col-md-12 col-lg-12 index-banner">
+                        <div *ngFor="let banner of banners"  class="hidden-xs col-sm-6 col-md-12 col-lg-12 index-banner">
                             <div class="item banner-item">
-                                <a href="#" title="">
+                                <a href="{{banner.data.link}}" title="">
                                     <figure>
-                                        <img src="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/slide_banner_1_image.png?1522816147817" alt="LokiShop-2018">
+                                        <img src="{{banner.data.imageUrl}}" alt="LokiShop-2018">
                                     </figure>
                                 </a>
                             </div>
                         </div>
 
-
-
-
-
-
-
-                        <div class="hidden-xs col-sm-6 col-md-12 col-lg-12 index-banner">
-                            <div class="item banner-item">
-                                <a href="#" title="">
-                                    <figure>
-                                        <img src="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/slide_banner_2_image.png?1522816147817" alt="LokiShop-2018">
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
 
 
                     </div>
@@ -189,7 +147,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="module-content" style="width: 120%">
+                            <div class="module-content" style="width: 115%">
                                 <!--Hiển thị phones mới nhất-->
                                 <div id="latestProducts" class="list-items">
                                     <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
@@ -328,13 +286,13 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="module-content">
+                            <div class="module-content" style="width: 115%">
 
-                                <div id="latestProducts" class="list-items" *ngIf="laptops">
+                                <div id="mostPopuparProducts" class="list-items" *ngIf="accessories">
                                     <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
                                         <div class="owl-item"-->
                                    
-                                            <div *ngFor="let phone of laptops" class="list-item" style="width: 212px;">
+                                            <div *ngFor="let phone of accessories" class="list-item" style="width: 212px;">
                                                 <div class="item">
 
                                         <div class="product-box product-grid-item">

@@ -88,7 +88,7 @@ export class PhoneService {
     );
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
-        const data = a.payload.doc.data() as Laptop;
+        const data = a.payload.doc.data() as Phone;
         const id = a.payload.doc.id;
         return { id, data };
       });
@@ -96,6 +96,54 @@ export class PhoneService {
     return this.laptopPosts.pipe(
       tap(phone => this.log(`fetched laptop`)),
       catchError(this.handleError("getLaptops", []))
+    );
+  }
+  getAccessories(): Observable<Phone[]> {
+    this.laptopCol = this.angularFirestore.collection(
+      "category/accessories/accessories-list"
+    );
+    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.laptopPosts.pipe(
+      tap(phone => this.log(`fetched accessories`)),
+      catchError(this.handleError("getAccessories", []))
+    );
+  }
+  getBanners(): Observable<Phone[]> {
+    this.laptopCol = this.angularFirestore.collection(
+      "banners/slider-banners/list"
+    );
+    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.laptopPosts.pipe(
+      tap(phone => this.log(`fetched banners`)),
+      catchError(this.handleError("getBanners", []))
+    );
+  }
+  getSliders(): Observable<Phone[]> {
+    this.laptopCol = this.angularFirestore.collection(
+      "banners/sliders/list"
+    );
+    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.laptopPosts.pipe(
+      tap(phone => this.log(`fetched sliders`)),
+      catchError(this.handleError("getSliders", []))
     );
   }
   /** GET hero by id. Return `undefined` when id not found */

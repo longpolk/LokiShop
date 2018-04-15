@@ -29,6 +29,9 @@ import { Location } from '@angular/common';
 export class DashboardComponent implements OnInit {
   phones: Phone[] = [];
   laptops: Phone[] = [];
+  accessories: Phone[] = [];
+  banners: Phone[] = [];
+  sliders: Phone[] = [];
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
@@ -39,6 +42,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getPhones();
     this.getLaptops();
+    this.getAccessories();
+    this.getBanners();
+    this.getSliders();
   }
  
   getPhones(): void {
@@ -47,11 +53,28 @@ export class DashboardComponent implements OnInit {
   }
   getLaptops(): void {
     this.phoneService.getLaptops()
-      .subscribe(laptops => this.laptops = laptops.slice(0, 4));
-      console.log('list laptops: ');
-      console.log(this.laptops);
+      .subscribe(laptops => this.laptops = laptops.slice(0, 5));
+      //console.log('list laptops: ');
+      //console.log(this.laptops);
   }
-
+  getAccessories(){
+    this.phoneService.getAccessories()
+      .subscribe(accessories => this.accessories = accessories.slice(0, 5));
+      //console.log('list accessories: ');
+      //console.log(this.accessories);
+  }
+  getBanners(){
+    this.phoneService.getBanners()
+      .subscribe(banners => this.banners = banners.slice(0, 2));
+      //console.log('list accessories: ');
+      //console.log(this.accessories);
+  }
+  getSliders(){
+    this.phoneService.getSliders()
+      .subscribe(sliders => this.sliders = sliders.slice(0, 3));
+      //console.log('list accessories: ');
+      //console.log(this.accessories);
+  }
   public addToCart(product: Phone) {
     this.cartService.addToCart(product);
   }
