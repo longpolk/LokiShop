@@ -87,15 +87,12 @@
                                 <span class="price" itemprop="price">{{phone.price | number}}₫</span>
                                 <meta itemprop="priceCurrency" content="VND">
                             </span>
-                            <span class="old-price">
+                            <span *ngIf="phone.sale_price < phone.price" class="old-price">
                                 <span class="price" itemprop="priceSpecification">
-
+                                    {{phone.sale_price | number}}₫
                                 </span>
                                 <meta itemprop="priceCurrency" content="VND">
                             </span>
-
-
-
 
                             <span class="availability in-stock" itemscope itemtype="http://schema.org/ItemAvailability">
                                 
@@ -107,7 +104,7 @@
                                     <ng-template #elseBlock>
                                     <span id="elseBlock" itemprop="supersededBy">
 
-                                        Còn lại: {{phone.inStock}} sản phẩm
+                                        Còn lại: {{phone.inStock}}
 
                                     </span>
                                 </ng-template>
@@ -132,21 +129,11 @@
                                 <div class="box-variant clearfix">
                                     <div class="selector-wrapper">
                                         <label>Màu sắc</label>
-                                        <select class="single-option-selector" data-option="option1" id="product-selectors-option-0">
-                                            <option value="Đen">Đen</option>
-                                            <option value="Trắng">Trắng</option>
-                                            <option value="Đỏ">Đỏ</option>
+                                        <select  class="single-option-selector" data-option="option1" id="product-selectors-option-0">
+                                            <option *ngFor="let color of phone.colors" value="color">{{color}}</option>
                                         </select>
                                     </div>
-                                    <select id="product-selectors" name="variantId" style="display:none">
-
-                                        <option selected="selected" value="17441888">Đen - 5.690.000₫</option>
-
-                                        <option value="17441889">Trắng - 5.690.000₫</option>
-
-                                        <option value="17441890">Đỏ - 5.690.000₫</option>
-
-                                    </select>
+                                    
                                 </div>
 
                                 <div class="form-group product_quantity ">

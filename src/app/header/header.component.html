@@ -142,7 +142,8 @@
             <div class="mini-cart text-xs-center">
               <div class="heading-cart">
                 <a routerLink="/cart">
-                  <span class="cartCount count_item_pr" id="cart-total">{{(shoppingCartItems$ | async).length}}</span>
+                  <span alt="Không có sản phẩm nào trong giỏ hàng của bạn" class="cartCount count_item_pr" id="cart-total" *ngIf="shoppingCartItems$.value==null">0</span>
+                  <span class="cartCount count_item_pr" id="cart-total" *ngIf="shoppingCartItems$.value!=null">{{(shoppingCartItems$ | async).length}}</span>
                   <br>sản phẩm
                 </a>
               </div>
