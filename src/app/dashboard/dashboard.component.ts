@@ -32,6 +32,9 @@ export class DashboardComponent implements OnInit {
   accessories: Phone[] = [];
   banners: Phone[] = [];
   sliders: Phone[] = [];
+  phoneAccessories: Phone[] = [];
+  laptopAccessories: Phone[] = [];
+  discountProducts: Phone[] = [];
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
@@ -45,6 +48,9 @@ export class DashboardComponent implements OnInit {
     this.getAccessories();
     this.getBanners();
     this.getSliders();
+    this.getLaptopAccessories();
+    this.getPhoneAccessories();
+    this.getDiscountProduct();
   }
  
   getPhones(): void {
@@ -59,7 +65,7 @@ export class DashboardComponent implements OnInit {
   }
   getAccessories(){
     this.phoneService.getAccessories()
-      .subscribe(accessories => this.accessories = accessories.slice(0, 5));
+      .subscribe(accessories => this.accessories = accessories.slice(0, 4));
       //console.log('list accessories: ');
       //console.log(this.accessories);
   }
@@ -74,6 +80,19 @@ export class DashboardComponent implements OnInit {
       .subscribe(sliders => this.sliders = sliders.slice(0, 3));
       //console.log('list accessories: ');
       //console.log(this.accessories);
+  }
+  getPhoneAccessories(){
+    this.phoneService.getPhoneAccessories()
+    .subscribe(phoneAccessories => this.phoneAccessories = phoneAccessories.slice(0, 3));
+  }
+  getLaptopAccessories(){
+    this.phoneService.getLaptopAccessories()
+    .subscribe(laptopAccessories => this.laptopAccessories = laptopAccessories.slice(0, 3));
+    //console.log(this.laptopAccessories);
+  }
+  getDiscountProduct(){
+    this.phoneService.getDiscountProduct()
+    .subscribe(discountProducts => this.discountProducts = discountProducts.slice(0, 10));
   }
   public addToCart(product: Phone) {
     this.cartService.addToCart(product);

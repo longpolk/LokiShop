@@ -99,7 +99,7 @@
 
 
 
-                        <div *ngFor="let banner of banners"  class="hidden-xs col-sm-6 col-md-12 col-lg-12 index-banner">
+                        <div *ngFor="let banner of banners" class="hidden-xs col-sm-6 col-md-12 col-lg-12 index-banner">
                             <div class="item banner-item">
                                 <a href="{{banner.data.link}}" title="">
                                     <figure>
@@ -152,53 +152,54 @@
                                 <div id="latestProducts" class="list-items">
                                     <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
                                         <div class="owl-item"-->
-                                   
-                                            <div *ngFor="let phone of phones" class="list-item" style="width: 212px;">
-                                                <div class="item">
 
-                                        <div class="product-box product-grid-item">
-                                            <div class="product-thumbnail">
+                                    <div *ngFor="let phone of phones" class="list-item" style="width: 212px;">
+                                        <div class="item">
 
-                                                <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                    <picture class="dp-flex">
-                                                        <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}" />
+                                            <div class="product-box product-grid-item">
+                                                <div class="product-thumbnail">
 
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="product-name text1line">
                                                     <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                        {{phone.data.name}}
+                                                        <picture class="dp-flex">
+                                                            <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}"
+                                                            />
+
+                                                        </picture>
                                                     </a>
-                                                </h3>
-                                                <div class="price-box price-loop-style">
-                                                    <span class="special-price">
-                                                        <span class="price">{{phone.data.price | number}}₫</span>
-                                                    </span>
-                                                    <span class="old-price">
-                                                        <span class="price">
-
-                                                        </span>
-                                                    </span>
                                                 </div>
-                                                <div class="product-action-btn product-action">
-                                                    <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
-                                                        <input class="hidden" type="hidden" name="variantId" value="17441893" />
+                                                <div class="product-info">
+                                                    <h3 class="product-name text1line">
+                                                        <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
+                                                            {{phone.data.name}}
+                                                        </a>
+                                                    </h3>
+                                                    <div class="price-box price-loop-style">
+                                                        <span class="special-price">
+                                                            <span class="price">{{phone.data.price | number}}₫</span>
+                                                        </span>
+                                                        <span class="old-price">
+                                                            <span class="price">
 
-                                                        <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
-                                                            <span>
-                                                                <i class="fa fa-shopping-cart"></i> Mua hàng</span>
-                                                        </button>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="product-action-btn product-action">
+                                                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
+                                                            <input class="hidden" type="hidden" name="variantId" value="17441893" />
 
-                                                    </form>
+                                                            <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
+                                                                <span>
+                                                                    <i class="fa fa-shopping-cart"></i> Mua hàng</span>
+                                                            </button>
+
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                            </div>
-                                    
-                                    
+
+
                                     <!--/div-->
                                     <!--/div-->
 
@@ -208,53 +209,54 @@
                                 <div id="latestProducts" class="list-items" *ngIf="laptops">
                                     <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
                                         <div class="owl-item"-->
-                                   
-                                            <div *ngFor="let phone of laptops" class="list-item" style="width: 212px;">
-                                                <div class="item">
 
-                                        <div class="product-box product-grid-item">
-                                            <div class="product-thumbnail">
+                                    <div *ngFor="let phone of laptops" class="list-item" style="width: 212px;">
+                                        <div class="item">
 
-                                                <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                    <picture class="dp-flex">
-                                                        <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}" />
+                                            <div class="product-box product-grid-item">
+                                                <div class="product-thumbnail">
 
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="product-name text1line">
                                                     <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                        {{phone.data.name}}
+                                                        <picture class="dp-flex">
+                                                            <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}"
+                                                            />
+
+                                                        </picture>
                                                     </a>
-                                                </h3>
-                                                <div class="price-box price-loop-style">
-                                                    <span class="special-price">
-                                                        <span class="price">{{phone.data.price | number}}₫</span>
-                                                    </span>
-                                                    <span class="old-price">
-                                                        <span class="price">
-
-                                                        </span>
-                                                    </span>
                                                 </div>
-                                                <div class="product-action-btn product-action">
-                                                    <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
-                                                        <input class="hidden" type="hidden" name="variantId" value="17441893" />
+                                                <div class="product-info">
+                                                    <h3 class="product-name text1line">
+                                                        <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
+                                                            {{phone.data.name}}
+                                                        </a>
+                                                    </h3>
+                                                    <div class="price-box price-loop-style">
+                                                        <span class="special-price">
+                                                            <span class="price">{{phone.data.price | number}}₫</span>
+                                                        </span>
+                                                        <span class="old-price">
+                                                            <span class="price">
 
-                                                        <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
-                                                            <span>
-                                                                <i class="fa fa-shopping-cart"></i> Mua hàng</span>
-                                                        </button>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="product-action-btn product-action">
+                                                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
+                                                            <input class="hidden" type="hidden" name="variantId" value="17441893" />
 
-                                                    </form>
+                                                            <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
+                                                                <span>
+                                                                    <i class="fa fa-shopping-cart"></i> Mua hàng</span>
+                                                            </button>
+
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                            </div>
-                                    
-                                    
+
+
                                     <!--/div-->
                                     <!--/div-->
 
@@ -291,53 +293,54 @@
                                 <div id="mostPopuparProducts" class="list-items" *ngIf="accessories">
                                     <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
                                         <div class="owl-item"-->
-                                   
-                                            <div *ngFor="let phone of accessories" class="list-item" style="width: 212px;">
-                                                <div class="item">
 
-                                        <div class="product-box product-grid-item">
-                                            <div class="product-thumbnail">
+                                    <div *ngFor="let phone of accessories" class="list-item" style="width: 212px;">
+                                        <div class="item">
 
-                                                <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                    <picture class="dp-flex">
-                                                        <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}" />
+                                            <div class="product-box product-grid-item">
+                                                <div class="product-thumbnail">
 
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="product-name text1line">
                                                     <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                        {{phone.data.name}}
+                                                        <picture class="dp-flex">
+                                                            <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}"
+                                                            />
+
+                                                        </picture>
                                                     </a>
-                                                </h3>
-                                                <div class="price-box price-loop-style">
-                                                    <span class="special-price">
-                                                        <span class="price">{{phone.data.price | number}}₫</span>
-                                                    </span>
-                                                    <span class="old-price">
-                                                        <span class="price">
-
-                                                        </span>
-                                                    </span>
                                                 </div>
-                                                <div class="product-action-btn product-action">
-                                                    <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
-                                                        <input class="hidden" type="hidden" name="variantId" value="17441893" />
+                                                <div class="product-info">
+                                                    <h3 class="product-name text1line">
+                                                        <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
+                                                            {{phone.data.name}}
+                                                        </a>
+                                                    </h3>
+                                                    <div class="price-box price-loop-style">
+                                                        <span class="special-price">
+                                                            <span class="price">{{phone.data.price | number}}₫</span>
+                                                        </span>
+                                                        <span class="old-price">
+                                                            <span class="price">
 
-                                                        <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
-                                                            <span>
-                                                                <i class="fa fa-shopping-cart"></i> Mua hàng</span>
-                                                        </button>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="product-action-btn product-action">
+                                                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
+                                                            <input class="hidden" type="hidden" name="variantId" value="17441893" />
 
-                                                    </form>
+                                                            <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
+                                                                <span>
+                                                                    <i class="fa fa-shopping-cart"></i> Mua hàng</span>
+                                                            </button>
+
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                            </div>
-                                    
-                                    
+
+
                                     <!--/div-->
                                     <!--/div-->
 
@@ -370,27 +373,21 @@
                             <div class="module-header ">
                                 <h2 class="module-title title-style-4 ">
                                     <a href="frontpage " title="Bộ sưu tập Laptop ">
-                                        <span>Bộ sưu tập Laptop</span>
+                                        <span>Phụ kiện Laptop</span>
                                     </a>
                                 </h2>
                             </div>
                             <div class="module-content ">
 
-                                <div class="owl-carousel owl-theme nav-enable nav-top " data-lg-items="1
-                                                            " data-md-items="1 " data-sm-items="1 " data-xs-items="1 "
-                                 data-xxs-items="1 " data-nav="true " data-auto-play="true " data-auto-height="true ">
+                                <div *ngIf="laptopAccessories" class="list-items" data-lg-items="1
+                                                            " data-md-items="1 " data-sm-items="1 " data-xs-items="1 " data-xxs-items="1 "
+                                    data-nav="true " data-auto-play="true " data-auto-height="true ">
 
 
 
 
 
-                                    <div class="item ">
-
-
-
-
-
-
+                                    <div class="item">
 
 
 
@@ -408,265 +405,39 @@
 
 
 
-                                        <div class="product-box product-list-item item-small ">
+
+
+
+
+
+
+                                        <div *ngFor="let product of laptopAccessories"  class="product-box product-list-item item-small ">
                                             <div class="product-thumbnail ">
-                                                <a href="/bo-chia-cong-usb-ibuffalo-4-cong " title="Bộ chia cổng USB iBuffalo
-                                                            4 cổng ">
+                                                <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
                                                     <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/hub-usb-ibuffalo-bsh4u06bk.jpg?v=1522816159133 "
-                                                         alt="bo-chia-cong-usb-ibuffalo-4-cong ">
+                                                        <img class="img-responsive " src="{{product.data.thumb}}" alt="{{product.data.name}}">
 
                                                     </picture>
                                                 </a>
                                             </div>
                                             <div class="product-info ">
                                                 <h3 class="product-name text2line ">
-                                                    <a href="/bo-chia-cong-usb-ibuffalo-4-cong " title="Bộ chia cổng USB
-                                                            iBuffalo 4 cổng ">
-                                                        Bộ chia cổng usb ibuffalo 4 cổng
+                                                    <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
+                                                        {{product.data.name}}
                                                     </a>
                                                 </h3>
 
                                                 <div class="product-summary text3line ">
-
-                                                    - Số cổng: 4 - Hỗ trợ: USB 2.0 - Màu: Đen - Kích thước: 22 x 17 x 94 mm - Chiều dài cáp: 7 cm - Trọng lượng: 32 g Thông tin
-                                                    chung: - Model: IBUFFALO BSH4U06 - Màu sắc: Đen, Trắng, Hồng - Nhà sản xuất: iBuffalo
-
-
+                                                    {{product.data.snippet}}
 
                                                 </div>
-
-
-
-
-
-
-
-
-
-
 
                                                 <div class="price-box price-loop-style ">
 
 
 
                                                     <span class="special-price ">
-                                                        <span class="price ">260.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-acer-aspire-e5-411 " title="Laptop Acer Aspire E5-411 ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/acer-e5-411-c2pe-01.jpg?v=1522816156700 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/acer-e5-411-c2pe-01.jpg?v=1522816156700 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/acer-e5-411-c2pe-01.jpg?v=1522816156700 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/acer-e5-411-c2pe-01.jpg?v=1522816156700 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/acer-e5-411-c2pe-01.jpg?v=1522816156700 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/acer-e5-411-c2pe-01.jpg?v=1522816156700 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/acer-e5-411-c2pe-01.jpg?v=1522816156700
-                                                            " alt="laptop-acer-aspire-e5-411 ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-acer-aspire-e5-411 " title="Laptop Acer Aspire E5-411 ">
-                                                        Laptop acer aspire e5-411
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Laptop Acer E5-411 là phiên bản mới của Acer hướng đến người dùng phổ thông nhưng có thiết kế khá cao cấp. Máy còn được trang
-                                                    bị cấu hình đa dạng, phù hợp với từng nhu cầu người dùng khác nhau nhưng có thiết kế chung ở màn hình lớn 14inch,
-                                                    bàn phím chiclet và bàn di chuột rộng thoáng điều khiển ...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">5.690.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-asus-zenbook-ux305f-fc089h " title="Laptop Asus Zenbook
-                                                            UX305F-FC089H ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                         alt="laptop-asus-zenbook-ux305f-fc089h ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-asus-zenbook-ux305f-fc089h " title="Laptop Asus Zenbook
-                                                            UX305F-FC089H ">
-                                                        Laptop asus zenbook ux305f-fc089h
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Asus Zenbook UX305F-FC089H là chiếc Ultrabook siêu mỏng, siêu nhẹ của hãng Asus, máy được sở hữu chip xử lý Intel Core M,
-                                                    Ram 8GB và SSD 128GB. Máy tính xách tay Asus Zenbook UX305F-FC089H có trọng lượng nhẹ chỉ 1.2kg rất dễ dàng
-                                                    cho bạn mang theo khi đi ra ngoài công tác. Máy tính xác...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">17.990.000₫</span>
+                                                        <span class="price ">{{product.data.price}}₫</span>
                                                     </span>
                                                     <span class="old-price ">
                                                         <span class="price ">
@@ -682,311 +453,6 @@
 
                                     </div>
 
-
-
-
-
-
-
-                                    <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-acer-nitro-vn7-571g-550v " title="Laptop Acer Nitro VN7-571G-550V ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                         alt="laptop-acer-nitro-vn7-571g-550v ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-acer-nitro-vn7-571g-550v " title="Laptop Acer Nitro
-                                                            VN7-571G-550V ">
-                                                        Laptop acer nitro vn7-571g-550v
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Laptop Acer Intro VN7-571G-550V thuộc dòng máy cao cấp có cấu hình xử lý mạnh mẽ của hãng Acer, máy tính xách tay được trang
-                                                    bị bộ vi xử lý thế hệ thứ 5 mới Intel Core i5, bộ nhớ 4GB và lưu trữ được nhiều dữ liệu hơn với ổ cứng 1TB.
-                                                    Máy tính xách tay Acer Intro VN7-571G-550V có thiết kế tha...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">17.000.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-dell-vostro-14-5000-series " title="Laptop Dell Vostro
-                                                            14 5000 Series ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950
-                                                            " alt="laptop-dell-vostro-14-5000-series ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-dell-vostro-14-5000-series " title="Laptop Dell Vostro
-                                                            14 5000 Series ">
-                                                        Laptop dell vostro 14 5000 series
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Bộ vi xử lý laptop: - CPU: Intel Core i3 - Loại CPU: 4005U - Tốc độ CPU: 1.70 GHz - Bộ nhớ đệm: 3 MB Cache - Tốc độ CPU tối
-                                                    đa: Không Bộ nhớ laptop: - Loại RAM: SDRAM DDR3 - Dung lượng RAM: 4 GB - Tốc độ Bus RAM: 1600 MHz Đĩa cứng
-                                                    laptop: ...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">11.510.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-                                        <!-- chan le = true -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-dell-latitude-3440-l4i5h005 " title="Laptop Dell Latitude
-                                                            3440 - L4I5H005 ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-l3540b-01.jpg?v=1522816152003 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-l3540b-01.jpg?v=1522816152003 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/dell-l3540b-01.jpg?v=1522816152003 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/dell-l3540b-01.jpg?v=1522816152003 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-l3540b-01.jpg?v=1522816152003 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-l3540b-01.jpg?v=1522816152003 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/dell-l3540b-01.jpg?v=1522816152003
-                                                            " alt="laptop-dell-latitude-3440-l4i5h005 ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-dell-latitude-3440-l4i5h005 " title="Laptop Dell Latitude
-                                                            3440 - L4I5H005 ">
-                                                        Laptop dell latitude 3440 - l4i5h005
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Bộ vi xử lý laptop - CPU: Intel Core i5 - Loại CPU: 4210U - Tốc độ CPU: 1.70 GHz - Bộ nhớ đệm: 3 MB Cache - Tốc độ CPU tối
-                                                    đa: 2.70 GHz Bộ nhớ laptop - Loại RAM: SDRAM DDR3 - Dung lượng RAM: 4 GB - Tốc độ Bus RAM: 1600 MHz Đĩa cứng
-                                                    laptop ...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">13.600.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
 
 
                                     <!-- ADD DIV -->
@@ -1016,15 +482,15 @@
                             <div class="module-header ">
                                 <h2 class="module-title title-style-4 ">
                                     <a href="san-pham-noi-bat " title="Bộ sưu tập Điện thoại ">
-                                        <span>Bộ sưu tập Điện thoại</span>
+                                        <span>Phụ kiện Điện thoại</span>
                                     </a>
                                 </h2>
                             </div>
                             <div class="module-content ">
 
-                                <div class="owl-carousel owl-theme nav-enable nav-top " data-lg-items="1
-                                                            " data-md-items="1 " data-sm-items="1 " data-xs-items="1 "
-                                 data-xxs-items="1 " data-nav="true " data-auto-play="true " data-auto-height="true ">
+                                <div *ngIf="phoneAccessories" class="list-items" data-lg-items="1
+                                                            " data-md-items="1 " data-sm-items="1 " data-xs-items="1 " data-xxs-items="1 "
+                                    data-nav="true " data-auto-play="true " data-auto-height="true ">
 
 
 
@@ -1054,47 +520,27 @@
 
 
 
-                                        <div class="product-box product-list-item item-small ">
+                                        <div *ngFor="let product of phoneAccessories" class="product-box product-list-item item-small ">
                                             <div class="product-thumbnail ">
-                                                <a href="/the-nho-sandisk-ultra-class-10 " title="Thẻ nhớ Sandisk Ultra
-                                                            Class 10 ">
+                                                <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
                                                     <picture class="dp-flex ">
 
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                         alt="the-nho-sandisk-ultra-class-10 ">
+                                                        <img class="img-responsive " src="{{product.data.thumb}}"
+                                                            alt="{{product.data.name}}">
 
                                                     </picture>
                                                 </a>
                                             </div>
                                             <div class="product-info ">
                                                 <h3 class="product-name text2line ">
-                                                    <a href="/the-nho-sandisk-ultra-class-10 " title="Thẻ nhớ Sandisk Ultra
-                                                            Class 10 ">
-                                                        Thẻ nhớ sandisk ultra class 10
+                                                    <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
+                                                        {{product.data.name}}
                                                     </a>
                                                 </h3>
 
                                                 <div class="product-summary text3line ">
 
-                                                    Tốc độ truy xuất nhanh, đạt chuẩn Class 10: Thẻ nhớ SDHC Sandisk Ultra Class 10 hỗ trợ Video Full HD và đạt đến hiệu suất
-                                                    video Full HD cao nhất. Tối đa hóa hiệu suất ứng dụng, có thể truy xuất dữ liệu được lưu trữ gần như ngay lập
-                                                    tức, nhờ vào khả năng đọc 40MB / s và giao diện băng thông ...
+                                                    {{product.data.snippet}}
 
                                                 </div>
 
@@ -1113,7 +559,7 @@
 
 
                                                     <span class="special-price ">
-                                                        <span class="price ">119.000₫</span>
+                                                        <span class="price ">{{product.data.price}}₫</span>
                                                     </span>
                                                     <span class="old-price ">
                                                         <span class="price ">
@@ -1126,205 +572,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/but-luu-tru-apacer-ah111 " title="Bút lưu trữ Apacer AH111 ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763
-                                                            " alt="but-luu-tru-apacer-ah111 ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/but-luu-tru-apacer-ah111 " title="Bút lưu trữ Apacer AH111 ">
-                                                        Bút lưu trữ apacer ah111
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Apacer giới thiệu bút lưu trữ siêu nhỏ AH111 lấy cảm hứng từ “bông hồng xanh”. Bút lưu trữ này có thiết kế tinh tế, đơn giản
-                                                    nhưng đầy mạnh mẽ với dung lượng lưu trữ cao. AH111 là một bổ sung hấp dẫn cho dòng bút lưu trữ “thiên nhiên”
-                                                    của Apacer, gồm thiết kế thân cây AH135, thiết kế đốt tre AH1...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">119.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/tai-nghe-genius-hs-m220 " title="Tai nghe Genius HS-M220 ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                         alt="tai-nghe-genius-hs-m220 ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/tai-nghe-genius-hs-m220 " title="Tai nghe Genius HS-M220 ">
-                                                        Tai nghe genius hs-m220
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Tai nghe Genius HS-M220 là dòng tai nghe phổ thông dành cho những bạn trẻ yêu âm nhạc toàn cầu. Màng loa từ tính kích thước
-                                                    9mm có khả năng đáp ứng một dải tần âm rộng từ 20-20,000Hz, giúp tái hiện âm thanh chân thực và sắc nét hơn.
-                                                    Micro khử nhiễu và giảm ồn tốt cùng jack cắm chuẩn 3.5mm, phù h...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">285.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
 
 
@@ -1333,305 +580,7 @@
 
 
 
-                                    <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-asus-zenbook-ux305f-fc089h " title="Laptop Asus Zenbook
-                                                            UX305F-FC089H ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                         alt="laptop-asus-zenbook-ux305f-fc089h ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-asus-zenbook-ux305f-fc089h " title="Laptop Asus Zenbook
-                                                            UX305F-FC089H ">
-                                                        Laptop asus zenbook ux305f-fc089h
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Asus Zenbook UX305F-FC089H là chiếc Ultrabook siêu mỏng, siêu nhẹ của hãng Asus, máy được sở hữu chip xử lý Intel Core M,
-                                                    Ram 8GB và SSD 128GB. Máy tính xách tay Asus Zenbook UX305F-FC089H có trọng lượng nhẹ chỉ 1.2kg rất dễ dàng
-                                                    cho bạn mang theo khi đi ra ngoài công tác. Máy tính xác...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">17.990.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-acer-nitro-vn7-571g-550v " title="Laptop Acer Nitro VN7-571G-550V ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                         alt="laptop-acer-nitro-vn7-571g-550v ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-acer-nitro-vn7-571g-550v " title="Laptop Acer Nitro
-                                                            VN7-571G-550V ">
-                                                        Laptop acer nitro vn7-571g-550v
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Laptop Acer Intro VN7-571G-550V thuộc dòng máy cao cấp có cấu hình xử lý mạnh mẽ của hãng Acer, máy tính xách tay được trang
-                                                    bị bộ vi xử lý thế hệ thứ 5 mới Intel Core i5, bộ nhớ 4GB và lưu trữ được nhiều dữ liệu hơn với ổ cứng 1TB.
-                                                    Máy tính xách tay Acer Intro VN7-571G-550V có thiết kế tha...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">17.000.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-                                        <!-- chan le = true -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="product-box product-list-item item-small ">
-                                            <div class="product-thumbnail ">
-                                                <a href="/laptop-dell-vostro-14-5000-series " title="Laptop Dell Vostro
-                                                            14 5000 Series ">
-                                                    <picture class="dp-flex ">
-
-                                                        <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 992px) and (max-width: 1199px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 768px) and (max-width: 991px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 543px) and (max-width: 767px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(min-width: 320px) and (max-width: 542px)
-                                                            " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                        />
-                                                        <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950
-                                                            " alt="laptop-dell-vostro-14-5000-series ">
-
-                                                    </picture>
-                                                </a>
-                                            </div>
-                                            <div class="product-info ">
-                                                <h3 class="product-name text2line ">
-                                                    <a href="/laptop-dell-vostro-14-5000-series " title="Laptop Dell Vostro
-                                                            14 5000 Series ">
-                                                        Laptop dell vostro 14 5000 series
-                                                    </a>
-                                                </h3>
-
-                                                <div class="product-summary text3line ">
-
-                                                    Bộ vi xử lý laptop: - CPU: Intel Core i3 - Loại CPU: 4005U - Tốc độ CPU: 1.70 GHz - Bộ nhớ đệm: 3 MB Cache - Tốc độ CPU tối
-                                                    đa: Không Bộ nhớ laptop: - Loại RAM: SDRAM DDR3 - Dung lượng RAM: 4 GB - Tốc độ Bus RAM: 1600 MHz Đĩa cứng
-                                                    laptop: ...
-
-                                                </div>
-
-
-
-
-
-
-
-
-
-
-
-                                                <div class="price-box price-loop-style ">
-
-
-
-                                                    <span class="special-price ">
-                                                        <span class="price ">11.510.000₫</span>
-                                                    </span>
-                                                    <span class="old-price ">
-                                                        <span class="price ">
-
-                                                        </span>
-                                                    </span>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                    
 
 
                                     <!-- ADD DIV -->
@@ -1773,8 +722,8 @@
                         <div class="module-content ">
 
                             <div class="owl-carousel owl-theme nav-enable nav-top " data-lg-items="1 " data-md-items="1
-                                                            " data-sm-items="1 " data-xs-items="1 "
-                             data-xxs-items="1 " data-nav="true " data-auto-play="true " data-auto-height="true ">
+                                                            " data-sm-items="1 " data-xs-items="1 " data-xxs-items="1 "
+                                data-nav="true " data-auto-play="true " data-auto-height="true ">
 
 
 
@@ -1824,7 +773,7 @@
                                                     <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
                                                     />
                                                     <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                     alt="the-nho-sandisk-ultra-class-10 ">
+                                                        alt="the-nho-sandisk-ultra-class-10 ">
 
                                                 </picture>
                                             </a>
@@ -1840,8 +789,9 @@
                                             <div class="product-summary text3line ">
 
                                                 Tốc độ truy xuất nhanh, đạt chuẩn Class 10: Thẻ nhớ SDHC Sandisk Ultra Class 10 hỗ trợ Video Full HD và đạt đến hiệu suất
-                                                video Full HD cao nhất. Tối đa hóa hiệu suất ứng dụng, có thể truy xuất dữ liệu được lưu trữ gần như ngay lập
-                                                tức, nhờ vào khả năng đọc 40MB / s và giao diện băng thông ...
+                                                video Full HD cao nhất. Tối đa hóa hiệu suất ứng dụng, có thể truy xuất dữ
+                                                liệu được lưu trữ gần như ngay lập tức, nhờ vào khả năng đọc 40MB / s và
+                                                giao diện băng thông ...
 
                                             </div>
 
@@ -1936,8 +886,9 @@
                                             <div class="product-summary text3line ">
 
                                                 Apacer giới thiệu bút lưu trữ siêu nhỏ AH111 lấy cảm hứng từ “bông hồng xanh”. Bút lưu trữ này có thiết kế tinh tế, đơn giản
-                                                nhưng đầy mạnh mẽ với dung lượng lưu trữ cao. AH111 là một bổ sung hấp dẫn cho dòng bút lưu trữ “thiên nhiên”
-                                                của Apacer, gồm thiết kế thân cây AH135, thiết kế đốt tre AH1...
+                                                nhưng đầy mạnh mẽ với dung lượng lưu trữ cao. AH111 là một bổ sung hấp dẫn
+                                                cho dòng bút lưu trữ “thiên nhiên” của Apacer, gồm thiết kế thân cây AH135,
+                                                thiết kế đốt tre AH1...
 
                                             </div>
 
@@ -2017,7 +968,7 @@
                                                     <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
                                                     />
                                                     <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                     alt="tai-nghe-genius-hs-m220 ">
+                                                        alt="tai-nghe-genius-hs-m220 ">
 
                                                 </picture>
                                             </a>
@@ -2032,8 +983,9 @@
                                             <div class="product-summary text3line ">
 
                                                 Tai nghe Genius HS-M220 là dòng tai nghe phổ thông dành cho những bạn trẻ yêu âm nhạc toàn cầu. Màng loa từ tính kích thước
-                                                9mm có khả năng đáp ứng một dải tần âm rộng từ 20-20,000Hz, giúp tái hiện âm thanh chân thực và sắc nét hơn.
-                                                Micro khử nhiễu và giảm ồn tốt cùng jack cắm chuẩn 3.5mm, phù h...
+                                                9mm có khả năng đáp ứng một dải tần âm rộng từ 20-20,000Hz, giúp tái hiện
+                                                âm thanh chân thực và sắc nét hơn. Micro khử nhiễu và giảm ồn tốt cùng jack
+                                                cắm chuẩn 3.5mm, phù h...
 
                                             </div>
 
@@ -2115,7 +1067,7 @@
                                                     <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
                                                     />
                                                     <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                     alt="laptop-asus-zenbook-ux305f-fc089h ">
+                                                        alt="laptop-asus-zenbook-ux305f-fc089h ">
 
                                                 </picture>
                                             </a>
@@ -2131,8 +1083,9 @@
                                             <div class="product-summary text3line ">
 
                                                 Asus Zenbook UX305F-FC089H là chiếc Ultrabook siêu mỏng, siêu nhẹ của hãng Asus, máy được sở hữu chip xử lý Intel Core M,
-                                                Ram 8GB và SSD 128GB. Máy tính xách tay Asus Zenbook UX305F-FC089H có trọng lượng nhẹ chỉ 1.2kg rất dễ dàng
-                                                cho bạn mang theo khi đi ra ngoài công tác. Máy tính xác...
+                                                Ram 8GB và SSD 128GB. Máy tính xách tay Asus Zenbook UX305F-FC089H có trọng
+                                                lượng nhẹ chỉ 1.2kg rất dễ dàng cho bạn mang theo khi đi ra ngoài công tác.
+                                                Máy tính xác...
 
                                             </div>
 
@@ -2210,7 +1163,7 @@
                                                     <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
                                                     />
                                                     <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                     alt="laptop-acer-nitro-vn7-571g-550v ">
+                                                        alt="laptop-acer-nitro-vn7-571g-550v ">
 
                                                 </picture>
                                             </a>
@@ -2225,8 +1178,9 @@
                                             <div class="product-summary text3line ">
 
                                                 Laptop Acer Intro VN7-571G-550V thuộc dòng máy cao cấp có cấu hình xử lý mạnh mẽ của hãng Acer, máy tính xách tay được trang
-                                                bị bộ vi xử lý thế hệ thứ 5 mới Intel Core i5, bộ nhớ 4GB và lưu trữ được nhiều dữ liệu hơn với ổ cứng 1TB.
-                                                Máy tính xách tay Acer Intro VN7-571G-550V có thiết kế tha...
+                                                bị bộ vi xử lý thế hệ thứ 5 mới Intel Core i5, bộ nhớ 4GB và lưu trữ được
+                                                nhiều dữ liệu hơn với ổ cứng 1TB. Máy tính xách tay Acer Intro VN7-571G-550V
+                                                có thiết kế tha...
 
                                             </div>
 
@@ -2327,8 +1281,8 @@
                                             <div class="product-summary text3line ">
 
                                                 Bộ vi xử lý laptop: - CPU: Intel Core i3 - Loại CPU: 4005U - Tốc độ CPU: 1.70 GHz - Bộ nhớ đệm: 3 MB Cache - Tốc độ CPU tối
-                                                đa: Không Bộ nhớ laptop: - Loại RAM: SDRAM DDR3 - Dung lượng RAM: 4 GB - Tốc độ Bus RAM: 1600 MHz Đĩa cứng laptop:
-                                                ...
+                                                đa: Không Bộ nhớ laptop: - Loại RAM: SDRAM DDR3 - Dung lượng RAM: 4 GB -
+                                                Tốc độ Bus RAM: 1600 MHz Đĩa cứng laptop: ...
 
                                             </div>
 
@@ -2392,8 +1346,8 @@
                         <div class="module-content ">
 
                             <div class="owl-carousel owl-theme nav-enable nav-top " data-lg-items="1 " data-md-items="1
-                                                            " data-sm-items="2 " data-xs-items="2 "
-                             data-xxs-items="1 " data-nav="true " data-auto-play="true " data-auto-height="true ">
+                                                            " data-sm-items="2 " data-xs-items="2 " data-xxs-items="1 "
+                                data-nav="true " data-auto-play="true " data-auto-height="true ">
 
                                 <div class="item ">
                                     <div class="article-thumbnail ">
@@ -2588,8 +1542,7 @@
                         <a href="# " title=" ">
                             <figure>
                                 <img src="http://bizweb.dktcdn.net/100/305/798/themes/650335/assets/index_large_banner.png?1522816147817
-                                                            " class="img-responsive "
-                                 alt="LokiShop-2018 ">
+                                                            " class="img-responsive " alt="LokiShop-2018 ">
                             </figure>
                         </a>
                     </div>
@@ -2619,1030 +1572,66 @@
                             </a>
                         </h2>
                     </div>
-                    <div class="module-content lg6 ">
+                    <div class="module-content" style="width: 115%">
+                        <!--Hiển thị phones mới nhất-->
+                        <div id="discountProducts" class="list-items">
+                            <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
+                                <div class="owl-item"-->
 
-                        <div class="owl-carousel owl-theme nav-enable nav-top " data-lg-items="6 " data-md-items="4
-                                                            " data-sm-items="3 " data-xs-items="2 "
-                         data-xxs-items="2 " data-nav="true " data-margin="0 ">
+                            <div *ngFor="let phone of discountProducts" class="list-item" style="width: 212px;">
+                                <div class="item">
 
-                            <div class="item ">
+                                    <div class="product-box product-grid-item">
+                                        <div class="product-thumbnail">
 
+                                            <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
+                                                <picture class="dp-flex">
+                                                    <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}"
+                                                    />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/the-nho-sandisk-ultra-class-10 " title="Thẻ nhớ Sandisk Ultra Class 10 ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/the-nho-sandisk-ultra-sd-8gb-01.jpg?v=1522816165277 "
-                                                 alt="the-nho-sandisk-ultra-class-10 " />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/the-nho-sandisk-ultra-class-10 " title="Thẻ nhớ Sandisk Ultra Class
-                                                            10 ">
-                                                Thẻ nhớ sandisk ultra class 10
+                                                </picture>
                                             </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">119.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
                                         </div>
+                                        <div class="product-info">
+                                            <h3 class="product-name text1line">
+                                                <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
+                                                    {{phone.data.name}}
+                                                </a>
+                                            </h3>
+                                            <div class="price-box price-loop-style">
+                                                <span class="special-price">
+                                                    <span class="price">{{phone.data.sale_price | number}}₫</span>
+                                                </span>
+                                                <span class="old-price">
+                                                    <span class="price">
+                                                        {{phone.data.price | number}}₫
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="product-action-btn product-action">
+                                                <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
+                                                    <input class="hidden" type="hidden" name="variantId" value="17441893" />
 
+                                                    <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
+                                                        <span>
+                                                            <i class="fa fa-shopping-cart"></i> Mua hàng</span>
+                                                    </button>
 
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250197 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441914 " />
-
-                                                <button class="btn btn-cart addtocart btn-transition btn_choose_product
-                                                            choose-pro btn-accent " title="Chọn sản phẩm " type="button "
-                                                 onclick="window.location.href='/the-nho-sandisk-ultra-class-10' ">
-                                                    <span>
-                                                        <i class="fa fa-cog "></i> Tuỳ chọn</span>
-                                                </button>
-
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="item ">
 
+                            <!--/div-->
+                            <!--/div-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/but-luu-tru-apacer-ah111 " title="Bút lưu trữ Apacer AH111 ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/apacer-ah111-01.jpg?v=1522816161763
-                                                            " alt="but-luu-tru-apacer-ah111 "
-                                                />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/but-luu-tru-apacer-ah111 " title="Bút lưu trữ Apacer AH111 ">
-                                                Bút lưu trữ apacer ah111
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">119.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250194 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441903 " />
-
-                                                <button class="btn btn-cart addtocart btn-transition btn_choose_product
-                                                            choose-pro btn-accent " title="Chọn sản phẩm " type="button "
-                                                 onclick="window.location.href='/but-luu-tru-apacer-ah111' ">
-                                                    <span>
-                                                        <i class="fa fa-cog "></i> Tuỳ chọn</span>
-                                                </button>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/tai-nghe-genius-hs-m220 " title="Tai nghe Genius HS-M220 ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/bo-nghe-noi-genius-hs-m220-xanh.jpg?v=1522816159617 "
-                                                 alt="tai-nghe-genius-hs-m220 " />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/tai-nghe-genius-hs-m220 " title="Tai nghe Genius HS-M220 ">
-                                                Tai nghe genius hs-m220
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">285.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250191 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441896 " />
-
-                                                <button class="btn btn-cart addtocart btn-transition btn_choose_product
-                                                            choose-pro btn-accent " title="Chọn sản phẩm " type="button "
-                                                 onclick="window.location.href='/tai-nghe-genius-hs-m220' ">
-                                                    <span>
-                                                        <i class="fa fa-cog "></i> Tuỳ chọn</span>
-                                                </button>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/laptop-asus-zenbook-ux305f-fc089h " title="Laptop Asus Zenbook UX305F-FC089H ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tinh-xach-tay-asus-zenbook-ux305f-fc089h-01.jpg?v=1522816155207 "
-                                                 alt="laptop-asus-zenbook-ux305f-fc089h " />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/laptop-asus-zenbook-ux305f-fc089h " title="Laptop Asus Zenbook UX305F-FC089H ">
-                                                Laptop asus zenbook ux305f-fc089h
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">17.990.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250186 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441886 " />
-
-
-
-                                                <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
-                                                    <span>
-                                                        <i class="fa fa-shopping-cart "></i> Mua hàng</span>
-                                                </button>
-
-
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/laptop-acer-nitro-vn7-571g-550v " title="Laptop Acer Nitro VN7-571G-550V ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tin-xach-tay-acer-nitro-vn7-571g-01.jpg?v=1522816154500 "
-                                                 alt="laptop-acer-nitro-vn7-571g-550v " />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/laptop-acer-nitro-vn7-571g-550v " title="Laptop Acer Nitro VN7-571G-550V ">
-                                                Laptop acer nitro vn7-571g-550v
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">17.000.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250185 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441885 " />
-
-
-
-                                                <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
-                                                    <span>
-                                                        <i class="fa fa-shopping-cart "></i> Mua hàng</span>
-                                                </button>
-
-
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/laptop-dell-vostro-14-5000-series " title="Laptop Dell Vostro 14 5000
-                                                            Series ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/dell-vostro-14-5480-01.jpg?v=1522816153950
-                                                            " alt="laptop-dell-vostro-14-5000-series "
-                                                />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/laptop-dell-vostro-14-5000-series " title="Laptop Dell Vostro 14
-                                                            5000 Series ">
-                                                Laptop dell vostro 14 5000 series
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">11.510.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250184 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441883 " />
-
-
-
-                                                <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
-                                                    <span>
-                                                        <i class="fa fa-shopping-cart "></i> Mua hàng</span>
-                                                </button>
-
-
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/laptop-hp-probook-440-g2-k9r17pa " title="Laptop HP Probook 440 G2 K9R17PA ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/hp-probook-440-01.jpg?v=1522816150863 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/hp-probook-440-01.jpg?v=1522816150863 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/hp-probook-440-01.jpg?v=1522816150863 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/hp-probook-440-01.jpg?v=1522816150863 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/hp-probook-440-01.jpg?v=1522816150863 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/hp-probook-440-01.jpg?v=1522816150863 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/hp-probook-440-01.jpg?v=1522816150863
-                                                            " alt="laptop-hp-probook-440-g2-k9r17pa "
-                                                />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/laptop-hp-probook-440-g2-k9r17pa " title="Laptop HP Probook 440 G2
-                                                            K9R17PA ">
-                                                Laptop hp probook 440 g2 k9r17pa
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">14.790.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250180 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441879 " />
-
-
-
-                                                <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
-                                                    <span>
-                                                        <i class="fa fa-shopping-cart "></i> Mua hàng</span>
-                                                </button>
-
-
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/laptop-lenovo-yoga-3-pro " title="Laptop Lenovo Yoga 3 Pro ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-lenovo-yoga-3-pro-01.jpg?v=1522816149850 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-lenovo-yoga-3-pro-01.jpg?v=1522816149850 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-lenovo-yoga-3-pro-01.jpg?v=1522816149850 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/may-tinh-xach-tay-lenovo-yoga-3-pro-01.jpg?v=1522816149850 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/may-tinh-xach-tay-lenovo-yoga-3-pro-01.jpg?v=1522816149850 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/may-tinh-xach-tay-lenovo-yoga-3-pro-01.jpg?v=1522816149850 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/may-tinh-xach-tay-lenovo-yoga-3-pro-01.jpg?v=1522816149850 "
-                                                 alt="laptop-lenovo-yoga-3-pro " />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/laptop-lenovo-yoga-3-pro " title="Laptop Lenovo Yoga 3 Pro ">
-                                                Laptop lenovo yoga 3 pro
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">31.990.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250179 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441878 " />
-
-
-
-                                                <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
-                                                    <span>
-                                                        <i class="fa fa-shopping-cart "></i> Mua hàng</span>
-                                                </button>
-
-
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/laptop-lenovo-ideapad-flex-2 " title="Laptop Lenovo IdeaPad Flex 2 ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/000000000010021355-may-tinh-xach-tay-lenovo-ideapad-flex-2-14.jpg?v=1522816149110 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/000000000010021355-may-tinh-xach-tay-lenovo-ideapad-flex-2-14.jpg?v=1522816149110 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/000000000010021355-may-tinh-xach-tay-lenovo-ideapad-flex-2-14.jpg?v=1522816149110 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/000000000010021355-may-tinh-xach-tay-lenovo-ideapad-flex-2-14.jpg?v=1522816149110 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/000000000010021355-may-tinh-xach-tay-lenovo-ideapad-flex-2-14.jpg?v=1522816149110 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/000000000010021355-may-tinh-xach-tay-lenovo-ideapad-flex-2-14.jpg?v=1522816149110 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/000000000010021355-may-tinh-xach-tay-lenovo-ideapad-flex-2-14.jpg?v=1522816149110 "
-                                                 alt="laptop-lenovo-ideapad-flex-2 " />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/laptop-lenovo-ideapad-flex-2 " title="Laptop Lenovo IdeaPad Flex
-                                                            2 ">
-                                                Laptop lenovo ideapad flex 2
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">13.990.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250178 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441877 " />
-
-
-
-                                                <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
-                                                    <span>
-                                                        <i class="fa fa-shopping-cart "></i> Mua hàng</span>
-                                                </button>
-
-
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="product-box product-grid-item ">
-                                    <div class="product-thumbnail ">
-
-                                        <a href="/laptop-toshiba-satellite-c40-a138 " title="Laptop Toshiba Satellite C40-A138 ">
-                                            <picture class="dp-flex ">
-
-                                                <source media="(min-width: 1200px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/19409-12896-satellite-c40-a102e-1.jpg?v=1522816148370 "
-                                                />
-                                                <source media="(min-width: 992px) and (max-width: 1199px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/19409-12896-satellite-c40-a102e-1.jpg?v=1522816148370 "
-                                                />
-                                                <source media="(min-width: 768px) and (max-width: 991px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/19409-12896-satellite-c40-a102e-1.jpg?v=1522816148370 "
-                                                />
-                                                <source media="(min-width: 571px) and (max-width: 767px) " srcset="http://bizweb.dktcdn.net/thumb/medium/100/305/798/products/19409-12896-satellite-c40-a102e-1.jpg?v=1522816148370 "
-                                                />
-                                                <source media="(min-width: 320px) and (max-width: 570px) " srcset="http://bizweb.dktcdn.net/thumb/compact/100/305/798/products/19409-12896-satellite-c40-a102e-1.jpg?v=1522816148370 "
-                                                />
-                                                <source media="(max-width: 319px) " srcset="http://bizweb.dktcdn.net/thumb/small/100/305/798/products/19409-12896-satellite-c40-a102e-1.jpg?v=1522816148370 ">
-                                                <img class="img-responsive " src="http://bizweb.dktcdn.net/100/305/798/products/19409-12896-satellite-c40-a102e-1.jpg?v=1522816148370 "
-                                                 alt="laptop-toshiba-satellite-c40-a138 " />
-
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-info ">
-                                        <h3 class="product-name text1line ">
-                                            <a href="/laptop-toshiba-satellite-c40-a138 " title="Laptop Toshiba Satellite
-                                                            C40-A138 ">
-                                                Laptop toshiba satellite c40-a138
-                                            </a>
-                                        </h3>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="price-box price-loop-style ">
-
-
-
-                                            <span class="special-price ">
-                                                <span class="price ">9.000.000₫</span>
-                                            </span>
-                                            <span class="old-price ">
-                                                <span class="price ">
-
-                                                </span>
-                                            </span>
-
-
-
-                                        </div>
-
-
-
-                                        <div class="product-action-btn product-action ">
-                                            <form action="/cart/add " method="post " class="variants form-nut-grid
-                                                            " data-id="product-actions-11250177 " enctype="multipart/form-data ">
-                                                <input class="hidden " type="hidden " name="variantId " value="17441876 " />
-
-
-
-                                                <button class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart
-                                                            btn-accent " title="Mua hàng ">
-                                                    <span>
-                                                        <i class="fa fa-shopping-cart "></i> Mua hàng</span>
-                                                </button>
-
-
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
-
+                        <!--Hiển thị laptops mới nhất-->
+                        
                     </div>
                 </div>
             </div>
