@@ -30,10 +30,10 @@ export class HeaderComponent implements OnInit {
     public location: Location, 
     private cartService: CartService) {
 
-    this.shoppingCartItems$ = this.cartService.getItemslocal();
+    this.shoppingCartItems$ = this.cartService.getItems();
     this.shoppingCartItems$.subscribe(_ => _);
     
-    console.log(this.shoppingCartItems$);
+    //console.log(this.shoppingCartItems$);
     //this.shoppingCartItems_local$ = this.cartService.getItemslocal();
     //this.shoppingCartItems_local$.subscribe(_ => _);
 

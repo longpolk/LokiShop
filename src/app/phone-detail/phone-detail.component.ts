@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterContentInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, AfterContentInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Phone } from '../phone';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -32,6 +32,8 @@ export class PhoneDetailComponent implements OnInit {
 
   @Input() phone: Phone;
   @Input() mainImageUrl: string;
+  @ViewChild('selectedColor') selectedColor: any;
+  @ViewChild('qty') qtyinCart: any;
   constructor(
     private route: ActivatedRoute,
     private phoneService: PhoneService,
@@ -62,8 +64,10 @@ export class PhoneDetailComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
   public addToCart(product: Phone) {
+    product.selectedColor = this.selectedColor.nativeElement.value;
+    product.qtyinCart = parseInt(this.qtyinCart.nativeElement.value); 
     this.cartService.addToCart(product);
-    //this.router.navigateByUrl('/');
+    console.log(product);
   }
 
 }

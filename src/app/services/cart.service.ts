@@ -43,8 +43,8 @@ export class CartService {
 
   public addToCart(item: Phone) {
     this.itemsInCartSubject.next([...this.itemsInCart, item]);
-    console.log(this.itemsInCartSubject);
-    this.saveLocalstorage(this.itemsInCart);
+   // console.log(this.itemsInCartSubject);
+    //this.saveLocalstorage(this.itemsInCart);
   }
 
   public removeFromCart(item: Phone) {

@@ -17,15 +17,17 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: CartService) {
     this.shoppingCartItems$ = this
       .cartService
-      .getItemslocal();
+      .getItems();
 
     this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
-    //this.cartService.getItemslocal()
-      //.subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
-      console.log("Items from cart: ");
-      console.log(this.shoppingCartItems);
+      //console.log("Items from cart: ");
+      //console.log(this.shoppingCartItems);
   }
 
   ngOnInit() {
+  }
+
+  removeFromCart(phone: Phone){
+    this.cartService.removeFromCart(phone);
   }
 }

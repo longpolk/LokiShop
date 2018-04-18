@@ -129,8 +129,8 @@
                                 <div class="box-variant clearfix">
                                     <div class="selector-wrapper">
                                         <label>Màu sắc</label>
-                                        <select  class="single-option-selector" data-option="option1" id="product-selectors-option-0">
-                                            <option *ngFor="let color of phone.colors" value="color">{{color}}</option>
+                                        <select  class="single-option-selector" data-option="option1" id="product-selectors-option-0" #selectedColor>
+                                            <option *ngFor="let color of phone.colors" value="{{color}}">{{color}}</option>
                                         </select>
                                     </div>
                                     
@@ -140,7 +140,7 @@
                                     <label class="form-control-label">Số lượng</label>
                                     <button [disabled]="phone.inStock < 1" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
                                         class="reduced btn btn-ipnb" type="button">-</button>
-                                    <input [disabled]="phone.inStock < 1" type="text" class="form-control text-xs-center qty" title="Số lượng" value="1" maxlength="3" id="qty" name="quantity"
+                                    <input [disabled]="phone.inStock < 1" type="text" class="form-control text-xs-center qty" title="Số lượng" value="1" maxlength="3" id="qty" #qty name="quantity"
                                         onkeyup="valid(this,'numbers')" onblur="valid(this,'numbers')">
                                     <button [disabled]="phone.inStock < 1" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                         class="increase btn btn-ipnb" type="button">+</button>

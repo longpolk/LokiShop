@@ -20,13 +20,14 @@
   </div>
 </section>
 
-<div class="cart-template" *ngIf="shoppingCartItems">
+<div class="cart-template">
   <section class="cart">
     <div class="cart-page">
       <div class="container">
         <div class="row">
           <div class="col-main cart-page">
-            <div class="cart cart_content">
+            <div class="cart cart_content" *ngIf="shoppingCartItems.length==0">Không có sản phẩm nào trong giỏ hàng</div>
+            <div class="cart cart_content" *ngIf="shoppingCartItems.length!=0">
               <div class="cart_desktop min768">
                 <div class="cart page_cart cart_des_page hidden-xs-down">
                   <div class="col-lg-12">
@@ -47,35 +48,35 @@
                             <tbody>
                               <tr *ngFor="let shoppingCartItem of shoppingCartItems" class="productid-17441914">
                                 <td>
-                                  <a routerLink="detail/{{shoppingCartItem.id}}" class="button remove-item remove-item-cart" title="Xóa" data-id="{{shoppingCartItem.id}}">
+                                  <a (click)="removeFromCart(shoppingCartItem)" routerLink="/cart" class="button remove-item remove-item-cart" title="Xóa">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                   </a>
                                 </td>
                                 <td class="cartImg">
-                                  <a routerLink="detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.data.name}}">
-                                    <img alt="{{shoppingCartItem.data.name}}" src="{{shoppingCartItem.data.thumb}}">
+                                  <a routerLink="detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.name}}">
+                                    <img alt="{{shoppingCartItem.name}}" src="{{shoppingCartItem.thumb}}">
                                   </a>
                                 </td>
                                 <td class="title_cart">
-                                  <a routerLink="detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.data.name}}">{{shoppingCartItem.data.name}}</a>
+                                  <a routerLink="detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.name}}">{{shoppingCartItem.name}}</a>
                                   <br>
-                                  <span class="variant-title">{{shoppingCartItem.data.colors[0]}}</span>
+                                  <span class="variant-title">{{shoppingCartItem.selectedColor}}</span>
                                 </td>
-                                <td class="price_cart tRight">{{shoppingCartItem.data.price | number}}₫</td>
+                                <td class="price_cart tRight">{{shoppingCartItem.price | number}}₫</td>
                                 <td class="input_qty_pr cart-quantity tRight">
-                                  <input class="variantID" type="hidden" name="variantId" value="1">
-                                  <button onclick="var result = document.getElementById('qtyItemc17441914'); var qtyItemc17441914 = result.value; if( !isNaN( qtyItemc17441914 )) result.value++;return false;"
+                                  <input class="variantID" type="hidden" name="variantId" value="{{shoppingCartItem.id}}">
+                                  <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
                                     class="increase_pop items-count btn-plus" type="button">
                                     <i class="fa fa-caret-up" aria-hidden="true"></i>
                                   </button>
-                                  <button onclick="var result = document.getElementById('qtyItemc17441914'); var qtyItemc17441914 = result.value; if( !isNaN( qtyItemc17441914 ) &amp;&amp; qtyItemc17441914 > 1 ) result.value--;return false;"
+                                  <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                     disabled="" class="reduced_pop items-count btn-minus" type="button">
                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                                   </button>
-                                  <input type="text" maxlength="12" min="1" class="input-text number-sidebar input_pop input_pop qtyItemc17441914"
-                                    id="qtyItemc17441914" name="Lines" size="4" value="1" disabled="">
+                                  <input type="text" maxlength="12" min="1" class="input-text number-sidebar input_pop input_pop {{shoppingCartItem.id}}"
+                                    id="qty" name="Lines" size="4" value="shoppingCartItem.qtyinCart" disabled="">
                                 </td>
-                                <td class="price_cart2 tRight">{{shoppingCartItem.data.price | number}}₫</td>
+                                <td class="price_cart2 tRight">{{shoppingCartItem.price | number}}₫</td>
                               </tr>
                             </tbody>
                           </table>
@@ -134,18 +135,18 @@
                           </span>
                         </div>
                         <div class="slg_cart">
-                          <div class="qty_mb">
-                            <input class="variantID" type="hidden" name="variantId" value="17441914">
-                            <input type="text" maxlength="12" min="0" class="input-text number-sidebar qtymb17441914" id="qtymb17441914"
-                              name="Lines" size="4" value="1">
-                            <a class="remove-item-cart" routerLink="javascript:;" data-id="17441914" title="Xoá" style="display:block;margin:5px 0px 5px 10px; color:#111;">
+                          <div *ngFor="let shoppingCartItem of shoppingCartItems" class="qty_mb">
+                            <input class="variantID" type="hidden" name="variantId" value="{{shoppingCartItem.id}}">
+                            <input type="text" maxlength="12" min="0" class="input-text number-sidebar qty{{shoppingCartItem.id}}" id="qty{{shoppingCartItem.id}}"
+                              name="qty" size="4" value="{{shoppingCartItem.qtyinCart}}">
+                            <a class="remove-item-cart" data-id="{{shoppingCartItem.id}}" title="Xoá" style="display:block;margin:5px 0px 5px 10px; color:#111;">
                               <i class="fa fa-times" aria-hidden="true"></i>
                             </a>
-                            <button onclick="var result = document.getElementById('qtymb17441914'); var qtymb17441914 = result.value; if( !isNaN( qtymb17441914 )) result.value++;return false;"
+                            <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                               class="btn_increase increase items-count btn-plus" type="button">
                               <i class="button_item fa fa-caret-up" aria-hidden="true"></i>
                             </button>
-                            <button onclick="var result = document.getElementById('qtymb17441914'); var qtymb17441914 = result.value; if( !isNaN( qtymb17441914 ) &amp;&amp; qtymb17441914 > 1 ) result.value--;return false;"
+                            <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
                               class="btn_reduced reduced items-count btn-minus" disabled="" type="button">
                               <i class="button_item fa fa-caret-down" aria-hidden="true"></i>
                             </button>
