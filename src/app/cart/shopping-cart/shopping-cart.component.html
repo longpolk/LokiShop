@@ -46,9 +46,9 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let shoppingCartItem of shoppingCartItems" class="productid-17441914">
+                              <tr *ngFor="let shoppingCartItem of shoppingCartItems; let i = index" class="productid-17441914">
                                 <td>
-                                  <a (click)="removeFromCart(shoppingCartItem)" routerLink="/cart" class="button remove-item remove-item-cart" title="Xóa">
+                                  <a (click)="removeFromCart(shoppingCartItem, i+1)" routerLink="/cart" class="button remove-item remove-item-cart" title="Xóa">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                   </a>
                                 </td>
@@ -62,21 +62,19 @@
                                   <br>
                                   <span class="variant-title">{{shoppingCartItem.selectedColor}}</span>
                                 </td>
-                                <td class="price_cart tRight">{{shoppingCartItem.price | number}}₫</td>
+                                <td class="price_cart tRight">{{shoppingCartItem.sale_price | number}}₫</td>
                                 <td class="input_qty_pr cart-quantity tRight">
                                   <input class="variantID" type="hidden" name="variantId" value="{{shoppingCartItem.id}}">
-                                  <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
-                                    class="increase_pop items-count btn-plus" type="button">
+                                  <button (click)="increaseQty(shoppingCartItem, i+1)" class="increase_pop items-count btn-plus" type="button">
                                     <i class="fa fa-caret-up" aria-hidden="true"></i>
                                   </button>
-                                  <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                                    disabled="" class="reduced_pop items-count btn-minus" type="button">
+                                  <button (click)="reduceQty(shoppingCartItem, i+1)" class="reduced_pop items-count btn-minus" type="button">
                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                                   </button>
                                   <input type="text" maxlength="12" min="1" class="input-text number-sidebar input_pop input_pop {{shoppingCartItem.id}}"
-                                    id="qty" name="Lines" size="4" value="shoppingCartItem.qtyinCart" disabled="">
+                                    id="qty{{i+1}}" #qty{{i+1}} name="Lines" size="4" value="{{shoppingCartItem.qtyinCart}}" disabled="">
                                 </td>
-                                <td class="price_cart2 tRight">{{shoppingCartItem.price | number}}₫</td>
+                                <td class="price_cart2 tRight" id="totalPerProduct" #totalPerProduct>{{shoppingCartItem.sale_price*shoppingCartItem.qtyinCart | number}}₫</td>
                               </tr>
                             </tbody>
                           </table>
@@ -93,11 +91,11 @@
                   </div>
                   <div class="col-lg-5 col-lg-offset-2 bg_cart">
                     <div class="table-total">
-                      <table class="table ">
+                      <table class="table">
                         <tbody>
                           <tr>
                             <td>Tổng giá sản phẩm</td>
-                            <td class="txt-right totals_price">1₫</td>
+                            <td class="txt-right totals_price">{{totalCost | number}}₫</td>
                           </tr>
                           <tr>
                             <td>Tiền vận chuyển</td>
@@ -105,7 +103,7 @@
                           </tr>
                           <tr>
                             <td>TỔNG TIỀN THANH TOÁN</td>
-                            <td class="txt-right totals_price">1₫</td>
+                            <td class="txt-right totals_price">{{totalCost | number}}₫</td>
                           </tr>
                         </tbody>
                       </table>

@@ -49,7 +49,7 @@ export class CartService {
 
   public removeFromCart(item: Phone) {
     const currentItems = [...this.itemsInCart];
-    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
+    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id).filter(_ => _.index !== item.index);
     this.itemsInCartSubject.next(itemsWithoutRemoved);
   }
 
@@ -87,5 +87,14 @@ export class CartService {
     console.log("GETTING DATA FROM LOCAL STORAGE")
     //convert from JSON to Observable
     return Observable.of(anonymousCart);
+  }
+  public checkExistItems(id: string): number{
+    var count = 0;
+    this.itemsInCart.forEach(element => {
+      if(element.id == id){
+        count++;
+      }
+    });
+    return count;
   }
 }

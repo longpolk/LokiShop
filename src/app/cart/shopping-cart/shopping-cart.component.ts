@@ -1,33 +1,65 @@
-import { Component, OnInit } from '@angular/core';
-import {CartService} from '../../services/cart.service';
-import {Phone} from '../../phone';
-import {Observable} from 'rxjs';
-import {of} from 'rxjs/observable/of';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { CartService } from "../../services/cart.service";
+import { Phone } from "../../phone";
+import { Observable } from "rxjs";
+import { of } from "rxjs/observable/of";
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  selector: "app-shopping-cart",
+  templateUrl: "./shopping-cart.component.html",
+  styleUrls: ["./shopping-cart.component.css"]
 })
 export class ShoppingCartComponent implements OnInit {
-
   public shoppingCartItems$: Observable<Phone[]> = of([]);
   public shoppingCartItems: Phone[] = [];
+  public totalCost: number;
+  @ViewChild("totalPerProduct") totalProduct: any;
 
   constructor(private cartService: CartService) {
-    this.shoppingCartItems$ = this
-      .cartService
-      .getItems();
-
-    this.shoppingCartItems$.subscribe(_ => this.shoppingCartItems = _);
-      //console.log("Items from cart: ");
-      //console.log(this.shoppingCartItems);
+    this.getItems();
+    this.getTotalCost();
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  getItems() {
+    this.shoppingCartItems$ = this.cartService.getItems();
+    this.shoppingCartItems$.subscribe(_ => (this.shoppingCartItems = _));
   }
 
-  removeFromCart(phone: Phone){
-    this.cartService.removeFromCart(phone);
+  removeFromCart(phone: Phone, index: number) {
+    this.cartService.removeFromCart(phone, index);
+  }
+
+  increaseQty(product: Phone, index: number) {
+    if (product.qtyinCart >= product.inStock) {
+      return false;
+    } else {
+      product.qtyinCart++;
+      this.getTotalCost();
+      document
+        .getElementById("qty" + index.toString())
+        .setAttribute("value", product.qtyinCart.toString());
+    }
+  }
+  reduceQty(product: Phone, index: number) {
+    if (product.qtyinCart > 1) {
+      product.qtyinCart--;
+      this.getTotalCost();
+      document
+        .getElementById("qty" + index.toString())
+        .setAttribute("value", product.qtyinCart.toString());
+    } else {
+      return false;
+    }
+  }
+
+  totalDefault(product: Phone) {}
+  
+  getTotalCost(){
+    this.totalCost = 0;
+    this.shoppingCartItems.forEach(element => {
+      this.totalCost = this.totalCost+(element.qtyinCart*element.sale_price);
+    });
   }
 }

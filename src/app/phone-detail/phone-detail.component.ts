@@ -64,6 +64,8 @@ export class PhoneDetailComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
   public addToCart(product: Phone) {
+    var index = this.cartService.checkExistItems(product.id);
+    product.index = index;
     product.selectedColor = this.selectedColor.nativeElement.value;
     product.qtyinCart = parseInt(this.qtyinCart.nativeElement.value); 
     this.cartService.addToCart(product);

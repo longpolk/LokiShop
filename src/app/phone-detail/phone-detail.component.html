@@ -84,12 +84,12 @@
 
 
                             <span class="special-price">
-                                <span class="price" itemprop="price">{{phone.price | number}}₫</span>
+                                <span class="price" itemprop="price">{{phone.sale_price | number}}₫</span>
                                 <meta itemprop="priceCurrency" content="VND">
                             </span>
                             <span *ngIf="phone.sale_price < phone.price" class="old-price">
                                 <span class="price" itemprop="priceSpecification">
-                                    {{phone.sale_price | number}}₫
+                                    {{phone.price | number}}₫
                                 </span>
                                 <meta itemprop="priceCurrency" content="VND">
                             </span>
