@@ -27,8 +27,9 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartItems$.subscribe(_ => (this.shoppingCartItems = _));
   }
 
-  removeFromCart(phone: Phone, index: number) {
-    this.cartService.removeFromCart(phone, index);
+  removeFromCart(phone: Phone) {
+    
+    this.cartService.removeFromCart(phone);
   }
 
   increaseQty(product: Phone, index: number) {

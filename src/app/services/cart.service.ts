@@ -49,8 +49,15 @@ export class CartService {
 
   public removeFromCart(item: Phone) {
     const currentItems = [...this.itemsInCart];
-    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id).filter(_ => _.index !== item.index);
+    var check = this.checkExistItems(item.id);
+    if(check==0){
+    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
     this.itemsInCartSubject.next(itemsWithoutRemoved);
+    }else{
+    var itemsWithoutRemoved_1 = currentItems.filter(_ => _.id !== item.id);
+    var itemsWithoutRemoved_2 = currentItems.filter(_ => _.id == item.id).filter(_ => _.index !== item.index);
+    this.itemsInCartSubject.next(itemsWithoutRemoved_1.concat(itemsWithoutRemoved_2));
+    }
   }
 
   public getItems(): Observable<Phone[]> {
