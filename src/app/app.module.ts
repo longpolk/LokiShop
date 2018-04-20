@@ -34,6 +34,7 @@ import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.compon
 import {Location, CommonModule} from '@angular/common';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { SignupComponent } from './signup/signup.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SignupComponent } from './signup/signup.component';
     shoppingCart,
     ShoppingList,
     ShoppingCartComponent,
-    SignupComponent
+    SignupComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

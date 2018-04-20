@@ -6,6 +6,7 @@ import { PhoneDetailComponent }  from './phone-detail/phone-detail.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { LoginComponent } from './login/login.component';
 import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'phones', component: LokiShopComponent },
   { path: 'admin', component: AdministratorComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cart', component: ShoppingCartComponent }
+  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'checkout', component: CheckoutComponent }
   
   //{ path: 'adminDashboard', component: AdministratorComponent}
   ];
