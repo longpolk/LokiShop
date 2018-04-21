@@ -35,6 +35,7 @@ import {Location, CommonModule} from '@angular/common';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { SignupComponent } from './signup/signup.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MockDataService } from './services/mock-data.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 	MessageService,
   UserService,
   CartService,
-  Location
+  Location,
+  MockDataService
   ],
   bootstrap: [AppComponent]
 })
