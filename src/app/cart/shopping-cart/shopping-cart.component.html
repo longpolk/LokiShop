@@ -48,17 +48,17 @@
                             <tbody>
                               <tr *ngFor="let shoppingCartItem of shoppingCartItems; let i = index" class="productid-17441914">
                                 <td>
-                                  <a (click)="removeFromCart(shoppingCartItem, i+1)" routerLink="/cart" class="button remove-item remove-item-cart" title="Xóa">
+                                  <a (click)="checkToRemove(shoppingCartItem)" routerLink="/cart" class="button remove-item remove-item-cart" title="Xóa">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                   </a>
                                 </td>
                                 <td class="cartImg">
-                                  <a routerLink="detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.name}}">
+                                  <a routerLink="/detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.name}}">
                                     <img alt="{{shoppingCartItem.name}}" src="{{shoppingCartItem.thumb}}">
                                   </a>
                                 </td>
                                 <td class="title_cart">
-                                  <a routerLink="detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.name}}">{{shoppingCartItem.name}}</a>
+                                  <a routerLink="/detail/{{shoppingCartItem.id}}" title="{{shoppingCartItem.name}}">{{shoppingCartItem.name}}</a>
                                   <br>
                                   <span class="variant-title">{{shoppingCartItem.selectedColor}}</span>
                                 </td>

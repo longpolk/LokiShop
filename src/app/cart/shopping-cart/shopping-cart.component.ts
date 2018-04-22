@@ -31,6 +31,14 @@ export class ShoppingCartComponent implements OnInit {
     
     this.cartService.removeFromCart(phone);
   }
+  checkToRemove(phone: Phone){
+    if(confirm("Bạn có thực sự muốn xóa sản phẩm này khỏi giỏ hàng?")){
+      this.removeFromCart(phone);
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   increaseQty(product: Phone, index: number) {
     if (product.qtyinCart >= product.inStock) {

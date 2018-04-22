@@ -4917,3 +4917,17 @@ input.fixAKeyboard:focus, textarea.fixAndroidKeyboard:focus {
     border-radius: 2px;
     position: relative;
 }
+.checkout-order-total-button{
+    background-color: #fc9208;
+    border-color: #fc9208;
+    -webkit-appearance: button;
+    color: #fff;
+    border-style: solid;
+    border-radius: 2px;
+    box-shadow: none;
+}
+.checkout-order-total-button:hover {
+    background-color: #fff;
+    border-color: #fc9208;
+    color: #000;
+}

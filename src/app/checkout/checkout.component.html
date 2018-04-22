@@ -1,6 +1,18 @@
 <section class="awe-section-3" style="margin-top: 20px;">
     <section class="section-main">
-        <div class="container">
+        <div *ngIf="shoppingCartItems.length==0" class="container">
+            <div class="row">
+                <div class="checkout-error">
+                    <img class="checkout-error-icon" src="//laz-img-cdn.alicdn.com/tfs/TB1hE2pir_I8KJjy1XaXXbsxpXa-110-120.png" alt="">
+                    <p style="word-wrap: break-word" class="checkout-error-tips">Xin lỗi, giỏ hàng của bạn trống. Vui lòng thêm sản phẩm vào giỏ hàng và tiến hành thanh toán</p>
+                    <a routerLink="/">
+                        <p class="checkout-error-btn">TRANG CHỦ</p>
+                    </a>
+                    <p class="checkout-error-code">LZD_BUY_CARTS_001</p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="shoppingCartItems.length!==0" class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-md-push-3 col-md-push-3">
 
@@ -50,8 +62,8 @@
                                                                 </div>
                                                                 <div class="mod-input mod-input-name">
                                                                     <label>Tên</label>
-                                                                    <input id="customerName" name="customerName" type="text" [(ngModel)]="Name" class="form-control" pattern="[a-zA-Z ]*"
-                                                                        required #customerName="ngModel" placeholder="Vui lòng nhập họ tên"
+                                                                    <input id="customerName" name="customerName" type="text" [(ngModel)]="Name" class="form-control" pattern="[a-zA-Z ]*" required
+                                                                        #customerName="ngModel" placeholder="Vui lòng nhập họ tên"
                                                                     />
                                                                     <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerName.errors.required"> Bạn chưa nhập họ tên</div>
@@ -61,8 +73,8 @@
                                                                 </div>
                                                                 <div class="mod-input mod-input-phone">
                                                                     <label>Số điện thoại</label>
-                                                                    <input id="customerPhone" name="customerPhone" type="text" [(ngModel)]="Phone" class="form-control" pattern="[0-9]+"
-                                                                        required #customerPhone="ngModel" placeholder="Vui lòng nhập số điện thoại"
+                                                                    <input id="customerPhone" name="customerPhone" type="text" [(ngModel)]="Phone" class="form-control" pattern="[0-9]+" required
+                                                                        #customerPhone="ngModel" placeholder="Vui lòng nhập số điện thoại"
                                                                     />
                                                                     <div *ngIf="customerPhone.invalid && (customerPhone.dirty || customerPhone.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerPhone.errors.required"> Bạn chưa nhập số điện thoại</div>
@@ -72,9 +84,8 @@
                                                                 </div>
                                                                 <div class="mod-input mod-input-taxId">
                                                                     <label>Mã số thuế</label>
-                                                                    <input id="customerTaxCode" name="customerTaxCode" type="text" [(ngModel)]="TaxCode" class="form-control" 
-                                                                    #customerTaxCode="ngModel" placeholder="Nhập mã số thuế của bạn"
-                                                                    />
+                                                                    <input id="customerTaxCode" name="customerTaxCode" type="text" [(ngModel)]="TaxCode" class="form-control" #customerTaxCode="ngModel"
+                                                                        placeholder="Nhập mã số thuế của bạn" />
                                                                 </div>
                                                                 <div class="mod-address-form-action">
                                                                     <button tabindex="8" type="submit" (click)="validateForm()" class="mod-address-form-btn">LƯU</button>
@@ -83,9 +94,8 @@
                                                             <div class="mod-address-form-right">
                                                                 <div class="mod-input mod-input-detailAddress">
                                                                     <label>Địa chỉ nhận hàng</label>
-                                                                    <input id="customerAddress" name="customerAddress" type="text" [(ngModel)]="Address" class="form-control"
-                                                                        required #customerAddress="ngModel" placeholder="Vui lòng nhập địa chỉ của bạn"
-                                                                    />
+                                                                    <input id="customerAddress" name="customerAddress" type="text" [(ngModel)]="Address" class="form-control" required #customerAddress="ngModel"
+                                                                        placeholder="Vui lòng nhập địa chỉ của bạn" />
                                                                     <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerAddress.errors.required"> Bạn chưa nhập địa chỉ</div>
                                                                         <div *ngIf="customerAddress.errors && customerAddress.errors.pattern">
@@ -94,9 +104,8 @@
                                                                 </div>
                                                                 <div class="mod-select mod-address-form-select mod-select-location-tree-1">
                                                                     <label style="margin-bottom: 5px;">Tỉnh/Thành phố</label>
-                                                                    <input id="customerCity" name="customerCity" type="text" [(ngModel)]="City" class="form-control"
-                                                                        required #customerCity="ngModel" placeholder="Vui lòng nhập tên tỉnh/thành phố"
-                                                                    />
+                                                                    <input id="customerCity" name="customerCity" type="text" [(ngModel)]="City" class="form-control" required #customerCity="ngModel"
+                                                                        placeholder="Vui lòng nhập tên tỉnh/thành phố" />
                                                                     <div style="margin-top: -15px;" *ngIf="customerCity.invalid && (customerCity.dirty || customerCity.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerCity.errors.required"> Bạn chưa nhập tên tỉnh/thành phố</div>
                                                                         <div *ngIf="customerCity.errors && customerCity.errors.pattern">
@@ -105,10 +114,10 @@
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-2">
                                                                     <label style="margin-bottom: 5px;">Quận/Huyện</label>
-                                                                    <input id="customerDistrict" name="customerDistrict" type="text" [(ngModel)]="District" class="form-control"
-                                                                        required #customerDistrict="ngModel" placeholder="Vui lòng nhập tên quận/huyện"
-                                                                    />
-                                                                    <div style="margin-top: -15px;" *ngIf="customerDistrict.invalid && (customerDistrict.dirty || customerDistrict.touched)" class="alert alert-danger">
+                                                                    <input id="customerDistrict" name="customerDistrict" type="text" [(ngModel)]="District" class="form-control" required #customerDistrict="ngModel"
+                                                                        placeholder="Vui lòng nhập tên quận/huyện" />
+                                                                    <div style="margin-top: -15px;" *ngIf="customerDistrict.invalid && (customerDistrict.dirty || customerDistrict.touched)"
+                                                                        class="alert alert-danger">
                                                                         <div *ngIf="customerDistrict.errors.required"> Bạn chưa nhập tên quận/huyện</div>
                                                                         <div *ngIf="customerDistrict.errors && customerDistrict.errors.pattern">
                                                                             Tên quận/huyện không hợp lệ</div>
@@ -116,9 +125,8 @@
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
                                                                     <label style="margin-bottom: 5px;">Phường/Xã</label>
-                                                                    <input id="customerWard" name="customerWard" type="text" [(ngModel)]="Ward" class="form-control"
-                                                                        required #customerWard="ngModel" placeholder="Vui lòng nhập tên phường/xã"
-                                                                    />
+                                                                    <input id="customerWard" name="customerWard" type="text" [(ngModel)]="Ward" class="form-control" required #customerWard="ngModel"
+                                                                        placeholder="Vui lòng nhập tên phường/xã" />
                                                                     <div style="margin-top: -15px;" *ngIf="customerWard.invalid && (customerWard.dirty || customerWard.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerWard.errors.required"> Bạn chưa nhập tên phường/xã</div>
                                                                         <div *ngIf="customerWard.errors && customerWard.errors.pattern">
@@ -161,69 +169,59 @@
                         <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 module_feature_products">
                             <div class="module-header">
                                 <div class="module-title title-style-3">
-                                    <a href="san-pham-noi-bat" title="Sản phẩm nổi bật">
-                                        <span>Đơn hàng</span>
-                                    </a>
+
+                                    <span>Đơn hàng</span>
                                 </div>
                             </div>
                             <div class="module-content" style="width: 115%">
 
-                                <div id="mostPopuparProducts" class="list-items" *ngIf="accessories">
-                                    <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
-                                            <div class="owl-item"-->
-
-                                    <div *ngFor="let phone of accessories" class="list-item" style="width: 212px;">
-                                        <div class="item">
-
-                                            <div class="product-box product-grid-item">
-                                                <div class="product-thumbnail">
-
-                                                    <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                        <picture class="dp-flex">
-                                                            <img class="img-responsive" style="width:181.99px;height:181.99px;" src="{{phone.data.thumb}}" alt="{{phone.data.name}}"
-                                                            />
-
-                                                        </picture>
-                                                    </a>
-                                                </div>
-                                                <div class="product-info">
-                                                    <h3 class="product-name text1line">
-                                                        <a routerLink="/detail/{{phone.data.id}}" title="{{phone.data.name}}">
-                                                            {{phone.data.name}}
-                                                        </a>
-                                                    </h3>
-                                                    <div class="price-box price-loop-style">
-                                                        <span class="special-price">
-                                                            <span class="price">{{phone.data.price | number}}₫</span>
-                                                        </span>
-                                                        <span class="old-price">
-                                                            <span class="price">
-
-                                                            </span>
-                                                        </span>
+                                <div id="leftContainer_10009" class="container" style="width: 800px; float: left;">
+                                    <div id="listHeader_1" class="list-header">
+                                        <span class="list-header-left">Sản phẩm</span>
+                                        <span class="list-header-middle">Giá</span>
+                                        <span class="list-header-right"></span>
+                                    </div>
+                                    <div class="package">
+                                        <div *ngIf="shoppingCartItems" style="padding-left: 10px; padding-right: 10px;">
+                                            <div *ngFor="let shoppingCartItem of shoppingCartItems" id="item_0655afccaaad83bdfd0ac29298235361" class="cart-item">
+                                                <div class="cart-item-inner">
+                                                    <div class="cart-item-left">
+                                                        <div class="img-wrap">
+                                                            <a routerLink="detail/{{shoppingCartItem.id}}" id="automation-link-from-image-to-prod-item_0655afccaaad83bdfd0ac29298235361"
+                                                                class="automation-link-from-image-to-prod">
+                                                                <img class="img" src="{{shoppingCartItem.thumb}}" alt="item">
+                                                            </a>
+                                                        </div>
+                                                        <div class="content">
+                                                            <a id="automation-link-from-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
+                                                                class="automation-link-from-title-to-prod title">{{shoppingCartItem.name}}</a>
+                                                            <a id="automation-link-from-sub-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
+                                                                class="automation-link-from-sub-title-to-prod sku">{{shoppingCartItem.brand}}</a>
+                                                            <div class="operations">
+                                                                <span class="automation-btn-delete">
+                                                                    <span class="lazada lazada-ic-Delete lazada-icon icon delete" (click)="checkToRemove(shoppingCartItem)"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="product-action-btn product-action">
-                                                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11250190" enctype="multipart/form-data">
-                                                            <input class="hidden" type="hidden" name="variantId" value="17441893" />
-
-                                                            <button (click)="addToCart(phone)" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart btn-accent" title="Mua hàng">
-                                                                <span>
-                                                                    <i class="fa fa-shopping-cart"></i> Mua hàng</span>
-                                                            </button>
-
-                                                        </form>
+                                                    <div class="cart-item-middle">
+                                                        <p class="current-price">{{shoppingCartItem.sale_price | number}}₫</p>
+                                                        <p class="origin-price">{{shoppingCartItem.price | number}}₫</p>
+                                                        <p class="promotion-ratio"></p>
+                                                    </div>
+                                                    <div class="cart-item-right">
+                                                        <div class="quantity automation-item-quantity">
+                                                            <span class="item-quantity-prefix">Số lượng: </span>
+                                                            <span class="item-quantity-value">{{shoppingCartItem.qtyinCart}}</span>
+                                                        </div>
+                                                        <p class="stock-tip" style="color: rgb(30, 30, 30);">Chỉ còn {{shoppingCartItem.inStock}} sản phẩm</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <!--/div-->
-                                    <!--/div-->
-
-
                                 </div>
+
 
                             </div>
                         </div>
@@ -260,7 +258,8 @@
 
                             <div class="item ">
                                 <div class="item_image ">
-                                    <input class="input-radio" type="radio" value="payment_method_2" name="PaymentMethodId" #payment_method_2 id="paypal" data-check-id="2">
+                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_2" name="PaymentMethodId" #payment_method_2
+                                        id="paypal" data-check-id="2">
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
@@ -271,7 +270,8 @@
 
                             <div class="item ">
                                 <div class="item_image ">
-                                    <input class="input-radio" type="radio" value="payment_method_3" name="PaymentMethodId" #payment_method_3 id="visa" data-check-id="3">
+                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_3" name="PaymentMethodId" #payment_method_3
+                                        id="visa" data-check-id="3">
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
@@ -283,7 +283,60 @@
 
                         </div>
                     </div>
-
+                    <div class="aside-item sidebar_feature_products ">
+                        <div class="module-header">
+                            <h2 class="module-title title-style-3 padding-right-0 ">
+                                <span>Thông tin đơn hàng</span>
+                            </h2>
+                        </div>
+                        <div class="module-content">
+                            <div class="summary-section">
+                                <!--<div class="summary-section-heading">Thông tin đơn hàng</div>-->
+                                <div class="summary-section-content">
+                                    <div class=" checkout-summary">
+                                        <div class="checkout-summary-rows">
+                                            <div class="checkout-summary-row">
+                                                <div class="checkout-summary-label">Tạm tính</div>
+                                                <div class="checkout-summary-value">{{totalCost | number}}₫</div>
+                                            </div>
+                                            <div class="checkout-summary-row">
+                                                <div class="checkout-summary-label">Phí giao hàng </div>
+                                                <div class="checkout-summary-value">MIỄN PHÍ</div>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-input">
+                                            <div class="voucher-input-inner">
+                                                <div style="float:left;width:52%;" class="voucher-input-col">
+                                                    <span class="next-input next-input-single next-input-medium clear voucher-input-control">
+                                                        <input id="voucherCode" name="voucherCode" #voucherCode type="text" id="automation-voucher-input" alt="Nhập mã giảm giá" placeholder="Mã giảm giá"
+                                                            value="" height="100%">
+                                                    </span>
+                                                </div>
+                                                <div style="float:right;width:45%;" class="voucher-input-col">
+                                                    <button (click)="checkVoucherCode(voucherCode.value)" id="automation-voucher-input-button" type="button" class="next-btn next-btn-normal next-btn-large voucher-input-button">Áp dụng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="voucherError" name="voucherError" #voucherError style="margin-top: -15px; width: 100%" class="alert alert-danger">
+                                            
+                                        </div>
+                                        <div class=" checkout-order-total">
+                                            <div class="checkout-order-total-row">
+                                                <div class="checkout-order-total-title">Tổng cộng</div>
+                                                <div class="checkout-order-total-fee">{{currentCost | number}}₫
+                                                    <small class="checkout-order-total-fee-tip">Đã bao gồm VAT (nếu có)</small>
+                                                </div>
+                                            </div>
+                                            <button [disabled]="true" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN HÀNH THANH TOÁN</button>
+                                        </div>
+                                        <div class="checkout-login-btn">
+                                            <button type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">ĐĂNG NHẬP ĐỂ THANH TOÁN NHANH</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
 
