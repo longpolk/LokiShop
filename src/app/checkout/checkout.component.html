@@ -196,7 +196,7 @@
                                                             <a id="automation-link-from-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
                                                                 class="automation-link-from-title-to-prod title">{{shoppingCartItem.name}}</a>
                                                             <a id="automation-link-from-sub-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
-                                                                class="automation-link-from-sub-title-to-prod sku">{{shoppingCartItem.brand}}</a>
+                                                                class="automation-link-from-sub-title-to-prod sku">{{shoppingCartItem.selectedColor}}</a>
                                                             <div class="operations">
                                                                 <span class="automation-btn-delete">
                                                                     <span class="lazada lazada-ic-Delete lazada-icon icon delete" (click)="checkToRemove(shoppingCartItem)"></span>
@@ -317,7 +317,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="voucherError" name="voucherError" #voucherError style="margin-top: -15px; width: 100%" class="alert alert-danger">
+                                        <div id="voucherError" name="voucherError" #voucherError style="margin-top: -15px; width: 100%; color:red;">
                                             
                                         </div>
                                         <div class=" checkout-order-total">
