@@ -21,6 +21,7 @@ export class CheckoutComponent implements OnInit {
   shoppingCartItems$: Observable<Phone[]>;
   vouchers$: Observable<Voucher[]>;
   vouchers: Voucher[];
+  voucher: Voucher;
   cities: City[] = [];
   districts: Observable<City[]>;
   voucherCheck: boolean;
@@ -34,6 +35,7 @@ export class CheckoutComponent implements OnInit {
   @ViewChild("customerDistrict") customerDistrict: any;
   @ViewChild("customerWard") customerWard: any;
   @ViewChild("voucherError") voucherErrot: any;
+  @ViewChild("voucherCode") voucherCode: any;
 
   formElement = [
     this.customerEmail,
@@ -78,33 +80,39 @@ export class CheckoutComponent implements OnInit {
   loadcurrentCost() {
     this.currentCost = this.totalCost;
   }
-  checkVoucherCode(code: string) {
+  checkVoucherCode() {
+    var code = this.voucherCode.nativeElement.value;
+    var count = 0;
     console.log(this.vouchers);
     this.discount = 0;
-    this.vouchers.forEach(element => {
-      if (element.id == code && element.data.expired == false) {
-        this.discount = this.totalCost - element.data.discount;
+    for (var i = 0; i < this.vouchers.length; i++) {
+      var element = this.vouchers[i];
+      if (element.id == code) {
+        count++;
+        this.voucher = element;
+      }
+    }
+    if (count == 0) {
+      document.getElementById("voucherError").innerHTML =
+        "Xin lỗi, mã giảm giá này không có hiệu lực. Vui lòng kiểm tra lại mã.";
+      console.log("3");
+    } else {
+      if (this.voucher.data.expired == false) {
+        this.discount = this.totalCost - this.voucher.data.discount;
         if (this.discount > 0) {
           this.currentCost = this.discount;
           document.getElementById("voucherError").innerHTML =
-            "Bạn đã đuợc giảm " + element.data.discount.toString() + "đ";
+            "Bạn đã đuợc giảm " + this.voucher.data.discount.toString() + "đ";
         } else {
           document.getElementById("voucherError").innerHTML =
             "Mã giảm giá vượt quá giá trị đơn hàng.";
         }
-        return 0;
       }
-      if (element.id == code && element.data.expired == true) {
+      if (this.voucher.data.expired == true) {
         document.getElementById("voucherError").innerHTML =
           "Xin lỗi, mã giảm giá đã hết hạn sử dụng.";
-        return 1;
       }
-      if (element.id !== code) {
-        document.getElementById("voucherError").innerHTML =
-          "Xin lỗi, mã giảm giá này không có hiệu lực. Vui lòng kiểm tra lại mã.";
-        return 2;
-      }
-    });
+    }
   }
   checkToRemove(phone: Phone) {
     if (this.shoppingCartItems.length == 1) {
