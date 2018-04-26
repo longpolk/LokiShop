@@ -20,6 +20,7 @@ export class CheckoutComponent implements OnInit {
   public totalCost: number;
   public currentCost: number;
   public order: Order;
+  public enabled: number;
   shoppingCartItems: Phone[];
   shoppingCartItems$: Observable<Phone[]>;
   vouchers$: Observable<Voucher[]>;
@@ -56,6 +57,7 @@ export class CheckoutComponent implements OnInit {
     this.getTotalCost();
     this.loadcurrentCost();
     this.getvouchers();
+    this.enabled = 1;
   }
 
   getItems() {
@@ -164,6 +166,8 @@ export class CheckoutComponent implements OnInit {
     }
   }
   updateForm() {
+    this.saveButton.nativeElement.hidden = false;
+    this.updateButton.nativeElement.hidden = true;
     this.setStateElement("update");
   }
   setStateElement(action: string) {
@@ -179,13 +183,12 @@ export class CheckoutComponent implements OnInit {
     ];
     formElement.forEach(element => {
       if (action == "save") {
-        //element.setAttribute("background", "#424242");
-        element.setAttribute("disabled", "true");
+        element.setAttribute("style", "background-color: #adadad;");
+        this.enabled = 0;
       }
       if (action == "update") {
-        //element.setAttribute("background", "#fff");
-        element.setAttribute("disabled", "false");
-        element.setAttribute("enabled", "true");
+        element.setAttribute("style", "background-color: #fff;");
+        this.enabled = 1;
       }
     });
   }
@@ -210,6 +213,8 @@ export class CheckoutComponent implements OnInit {
     this.order.currentCost = this.currentCost;
     this.order.createdDate = new Date();
     this.order.products = this.shoppingCartItems;
+    
+
   }
   getCities() {
     this.mockDataService

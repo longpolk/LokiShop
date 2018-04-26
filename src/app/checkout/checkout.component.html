@@ -51,7 +51,7 @@
                                                             <div class="mod-address-form-left">
                                                                 <div class="mod-input mod-input-email">
                                                                     <label>Địa chỉ email</label>
-                                                                    <input id="customerEmail" name="customerEmail" type="text" [(ngModel)]="Email" class="form-control" pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                                                                    <input [disabled]="enabled !== 1" id="customerEmail" name="customerEmail" type="text" [(ngModel)]="Email" class="form-control" pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
                                                                         required #customerEmail="ngModel" placeholder="Vui lòng nhập địa chỉ email"
                                                                     />
                                                                     <div *ngIf="customerEmail.invalid && (customerEmail.dirty || customerEmail.touched)" class="alert alert-danger">
@@ -62,7 +62,7 @@
                                                                 </div>
                                                                 <div class="mod-input mod-input-name">
                                                                     <label>Tên</label>
-                                                                    <input id="customerName" name="customerName" type="text" [(ngModel)]="Name" class="form-control" pattern="[a-zA-Z ]*" required
+                                                                    <input [disabled]="enabled !== 1" id="customerName" name="customerName" type="text" [(ngModel)]="Name" class="form-control" pattern="[a-zA-Z ]*" required
                                                                         #customerName="ngModel" placeholder="Vui lòng nhập họ tên"
                                                                     />
                                                                     <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)" class="alert alert-danger">
@@ -73,7 +73,7 @@
                                                                 </div>
                                                                 <div class="mod-input mod-input-phone">
                                                                     <label>Số điện thoại</label>
-                                                                    <input id="customerPhone" name="customerPhone" type="text" [(ngModel)]="Phone" class="form-control" pattern="[0-9]+" required
+                                                                    <input [disabled]="enabled !== 1" id="customerPhone" name="customerPhone" type="text" [(ngModel)]="Phone" class="form-control" pattern="[0-9]+" required
                                                                         #customerPhone="ngModel" placeholder="Vui lòng nhập số điện thoại"
                                                                     />
                                                                     <div *ngIf="customerPhone.invalid && (customerPhone.dirty || customerPhone.touched)" class="alert alert-danger">
@@ -84,7 +84,7 @@
                                                                 </div>
                                                                 <div class="mod-input mod-input-taxId">
                                                                     <label>Mã số thuế</label>
-                                                                    <input id="customerTaxCode" name="customerTaxCode" type="text" [(ngModel)]="TaxCode" class="form-control" #customerTaxCode="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerTaxCode" name="customerTaxCode" type="text" [(ngModel)]="TaxCode" class="form-control" #customerTaxCode="ngModel"
                                                                         placeholder="Nhập mã số thuế của bạn" />
                                                                 </div>
                                                                 <div #save class="mod-address-form-action">
@@ -97,7 +97,7 @@
                                                             <div class="mod-address-form-right">
                                                                 <div class="mod-input mod-input-detailAddress">
                                                                     <label>Địa chỉ nhận hàng</label>
-                                                                    <input id="customerAddress" name="customerAddress" type="text" [(ngModel)]="Address" class="form-control" required #customerAddress="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerAddress" name="customerAddress" type="text" [(ngModel)]="Address" class="form-control" required #customerAddress="ngModel"
                                                                         placeholder="Vui lòng nhập địa chỉ của bạn" />
                                                                     <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerAddress.errors.required"> Bạn chưa nhập địa chỉ</div>
@@ -107,7 +107,7 @@
                                                                 </div>
                                                                 <div class="mod-select mod-address-form-select mod-select-location-tree-1">
                                                                     <label style="margin-bottom: 5px;">Tỉnh/Thành phố</label>
-                                                                    <input id="customerCity" name="customerCity" type="text" [(ngModel)]="City" class="form-control" required #customerCity="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerCity" name="customerCity" type="text" [(ngModel)]="City" class="form-control" required #customerCity="ngModel"
                                                                         placeholder="Vui lòng nhập tên tỉnh/thành phố" />
                                                                     <div style="margin-top: -15px;" *ngIf="customerCity.invalid && (customerCity.dirty || customerCity.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerCity.errors.required"> Bạn chưa nhập tên tỉnh/thành phố</div>
@@ -117,7 +117,7 @@
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-2">
                                                                     <label style="margin-bottom: 5px;">Quận/Huyện</label>
-                                                                    <input id="customerDistrict" name="customerDistrict" type="text" [(ngModel)]="District" class="form-control" required #customerDistrict="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerDistrict" name="customerDistrict" type="text" [(ngModel)]="District" class="form-control" required #customerDistrict="ngModel"
                                                                         placeholder="Vui lòng nhập tên quận/huyện" />
                                                                     <div style="margin-top: -15px;" *ngIf="customerDistrict.invalid && (customerDistrict.dirty || customerDistrict.touched)"
                                                                         class="alert alert-danger">
@@ -128,7 +128,7 @@
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
                                                                     <label style="margin-bottom: 5px;">Phường/Xã</label>
-                                                                    <input id="customerWard" name="customerWard" type="text" [(ngModel)]="Ward" class="form-control" required #customerWard="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerWard" name="customerWard" type="text" [(ngModel)]="Ward" class="form-control" required #customerWard="ngModel"
                                                                         placeholder="Vui lòng nhập tên phường/xã" />
                                                                     <div style="margin-top: -15px;" *ngIf="customerWard.invalid && (customerWard.dirty || customerWard.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerWard.errors.required"> Bạn chưa nhập tên phường/xã</div>

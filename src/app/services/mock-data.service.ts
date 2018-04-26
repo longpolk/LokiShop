@@ -12,24 +12,83 @@ import { Voucher } from "../voucher";
 import { element } from "protractor";
 import { of } from "rxjs/observable/of";
 import { MessageService } from "./messages.service";
+import { Order } from "../order";
 
 @Injectable()
 export class MockDataService {
+    customerEmail: string;
+    customerName: string;
+    customerPhone: number;
+    customerTaxCode: string;
+    customerAddress: string;
+    customerCity: string;
+    customerDistrict: string;
+    customerWard: string;
+    totalCost: number;
+    currentCost: number;
+    createdDate: Date;
+    description: string;
+  
   vouchers: Voucher[];
   vouchers$: Observable<Voucher[]>;
+
+  orders: Order[];
 
   cityCol: AngularFirestoreCollection<City[]>;
   postDoc: AngularFirestoreDocument<City>;
   voucherCol: AngularFirestoreCollection<Voucher[]>;
+  orderCol: AngularFirestoreCollection<Order[]>;
   cityPosts: any;
   voucherPosts: any;
+  orderPosts: any;
   post: Observable<City>;
   phones: City[] = [];
   constructor(
     private angularFirestore: AngularFirestore,
     private messageService: MessageService
   )
-  {}
+  {
+    this.checkOrders();
+  }
+  /** Get all orders */
+  getOrders(): Observable<Order[]>{
+    this.orderCol = this.angularFirestore.collection(
+      "orders"
+    );
+    this.orderPosts = this.orderCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Voucher;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.orderPosts.pipe(
+      tap(phone => this.log(`fetched orders`)),
+      catchError(this.handleError("getOrders", []))
+    );
+  }
+  /** Check orders */
+  checkOrders(){
+    this.getOrders().subscribe(_ => (this.orders = _));
+    console.log(this.orders);
+  }
+  /** Add new order */
+  addOrder(){
+    this.angularFirestore.collection("orders").doc("").set({
+    "customerEmail": this.customerEmail,
+    "customerName": this.customerName,
+    "customerPhone": this.customerPhone,
+    "customerTaxCode": this.customerTaxCode,
+    "customerAddress": this.customerAddress,
+    "customerCity": this.customerCity,
+    "customerDistrict": this.customerDistrict,
+    "customerWard": this.customerWard,
+    "totalCost": this.totalCost,
+    "currentCost": this.currentCost,
+    "createdDate": this.createdDate,
+    "description": this.description
+    });
+  }
   /** Check the voucher code */
   getVoucherCode(): Observable<Voucher[]> {
     this.voucherCol = this.angularFirestore.collection(
