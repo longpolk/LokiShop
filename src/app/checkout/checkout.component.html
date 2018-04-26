@@ -87,8 +87,11 @@
                                                                     <input id="customerTaxCode" name="customerTaxCode" type="text" [(ngModel)]="TaxCode" class="form-control" #customerTaxCode="ngModel"
                                                                         placeholder="Nhập mã số thuế của bạn" />
                                                                 </div>
-                                                                <div class="mod-address-form-action">
+                                                                <div #save class="mod-address-form-action">
                                                                     <button tabindex="8" type="submit" (click)="validateForm()" class="mod-address-form-btn">LƯU</button>
+                                                                </div>
+                                                                <div #update hidden="true" class="mod-address-form-action">
+                                                                    <button tabindex="8" type="submit" (click)="updateForm()" class="mod-address-form-btn">SỬA</button>
                                                                 </div>
                                                             </div>
                                                             <div class="mod-address-form-right">

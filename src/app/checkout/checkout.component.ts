@@ -8,6 +8,8 @@ import { City } from "../city";
 import { Observable } from "rxjs/Observable";
 import { Phone } from "../phone";
 import { Voucher } from "../voucher";
+import { Order } from "../order";
+import { Timestamp } from "rxjs";
 
 @Component({
   selector: "app-checkout",
@@ -17,6 +19,7 @@ import { Voucher } from "../voucher";
 export class CheckoutComponent implements OnInit {
   public totalCost: number;
   public currentCost: number;
+  public order: Order;
   shoppingCartItems: Phone[];
   shoppingCartItems$: Observable<Phone[]>;
   vouchers$: Observable<Voucher[]>;
@@ -36,16 +39,9 @@ export class CheckoutComponent implements OnInit {
   @ViewChild("customerWard") customerWard: any;
   @ViewChild("voucherError") voucherErrot: any;
   @ViewChild("voucherCode") voucherCode: any;
+  @ViewChild("save") saveButton: any;
+  @ViewChild("update") updateButton: any;
 
-  formElement = [
-    this.customerEmail,
-    this.customerName,
-    this.customerPhone,
-    this.customerAddress,
-    this.customerCity,
-    this.customerDistrict,
-    this.customerWard
-  ];
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
@@ -134,21 +130,87 @@ export class CheckoutComponent implements OnInit {
     this.cartService.removeFromCart(phone);
   }
 
-  validateForm() {
-    this.formElement.forEach(element => {
+  validateForm(): boolean {
+    var formElement = [
+      this.customerEmail,
+      this.customerName,
+      this.customerPhone,
+      this.customerAddress,
+      this.customerCity,
+      this.customerDistrict,
+      this.customerWard
+    ];
+    var count = 0;
+    for (var i = 0; i < formElement.length; i++) {
+      var element = formElement[i];
       if (element.invalid && (element.dirty || element.touched)) {
         if (
           element.errors.required ||
           (element.errors && element.errors.pattern)
         ) {
-          alert("Vui lòng kiểm tra lại thông tin");
+          count++;
         }
-      } else {
-        alert("good to go!");
+      }
+    }
+    if (count !== 0) {
+      alert("Lỗi! Vui lòng kiểm tra lại thông tin giao hàng!");
+      return false;
+    } else {
+      this.saveButton.nativeElement.hidden = true;
+      this.updateButton.nativeElement.hidden = false;
+      this.setStateElement("save");
+      alert("Đã lưu thông tin giao hàng!");
+      return true;
+    }
+  }
+  updateForm() {
+    this.setStateElement("update");
+  }
+  setStateElement(action: string) {
+    var formElement = [
+      document.getElementById("customerEmail"),
+      document.getElementById("customerName"),
+      document.getElementById("customerPhone"),
+      document.getElementById("customerTaxCode"),
+      document.getElementById("customerAddress"),
+      document.getElementById("customerCity"),
+      document.getElementById("customerDistrict"),
+      document.getElementById("customerWard")
+    ];
+    formElement.forEach(element => {
+      if (action == "save") {
+        //element.setAttribute("background", "#424242");
+        element.setAttribute("disabled", "true");
+      }
+      if (action == "update") {
+        //element.setAttribute("background", "#fff");
+        element.setAttribute("disabled", "false");
+        element.setAttribute("enabled", "true");
       }
     });
   }
-
+  createOrder(){
+    var email = document.getElementById("customerEmail").getAttribute("value");
+    var name = document.getElementById("customerName").getAttribute("value");
+    var phone = document.getElementById("customerPhone").getAttribute("value");
+    var tax = document.getElementById("customerTaxCode").getAttribute("value");
+    var address = document.getElementById("customerAddress").getAttribute("value");
+    var city = document.getElementById("customerCity").getAttribute("value");
+    var district = document.getElementById("customerDistrict").getAttribute("value");
+    var ward = document.getElementById("customerWard").getAttribute("value");
+    this.order.customerEmail = email;
+    this.order.customerName = name;
+    this.order.customerPhone = parseInt(phone);
+    this.order.customerTaxCode = tax;
+    this.order.customerAddress = address;
+    this.order.customerCity = city;
+    this.order.customerDistrict = district;
+    this.order.customerWard = ward;
+    this.order.totalCost = this.totalCost;
+    this.order.currentCost = this.currentCost;
+    this.order.createdDate = new Date();
+    this.order.products = this.shoppingCartItems;
+  }
   getCities() {
     this.mockDataService
       .getCities()
