@@ -76,37 +76,47 @@ export class CheckoutComponent implements OnInit {
     this.latestOrder = this.latestOrder.replace("order-", "");
     return parseInt(this.latestOrder) + 1;
   }
-  addOrder() {
-    var email = document.getElementById("customerEmail").getAttribute("value");
-    var name = document.getElementById("customerName").getAttribute("value");
-    var phone = document.getElementById("customerPhone").getAttribute("value");
-    var tax = document.getElementById("customerTaxCode").getAttribute("value");
-    var address = document
-      .getElementById("customerAddress")
-      .getAttribute("value");
-    var city = document.getElementById("customerCity").getAttribute("value");
-    var district = document
-      .getElementById("customerDistrict")
-      .getAttribute("value");
-    var ward = document.getElementById("customerWard").getAttribute("value");
+  /** Thêm mới đơn hàng vào database */
+  addOrder(
+    customerEmail: string,
+    customerName: string,
+    customerPhone: string,
+    customerTaxCode: string,
+    customerAddress: string,
+    customerCity: string,
+    customerDistrict: string,
+    customerWard: string
+  ) {
     this.orderID = "order-" + this.getOrderID().toString();
     console.log(this.orderID);
     this.orderService.addOrder(
       this.orderID,
-      email,
-      name,
-      parseInt(phone),
-      tax,
-      address,
-      city,
-      district,
-      ward,
+      customerEmail,
+      customerName,
+      parseInt(customerPhone),
+      customerTaxCode,
+      customerAddress,
+      customerCity,
+      customerDistrict,
+      customerWard,
       this.totalCost,
       this.currentCost,
       new Date(),
-      "test"
+      "Đơn hàng #" + this.orderID
     );
+    this.addOrderProducts(this.orderID);
+    /** Chuyển sang trang thông tin mua thành công */
+    //window.location.href="/buy-successful";//?orderID="+this.orderID;
   }
+  /** Thêm sản phẩm vào đơn hàng vừa tạo */
+  addOrderProducts(orderID: string){
+    var i = 0;
+    do {
+      this.orderService.addOrderProducts(orderID, this.shoppingCartItems[i]);
+      i++;
+    } while (i<this.shoppingCartItems.length);
+  }
+  /** Lấy ra tất cả sản phẩm trong giỏ hàng */
   getItems() {
     this.shoppingCartItems$ = this.cartService.getItems();
     this.shoppingCartItems$.subscribe(_ => (this.shoppingCartItems = _));

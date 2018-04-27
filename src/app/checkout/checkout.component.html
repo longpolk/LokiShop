@@ -62,7 +62,7 @@
                                                                 </div>
                                                                 <div class="mod-input mod-input-name">
                                                                     <label>Tên</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerName" name="customerName" type="text" [(ngModel)]="Name" class="form-control" pattern="[a-zA-Z ]*" required
+                                                                    <input [disabled]="enabled !== 1" id="customerName" name="customerName" type="text" [(ngModel)]="Name" class="form-control" required
                                                                         #customerName="ngModel" placeholder="Vui lòng nhập họ tên"
                                                                     />
                                                                     <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)" class="alert alert-danger">
@@ -330,7 +330,7 @@
                                                     <small class="checkout-order-total-fee-tip">Đã bao gồm VAT (nếu có)</small>
                                                 </div>
                                             </div>
-                                            <button (click)="addOrder()" [disabled]="enabled == 1" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN HÀNH THANH TOÁN</button>
+                                            <button (click)="addOrder(customerEmail.value,customerName.value, customerPhone.value,customerTaxCode.value,customerAddress.value,customerCity.value,customerDistrict.value, customerWard.value)" [disabled]="enabled == 1" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN HÀNH THANH TOÁN</button>
                                         </div>
                                         <div class="checkout-login-btn">
                                             <button type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">ĐĂNG NHẬP ĐỂ THANH TOÁN NHANH</button>
