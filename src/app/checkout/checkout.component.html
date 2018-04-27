@@ -330,7 +330,7 @@
                                                     <small class="checkout-order-total-fee-tip">Đã bao gồm VAT (nếu có)</small>
                                                 </div>
                                             </div>
-                                            <button [disabled]="true" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN HÀNH THANH TOÁN</button>
+                                            <button (click)="addOrder()" [disabled]="enabled == 1" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN HÀNH THANH TOÁN</button>
                                         </div>
                                         <div class="checkout-login-btn">
                                             <button type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">ĐĂNG NHẬP ĐỂ THANH TOÁN NHANH</button>

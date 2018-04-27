@@ -10,6 +10,7 @@ import { Phone } from "../phone";
 import { Voucher } from "../voucher";
 import { Order } from "../order";
 import { Timestamp } from "rxjs";
+import { OrderService } from "../services/order.service";
 
 @Component({
   selector: "app-checkout",
@@ -24,12 +25,16 @@ export class CheckoutComponent implements OnInit {
   shoppingCartItems: Phone[];
   shoppingCartItems$: Observable<Phone[]>;
   vouchers$: Observable<Voucher[]>;
-  vouchers: Voucher[];
+  vouchers: Voucher[] = [];
+  orders$: Observable<Order[]>;
+  orders: Order[] = [];
   voucher: Voucher;
   cities: City[] = [];
   districts: Observable<City[]>;
   voucherCheck: boolean;
   discount: number;
+  latestOrder: string;
+  orderID: string;
 
   @ViewChild("customerEmail") customerEmail: any;
   @ViewChild("customerName") customerName: any;
@@ -48,11 +53,13 @@ export class CheckoutComponent implements OnInit {
     private route: ActivatedRoute,
     public location: Location,
     private cartService: CartService,
-    private mockDataService: MockDataService
+    private mockDataService: MockDataService,
+    private orderService: OrderService
   ) {}
 
   ngOnInit() {
     //this.getCities();
+    this.getOrders();
     this.getItems();
     this.getTotalCost();
     this.loadcurrentCost();
@@ -60,6 +67,46 @@ export class CheckoutComponent implements OnInit {
     this.enabled = 1;
   }
 
+  getOrders() {
+    this.orders$ = this.orderService.getOrders();
+    this.orders$.subscribe(_ => (this.orders = _));
+  }
+  getOrderID(): number {
+    this.latestOrder = this.orders[this.orders.length - 1].id;
+    this.latestOrder = this.latestOrder.replace("order-", "");
+    return parseInt(this.latestOrder) + 1;
+  }
+  addOrder() {
+    var email = document.getElementById("customerEmail").getAttribute("value");
+    var name = document.getElementById("customerName").getAttribute("value");
+    var phone = document.getElementById("customerPhone").getAttribute("value");
+    var tax = document.getElementById("customerTaxCode").getAttribute("value");
+    var address = document
+      .getElementById("customerAddress")
+      .getAttribute("value");
+    var city = document.getElementById("customerCity").getAttribute("value");
+    var district = document
+      .getElementById("customerDistrict")
+      .getAttribute("value");
+    var ward = document.getElementById("customerWard").getAttribute("value");
+    this.orderID = "order-" + this.getOrderID().toString();
+    console.log(this.orderID);
+    this.orderService.addOrder(
+      this.orderID,
+      email,
+      name,
+      parseInt(phone),
+      tax,
+      address,
+      city,
+      district,
+      ward,
+      this.totalCost,
+      this.currentCost,
+      new Date(),
+      "test"
+    );
+  }
   getItems() {
     this.shoppingCartItems$ = this.cartService.getItems();
     this.shoppingCartItems$.subscribe(_ => (this.shoppingCartItems = _));
@@ -82,6 +129,7 @@ export class CheckoutComponent implements OnInit {
     var code = this.voucherCode.nativeElement.value;
     var count = 0;
     console.log(this.vouchers);
+    console.log(this.orders);
     this.discount = 0;
     for (var i = 0; i < this.vouchers.length; i++) {
       var element = this.vouchers[i];
@@ -191,30 +239,6 @@ export class CheckoutComponent implements OnInit {
         this.enabled = 1;
       }
     });
-  }
-  createOrder(){
-    var email = document.getElementById("customerEmail").getAttribute("value");
-    var name = document.getElementById("customerName").getAttribute("value");
-    var phone = document.getElementById("customerPhone").getAttribute("value");
-    var tax = document.getElementById("customerTaxCode").getAttribute("value");
-    var address = document.getElementById("customerAddress").getAttribute("value");
-    var city = document.getElementById("customerCity").getAttribute("value");
-    var district = document.getElementById("customerDistrict").getAttribute("value");
-    var ward = document.getElementById("customerWard").getAttribute("value");
-    this.order.customerEmail = email;
-    this.order.customerName = name;
-    this.order.customerPhone = parseInt(phone);
-    this.order.customerTaxCode = tax;
-    this.order.customerAddress = address;
-    this.order.customerCity = city;
-    this.order.customerDistrict = district;
-    this.order.customerWard = ward;
-    this.order.totalCost = this.totalCost;
-    this.order.currentCost = this.currentCost;
-    this.order.createdDate = new Date();
-    this.order.products = this.shoppingCartItems;
-    
-
   }
   getCities() {
     this.mockDataService
