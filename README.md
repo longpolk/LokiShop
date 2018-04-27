@@ -27,4 +27,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Google map
 
-npm install --save @types/googlemaps
+http://brianflove.com/2016/10/18/angular-2-google-maps-places-autocomplete/
