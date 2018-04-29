@@ -72,9 +72,14 @@ export class CheckoutComponent implements OnInit {
     this.orders$.subscribe(_ => (this.orders = _));
   }
   getOrderID(): number {
-    this.latestOrder = this.orders[this.orders.length - 1].id;
-    this.latestOrder = this.latestOrder.replace("order-", "");
-    return parseInt(this.latestOrder) + 1;
+    var max = parseInt(this.orders[0].id.replace("order-",""));
+    for(var i=0;i<this.orders.length;i++){
+      var temp = parseInt(this.orders[i].id.replace("order-",""));
+      if(temp > max){
+        max = temp;
+      }
+    }
+    return (max + 1);
   }
   /** Thêm mới đơn hàng vào database */
   addOrder(
@@ -102,7 +107,8 @@ export class CheckoutComponent implements OnInit {
       this.totalCost,
       this.currentCost,
       new Date(),
-      "Đơn hàng #" + this.orderID
+      "Đơn hàng #" + this.orderID,
+      "Đang xử lí"
     );
     this.addOrderProducts(this.orderID);
     /** Chuyển sang trang thông tin mua thành công */
@@ -205,7 +211,6 @@ export class CheckoutComponent implements OnInit {
       var element = formElement[i];
       if (element.invalid && (element.dirty || element.touched)) {
         if (
-          element.errors.required ||
           (element.errors && element.errors.pattern)
         ) {
           count++;

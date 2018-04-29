@@ -43,6 +43,7 @@ export class BuySuccessfulComponent implements OnInit {
   ngOnInit() {
     this.getOrder();
     this.setCurrentPosition();
+    this.getCustomerLocation_Array();
   }
 
   getOrder(): void {
@@ -53,11 +54,16 @@ export class BuySuccessfulComponent implements OnInit {
       this.orderService.getProductsOrder(id).subscribe(_ => (this.phones = _));
     });
   }
+  getCustomerLocation_Array(){
+    this.observableLocation = this.orderService.setCurrentPosition(
+      this.order.customerAddress,
+      this.order.customerCity,
+      this.order.customerDistrict,
+      this.order.customerWard
+    );
+    this.observableLocation.subscribe(places => this.places = places);
+  }
   setCurrentPosition() {
-    console.log(this.order);
-    //this.observableLocation = this.orderService.setCurrentPosition(this.order);
-    //this.observableLocation.subscribe(places => this.places = places);
-    //console.log(this.places);
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         this.latitude = position.coords.latitude;

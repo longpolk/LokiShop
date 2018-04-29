@@ -1,6 +1,8 @@
-import { Injectable, ViewChild,
+import {
+  Injectable, ViewChild,
   NgZone,
-  ElementRef} from "@angular/core";
+  ElementRef
+} from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { of } from "rxjs/observable/of";
 import { catchError, map, tap } from "rxjs/operators";
@@ -13,7 +15,7 @@ import "rxjs/add/operator/map";
 import { Order } from "../order";
 import { MessageService } from "./messages.service";
 import { Phone } from "../phone";
-import {} from "googlemaps";
+import { } from "googlemaps";
 import { MapsAPILoader } from "@agm/core";
 import { Http } from "@angular/http";
 
@@ -53,7 +55,7 @@ export class OrderService {
     private messageService: MessageService,
     private angularFirestore: AngularFirestore,
     private http: Http
-  ) {}
+  ) { }
   /** GET orders from the server */
   getOrders(): Observable<Order[]> {
     this.orderCol = this.angularFirestore.collection("orders", ref =>
@@ -85,7 +87,8 @@ export class OrderService {
     totalCost: number,
     currentCost: number,
     createdDate: Date,
-    description: string
+    description: string,
+    status: string
   ) {
     this.angularFirestore.collection("orders").doc(orderID).set({
       id: orderID,
@@ -100,7 +103,8 @@ export class OrderService {
       totalCost: totalCost,
       currentCost: currentCost,
       createdDate: createdDate,
-      description: description
+      description: description,
+      status: status
     });
   }
   addOrderProducts(orderID: string, product: Phone) {
@@ -120,11 +124,11 @@ export class OrderService {
         sale_price: product.sale_price,
         thumb: product.thumb
       })
-      .then(function() {
+      .then(function () {
         console.log("Product Added ");
         window.location.href = "/buy-successful/" + orderID;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error("Error adding product: ", error);
       });
   }
@@ -154,13 +158,14 @@ export class OrderService {
       catchError(this.handleError("getProductsOrder", []))
     );
   }
-  setCurrentPosition(order: Order) {
+  setCurrentPosition(customerAddress: string, customerCity: string, 
+    customerDistrict: string, customerWard: string) {
     this.observableLocation = this.getPlaceWithObservable(
-        order.customerAddress +
-        ", "+order.customerCity +
-        ", "+order.customerDistrict +
-        ", "+order.customerWard +
-        ", Vietnam"
+      customerAddress +
+      ", " + customerCity +
+      ", " + customerDistrict +
+      ", " + customerWard +
+      ", Vietnam"
     );
     return this.observableLocation;
   }

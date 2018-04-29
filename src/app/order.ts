@@ -16,6 +16,7 @@ export class Order {
   currentCost: number;
   createdDate: Date;
   description: string;
+  status: string;
 
   constructor(
     _id: string,
@@ -31,6 +32,7 @@ export class Order {
     _totalCost: number,
     _currentCost: number,
     _createdDate: Date,
-    _description: string
+    _description: string,
+    _status: string
   ) {}
 }
