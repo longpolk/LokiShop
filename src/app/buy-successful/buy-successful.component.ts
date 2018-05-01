@@ -14,7 +14,7 @@ import { Location } from "@angular/common";
 import { OrderService } from "../services/order.service";
 import { Phone } from "../phone";
 import { FormControl } from "@angular/forms";
-import {} from "googlemaps";
+//import {} from "googlemaps";
 import { MapsAPILoader } from "@agm/core";
 import { Http } from "@angular/http";
 import { Observable } from "rxjs/Observable";
@@ -42,8 +42,8 @@ export class BuySuccessfulComponent implements OnInit {
 
   ngOnInit() {
     this.getOrder();
-    this.setCurrentPosition();
-    this.getCustomerLocation_Array();
+    //this.setCurrentPosition();
+    //this.getCustomerLocation_Array();
   }
 
   getOrder(): void {
@@ -54,6 +54,7 @@ export class BuySuccessfulComponent implements OnInit {
       this.orderService.getProductsOrder(id).subscribe(_ => (this.phones = _));
     });
   }
+  /*
   getCustomerLocation_Array(){
     this.observableLocation = this.orderService.setCurrentPosition(
       this.order.customerAddress,
@@ -71,6 +72,6 @@ export class BuySuccessfulComponent implements OnInit {
         this.zoom = 12;
       });
     }
-  }
+  }*/
 
 }

@@ -158,6 +158,7 @@ export class OrderService {
       catchError(this.handleError("getProductsOrder", []))
     );
   }
+  /*
   setCurrentPosition(customerAddress: string, customerCity: string, 
     customerDistrict: string, customerWard: string) {
     this.observableLocation = this.getPlaceWithObservable(
@@ -177,7 +178,7 @@ export class OrderService {
       "&sensor=false";
     return this.http.get(url).catch(this.handleErrorObservable);
   }
-
+*/
   handleErrorObservable(error: Response | any) {
     console.error(error.message || error);
     return Observable.throw(error.message || error);
