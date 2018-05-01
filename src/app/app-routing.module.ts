@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BuySuccessfulComponent } from './buy-successful/buy-successful.component';
+import { PopupCartComponent } from './popup-cart/popup-cart.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'buy-successful/:orderID', component: BuySuccessfulComponent },
+  { path: 'popup-cart', component: PopupCartComponent},
   // Trường hợp error #404
   { path: '**', component: DashboardComponent }
   

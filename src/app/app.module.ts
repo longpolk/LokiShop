@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AgmCoreModule } from "@agm/core";
+import { MatDialogModule } from '@angular/material';
 
 import { AppComponent } from "./app.component";
 import { LokiShopComponent } from "./loki-shop/loki-shop.component";
@@ -40,6 +41,7 @@ import { CheckoutComponent } from "./checkout/checkout.component";
 import { MockDataService } from "./services/mock-data.service";
 import { OrderService } from "./services/order.service";
 import { BuySuccessfulComponent } from "./buy-successful/buy-successful.component";
+import { PopupCartComponent } from './popup-cart/popup-cart.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { BuySuccessfulComponent } from "./buy-successful/buy-successful.componen
     ShoppingCartComponent,
     SignupComponent,
     CheckoutComponent,
-    BuySuccessfulComponent
+    BuySuccessfulComponent,
+    PopupCartComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ import { BuySuccessfulComponent } from "./buy-successful/buy-successful.componen
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBwV1LXU0LqGEKftj9U6sF91A8qwCNlONM',
       libraries: ["places"]
-    })
+    }),
+    MatDialogModule
   ],
   providers: [
     PhoneService,
@@ -91,6 +95,7 @@ import { BuySuccessfulComponent } from "./buy-successful/buy-successful.componen
     MockDataService,
     OrderService
   ],
+  entryComponents: [PopupCartComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

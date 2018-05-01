@@ -5,6 +5,8 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 import { Laptop } from '../laptop';
 import { CartService } from '../services/cart.service';
 import { Location } from '@angular/common'; 
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { PopupCartComponent } from '../popup-cart/popup-cart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -35,11 +37,14 @@ export class DashboardComponent implements OnInit {
   phoneAccessories: Phone[] = [];
   laptopAccessories: Phone[] = [];
   discountProducts: Phone[] = [];
+
+  fileNameDialogRef: MatDialogRef<PopupCartComponent>;
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
     public location: Location, 
-    private cartService: CartService
+    private cartService: CartService,
+    private dialog: MatDialog
   ) { }
  
   ngOnInit() {
@@ -96,5 +101,10 @@ export class DashboardComponent implements OnInit {
   }
   public addToCart(product: Phone) {
     this.cartService.addToCart(product);
+  }
+  openPopupCart(){
+    this.fileNameDialogRef = this.dialog.open(PopupCartComponent, {
+      hasBackdrop: false
+    });
   }
 }
