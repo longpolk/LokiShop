@@ -1,12 +1,3 @@
-<!-- Plugin CSS -->	
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" >
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/owl.carousel.min.css?1524194225867' rel='stylesheet' type='text/css' />
-	
-<!--Build main CSS-->
-<link href='https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/style.scss.css?1524194225867' rel='stylesheet' type='text/css' />		
-<link href='https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/module.scss.css?1524194225867' rel='stylesheet' type='text/css' />
 
   <section class="bread-crumb">
     <div class="container">
@@ -14,7 +5,7 @@
         <div class="col-xs-12">
           <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
             <li class="home">
-              <a itemprop="url" href="/">
+              <a itemprop="url" routerLink="/">
                 <span itemprop="title">Trang chủ</span>
               </a>
               <span>
@@ -43,7 +34,7 @@
           <h1 class="title-head margin-top-0">Sản phẩm mới</h1>
         </div>
         <aside class="row-filter">
-          <div class="filter-container">
+          <!--div class="filter-container">
             <div class="filter-container__selected-filter" style="display: none;">
               <div class="filter-container__selected-filter-header clearfix">
                 <span class="filter-container__selected-filter-header-title">
@@ -56,16 +47,16 @@
                 <ul></ul>
               </div>
             </div>
-          </div>
+          </div-->
           <div class="sortPagiBar">
             <div class="srt">
               <div class="wr_sort col-sm-12">
                 <div class="text-sm-right">
-                  <button class="collection-filter-btn hidden-xs hidden-sm">Lọc theo
+                  <!--button class="collection-filter-btn hidden-xs hidden-sm">Lọc theo
                     <span class="icon-drop"></span>
-                  </button>
+                  </button-->
 
-                  <div class="view-mode">
+                  <!--div class="view-mode">
                     <a class="grid_h" href="javascript:;" data-view="grid" onclick="switchView('grid')">
                       <b class="btn button-view-mode view-mode-grid active ">
                         <i class="fa fa-th" aria-hidden="true"></i> Bảng
@@ -77,7 +68,7 @@
                       </b>
                     </a>
 
-                  </div>
+                  </div-->
                   <div class="collection-filter-panel">
 
                     <div class="filter-category btn-group">
@@ -92,13 +83,13 @@
                           <a href="/san-pham-noi-bat">Sản phẩm nổi bật</a>
                         </li>
 
-                        <li>
+                        <!--li>
                           <a href="/san-pham-khuyen-mai">Sản phẩm khuyến mãi</a>
-                        </li>
+                        </li-->
 
-                        <li>
+                        <!--li>
                           <a href="/frontpage">Trang chủ</a>
-                        </li>
+                        </li-->
 
                         <li>
                           <a href="/san-pham-moi">Sản phẩm mới</a>
@@ -108,7 +99,7 @@
                     </div>
 
 
-                    <div class="filter-vendor btn-group">
+                    <div *ngIf="phones" class="filter-vendor btn-group">
                       <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
                         <i class="icon-exchange"></i>Nhà sản xuất
                         <i class="icon-chevron-down"></i>
@@ -117,82 +108,16 @@
                       <ul class="dropdown-menu aside-content" role="menu">
 
 
-                        <li class="filter-item filter-item--check-box filter-item--green ">
+                        <li *ngFor="let phone of phones; i as index" class="filter-item filter-item--check-box filter-item--green ">
                           <span>
-                            <label class="label_relative" for="filter-asos">
-                              <input type="checkbox" id="filter-asos" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" data-text="Asos"
-                                value="(Asos)" data-operator="OR">
+                            <label class="label_relative" for="filter-{{phone.data.brand}}">
+                              <input type="checkbox" id="filter-{{phone.data.brand}}" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor"
+                                value="({{phone.data.brand}})" data-operator="OR">
                               <i class="fa"></i>
-                              <span class="filter_tt">Asos</span>
+                              <span class="filter_tt">{{phone.data.brand}}</span>
                             </label>
                           </span>
                         </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green ">
-                          <span>
-                            <label class="label_relative" for="filter-bellfield">
-                              <input type="checkbox" id="filter-bellfield" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" data-text="Bellfield"
-                                value="(Bellfield)" data-operator="OR">
-                              <i class="fa"></i>
-                              <span class="filter_tt">Bellfield</span>
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green ">
-                          <span>
-                            <label class="label_relative" for="filter-emporio-armani">
-                              <input type="checkbox" id="filter-emporio-armani" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" data-text="Emporio Armani"
-                                value="(Emporio Armani)" data-operator="OR">
-                              <i class="fa"></i>
-                              <span class="filter_tt">Emporio Armani</span>
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green ">
-                          <span>
-                            <label class="label_relative" for="filter-fred-perry">
-                              <input type="checkbox" id="filter-fred-perry" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" data-text="Fred Perry"
-                                value="(Fred Perry)" data-operator="OR">
-                              <i class="fa"></i>
-                              <span class="filter_tt">Fred Perry</span>
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green ">
-                          <span>
-                            <label class="label_relative" for="filter-selected-homme">
-                              <input type="checkbox" id="filter-selected-homme" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" data-text="Selected Homme"
-                                value="(Selected Homme)" data-operator="OR">
-                              <i class="fa"></i>
-                              <span class="filter_tt">Selected Homme</span>
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green ">
-                          <span>
-                            <label class="label_relative" for="filter-tommy-hilfiger">
-                              <input type="checkbox" id="filter-tommy-hilfiger" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" data-text="Tommy Hilfiger"
-                                value="(Tommy Hilfiger)" data-operator="OR">
-                              <i class="fa"></i>
-                              <span class="filter_tt">Tommy Hilfiger</span>
-                            </label>
-                          </span>
-                        </li>
-
 
                       </ul>
 
@@ -200,7 +125,7 @@
 
 
 
-                    <div class="filter-type btn-group">
+                    <div *ngIf="categories" class="filter-type btn-group">
                       <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
                         <i class="icon-exchange"></i>Loại sản phẩm
                         <i class="icon-chevron-down"></i>
@@ -208,39 +133,13 @@
                       <ul class="dropdown-menu aside-content" role="menu">
 
 
-                        <li class="filter-item filter-item--check-box filter-item--green">
+                        <li *ngFor="let category of categories" class="filter-item filter-item--check-box filter-item--green">
                           <span>
-                            <label class="label_relative" for="filter-ao-khoac">
-                              <input type="checkbox" id="filter-ao-khoac" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type" data-text="Áo khoác"
-                                value="(Áo khoác)" data-operator="OR">
+                            <label class="label_relative" for="filter-{{category.id}}">
+                              <input type="checkbox" id="filter-{{category.id}}" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type"
+                                value="({{category.data.description}})" data-operator="OR">
                               <i class="fa"></i>
-                              Áo khoác
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green">
-                          <span>
-                            <label class="label_relative" for="filter-ao-phong">
-                              <input type="checkbox" id="filter-ao-phong" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type" data-text="Áo phông"
-                                value="(Áo phông)" data-operator="OR">
-                              <i class="fa"></i>
-                              Áo phông
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green">
-                          <span>
-                            <label class="label_relative" for="filter-ao-somi">
-                              <input type="checkbox" id="filter-ao-somi" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type" data-text="Áo sơmi"
-                                value="(Áo sơmi)" data-operator="OR">
-                              <i class="fa"></i>
-                              Áo sơmi
+                              {{category.data.description}}
                             </label>
                           </span>
                         </li>
@@ -1337,392 +1236,4 @@
       </section>
     </div>
   </div>
-  <script>
-    var selectedSortby;
-    var tt = 'Thứ tự';
-    var selectedViewData = "data";
-    var filter = new Bizweb.SearchFilter()
-
-    filter.addValue("collection", "collections", "1538311", "AND");
-
-    function toggleFilter(e) {
-      _toggleFilter(e);
-      renderFilterdItems();
-      doSearch(1);
-    }
-    function _toggleFilterdqdt(e) {
-      var $element = $(e);
-      var group = 'Khoảng giá';
-      var field = 'price_min';
-      var operator = 'OR';
-      var value = $element.attr("data-value");
-      filter.deleteValuedqdt(group, field, value, operator);
-      filter.addValue(group, field, value, operator);
-
-      renderFilterdItems();
-      doSearch(1);
-    }
-
-    function _toggleFilter(e) {
-      var $element = $(e);
-      var group = $element.attr("data-group");
-      var field = $element.attr("data-field");
-      var text = $element.attr("data-text");
-      var value = $element.attr("value");
-      var operator = $element.attr("data-operator");
-      var filterItemId = $element.attr("id");
-
-      if (!$element.is(':checked')) {
-        filter.deleteValue(group, field, value, operator);
-      }
-      else {
-        filter.addValue(group, field, value, operator);
-      }
-
-      $(".catalog_filters li[data-handle='" + filterItemId + "']").toggleClass("active");
-    }
-
-    function renderFilterdItems() {
-      var $container = $(".filter-container__selected-filter-list ul");
-      $container.html("");
-
-      $(".filter-container input[type=checkbox]").each(function (index) {
-        if ($(this).is(':checked')) {
-          var id = $(this).attr("id");
-          var name = $(this).closest("label").text();
-
-          addFilteredItem(name, id);
-        }
-      });
-
-      if ($(".filter-container input[type=checkbox]:checked").length > 0)
-        $(".filter-container__selected-filter").show();
-      else
-        $(".filter-container__selected-filter").hide();
-    }
-
-    function addFilteredItem(name, id) {
-      var filteredItemTemplate = "<li class='filter-container__selected-filter-item' for='{3}'><a href='javascript:void(0)' onclick=\"{0}\"><i class='fa fa-close'></i> {1}</a></li>";
-      filteredItemTemplate = filteredItemTemplate.replace("{0}", "removeFilteredItem('" + id + "')");
-      filteredItemTemplate = filteredItemTemplate.replace("{1}", name);
-      filteredItemTemplate = filteredItemTemplate.replace("{3}", id);
-      var $container = $(".filter-container__selected-filter-list ul");
-      $container.append(filteredItemTemplate);
-    }
-
-    function removeFilteredItem(id) {
-      $(".filter-container #" + id).trigger("click");
-    }
-
-    function clearAllFiltered() {
-      filter = new Bizweb.SearchFilter();
-
-      filter.addValue("collection", "collections", "1538311", "AND");
-
-
-      $(".filter-container__selected-filter-list ul").html("");
-      $(".filter-container input[type=checkbox]").attr('checked', false);
-      $(".filter-container__selected-filter").hide();
-
-      doSearch(1);
-    }
-
-    function doSearch(page, options) {
-
-      if (!options) options = {};
-
-      //NProgress.start();
-      $('.aside.aside-mini-products-list.filter').removeClass('active');
-
-      filter.search({
-        view: selectedViewData,
-        page: page,
-        sortby: selectedSortby,
-        success: function (html) {
-          var $html = $(html);
-          // Muốn thay thẻ DIV nào khi filter thì viết như này
-          var $categoryProducts = $($html[0]);
-          var xxx = $categoryProducts.find('.call-count');
-
-          $('.tt span').text(xxx.text());
-
-
-          $(".category-products").html($categoryProducts.html());
-          pushCurrentFilterState({ sortby: selectedSortby, page: page });
-
-
-          $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
-          awe_lazyloadImage();
-          $('.add_to_cart').click(function (e) {
-            e.preventDefault();
-            var $this = $(this);
-            var form = $this.parents('form');
-            $.ajax({
-              type: 'POST',
-              url: '/cart/add.js',
-              async: false,
-              data: form.serialize(),
-              dataType: 'json',
-              error: addToCartFail,
-              beforeSend: function () {
-
-              },
-              success: addToCartSuccess,
-              cache: false
-            });
-          });
-          $('html, body').animate({
-            scrollTop: $('.category-products').offset().top
-          }, 0);
-          setTimeout(function () {
-            $('.collection-filter-panel .aside-content').hide();
-            owl_thumb_image();
-            hover_thumb_image();
-          }, 200);
-
-
-
-
-        }
-      });
-
-    }
-
-    function sortby(sort) {
-      switch (sort) {
-        case "price-asc":
-          selectedSortby = "price_min:asc";
-          break;
-        case "price-desc":
-          selectedSortby = "price_min:desc";
-          break;
-        case "alpha-asc":
-          selectedSortby = "name:asc";
-          break;
-        case "alpha-desc":
-          selectedSortby = "name:desc";
-          break;
-        case "created-desc":
-          selectedSortby = "created_on:desc";
-          break;
-        case "created-asc":
-          selectedSortby = "created_on:asc";
-          break;
-        default:
-          selectedSortby = "";
-          break;
-      }
-
-      doSearch(1);
-    }
-
-    function resortby(sort) {
-      switch (sort) {
-        case "price_min:asc":
-          tt = "Giá tăng dần";
-          break;
-        case "price_min:desc":
-          tt = "Giá giảm dần";
-          break;
-        case "name:asc":
-          tt = "Tên A → Z";
-          break;
-        case "name:desc":
-          tt = "Tên Z → A";
-          break;
-        case "created_on:desc":
-          tt = "Hàng mới nhất";
-          break;
-        case "created_on:asc":
-          tt = "Hàng cũ nhất";
-          break;
-        default:
-          tt = "Mặc định";
-          break;
-      }
-      $('#sort-by > ul > li > span').html(tt);
-
-    }
-
-
-    function _selectSortby(sort) {
-      resortby(sort);
-      switch (sort) {
-        case "price-asc":
-          selectedSortby = "price_min:asc";
-          break;
-        case "price-desc":
-          selectedSortby = "price_min:desc";
-          break;
-        case "alpha-asc":
-          selectedSortby = "name:asc";
-          break;
-        case "alpha-desc":
-          selectedSortby = "name:desc";
-          break;
-        case "created-desc":
-          selectedSortby = "created_on:desc";
-          break;
-        case "created-asc":
-          selectedSortby = "created_on:asc";
-          break;
-        default:
-          selectedSortby = sort;
-          break;
-      }
-    }
-
-    function toggleCheckbox(id) {
-      $(id).click();
-    }
-
-    function pushCurrentFilterState(options) {
-
-      if (!options) options = {};
-      var url = filter.buildSearchUrl(options);
-      var queryString = url.slice(url.indexOf('?'));
-      if (selectedViewData == 'data_list') {
-        queryString = queryString + '&view=list';
-      }
-      else {
-        queryString = queryString + '&view=grid';
-      }
-
-      pushState(queryString);
-    }
-
-    function pushState(url) {
-      window.history.pushState({
-        turbolinks: true,
-        url: url
-      }, null, url)
-    }
-    function switchView(view) {
-      $('.button-view-mode').removeClass('active');
-      switch (view) {
-        case "list":
-          selectedViewData = "data_list";
-          $('.view-mode-list').addClass('active');
-          break;
-        default:
-          selectedViewData = "data";
-          $('.view-mode-grid').addClass('active');
-          break;
-      }
-      var url = window.location.href;
-      var page = getParameter(url, "page");
-      if (page != '' && page != null) {
-        doSearch(page);
-      } else {
-        doSearch(1);
-      }
-    }
-
-    function selectFilterByCurrentQuery() {
-
-      var isFilter = false;
-      var url = window.location.href;
-      var queryString = decodeURI(window.location.search);
-
-      var filters = queryString.match(/\(.*?\)/g);
-
-
-      if (queryString) {
-        isFilter = true;
-      }
-      if (filters && filters.length > 0) {
-
-        filters.forEach(function (item) {
-          item = item.replace(/\(\(/g, "(");
-          var element = $(".filter-container input[value='" + item + "']");
-          element.attr("checked", "checked");
-          _toggleFilter(element);
-        });
-        isFilter = true;
-      }
-
-      var sortOrder = getParameter(url, "sortby");
-      if (sortOrder) {
-        _selectSortby(sortOrder);
-      }
-      var page = getParameter(url, "page");
-
-
-      if (isFilter) {
-
-        doSearch(page);
-      }
-    }
-
-    function getParameter(url, name) {
-      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(url);
-      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
-
-    $(document).ready(function () {
-      selectFilterByCurrentQuery();
-      $('.filter-group .filter-group-title').click(function (e) {
-        $(this).parent().toggleClass('active');
-      });
-
-      $('.filter-mobile').click(function (e) {
-        $('.aside.aside-mini-products-list.filter').toggleClass('active');
-      });
-
-      $('#show-admin-bar').click(function (e) {
-        $('.aside.aside-mini-products-list.filter').toggleClass('active');
-      });
-
-      $('.filter-container__selected-filter-header-title').click(function (e) {
-        $('.aside.aside-mini-products-list.filter').toggleClass('active');
-      });
-    });
-    $(document).ready(function () {
-      selectFilterByCurrentQuery();
-
-      $('.filter-group .filter-group-title').click(function (e) {
-        $(this).parent().toggleClass('active');
-      });
-      $('.filter-mobile').click(function (e) {
-        $('.aside.aside-mini-products-list.filter').toggleClass('active');
-      });
-      $('#show-admin-bar').click(function (e) {
-        $('.aside.aside-mini-products-list.filter').toggleClass('active');
-      });
-      $('.filter-container__selected-filter-header-title').click(function (e) {
-        $('.aside.aside-mini-products-list.filter').toggleClass('active');
-      });
-      $(document).on("click touchstart", function (e) {
-
-        if ($(event.target).has('.row-filter .aside-title').length) {
-          $('.row-filter .aside-filter-item .aside-content, .row-filter .aside-item .aside-content').removeClass('active');
-        }
-      });
-
-      $('.row-filter .aside-title').click(function (e) {
-        if ($(window).width() > 1200) {
-          $(this).parent().find('.filter-group').toggleClass('active');
-
-        } else {
-          $('.row-filter .aside-filter-item .aside-content, .row-filter .aside-item .aside-content').removeClass('active');
-          $(this).parent().find('.aside-content').toggleClass('active');
-
-        }
-      })
-
-      $('.aside-item').click(function (event) {
-        $('body').click(function (event) {
-          if ($(event.target).parents('.aside-item').length == 0) {
-            // your code to hide menu
-            $('.row-filter .aside-filter-item .aside-content, .row-filter .aside-item .aside-content').removeClass('active');
-            //this event listener has done its job so we can unbind it.
-            $(this).unbind(event);
-          }
-
-        })
-      });
-    });
-  </script>
-  <div class="bizweb-product-reviews-module"></div>
+  <div class="bizweb-product-reviews-module"></div> 

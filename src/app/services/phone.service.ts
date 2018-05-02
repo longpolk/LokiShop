@@ -5,6 +5,7 @@ import { of } from "rxjs/observable/of";
 import { catchError, map, tap } from "rxjs/operators";
 import { Phone } from "../phone";
 import { Laptop } from "../laptop";
+import { Category } from "../category";
 import { MessageService } from "./messages.service";
 
 import {
@@ -25,9 +26,11 @@ export class PhoneService {
   phoneCol: AngularFirestoreCollection<Phone[]>;
   accessoriesCol: AngularFirestoreCollection<Phone[]>;
   laptopCol: AngularFirestoreCollection<Laptop[]>;
+  catCol: AngularFirestoreCollection<Category[]>;
   postDoc: AngularFirestoreDocument<Phone>;
   phonePosts: any;
   laptopPosts: any;
+  catPosts: any;
   accessoriesPosts: any;
   masterPosts: Observable<Phone[]>;
   post: Observable<Phone>;
@@ -44,7 +47,24 @@ export class PhoneService {
   setImage(imageUrl: string) {
     this.mainImageUrl = imageUrl;
   }
-  /** GET heroes from the server */
+  /** GET categories from the serve */
+  getCategories(): Observable<Category[]> {
+    this.catCol = this.angularFirestore.collection(
+      "category"
+    );
+    this.catPosts = this.catCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Category;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.catPosts.pipe(
+      tap(phone => this.log(`fetched categories`)),
+      catchError(this.handleError("getCategories", []))
+    );
+  }
+  /** GET products from the server */
   getPhones(): Observable<Phone[]> {
     this.phoneCol = this.angularFirestore.collection(
       "category/phones/phone-list", ref => ref.orderBy("postDate", "desc")
