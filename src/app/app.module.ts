@@ -42,6 +42,8 @@ import { MockDataService } from "./services/mock-data.service";
 import { OrderService } from "./services/order.service";
 import { BuySuccessfulComponent } from "./buy-successful/buy-successful.component";
 import { PopupCartComponent } from './popup-cart/popup-cart.component';
+import { NewProductsComponent } from './new-products/new-products.component';
+import { PopularProductsComponent } from './popular-products/popular-products.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { PopupCartComponent } from './popup-cart/popup-cart.component';
     SignupComponent,
     CheckoutComponent,
     BuySuccessfulComponent,
-    PopupCartComponent
+    PopupCartComponent,
+    NewProductsComponent,
+    PopularProductsComponent
   ],
   imports: [
     BrowserModule,
