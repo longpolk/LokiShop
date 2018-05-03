@@ -1,40 +1,39 @@
-
-  <section class="bread-crumb">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <li class="home">
-              <a itemprop="url" routerLink="/">
-                <span itemprop="title">Trang chủ</span>
-              </a>
-              <span>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-              </span>
-            </li>
-
-
-            <li>
-              <strong>
-                <span itemprop="title"> Sản phẩm mới</span>
-              </strong>
-            </li>
-
-
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
+<section class="bread-crumb">
   <div class="container">
     <div class="row">
-      <section class="main_container collection margin-bottom-30 col-lg-12">
-        <div class="text-sm-left">
-          <h1 class="title-head margin-top-0">Sản phẩm mới</h1>
-        </div>
-        <aside class="row-filter">
-          <!--div class="filter-container">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" routerLink="/">
+              <span itemprop="title">Trang chủ</span>
+            </a>
+            <span>
+              <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </span>
+          </li>
+
+
+          <li>
+            <strong>
+              <span itemprop="title"> Sản phẩm mới</span>
+            </strong>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <section class="main_container collection margin-bottom-30 col-lg-12">
+      <div class="text-sm-left">
+        <h1 class="title-head margin-top-0">Sản phẩm mới</h1>
+      </div>
+      <aside class="row-filter">
+        <!--div class="filter-container">
             <div class="filter-container__selected-filter" style="display: none;">
               <div class="filter-container__selected-filter-header clearfix">
                 <span class="filter-container__selected-filter-header-title">
@@ -48,15 +47,15 @@
               </div>
             </div>
           </div-->
-          <div class="sortPagiBar">
-            <div class="srt">
-              <div class="wr_sort col-sm-12">
-                <div class="text-sm-right">
-                  <!--button class="collection-filter-btn hidden-xs hidden-sm">Lọc theo
+        <div class="sortPagiBar">
+          <div class="srt">
+            <div class="wr_sort col-sm-12">
+              <div class="text-sm-right">
+                <!--button class="collection-filter-btn hidden-xs hidden-sm">Lọc theo
                     <span class="icon-drop"></span>
                   </button-->
 
-                  <!--div class="view-mode">
+                <!--div class="view-mode">
                     <a class="grid_h" href="javascript:;" data-view="grid" onclick="switchView('grid')">
                       <b class="btn button-view-mode view-mode-grid active ">
                         <i class="fa fa-th" aria-hidden="true"></i> Bảng
@@ -69,1171 +68,271 @@
                     </a>
 
                   </div-->
-                  <div class="collection-filter-panel">
+                <div class="collection-filter-panel">
 
-                    <div class="filter-category btn-group">
-                      <button class="btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
-                        <i class="icon-exchange"></i>Danh mục
-                        <i class="icon-chevron-down"></i>
-                      </button>
+                  <div class="filter-category btn-group">
+                    <button class="btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Danh mục
+                      <i class="icon-chevron-down"></i>
+                    </button>
 
-                      <ul class="dropdown-menu aside-content" role="menu">
+                    <ul class="dropdown-menu aside-content" role="menu">
 
-                        <li>
-                          <a href="/san-pham-noi-bat">Sản phẩm nổi bật</a>
-                        </li>
+                      <li>
+                        <a href="/san-pham-noi-bat">Sản phẩm nổi bật</a>
+                      </li>
 
-                        <!--li>
+                      <!--li>
                           <a href="/san-pham-khuyen-mai">Sản phẩm khuyến mãi</a>
                         </li-->
 
-                        <!--li>
+                      <!--li>
                           <a href="/frontpage">Trang chủ</a>
                         </li-->
 
-                        <li>
-                          <a href="/san-pham-moi">Sản phẩm mới</a>
-                        </li>
+                      <li>
+                        <a href="/san-pham-moi">Sản phẩm mới</a>
+                      </li>
 
-                      </ul>
-                    </div>
-
-
-                    <div *ngIf="phones" class="filter-vendor btn-group">
-                      <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
-                        <i class="icon-exchange"></i>Nhà sản xuất
-                        <i class="icon-chevron-down"></i>
-                      </button>
-
-                      <ul class="dropdown-menu aside-content" role="menu">
+                    </ul>
+                  </div>
 
 
-                        <li *ngFor="let phone of phones; i as index" class="filter-item filter-item--check-box filter-item--green ">
-                          <span>
-                            <label class="label_relative" for="filter-{{phone.data.brand}}">
-                              <input type="checkbox" id="filter-{{phone.data.brand}}" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor"
-                                value="({{phone.data.brand}})" data-operator="OR">
-                              <i class="fa"></i>
-                              <span class="filter_tt">{{phone.data.brand}}</span>
-                            </label>
-                          </span>
-                        </li>
+                  <div *ngIf="brands" class="filter-vendor btn-group">
+                    <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Nhà sản xuất
+                      <i class="icon-chevron-down"></i>
+                    </button>
 
-                      </ul>
-
-                    </div>
+                    <ul class="dropdown-menu aside-content" role="menu">
 
 
+                      <li *ngFor="let brand of brands; i as index" class="filter-item filter-item--check-box filter-item--green ">
+                        <span>
+                          <label class="label_relative" for="filter-{{brand.id}}">
+                            <input type="checkbox" id="filter-{{brand.id}}" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" value="({{brand.data.name}})"
+                              data-operator="OR">
+                            <i class="fa"></i>
+                            <span class="filter_tt">{{brand.data.name}}</span>
+                          </label>
+                        </span>
+                      </li>
 
-                    <div *ngIf="categories" class="filter-type btn-group">
-                      <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
-                        <i class="icon-exchange"></i>Loại sản phẩm
-                        <i class="icon-chevron-down"></i>
-                      </button>
-                      <ul class="dropdown-menu aside-content" role="menu">
-
-
-                        <li *ngFor="let category of categories" class="filter-item filter-item--check-box filter-item--green">
-                          <span>
-                            <label class="label_relative" for="filter-{{category.id}}">
-                              <input type="checkbox" id="filter-{{category.id}}" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type"
-                                value="({{category.data.description}})" data-operator="OR">
-                              <i class="fa"></i>
-                              {{category.data.description}}
-                            </label>
-                          </span>
-                        </li>
-
-
-                      </ul>
-                    </div>
-
-
-                    <div class="filter-tag btn-group">
-                      <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
-                        <i class="icon-exchange"></i>Tags
-                        <i class="icon-chevron-down"></i>
-                      </button>
-                      <ul class="dropdown-menu aside-content" role="menu">
-
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green">
-                          <span>
-                            <label class="label_relative" for="filter-hot">
-                              <input type="checkbox" id="filter-hot" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="hot"
-                                value="(hot)" data-operator="OR">
-                              <i class="fa"></i>
-                              hot
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green">
-                          <span>
-                            <label class="label_relative" for="filter-moi">
-                              <input type="checkbox" id="filter-moi" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="moi"
-                                value="(moi)" data-operator="OR">
-                              <i class="fa"></i>
-                              moi
-                            </label>
-                          </span>
-                        </li>
-
-
-
-                        <li class="filter-item filter-item--check-box filter-item--green">
-                          <span>
-                            <label class="label_relative" for="filter-khuyen-mai">
-                              <input type="checkbox" id="filter-khuyen-mai" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="khuyen mai"
-                                value="(khuyen mai)" data-operator="OR">
-                              <i class="fa"></i>
-                              khuyen mai
-                            </label>
-                          </span>
-                        </li>
-
-                      </ul>
-                    </div>
+                    </ul>
 
                   </div>
+
+
+
+                  <div *ngIf="categories" class="filter-type btn-group">
+                    <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Loại sản phẩm
+                      <i class="icon-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+
+                      <li *ngFor="let category of categories" class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-{{category.id}}">
+                            <input type="checkbox" id="filter-{{category.id}}" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type"
+                              value="({{category.data.description}})" data-operator="OR">
+                            <i class="fa"></i>
+                            {{category.data.description}}
+                          </label>
+                        </span>
+                      </li>
+
+
+                    </ul>
+                  </div>
+
+
+                  <!--div class="filter-tag btn-group">
+                    <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Tags
+                      <i class="icon-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+
+
+
+                      <li class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-hot">
+                            <input type="checkbox" id="filter-hot" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="hot"
+                              value="(hot)" data-operator="OR">
+                            <i class="fa"></i>
+                            hot
+                          </label>
+                        </span>
+                      </li>
+
+
+
+                      <li class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-moi">
+                            <input type="checkbox" id="filter-moi" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="moi"
+                              value="(moi)" data-operator="OR">
+                            <i class="fa"></i>
+                            moi
+                          </label>
+                        </span>
+                      </li>
+
+
+
+                      <li class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-khuyen-mai">
+                            <input type="checkbox" id="filter-khuyen-mai" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="khuyen mai"
+                              value="(khuyen mai)" data-operator="OR">
+                            <i class="fa"></i>
+                            khuyen mai
+                          </label>
+                        </span>
+                      </li>
+
+                    </ul>
+                  </div-->
+
                 </div>
               </div>
             </div>
           </div>
-          <script>
-
-            $('.btn-group .dropdown-menu').hide();
-
-            $('.btn-group .btn-2').click(function (e) {
-
-              e.preventDefault();
-              var $this = $(this).parent().find('ul');
-              $(".btn-group .dropdown-menu").not($this).hide();
-
-              $this.toggle();
-            });
-
-            $('.collection-filter-panel').hide();
-
-            $('.collection-filter-btn').click(function (e) {
-
-              e.preventDefault();
-              var $this = $(this).parent().find('.collection-filter-panel');
-              $(".collection-filter-panel").not($this).hide();
-
-              $this.toggle();
-            });
-
-            $('body').click(function (e) {
-              if ($(e.target).closest('.btn-group').length === 0) {
-                $('.btn-group .dropdown-menu').hide();
-              }
-            });
-          </script>
-        </aside>
-        <div class="category-products products">
-
-
-
-
-          <section class="products-view products-view-grid collection_reponsive">
-            <div class="row">
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-keo-khoa-asos" title="Áo khoác kéo khóa Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aogio.jpg?v=1524194232720"
-                              alt="Áo khoác kéo khóa Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-keo-khoa-asos" title="Áo khoác kéo khóa Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aogio2.jpg?v=1524194232720"
-                              alt="Áo khoác kéo khóa Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-keo-khoa-asos" title="Áo khoác kéo khóa Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aogio3.jpg?v=1524194232720"
-                              alt="Áo khoác kéo khóa Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-keo-khoa-asos" title="Áo khoác kéo khóa Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aogio4.jpg?v=1524194232720"
-                              alt="Áo khoác kéo khóa Asos">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440488" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781936" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-khoac-keo-khoa-asos" title="Áo khoác kéo khóa Asos">Áo khoác kéo khóa Asos</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price black-price">1.100.000₫</span>
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-co-mu-bellfield" title="Áo khoác có mũ Bellfield">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aokhoac.jpg?v=1524194231963"
-                              alt="Áo khoác có mũ Bellfield">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-co-mu-bellfield" title="Áo khoác có mũ Bellfield">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aokhoac2.jpg?v=1524194231963"
-                              alt="Áo khoác có mũ Bellfield">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-co-mu-bellfield" title="Áo khoác có mũ Bellfield">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aokhoac3.jpg?v=1524194231963"
-                              alt="Áo khoác có mũ Bellfield">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-co-mu-bellfield" title="Áo khoác có mũ Bellfield">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aokhoac4.jpg?v=1524194231963"
-                              alt="Áo khoác có mũ Bellfield">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-label">
-
-                        <strong class="label">Sale</strong>
-
-
-                      </div>
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440487" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781935" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-khoac-co-mu-bellfield" title="Áo khoác có mũ Bellfield">Áo khoác có mũ Bellfield</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price">1.000.000₫</span>
-
-                        <span class="price product-price-old">
-                          1.300.000₫
-                        </span>
-
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-da-den-selected-homme" title="Áo khoác dạ Selected Homme">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoda.jpg?v=1524194231170"
-                              alt="Áo khoác dạ Selected Homme">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-da-den-selected-homme" title="Áo khoác dạ Selected Homme">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoda2.jpg?v=1524194231170"
-                              alt="Áo khoác dạ Selected Homme">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-da-den-selected-homme" title="Áo khoác dạ Selected Homme">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoda3.jpg?v=1524194231170"
-                              alt="Áo khoác dạ Selected Homme">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-khoac-da-den-selected-homme" title="Áo khoác dạ Selected Homme">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoda4.jpg?v=1524194231170"
-                              alt="Áo khoác dạ Selected Homme">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440486" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781934" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-khoac-da-den-selected-homme" title="Áo khoác dạ Selected Homme">Áo khoác dạ Selected Homme</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price black-price">2.500.000₫</span>
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-thun-dai-tay-fred-perry" title="Áo thun dài tay Fred Perry">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoke.jpg?v=1524194230423"
-                              alt="Áo thun dài tay Fred Perry">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-thun-dai-tay-fred-perry" title="Áo thun dài tay Fred Perry">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoke2.jpg?v=1524194230423"
-                              alt="Áo thun dài tay Fred Perry">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-thun-dai-tay-fred-perry" title="Áo thun dài tay Fred Perry">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoke3.jpg?v=1524194230423"
-                              alt="Áo thun dài tay Fred Perry">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-thun-dai-tay-fred-perry" title="Áo thun dài tay Fred Perry">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoke4.jpg?v=1524194230423"
-                              alt="Áo thun dài tay Fred Perry">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-label">
-
-                        <strong class="label">Sale</strong>
-
-
-                      </div>
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440485" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781933" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-thun-dai-tay-fred-perry" title="Áo thun dài tay Fred Perry">Áo thun dài tay Fred Perry</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price">1.000.000₫</span>
-
-                        <span class="price product-price-old">
-                          1.100.000₫
-                        </span>
-
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-len-co-lo-asos" title="Áo len cổ lọ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aolen.jpg?v=1524194229677"
-                              alt="Áo len cổ lọ Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-len-co-lo-asos" title="Áo len cổ lọ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aolen2.jpg?v=1524194229677"
-                              alt="Áo len cổ lọ Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-len-co-lo-asos" title="Áo len cổ lọ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aolen3.jpg?v=1524194229677"
-                              alt="Áo len cổ lọ Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-len-co-lo-asos" title="Áo len cổ lọ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aolen4.jpg?v=1524194229677"
-                              alt="Áo len cổ lọ Asos">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440483" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781931" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-len-co-lo-asos" title="Áo len cổ lọ Asos">Áo len cổ lọ Asos</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price black-price">680.000₫</span>
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-chui-dau-emporio-armani" title="Áo nỉ chui đầu Emporio Armani">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aodaitay.jpg?v=1524194228573"
-                              alt="Áo nỉ chui đầu Emporio Armani">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-chui-dau-emporio-armani" title="Áo nỉ chui đầu Emporio Armani">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aodaitay2.jpg?v=1524194228573"
-                              alt="Áo nỉ chui đầu Emporio Armani">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-chui-dau-emporio-armani" title="Áo nỉ chui đầu Emporio Armani">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aodaitay3.jpg?v=1524194228573"
-                              alt="Áo nỉ chui đầu Emporio Armani">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-chui-dau-emporio-armani" title="Áo nỉ chui đầu Emporio Armani">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aodaitay4.jpg?v=1524194228573"
-                              alt="Áo nỉ chui đầu Emporio Armani">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-label">
-
-                        <strong class="label">Sale</strong>
-
-
-                      </div>
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440482" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781930" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-ni-chui-dau-emporio-armani" title="Áo nỉ chui đầu Emporio Armani">Áo nỉ chui đầu Emporio Armani</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price">1.500.000₫</span>
-
-                        <span class="price product-price-old">
-                          1.790.000₫
-                        </span>
-
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-co-mu-asos" title="Áo nỉ có mũ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aoni.jpg?v=1524194227637"
-                              alt="Áo nỉ có mũ Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-co-mu-asos" title="Áo nỉ có mũ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aohoodie2.jpg?v=1524194227637"
-                              alt="Áo nỉ có mũ Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-co-mu-asos" title="Áo nỉ có mũ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aohoodie3.jpg?v=1524194227637"
-                              alt="Áo nỉ có mũ Asos">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-ni-co-mu-asos" title="Áo nỉ có mũ Asos">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/aohoodie4.jpg?v=1524194227637"
-                              alt="Áo nỉ có mũ Asos">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440481" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781929" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-ni-co-mu-asos" title="Áo nỉ có mũ Asos">Áo nỉ có mũ Asos</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price black-price">360.000₫</span>
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-tim-tommy-hilfiger" title="Áo sơmi tím Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somitim.jpg?v=1524194226657"
-                              alt="Áo sơmi tím Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-tim-tommy-hilfiger" title="Áo sơmi tím Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somitim2.jpg?v=1524194226657"
-                              alt="Áo sơmi tím Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-tim-tommy-hilfiger" title="Áo sơmi tím Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somitim3.jpg?v=1524194226657"
-                              alt="Áo sơmi tím Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-tim-tommy-hilfiger" title="Áo sơmi tím Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somitim4.jpg?v=1524194226657"
-                              alt="Áo sơmi tím Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-label">
-
-                        <strong class="label">Sale</strong>
-
-
-                      </div>
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440480" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781928" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-somi-tim-tommy-hilfiger" title="Áo sơmi tím Tommy Hilfiger">Áo sơmi tím Tommy Hilfiger</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price">1.500.000₫</span>
-
-                        <span class="price product-price-old">
-                          1.700.000₫
-                        </span>
-
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                <div class="product-col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="product-box">
-                    <div class="product-thumbnail display_flex">
-
-                      <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
-                        data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-caro-tommy-hilfiger" title="Áo sơmi carô Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somicaro.jpg?v=1524194225667"
-                              alt="Áo sơmi carô Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-caro-tommy-hilfiger" title="Áo sơmi carô Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somicaro2.jpg?v=1524194225667"
-                              alt="Áo sơmi carô Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-caro-tommy-hilfiger" title="Áo sơmi carô Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somicaro3.jpg?v=1524194225667"
-                              alt="Áo sơmi carô Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                        <div class="item">
-                          <a class="image_link" href="/ao-somi-caro-tommy-hilfiger" title="Áo sơmi carô Tommy Hilfiger">
-                            <img src="https://bizweb.dktcdn.net/100/309/904/themes/655508/assets/product-1.png?1524194225867" data-lazyload="https://bizweb.dktcdn.net/thumb/large/100/309/904/products/somicaro4.jpg?v=1524194225667"
-                              alt="Áo sơmi carô Tommy Hilfiger">
-                          </a>
-                        </div>
-
-                      </div>
-
-
-                      <div class="product-action-grid clearfix">
-                        <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440479" enctype="multipart/form-data">
-                          <div>
-
-
-                            <div class="action_btn">
-                              <input type="hidden" name="variantId" value="17781927" />
-                              <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
-                              </button>
-                            </div>
-
-
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="product-info a-left">
-                      <h3 class="product-name">
-                        <a href="/ao-somi-caro-tommy-hilfiger" title="Áo sơmi carô Tommy Hilfiger">Áo sơmi carô Tommy Hilfiger</a>
-                      </h3>
-
-
-                      <div class="price-box clearfix">
-                        <span class="price product-price black-price">1.500.000₫</span>
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="text-center">
-
-            </div>
-          </section>
-
-
         </div>
-      </section>
-    </div>
+        <script>
+
+          $('.btn-group .dropdown-menu').hide();
+
+          $('.btn-group .btn-2').click(function (e) {
+
+            e.preventDefault();
+            var $this = $(this).parent().find('ul');
+            $(".btn-group .dropdown-menu").not($this).hide();
+
+            $this.toggle();
+          });
+
+          $('.collection-filter-panel').hide();
+
+          $('.collection-filter-btn').click(function (e) {
+
+            e.preventDefault();
+            var $this = $(this).parent().find('.collection-filter-panel');
+            $(".collection-filter-panel").not($this).hide();
+
+            $this.toggle();
+          });
+
+          $('body').click(function (e) {
+            if ($(e.target).closest('.btn-group').length === 0) {
+              $('.btn-group .dropdown-menu').hide();
+            }
+          });
+        </script>
+      </aside>
+      <div class="category-products products">
+
+
+
+
+        <section class="products-view products-view-grid collection_reponsive">
+          <div class="row">
+
+
+
+
+
+
+
+
+
+
+
+            <div *ngFor="let phone of phones" class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+              <div class="product-col">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="product-box">
+                  <div class="product-thumbnail display_flex">
+
+                    <div class="product_image_list owl_product_item_content owl-carousel not-dot2" data-loop="true" data-dot="false" data-nav='false'
+                      data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
+
+                      <div *ngFor="let image of phone.data.imageUrl" class="item">
+                        <a class="image_link" routerLink="/detail/{{phone.id}}" title="{{phone.data.name}}">
+                          <img src="{{image}}" alt="{{phone.data.name}}" style="width: 181.99px;height: 181.99px;">
+                        </a>
+                      </div>
+
+                    </div>
+
+
+                    <div class="product-action-grid clearfix">
+                      <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-11440488" enctype="multipart/form-data">
+                        <div>
+
+
+                          <div class="action_btn">
+                            <input type="hidden" name="variantId" value="17781936" />
+                            <button class="button_h btn-cart left-to add_to_cart" title="Cho vào giỏ hàng">
+                              <i class="fa fa-plus" aria-hidden="true"></i> Giỏ hàng
+                            </button>
+                          </div>
+
+
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="product-info a-left">
+                    <h3 class="product-name">
+                      <a routerLink="/detail/{{phone.id}}" title="{{phone.data.name}}">{{phone.data.name}}</a>
+                    </h3>
+
+
+                    <div class="price-box clearfix">
+                      <span class="price product-price black-price">{{phone.data.sale_price | number}}₫</span>
+                    </div>
+
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="text-center">
+
+          </div>
+        </section>
+
+
+      </div>
+    </section>
   </div>
-  <div class="bizweb-product-reviews-module"></div> 
+</div>
+<div class="bizweb-product-reviews-module"></div>

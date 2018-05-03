@@ -14,6 +14,7 @@ import {
   AngularFirestoreDocument
 } from "angularfire2/firestore";
 import "rxjs/add/operator/map";
+import { Brand } from "../brand";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -22,15 +23,17 @@ const httpOptions = {
 @Injectable()
 export class PhoneService {
   public phoneUrl = "api/phones"; // URL to web api
-  
+
   phoneCol: AngularFirestoreCollection<Phone[]>;
   accessoriesCol: AngularFirestoreCollection<Phone[]>;
   laptopCol: AngularFirestoreCollection<Laptop[]>;
   catCol: AngularFirestoreCollection<Category[]>;
+  brandCol: AngularFirestoreCollection<Brand[]>;
   postDoc: AngularFirestoreDocument<Phone>;
   phonePosts: any;
   laptopPosts: any;
   catPosts: any;
+  brandPosts: any;
   accessoriesPosts: any;
   masterPosts: Observable<Phone[]>;
   post: Observable<Phone>;
@@ -49,9 +52,7 @@ export class PhoneService {
   }
   /** GET categories from the serve */
   getCategories(): Observable<Category[]> {
-    this.catCol = this.angularFirestore.collection(
-      "category"
-    );
+    this.catCol = this.angularFirestore.collection("category");
     this.catPosts = this.catCol.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Category;
@@ -64,10 +65,28 @@ export class PhoneService {
       catchError(this.handleError("getCategories", []))
     );
   }
-  /** GET products from the server */
+  /** GET brands */
+  getBrands(): Observable<Brand[]> {
+    this.brandCol = this.angularFirestore.collection("brands", ref =>
+      ref.orderBy("name".toLowerCase(), "asc")
+    );
+    this.brandPosts = this.brandCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Brand;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.brandPosts.pipe(
+      tap(phone => this.log(`fetched phone`)),
+      catchError(this.handleError("getPhones", []))
+    );
+  }
+  /** GET phones from the server */
   getPhones(): Observable<Phone[]> {
     this.phoneCol = this.angularFirestore.collection(
-      "category/phones/phone-list", ref => ref.orderBy("postDate", "desc")
+      "category/phones/phone-list",
+      ref => ref.orderBy("postDate", "desc")
     );
     this.phonePosts = this.phoneCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -81,33 +100,29 @@ export class PhoneService {
       catchError(this.handleError("getPhones", []))
     );
   }
-  getPhones_2(): any {
-    this.getPhones().subscribe(phones => (this.phones = phones.slice(0, 10)));
-    this.phones.forEach(phone => {
-      this.listPhone.push(
-        new Phone(
-          phone.brand,
-          phone.category_id,
-          phone.colors,
-          phone.id,
-          phone.imageUrl,
-          phone.inStock,
-          phone.name,
-          phone.postDate,
-          phone.price,
-          phone.sale_price,
-          phone.snippet,
-          phone.sold,
-          phone.thumb,
-          phone.added
-        )
-      );
+  /** GET phones by brand */
+  getPhonesByBrand(brand: string): Observable<Phone[]> {
+    this.phoneCol = this.angularFirestore.collection(
+      "category/phones/phone-list",
+      ref => ref.where("brand", "==", brand).orderBy("postDate", "desc")
+    );
+    this.phonePosts = this.phoneCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
     });
-    return this.listPhone;
+    return this.phonePosts.pipe(
+      tap(phone => this.log(`fetched phone`)),
+      catchError(this.handleError("getPhones", []))
+    );
   }
+  /** GET laptops from server */
   getLaptops(): Observable<Phone[]> {
     this.laptopCol = this.angularFirestore.collection(
-      "category/laptops/laptop-list", ref => ref.orderBy("postDate", "desc")
+      "category/laptops/laptop-list",
+      ref => ref.orderBy("postDate", "desc")
     );
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -121,9 +136,46 @@ export class PhoneService {
       catchError(this.handleError("getLaptops", []))
     );
   }
+  /** GET laptops by brand */
+  getLaptopsByBrand(brand: string): Observable<Laptop[]> {
+    this.laptopCol = this.angularFirestore.collection(
+      "category/laptops/laptop-list",
+      ref => ref.where("brand", "==", brand).orderBy("postDate", "desc")
+    );
+    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.laptopPosts.pipe(
+      tap(phone => this.log(`fetched laptop`)),
+      catchError(this.handleError("getLaptops", []))
+    );
+  }
+  /** GET accessories from server */
   getAccessories(): Observable<Phone[]> {
     this.laptopCol = this.angularFirestore.collection(
       "category/accessories/accessories-list"
+    );
+    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.laptopPosts.pipe(
+      tap(phone => this.log(`fetched accessories`)),
+      catchError(this.handleError("getAccessories", []))
+    );
+  }
+  /** GET accessories by brand */
+  getAccessoriesByBrand(brand: string): Observable<Phone[]> {
+    this.laptopCol = this.angularFirestore.collection(
+      "category/accessories/accessories-list",
+      ref => ref.where("brand", "==", brand).orderBy("postDate", "desc")
     );
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -154,9 +206,7 @@ export class PhoneService {
     );
   }
   getSliders(): Observable<Phone[]> {
-    this.laptopCol = this.angularFirestore.collection(
-      "banners/sliders/list"
-    );
+    this.laptopCol = this.angularFirestore.collection("banners/sliders/list");
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Phone;
@@ -171,7 +221,8 @@ export class PhoneService {
   }
   getLaptopAccessories(): Observable<Phone[]> {
     this.laptopCol = this.angularFirestore.collection(
-      "category/accessories/accessories-list", ref => ref.where("tag","==","laptops")
+      "category/accessories/accessories-list",
+      ref => ref.where("tag", "==", "laptops")
     );
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -187,7 +238,8 @@ export class PhoneService {
   }
   getPhoneAccessories(): Observable<Phone[]> {
     this.laptopCol = this.angularFirestore.collection(
-      "category/accessories/accessories-list", ref => ref.where('tag','==','phones')
+      "category/accessories/accessories-list",
+      ref => ref.where("tag", "==", "phones")
     );
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -205,7 +257,8 @@ export class PhoneService {
     var currentDay = new Date();
 
     this.phoneCol = this.angularFirestore.collection(
-      "category/phones/phone-list", ref => ref.where("sold","==",0).orderBy("postDate", "desc")
+      "category/phones/phone-list",
+      ref => ref.where("sold", "==", 0).orderBy("postDate", "desc")
     );
     this.phonePosts = this.phoneCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -215,9 +268,9 @@ export class PhoneService {
       });
     });
 
-
     this.laptopCol = this.angularFirestore.collection(
-      "category/laptops/laptops-list", ref => ref.where("postDate","<",currentDay).orderBy("postDate", "desc")
+      "category/laptops/laptops-list",
+      ref => ref.where("postDate", "<", currentDay).orderBy("postDate", "desc")
     );
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -227,18 +280,20 @@ export class PhoneService {
       });
     });
 
-
     this.accessoriesCol = this.angularFirestore.collection(
-      "category/accessories/accessories-list", ref => ref.where("postDate","<",currentDay).orderBy("postDate", "desc")
+      "category/accessories/accessories-list",
+      ref => ref.where("postDate", "<", currentDay).orderBy("postDate", "desc")
     );
-    this.accessoriesPosts = this.accessoriesCol.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Phone;
-        const id = a.payload.doc.id;
-        return { id, data };
+    this.accessoriesPosts = this.accessoriesCol
+      .snapshotChanges()
+      .map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Phone;
+          const id = a.payload.doc.id;
+          return { id, data };
+        });
       });
-    });
-/** Join all the observable into masterPosts */
+    /** Join all the observable into masterPosts */
     /*this.masterPosts = Observable.of(this.phonePosts).merge(Observable.of(this.laptopPosts))
     .merge(Observable.of(this.accessoriesPosts));*/
     this.masterPosts = this.phonePosts;
@@ -248,10 +303,10 @@ export class PhoneService {
       catchError(this.handleError("getDiscountProduct", []))
     );
   }
-  
+
   /** GET hero by id. Return `undefined` when id not found */
   getPhoneNo404<Data>(id: number): Observable<Phone> {
-    const url = 'detail/id=${id}';
+    const url = "detail/id=${id}";
     return this.http.get<Phone[]>(url).pipe(
       map(phones => phones[0]), // returns a {0|1} element array
       tap(h => {
@@ -264,9 +319,11 @@ export class PhoneService {
 
   /** GET phone by id. Will 404 if id not found */
   getPhone(id: string): Observable<Phone> {
-    this.postDoc = this.angularFirestore.doc(
-      "category/phones/phone-list/" + id
-    );
+    this.postDoc = this.angularFirestore
+      .collection("category")
+      .doc("phones")
+      .collection("phone-list")
+      .doc(id);
     this.post = this.postDoc.valueChanges();
     return this.post.pipe(
       tap(_ => this.log(`fetched phone id=${id}`)),

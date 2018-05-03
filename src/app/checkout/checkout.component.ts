@@ -144,8 +144,8 @@ export class CheckoutComponent implements OnInit {
   checkVoucherCode() {
     var code = this.voucherCode.nativeElement.value;
     var count = 0;
-    console.log(this.vouchers);
-    console.log(this.orders);
+    //console.log(this.vouchers);
+    //console.log(this.orders);
     this.discount = 0;
     for (var i = 0; i < this.vouchers.length; i++) {
       var element = this.vouchers[i];
