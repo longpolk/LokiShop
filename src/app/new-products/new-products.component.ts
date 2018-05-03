@@ -1,12 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Phone } from "../phone";
 import { PhoneService } from "../services/phone.service";
 import { ActivatedRoute } from "@angular/router";
 import { Category } from "../category";
 import { Location } from "@angular/common";
 import { Brand } from "../brand";
+import { Observable } from "rxjs/Rx";
 
 @Component({
+  //encapsulation: ViewEncapsulation.None,
   selector: "app-new-products",
   templateUrl: "./new-products.component.html",
   styleUrls: [
@@ -16,7 +18,7 @@ import { Brand } from "../brand";
     "./bootstrap.css",
     "./themify-icons.css",
     "./bootstrap.min.css",
-    './font-awesome.min.css',
+    "./font-awesome.min.css",
     "./style.scss.css",
     "./module.scss.css",
     "./bpr-products-module.css"
@@ -24,6 +26,7 @@ import { Brand } from "../brand";
 })
 export class NewProductsComponent implements OnInit {
   categories: Category[] = [];
+  products: Phone[] = [];
   phones: Phone[] = [];
   laptops: Phone[] = [];
   accessories: Phone[] = [];
@@ -31,6 +34,8 @@ export class NewProductsComponent implements OnInit {
   laptopAccessories: Phone[] = [];
   brands: Brand[] = [];
   load: boolean;
+  phones$: Observable<Phone[]>;
+  laptops$: Observable<Phone[]>;
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
@@ -39,6 +44,7 @@ export class NewProductsComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
+    this.getAllProducts();
     this.getPhones();
     this.getLaptops();
     this.getAccessories();
@@ -48,6 +54,13 @@ export class NewProductsComponent implements OnInit {
     this.phoneService
       .getCategories()
       .subscribe(categories => (this.categories = categories));
+  }
+  getAllProducts() {
+    this.phones$ = this.phoneService.getPhones();
+      this.laptops$ = this.phoneService.getLaptops();
+    Observable.merge(
+      this.phones$, this.laptops$
+    ).subscribe(products => (this.products = products));
   }
   getPhones(): void {
     this.phoneService.getPhones().subscribe(phones => (this.phones = phones));

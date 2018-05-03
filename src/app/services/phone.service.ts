@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs/Rx";
 import { of } from "rxjs/observable/of";
 import { catchError, map, tap } from "rxjs/operators";
 import { Phone } from "../phone";
@@ -81,6 +81,11 @@ export class PhoneService {
       tap(phone => this.log(`fetched phone`)),
       catchError(this.handleError("getPhones", []))
     );
+  }
+  /** GET all products */
+  getAllProducts(): Observable<Phone[]>{
+    this.masterPosts = Observable.merge(this.getPhones(), this.getLaptops(), this.getAccessories());
+    return this.masterPosts;
   }
   /** GET phones from the server */
   getPhones(): Observable<Phone[]> {
