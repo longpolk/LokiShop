@@ -5,7 +5,8 @@ import { ActivatedRoute } from "@angular/router";
 import { Category } from "../category";
 import { Location } from "@angular/common";
 import { Brand } from "../brand";
-import { Observable } from "rxjs/Rx";
+import { Observable } from "rxjs/observable";
+import { concat } from "rxjs/observable/concat";
 
 @Component({
   //encapsulation: ViewEncapsulation.None,
@@ -36,6 +37,9 @@ export class NewProductsComponent implements OnInit {
   load: boolean;
   phones$: Observable<Phone[]>;
   laptops$: Observable<Phone[]>;
+  products$: Observable<Phone[]>;
+  accessories$: Observable<Phone[]>;
+  filteredList: Phone[] = [];
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
@@ -45,9 +49,9 @@ export class NewProductsComponent implements OnInit {
   ngOnInit() {
     this.getCategories();
     this.getAllProducts();
-    this.getPhones();
-    this.getLaptops();
-    this.getAccessories();
+    //this.getPhones();
+    //this.getLaptops();
+    //this.getAccessories();
     this.getBrandName();
   }
   getCategories() {
@@ -56,11 +60,34 @@ export class NewProductsComponent implements OnInit {
       .subscribe(categories => (this.categories = categories));
   }
   getAllProducts() {
-    this.phones$ = this.phoneService.getPhones();
-      this.laptops$ = this.phoneService.getLaptops();
-    Observable.merge(
-      this.phones$, this.laptops$
-    ).subscribe(products => (this.products = products));
+    //let products = new Array<Phone>();
+    this.phoneService.getPhones().subscribe(data => {
+      data.forEach(element => {
+        this.products.push(element);
+      });
+    });
+    this.phoneService.getLaptops().subscribe(data => {
+      data.forEach(element => {
+        this.products.push(element);
+      });
+    });
+    this.phoneService.getAccessories().subscribe(data => {
+      data.forEach(element => {
+        this.products.push(element);
+      });
+    });
+  }
+  filterCategories(catID: string) {
+    //this.filteredList = this.getAllProducts();
+    //var filter = document.getElementById("filter-"+catID.toString);
+    //if(filter.getAttribute("checked") == "true"){
+    this.filteredList = this.products.filter(
+      (product: Phone) => product["data"]["category_id"] == catID
+    );
+  //}
+    this.products = this.filteredList;
+    console.log(catID);
+    console.log(this.products);
   }
   getPhones(): void {
     this.phoneService.getPhones().subscribe(phones => (this.phones = phones));

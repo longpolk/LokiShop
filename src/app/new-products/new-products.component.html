@@ -132,10 +132,10 @@
                     <ul class="dropdown-menu aside-content" role="menu">
 
 
-                      <li *ngFor="let category of categories" class="filter-item filter-item--check-box filter-item--green">
+                      <li *ngFor="let category of categories; i as index" class="filter-item filter-item--check-box filter-item--green">
                         <span>
-                          <label class="label_relative" for="filter-{{category.id}}">
-                            <input type="checkbox" id="filter-{{category.id}}" onchange="toggleFilter(this)" data-group="Loại" data-field="product_type"
+                          <label class="label_relative" for="filter-{{category.data.id}}">
+                            <input type="checkbox" id="filter-{{category.data.id}}" (change)="getAllProducts(); filterCategories(category.data.id)" data-group="Loại" data-field="product_type"
                               value="({{category.data.description}})" data-operator="OR">
                             <i class="fa"></i>
                             {{category.data.description}}
@@ -240,7 +240,7 @@
 
 
         <section class="products-view products-view-grid collection_reponsive">
-            <div class="row">
+            <div class="row" *ngIf="products">
 
 
 
@@ -350,7 +350,7 @@
     
               </div>
 
-          <div class="row">
+          <div class="row" *ngIf="phones">
 
 
 
@@ -460,7 +460,7 @@
 
           </div>
 
-          <div class="row">
+          <div class="row" *ngIf="laptops">
 
 
 
@@ -570,7 +570,7 @@
   
             </div>
 
-            <div class="row">
+            <div class="row" *ngIf="accessories">
 
 
 
