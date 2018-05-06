@@ -44,6 +44,11 @@ import { BuySuccessfulComponent } from "./buy-successful/buy-successful.componen
 import { PopupCartComponent } from './popup-cart/popup-cart.component';
 import { NewProductsComponent } from './new-products/new-products.component';
 import { PopularProductsComponent } from './popular-products/popular-products.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AccountComponent } from './account/account.component';
+import { CoreModule } from "./core/core.module";
+import { AuthService } from "./core/auth.service";
+import { AuthGuard } from "./core/auth.guard";
 
 @NgModule({
   declarations: [
@@ -66,7 +71,8 @@ import { PopularProductsComponent } from './popular-products/popular-products.co
     BuySuccessfulComponent,
     PopupCartComponent,
     NewProductsComponent,
-    PopularProductsComponent
+    PopularProductsComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +94,9 @@ import { PopularProductsComponent } from './popular-products/popular-products.co
       apiKey: 'AIzaSyBwV1LXU0LqGEKftj9U6sF91A8qwCNlONM',
       libraries: ["places"]
     }),
-    MatDialogModule
+    MatDialogModule,
+    Ng2SearchPipeModule,
+    CoreModule
   ],
   providers: [
     PhoneService,
@@ -97,7 +105,9 @@ import { PopularProductsComponent } from './popular-products/popular-products.co
     CartService,
     Location,
     MockDataService,
-    OrderService
+    OrderService,
+    AuthService,
+    AuthGuard
   ],
   entryComponents: [PopupCartComponent],
   bootstrap: [AppComponent]

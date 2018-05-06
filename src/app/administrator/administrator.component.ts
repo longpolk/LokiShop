@@ -14,7 +14,7 @@ export class AdministratorComponent implements OnInit {
   id = id.trim();
   password = password.trim();
   if (!id) { return; }
-  this.userService.userLogin(id, password);
+  //this.userService.userLogin(id, password);
 }
   ngOnInit() {
   }

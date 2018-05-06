@@ -1,0 +1,138 @@
+
+  <section class="bread-crumb">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <li class="home">
+              <a itemprop="url" routerLink="/">
+                <span itemprop="title">Trang chủ</span>
+              </a>
+              <span>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
+              </span>
+            </li>
+
+            <li>
+              <strong itemprop="title">Trang khách hàng</strong>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="auth.user | async as user" class="signup page_customer_account">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-main-acount">
+          <div id="parent" class="row">
+            <div id="a" class="col-xs-12 col-sm-12 col-lg-9 col-left-account">
+              <div class="page-title m992">
+                <h1 class="title-head margin-top-0">
+                  <a routerLink="#">Trang khách hàng</a>
+                </h1>
+              </div>
+              <div class="form-signup name-account m992">
+                <p>
+                  <strong>Xin chào,
+                    <a routerLink="/account/addresses" style="color:#f02b2b;">{{ user.displayName }}</a>&nbsp;!</strong>
+                    <input (click)="auth.signOut()" type="button" value="Đăng xuất"/>
+                </p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-lg-12 no-padding">
+
+                <div class="my-account">
+                  <div class="dashboard">
+
+                    <div class="recent-orders">
+                      <div class="table-responsive tab-all" style="overflow-x:auto;">
+                        <table class="table table-cart" id="my-orders-table">
+                          <thead class="thead-default">
+                            <tr>
+                              <th>Đơn hàng</th>
+                              <th>Ngày</th>
+
+                              <th>Địa chỉ</th>
+                              <th>Giá trị đơn hàng</th>
+                              <th>Tình trạng thanh toán</th>
+                              <th>Trạng thái</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+
+                            <tr>
+                              <td colspan="6">
+                                <p>Không có đơn hàng nào.</p>
+                              </td>
+                            </tr>
+
+                          </tbody>
+
+
+                        </table>
+
+                      </div>
+
+                      <div class="paginate-pages pull-right page-account text-right col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <div id="b" class="col-xs-12 col-sm-12 col-lg-3 col-right-account margin-top-20">
+              <div class="block-account">
+                <div class="block-title-account">
+                  <h5>Tài khoản của tôi</h5>
+                </div>
+                <div class="block-content form-signup">
+                  <p>Tên tài khoản:
+                    <strong style="line-height: 20px;"> {{ user.email }}</strong>
+                  </p>
+                  <p>
+                    <i class="fa fa-home font-some" aria-hidden="true"></i>
+                    <span>Địa chỉ: </span>
+                  </p>
+                  <p>
+                    <i class="fa fa-mobile font-some" aria-hidden="true"></i>
+                    <span>Điện thoại: </span>
+                  </p>
+                  <p>
+                    <i class="fa fa-map-marker font-some" aria-hidden="true"></i>
+                    <span> Địa chỉ 1: </span>
+                  </p>
+                  <p>
+                    <i class="fa fa-yelp font-some" aria-hidden="true"></i>
+                    <span> Công ty: </span>
+                  </p>
+                  <p>
+                    <i class="fa fa-plane font-some" aria-hidden="true"></i>
+                    <span> Quốc gia :</span>
+                  </p>
+                  <p>
+                    <i class="fa fa-code font-some" aria-hidden="true"></i>
+                    <span> Zip code: </span>
+                  </p>
+                  <p style="margin-top:20px;">
+                    <a style="margin-top: 15px;" routerLink="/account/addresses" class="btn btn-full btn-primary">Sổ địa chỉ</a>
+                  </p>
+
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <link routerLink='//bizweb.dktcdn.net/100/312/519/themes/659041/assets/bpr-products-module.css?1525602473575' rel='stylesheet'
+    type='text/css' />
+  <div class="bizweb-product-reviews-module"></div>

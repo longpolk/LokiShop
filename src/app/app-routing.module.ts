@@ -5,12 +5,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PhoneDetailComponent }  from './phone-detail/phone-detail.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { LoginComponent } from './login/login.component';
+import { AccountComponent } from './account/account.component';
+import { SignupComponent } from './signup/signup.component';
 import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BuySuccessfulComponent } from './buy-successful/buy-successful.component';
 import { PopupCartComponent } from './popup-cart/popup-cart.component';
 import { NewProductsComponent } from './new-products/new-products.component';
 import { PopularProductsComponent } from './popular-products/popular-products.component';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -18,7 +21,10 @@ const routes: Routes = [
   { path: 'detail/:id', component: PhoneDetailComponent },
   { path: 'phones', component: LokiShopComponent },
   { path: 'admin', component: AdministratorComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'account', component: AccountComponent, /*canActivate: [AuthGuard]*/ },
+  { path: 'account/login', component: LoginComponent },
+  { path: 'account/logout', component: LoginComponent },
+  { path: 'account/signup', component: SignupComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'buy-successful/:orderID', component: BuySuccessfulComponent },

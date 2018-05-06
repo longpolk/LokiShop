@@ -1,91 +1,133 @@
-﻿<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-
-<!-- BEGIN HEAD -->
-<head>
-     <meta charset="UTF-8" />
-    <title>BCORE Admin Dashboard Template | Login Page</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-     <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
-    <!-- GLOBAL STYLES -->
-     <!-- PAGE LEVEL STYLES -->
-     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/login.css" />
-    <link rel="stylesheet" href="assets/plugins/magic/magic.css" />
-     <!-- END PAGE LEVEL STYLES -->
-   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-</head>
-    <!-- END HEAD -->
-
-    <!-- BEGIN BODY -->
-<body >
-
-   <!-- PAGE CONTENT --> 
+﻿<section class="bread-crumb">
     <div class="container">
-    <div class="text-center">
-        <!--img src="assets/img/logo.png" id="logoimg" alt=" Logo" /-->
-    </div>
-    <div class="tab-content">
-        <div id="login" class="tab-pane active">
-            <form method="POST" class="form-signin">
-                <p class="text-muted text-center btn-block btn btn-primary btn-rect">
-                    Enter your username and password
-                </p>
-                <input type="text" placeholder="Username" class="form-control" #userID/>
-                <input type="password" placeholder="Password" class="form-control" #userPassword/>
-                <button class="btn text-muted text-center btn-danger" type="submit" (click)="login(userID.value, userPassword.value);">Sign in</button>
-            </form>
-        </div>
-        <div id="forgot" class="tab-pane">
-            <form action="index.html" class="form-signin">
-                <p class="text-muted text-center btn-block btn btn-primary btn-rect">Enter your valid e-mail</p>
-                <input type="email"  required="required" placeholder="Your E-mail"  class="form-control" />
-                <br />
-                <button class="btn text-muted text-center btn-success" type="submit">Recover Password</button>
-            </form>
-        </div>
-        <div id="signup" class="tab-pane">
-            <form action="index.html" class="form-signin">
-                <p class="text-muted text-center btn-block btn btn-primary btn-rect">Please Fill Details To Register</p>
-                 <input type="text" placeholder="First Name" class="form-control" />
-                 <input type="text" placeholder="Last Name" class="form-control" />
-                <input type="text" placeholder="Username" class="form-control" />
-                <input type="email" placeholder="Your E-mail" class="form-control" />
-                <input type="password" placeholder="password" class="form-control" />
-                <input type="password" placeholder="Re type password" class="form-control" />
-                <button class="btn text-muted text-center btn-success" type="submit">Register</button>
-            </form>
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <li class="home">
+                        <a itemprop="url" routerLink="/">
+                            <span itemprop="title">Trang chủ</span>
+                        </a>
+                        <span>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        </span>
+                    </li>
+
+                    <li>
+                        <strong itemprop="title">Đăng nhập tài khoản</strong>
+                    </li>
+
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="text-center">
-        <ul class="list-inline">
-            <li><a class="text-muted" href="#login" data-toggle="tab">Login</a></li>
-            <li><a class="text-muted" href="#forgot" data-toggle="tab">Forgot Password</a></li>
-            <li><a class="text-muted" href="#signup" data-toggle="tab">Signup</a></li>
-        </ul>
-    </div>
+</section>
+
+<div class="container margin-bottom-20">
+    <h1 class="title-head">
+        <span>Đăng nhập tài khoản</span>
+    </h1>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="page-login">
+                <div id="login">
+                    <span>
+                        Nếu bạn đã có tài khoản, đăng nhập tại đây.
+                    </span>
+                    <form accept-charset='UTF-8' action='/account/login' id='customer_login' method='post'>
+                        <input name='FormType' type='hidden' value='customer_login' />
+                        <input name='utf8' type='hidden' value='true' />
+                        <div class="form-signup">
+
+                        </div>
+                        <div class="form-signup clearfix">
+                            <fieldset class="form-group">
+                                <label>Email
+                                    <span class="required">*</span>
+                                </label>
+                                <input id="customerEmail" name="customerEmail" type="text" [(ngModel)]="Email" class="form-control form-control-lg"
+                                    pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required #customerEmail
+                                    placeholder="Địa chỉ email" />
+                                <div *ngIf="customerEmail.invalid && (customerEmail.dirty || customerEmail.touched)" class="alert alert-danger">
+                                    <div *ngIf="customerEmail.errors.required"> Bạn chưa nhập địa chỉ email</div>
+                                    <div *ngIf="customerEmail.errors && customerEmail.errors.pattern">
+                                        Địa chỉ email không hợp lệ</div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label>Mật khẩu
+                                    <span class="required">*</span>
+                                </label>
+                                <input id="customerPass" name="customerPass" type="password" [(ngModel)]="Password" class="form-control form-control-lg"
+                                     required #customerPass
+                                    placeholder="Mật khẩu" />
+                                <div *ngIf="customerPass.invalid && (customerPass.dirty || customerPass.touched)" class="alert alert-danger">
+                                    <div *ngIf="customerPass.errors.required"> Bạn chưa nhập mật khẩu</div>
+                                    <div *ngIf="customerPass.errors && customerPass.errors.pattern">
+                                        Mật khẩu không hợp lệ</div>
+                                </div>
+                            </fieldset>
 
 
+
+                            <div class="pull-xs-left" style="margin-top: 25px;">
+                                <input (click)="login(customerEmail.value, customerPass.value);" class="btn btn-style btn-primary" type="submit" value="Đăng nhập" />
+                                <input (click)="GoogleLogin();" class="btn btn-style btn-primary" type="submit" value="Đăng nhập với Google" />
+                                <a routerLink="/account/signup" class="btn-link-style btn-register" style="margin-left: 20px;text-decoration: underline; ">Đăng ký</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-6 h_recover">
+
+            <div id="recover-password" class="form-signup page-login">
+                <span>
+                    Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.
+                </span>
+                <form accept-charset='UTF-8' action='/account/recover' id='recover_customer_password' method='post'>
+                    <input name='FormType' type='hidden' value='recover_customer_password' />
+                    <input name='utf8' type='hidden' value='true' />
+                    <div class="form-signup" style="color: red;">
+
+                    </div>
+                    <div class="form-signup clearfix">
+                        <fieldset class="form-group">
+                            <label>Email
+                                <span class="required">*</span>
+                            </label>
+                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-control form-control-lg" value="" name="Email"
+                                id="recover-email" placeholder="Email" Required>
+                        </fieldset>
+                    </div>
+                    <div class="action_bottom">
+                        <input class="btn btn-style btn-primary" style="margin-top: 28px;" type="submit" value="Lấy lại mật khẩu" />
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
-	  <!--END PAGE CONTENT -->     
-	      
-      <!-- PAGE LEVEL SCRIPTS -->
-      <script src="assets/plugins/jquery-2.0.3.min.js"></script>
-      <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
-   <script src="assets/js/login.js"></script>
-      <!--END PAGE LEVEL SCRIPTS -->
 
-</body>
-    <!-- END BODY -->
-</html>
+
+<script type="text/javascript">
+    function showRecoverPasswordForm() {
+        document.getElementById('recover-password').style.display = 'block';
+        document.getElementById('login').style.display = 'none';
+    }
+
+    function hideRecoverPasswordForm() {
+        document.getElementById('recover-password').style.display = 'none';
+        document.getElementById('login').style.display = 'block';
+    }
+
+
+</script>
+
+<link routerLink='https://bizweb.dktcdn.net/100/312/519/themes/659041/assets/bpr-products-module.css?1525602473575' rel='stylesheet'
+    type='text/css' />
+<div class="bizweb-product-reviews-module"></div>

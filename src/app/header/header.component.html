@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="hidden-xs col-sm-9 col-md-10 col-lg-10 welcome-text">
-          <span>Chào mừng bạn đến với LokiShop-2018 !</span>
+          <span *ngIf="auth.user | async as user">Chào mừng {{user.displayName}} đến với LokiShop!</span>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 checkout">
           <a routerLink="/checkout" title="Tới trang thanh toán">
@@ -41,7 +41,7 @@
 
           <a routerLink="/account/login">Đăng nhập</a>
           <span>hoặc</span>
-          <a routerLink="/account/register">Đăng ký</a>
+          <a routerLink="/account/signup">Đăng ký</a>
 
         </div>
       </div>

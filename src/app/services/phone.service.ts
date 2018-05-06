@@ -82,10 +82,23 @@ export class PhoneService {
       catchError(this.handleError("getPhones", []))
     );
   }
-  /** GET all products */
-  getAllProducts(): Observable<Phone[]>{
-    this.masterPosts = Observable.merge(this.getPhones(), this.getLaptops(), this.getAccessories());
-    return this.masterPosts;
+  /** GET most sold phones */
+  getPopularPhones(): Observable<Phone[]> {
+    this.phoneCol = this.angularFirestore.collection(
+      "category/phones/phone-list",
+      ref => ref.orderBy("sold", "desc")
+    );
+    this.phonePosts = this.phoneCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.phonePosts.pipe(
+      tap(phone => this.log(`fetched phone`)),
+      catchError(this.handleError("getPhones", []))
+    );
   }
   /** GET phones from the server */
   getPhones(): Observable<Phone[]> {
@@ -123,6 +136,24 @@ export class PhoneService {
       catchError(this.handleError("getPhones", []))
     );
   }
+  /** GET popular laptops from server */
+  getPopularLaptops(): Observable<Phone[]> {
+    this.laptopCol = this.angularFirestore.collection(
+      "category/laptops/laptop-list",
+      ref => ref.orderBy("sold", "desc")
+    );
+    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.laptopPosts.pipe(
+      tap(phone => this.log(`fetched laptop`)),
+      catchError(this.handleError("getLaptops", []))
+    );
+  }
   /** GET laptops from server */
   getLaptops(): Observable<Phone[]> {
     this.laptopCol = this.angularFirestore.collection(
@@ -157,6 +188,23 @@ export class PhoneService {
     return this.laptopPosts.pipe(
       tap(phone => this.log(`fetched laptop`)),
       catchError(this.handleError("getLaptops", []))
+    );
+  }
+  /** GET popular accessories from server */
+  getPopularAccessories(): Observable<Phone[]> {
+    this.laptopCol = this.angularFirestore.collection(
+      "category/accessories/accessories-list", ref => ref.orderBy("sold","desc")
+    );
+    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Phone;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.laptopPosts.pipe(
+      tap(phone => this.log(`fetched accessories`)),
+      catchError(this.handleError("getAccessories", []))
     );
   }
   /** GET accessories from server */

@@ -4,6 +4,7 @@ import { Phone } from '../phone';
 import { CartService } from '../services/cart.service';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +29,9 @@ export class HeaderComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public location: Location, 
-    private cartService: CartService) {
+    private cartService: CartService,
+    public auth: AuthService
+  ) {
 
     this.shoppingCartItems$ = this.cartService.getItems();
     this.shoppingCartItems$.subscribe(_ => _);

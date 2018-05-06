@@ -28,3 +28,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Google map
 
 http://brianflove.com/2016/10/18/angular-2-google-maps-places-autocomplete/
+
+
+## Filter
+
+npm i ng2-search-filter --save
+
+## md5
+
+npm i ts-md5

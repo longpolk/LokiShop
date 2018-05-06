@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation, ViewChild } from "@angular/core";
 import { Phone } from "../phone";
 import { PhoneService } from "../services/phone.service";
 import { ActivatedRoute } from "@angular/router";
@@ -47,60 +47,49 @@ export class NewProductsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getCategories();
-    this.getAllProducts();
-    //this.getPhones();
-    //this.getLaptops();
-    //this.getAccessories();
-    this.getBrandName();
+    //this.getCategories();
+    this.products = this.getAllProducts();
+    //this.getBrandName();
   }
   getCategories() {
     this.phoneService
       .getCategories()
       .subscribe(categories => (this.categories = categories));
   }
-  getAllProducts() {
-    //let products = new Array<Phone>();
+  getAllProducts(): Phone[] {
+    let products = [];
     this.phoneService.getPhones().subscribe(data => {
       data.forEach(element => {
-        this.products.push(element);
+        products.push(element);
       });
     });
     this.phoneService.getLaptops().subscribe(data => {
       data.forEach(element => {
-        this.products.push(element);
+        products.push(element);
       });
     });
     this.phoneService.getAccessories().subscribe(data => {
       data.forEach(element => {
-        this.products.push(element);
+        products.push(element);
       });
     });
+    return products;
   }
   filterCategories(catID: string) {
     //this.filteredList = this.getAllProducts();
-    //var filter = document.getElementById("filter-"+catID.toString);
-    //if(filter.getAttribute("checked") == "true"){
+    var filter = document.getElementById("filter-"+catID).getAttribute("checked");
+    if (filter == "true") {
     this.filteredList = this.products.filter(
       (product: Phone) => product["data"]["category_id"] == catID
     );
-  //}
-    this.products = this.filteredList;
+    }
+    if (this.products == this.getAllProducts()) {
+      this.products = this.filteredList;
+    } else {
+      this.products = this.products.concat(this.filteredList);
+    }
     console.log(catID);
     console.log(this.products);
-  }
-  getPhones(): void {
-    this.phoneService.getPhones().subscribe(phones => (this.phones = phones));
-  }
-  getLaptops(): void {
-    this.phoneService
-      .getLaptops()
-      .subscribe(laptops => (this.laptops = laptops));
-  }
-  getAccessories() {
-    this.phoneService
-      .getAccessories()
-      .subscribe(accessories => (this.accessories = accessories));
   }
   getBrandName() {
     this.phoneService.getBrands().subscribe(brands => (this.brands = brands));

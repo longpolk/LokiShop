@@ -70,8 +70,8 @@
                   </div-->
                 <div class="collection-filter-panel">
 
-                  <div class="filter-category btn-group">
-                    <button class="btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                  <div *ngIf="brands" class="filter-category btn-group">
+                    <button [disabled]="true" class="btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
                       <i class="icon-exchange"></i>Danh mục
                       <i class="icon-chevron-down"></i>
                     </button>
@@ -99,7 +99,7 @@
 
 
                   <div *ngIf="brands" class="filter-vendor btn-group">
-                    <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                    <button [disabled]="true" class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
                       <i class="icon-exchange"></i>Nhà sản xuất
                       <i class="icon-chevron-down"></i>
                     </button>
@@ -125,7 +125,7 @@
 
 
                   <div *ngIf="categories" class="filter-type btn-group">
-                    <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                    <button [disabled]="true" class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
                       <i class="icon-exchange"></i>Loại sản phẩm
                       <i class="icon-chevron-down"></i>
                     </button>
@@ -135,8 +135,8 @@
                       <li *ngFor="let category of categories; i as index" class="filter-item filter-item--check-box filter-item--green">
                         <span>
                           <label class="label_relative" for="filter-{{category.data.id}}">
-                            <input type="checkbox" id="filter-{{category.data.id}}" (change)="getAllProducts(); filterCategories(category.data.id)" data-group="Loại" data-field="product_type"
-                              value="({{category.data.description}})" data-operator="OR">
+                            <input class="product_type" type="checkbox" id="filter-{{category.data.id}}" (click)="filterCategories(category.data.id)" data-group="Loại" data-field="product_type"
+                              value="({{category.data.description}})" #filter{{i+1}} data-operator="OR">
                             <i class="fa"></i>
                             {{category.data.description}}
                           </label>
@@ -146,8 +146,9 @@
 
                     </ul>
                   </div>
-
-
+                  <div style="margin-top: 20px;" class="filter-tag btn-group">     
+                    <input type="text" placeholder="Nhập tên sản phẩm..." [(ngModel)]="term">
+                  </div>
                   <!--div class="filter-tag btn-group">
                     <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
                       <i class="icon-exchange"></i>Tags
@@ -252,7 +253,7 @@
 
 
 
-                <div *ngFor="let product of products" class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                <div *ngFor="let product of products | filter:term" class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                   <div class="product-col">
     
     
