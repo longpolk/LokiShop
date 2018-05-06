@@ -37,3 +37,7 @@ npm i ng2-search-filter --save
 ## md5
 
 npm i ts-md5
+
+## Authentication
+
+https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
