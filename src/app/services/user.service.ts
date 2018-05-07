@@ -94,29 +94,24 @@ export class UserService {
       });
   }
   /** Signup user */
-  userSignup(id: string): boolean {
-    this.angularFirestore
+  userSignup(email: string): boolean {
+    var check = false;
+    var usersRef = this.angularFirestore
       .collection("users")
-      .doc(id)
-      .ref.get()
-      .then(function(doc) {
-        if (doc.exists) {
-          alert("Email này đã được sử dụng");
-          return false;
+      .doc(email);
+        if (usersRef !== null || usersRef !== undefined) {
+          check = false;
         } else {
-          return true;
+          check = true;
         }
-      })
-      .catch(function(error) {
-        console.log("Error getting document:", error);
-      });
-    return true;
+    return check;
   }
-  addUser(id: string, name: string, password: string) {
-    if (this.userSignup(id) == true) {
+  addUser(email: string, name: string, password: string) {
+    if (this.userSignup(email) == true) {
       let hash = Md5.hashStr(password);
-      this.angularFirestore.collection("users").doc(id).set({
-        id: id,
+      this.authService.emailSignUp(email, password);
+      this.angularFirestore.collection("users").doc(email).set({
+        id: email,
         password: hash,
         name: name,
         active: true,
@@ -131,6 +126,8 @@ export class UserService {
       .catch(function (error) {
         console.error("Error adding user: ", error);
       });
+    }else{
+      alert("Email này đã được sử dụng");
     }
   }
   /** DELETE: delete the hero from the server */

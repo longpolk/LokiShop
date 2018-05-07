@@ -41,3 +41,7 @@ npm i ts-md5
 ## Authentication
 
 https://angularfirebase.com/lessons/google-user-auth-with-firestore-custom-data/
+
+## AngularFire2
+
+npm i angularfire2
