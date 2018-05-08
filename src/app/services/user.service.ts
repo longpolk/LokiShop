@@ -94,24 +94,27 @@ export class UserService {
       });
   }
   /** Signup user */
-  userSignup(email: string): boolean {
-    var check = false;
-    var usersRef = this.angularFirestore
-      .collection("users")
-      .doc(email);
-        if (usersRef !== null || usersRef !== undefined) {
-          check = false;
-        } else {
-          check = true;
-        }
-    return check;
+  userSignup(email: string): Observable<User[]> {
+    this.postsCol = this.angularFirestore
+      .collection("users", ref => ref.where("email","==",email));
+      this.posts = this.postsCol.snapshotChanges().map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as User;
+          const id = a.payload.doc.id;
+          return { id, data };
+        });
+      });
+      return this.posts.pipe(
+        tap(User => this.log(`fetched User`)),
+        catchError(this.handleError("getUsers", []))
+      );
   }
   addUser(email: string, name: string, password: string) {
-    if (this.userSignup(email) == true) {
+    if (this.userSignup(email).isEmpty) {
       let hash = Md5.hashStr(password);
       this.authService.emailSignUp(email, password);
-      this.angularFirestore.collection("users").doc(email).set({
-        id: email,
+      this.angularFirestore.collection("users").add({
+        email: email,
         password: hash,
         name: name,
         active: true,
