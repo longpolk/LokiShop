@@ -49,6 +49,8 @@ import { AccountComponent } from './account/account.component';
 import { CoreModule } from "./core/core.module";
 import { AuthService } from "./core/auth.service";
 import { AuthGuard } from "./core/auth.guard";
+import { ProductsComponent } from './administrator/products/products.component';
+import { ProductUpdateComponent } from './administrator/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { AuthGuard } from "./core/auth.guard";
     PopupCartComponent,
     NewProductsComponent,
     PopularProductsComponent,
-    AccountComponent
+    AccountComponent,
+    ProductsComponent,
+    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,

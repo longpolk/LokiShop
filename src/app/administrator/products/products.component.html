@@ -1,0 +1,202 @@
+<section class="bread-crumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" routerLink="/">
+              <span itemprop="title">Trang chủ</span>
+            </a>
+            <span>
+              <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </span>
+          </li>
+
+
+          <li>
+            <strong>
+              <span itemprop="title"> Sản phẩm </span>
+            </strong>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <section class="main_container collection margin-bottom-30 col-lg-12">
+      <div class="text-sm-left">
+        <h1 class="title-head margin-top-0">Sản phẩm nổi bật</h1>
+      </div>
+      <aside class="row-filter">
+        <!--div class="filter-container">
+              <div class="filter-container__selected-filter" style="display: none;">
+                <div class="filter-container__selected-filter-header clearfix">
+                  <span class="filter-container__selected-filter-header-title">
+                    <i class="fa fa-arrow-left hidden-sm-up"></i> Bạn chọn</span>
+                  <a href="javascript:void(0)" onclick="clearAllFiltered()" class="filter-container__clear-all">Bỏ hết
+                    <i class="fa fa-angle-right"></i>
+                  </a>
+                </div>
+                <div class="filter-container__selected-filter-list">
+                  <ul></ul>
+                </div>
+              </div>
+            </div-->
+        <div class="sortPagiBar">
+          <div class="srt">
+            <div class="wr_sort col-sm-12">
+              <div class="text-sm-right">
+                <!--button class="collection-filter-btn hidden-xs hidden-sm">Lọc theo
+                      <span class="icon-drop"></span>
+                    </button-->
+
+                <!--div class="view-mode">
+                      <a class="grid_h" href="javascript:;" data-view="grid" onclick="switchView('grid')">
+                        <b class="btn button-view-mode view-mode-grid active ">
+                          <i class="fa fa-th" aria-hidden="true"></i> Bảng
+                        </b>
+                      </a>
+                      <a class="list_h" href="javascript:;" data-view="list" onclick="switchView('list')">
+                        <b class="btn button-view-mode view-mode-list ">
+                          <i class="fa fa-bars" aria-hidden="true"></i> Danh sách
+                        </b>
+                      </a>
+  
+                    </div-->
+                <div class="collection-filter-panel">
+
+                  <div *ngIf="brands" class="filter-category btn-group">
+                    <button [disabled]="true" class="btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Danh mục
+                      <i class="icon-chevron-down"></i>
+                    </button>
+
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+                      <li>
+                        <a href="/san-pham-noi-bat">Sản phẩm nổi bật</a>
+                      </li>
+
+                      <!--li>
+                            <a href="/san-pham-khuyen-mai">Sản phẩm khuyến mãi</a>
+                          </li-->
+
+                      <!--li>
+                            <a href="/frontpage">Trang chủ</a>
+                          </li-->
+
+                      <li>
+                        <a href="/san-pham-moi">Sản phẩm mới</a>
+                      </li>
+
+                    </ul>
+                  </div>
+
+
+                  <div *ngIf="brands" class="filter-vendor btn-group">
+                    <button [disabled]="true" class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Nhà sản xuất
+                      <i class="icon-chevron-down"></i>
+                    </button>
+
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+
+                      <li *ngFor="let brand of brands; i as index" class="filter-item filter-item--check-box filter-item--green ">
+                        <span>
+                          <label class="label_relative" for="filter-{{brand.id}}">
+                            <input type="checkbox" id="filter-{{brand.id}}" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" value="({{brand.data.name}})"
+                              data-operator="OR">
+                            <i class="fa"></i>
+                            <span class="filter_tt">{{brand.data.name}}</span>
+                          </label>
+                        </span>
+                      </li>
+
+                    </ul>
+
+                  </div>
+
+
+
+                  <div *ngIf="categories" class="filter-type btn-group">
+                    <button [disabled]="true" class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Loại sản phẩm
+                      <i class="icon-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+
+                      <li *ngFor="let category of categories; i as index" class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-{{category.data.id}}">
+                            <input class="product_type" type="checkbox" id="filter-{{category.data.id}}" (click)="filterCategories(category.data.id)"
+                              data-group="Loại" data-field="product_type" value="({{category.data.description}})" #filter{{i+1}}
+                              data-operator="OR">
+                            <i class="fa"></i>
+                            {{category.data.description}}
+                          </label>
+                        </span>
+                      </li>
+
+
+                    </ul>
+                  </div>
+                  <div style="margin-top: 20px;" class="filter-tag btn-group">
+                    <input type="text" placeholder="Nhập tên sản phẩm..." [(ngModel)]="term">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div class="category-products products">
+
+
+
+
+        <section class="products-view products-view-grid collection_reponsive">
+          <table>
+            <thead>
+              <tr>
+                <td>&nbsp;</td>
+                <td>Tên sản phẩm</td>
+                <td>Số lượng</td>
+                <td>Nhà cung cấp</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products | filter:term">
+                <td>
+                  <div style="width: 50px; height: 50px;">
+                    <div class="item">
+                      <a class="image_link" routerLink="/admin/products/{{product.id}}" title="{{product.data.name}}">
+                        <img src="{{product.data.thumb}}" alt="{{product.data.name}}">
+                      </a>
+                    </div>
+                    </div>
+                </td>
+                <td><a routerLink="/admin/products/{{product.id}}">{{product.data.name}}</a></td>
+                <td>{{product.data.inStock}}</td>
+                <td>{{product.data.brand}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="text-center">
+
+          </div>
+        </section>
+
+
+        </div>
+    </section>
+    </div>
+  </div>
+  <div class="bizweb-product-reviews-module"></div>

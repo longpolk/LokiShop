@@ -3,7 +3,7 @@ import { User } from '../user';
 import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-administrator',
-  templateUrl: './login.html',
+  templateUrl: './administrator.component.html',
   styleUrls: ['./administrator.component.css']
 })
 export class AdministratorComponent implements OnInit {
