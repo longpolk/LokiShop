@@ -59,10 +59,6 @@ export class PhoneDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  save(): void {
-    this.phoneService.updatePhone(this.phone)
-      .subscribe(() => this.goBack());
-  }
   public addToCart(product: Phone) {
     var index = this.cartService.checkExistItems(product.id);
     console.log(product);

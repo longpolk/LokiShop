@@ -1,0 +1,361 @@
+<section class="awe-section-3" style="margin-top: 20px;">
+    <section class="section-main">
+        
+        <div *ngIf="phone" class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-md-push-3 col-md-push-3">
+
+
+
+
+
+
+                    <!-- Kiểm tra số sản phẩm trong collection hiển thị -->
+
+
+
+                    <!-- end kiểm tra -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 module_new_products">
+                            <div class="module-header">
+                                <div class="module-title title-style-3">
+                                    <span>Thông tin sản phẩm</span>
+                                </div>
+                            </div>
+                            <div class="module-content" style="width: 100%">
+                                <!--Hiển thị phones mới nhất-->
+                                <div class="list-items">
+                                    <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
+                                            <div class="owl-item"-->
+
+                                    <div class="list-item">
+                                        <div class="item">
+
+                                            <div class="product-box product-grid-item">
+
+                                                <form>
+                                                    <div class="mod-address-form mod-vn">
+                                                        <div class="mod-address-form-bd">
+                                                            <div class="mod-address-form-left">
+                                                                <div class="mod-input mod-input-email">
+                                                                    <label>Tên sản phẩm</label>
+                                                                    <input [disabled]="enabled !== 1" id="phoneName" name="phoneName" type="text" class="form-control" required
+                                                                        #phoneName="ngModel" [(ngModel)]="phone.name" value="{{phone.name}}"
+                                                                    />
+                                                                    <div *ngIf="phoneName.invalid && (phoneName.dirty || phoneName.touched)" class="alert alert-danger">
+                                                                        <div *ngIf="phoneName.errors.required"> Bạn chưa nhập tên sản phẩm</div>
+                                                                        <div *ngIf="phoneName.errors && phoneName.errors.pattern">
+                                                                            Không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mod-input mod-input-name">
+                                                                    <label>Nội dung mô tả</label>
+                                                                    <textarea [disabled]="enabled !== 1" id="phoneDes" name="phoneDes" style="height: 200px; scroll-behavior: auto; text-align: start;" class="form-control" required
+                                                                        #phoneDes="ngModel" [(ngModel)]="phone.snippet" value="{{phone.snippet}}"
+                                                                    ></textarea>
+                                                                    <div *ngIf="phoneDes.invalid && (phoneDes.dirty || phoneDes.touched)" class="alert alert-danger">
+                                                                        <div *ngIf="phoneDes.errors.required"> Bạn chưa nhập mô tả sản phẩm</div>
+                                                                        <div *ngIf="phoneDes.errors && phoneDes.errors.pattern">
+                                                                            Không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mod-input mod-input-phone">
+                                                                    <label>Giá</label>
+                                                                    <input [disabled]="enabled !== 1" id="phonePrice" name="phonePrice" type="number" class="form-control" ng-pattern="/^[0-9]*$/" required
+                                                                        #phonePrice="ngModel" [(ngModel)]="phone.price"
+                                                                    />
+                                                                    <div *ngIf="phonePrice.invalid && (phonePrice.dirty || phonePrice.touched)" class="alert alert-danger">
+                                                                        <div *ngIf="phonePrice.errors.required"> Bạn chưa nhập giá sản phẩm</div>
+                                                                        <div *ngIf="phonePrice.errors && phonePrice.errors.pattern">
+                                                                            Giá sản phẩm không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mod-input mod-input-taxId">
+                                                                    <label>Giá so sánh</label>
+                                                                    <input [disabled]="enabled !== 1" id="phoneSalePrice" name="phoneSalePrice" type="number" class="form-control" ng-pattern="/^[0-9]*$/" required
+                                                                        #phoneSalePrice="ngModel" [(ngModel)]="phone.sale_price" 
+                                                                    />
+                                                                    <div *ngIf="phoneSalePrice.invalid && (phoneSalePrice.dirty || phoneSalePrice.touched)" class="alert alert-danger">
+                                                                        <div *ngIf="phoneSalePrice.errors.required"> Bạn chưa nhập giá sản phẩm</div>
+                                                                        <div *ngIf="phoneSalePrice.errors && phoneSalePrice.errors.pattern">
+                                                                            Giá sản phẩm không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div #save class="mod-address-form-action">
+                                                                    <button tabindex="8" type="submit" (click)="update()" class="mod-address-form-btn">LƯU</button>
+                                                                </div>
+                                                                <div #update hidden="true" class="mod-address-form-action">
+                                                                    <button tabindex="8" type="submit" (click)="updateForm()" class="mod-address-form-btn">SỬA</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mod-address-form-right">
+                                                                <div class="mod-input mod-input-detailAddress">
+                                                                    <label>Số lượng</label>
+                                                                    <input [disabled]="enabled !== 1" id="phoneInStock" name="phoneInStock" type="number" [(ngModel)]="phone.inStock" class="form-control" required #phoneInStock="ngModel"
+                                                                      />
+                                                                    <div *ngIf="phoneInStock.invalid && (phoneInStock.dirty || phoneInStock.touched)" class="alert alert-danger">
+                                                                        <div *ngIf="phoneInStock.errors.required"> Bạn chưa nhập số lượng</div>
+                                                                        <div *ngIf="phoneInStock.errors && phoneInStock.errors.pattern">
+                                                                            Số lượng không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mod-select mod-address-form-select mod-select-location-tree-1">
+                                                                    <label style="margin-bottom: 5px;">Màu sắc</label>
+                                                                    <input [disabled]="enabled !== 1" id="phoneColors" name="phoneColors" type="text" [(ngModel)]="phone.colors" class="form-control" required #phoneColors="ngModel"
+                                                                       />
+                                                                    <div style="margin-top: -15px;" *ngIf="phoneColors.invalid && (phoneColors.dirty || phoneColors.touched)" class="alert alert-danger">
+                                                                        <div *ngIf="phoneColors.errors.required"> Bạn chưa nhập tên màu sắc</div>
+                                                                        <div *ngIf="phoneColors.errors && phoneColors.errors.pattern">
+                                                                            Tên màu không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-2">
+                                                                    <label style="margin-bottom: 5px;">Nhãn hiệu</label>
+                                                                    <select [disabled]="enabled !== 1" id="phoneBrand" name="phoneBrand" [(ngModel)]="phone.brand" class="form-control" required #phoneBrand="ngModel"
+                                                                    >
+                                                                    <option *ngFor="let brand of brands" [selected]="brand.data.name == phone.brand" value="{{brand.data.name}}" >{{brand.data.name}}</option>
+                                                                    </select>
+                                                                    <div style="margin-top: -15px;" *ngIf="phoneBrand.invalid && (phoneBrand.dirty || phoneBrand.touched)"
+                                                                        class="alert alert-danger">
+                                                                        <div *ngIf="phoneBrand.errors.required"> Bạn chưa chọn</div>
+                                                                        <div *ngIf="phoneBrand.errors && phoneBrand.errors.pattern">
+                                                                            Không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
+                                                                    <label style="margin-bottom: 5px;">Loại sản phẩm</label>
+                                                                    <select [disabled]="enabled !== 1" id="phoneType" name="phoneType" [(ngModel)]="phone.category_id" class="form-control" required #phoneType="ngModel"
+                                                                    >
+                                                                    <option *ngFor="let category of categories" [selected]="category.data.id == phone.category_id" value="{{category.data.id}}">{{category.data.description}}</option>
+                                                                    </select>
+                                                                    <div style="margin-top: -15px;" *ngIf="phoneType.invalid && (phoneType.dirty || phoneType.touched)" class="alert alert-danger">
+                                                                        <div *ngIf="customerWard.errors.required"> Bạn chưa nhập</div>
+                                                                        <div *ngIf="customerWard.errors && phoneType.errors.pattern">
+                                                                            Không hợp lệ</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--/div-->
+                                    <!--/div-->
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <!-- Kiểm tra số sản phẩm trong collection hiển thị -->
+
+
+
+                    <!-- end kiểm tra -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 module_feature_products">
+                            <div class="module-header">
+                                <div class="module-title title-style-3">
+
+                                    <span>Đơn hàng</span>
+                                </div>
+                            </div>
+                            <div class="module-content" style="width: 115%">
+
+                                <div id="leftContainer_10009" class="container" style="width: 800px; float: left;">
+                                    <div id="listHeader_1" class="list-header">
+                                        <span class="list-header-left">Sản phẩm</span>
+                                        <span class="list-header-middle">Giá</span>
+                                        <span class="list-header-right"></span>
+                                    </div>
+                                    <div class="package">
+                                        <div *ngIf="shoppingCartItems" style="padding-left: 10px; padding-right: 10px;">
+                                            <div *ngFor="let shoppingCartItem of shoppingCartItems" id="item_0655afccaaad83bdfd0ac29298235361" class="cart-item">
+                                                <div class="cart-item-inner">
+                                                    <div class="cart-item-left">
+                                                        <div class="img-wrap">
+                                                            <a routerLink="detail/{{shoppingCartItem.id}}" id="automation-link-from-image-to-prod-item_0655afccaaad83bdfd0ac29298235361"
+                                                                class="automation-link-from-image-to-prod">
+                                                                <img class="img" src="{{shoppingCartItem.thumb}}" alt="item">
+                                                            </a>
+                                                        </div>
+                                                        <div class="content">
+                                                            <a id="automation-link-from-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
+                                                                class="automation-link-from-title-to-prod title">{{shoppingCartItem.name}}</a>
+                                                            <a id="automation-link-from-sub-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
+                                                                class="automation-link-from-sub-title-to-prod sku">{{shoppingCartItem.selectedColor}}</a>
+                                                            <div class="operations">
+                                                                <span class="automation-btn-delete">
+                                                                    <span class="lazada lazada-ic-Delete lazada-icon icon delete" (click)="checkToRemove(shoppingCartItem)"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cart-item-middle">
+                                                        <p class="current-price">{{shoppingCartItem.sale_price | number}}₫</p>
+                                                        <p class="origin-price">{{shoppingCartItem.price | number}}₫</p>
+                                                        <p class="promotion-ratio"></p>
+                                                    </div>
+                                                    <div class="cart-item-right">
+                                                        <div class="quantity automation-item-quantity">
+                                                            <span class="item-quantity-prefix">Số lượng: </span>
+                                                            <span class="item-quantity-value">{{shoppingCartItem.qtyinCart}}</span>
+                                                        </div>
+                                                        <p class="stock-tip" style="color: rgb(30, 30, 30);">Chỉ còn {{shoppingCartItem.inStock}} sản phẩm</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-md-pull-9 ">
+
+
+
+                    <div class="aside-item sidebar_support ">
+                        <div class="module-header ">
+                            <h2 class="module-title title-style-3 padding-right-0 ">
+                                <span>Thanh toán</span>
+                            </h2>
+                        </div>
+                        <div class="module-content ">
+
+
+                            <div class="item ">
+                                <div class="item_image ">
+                                    <input class="input-radio" type="radio" value="payment_method_1" name="PaymentMethodId" #payment_method_1 id="cod" data-check-id="1"
+                                        checked>
+                                </div>
+                                <div class="item_desc ">
+                                    <div class="item_title ">
+                                        Thanh toán khi giao hàng (COD)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item ">
+                                <div class="item_image ">
+                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_2" name="PaymentMethodId" #payment_method_2
+                                        id="paypal" data-check-id="2">
+                                </div>
+                                <div class="item_desc ">
+                                    <div class="item_title ">
+                                        Thanh toán qua Paypal
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item ">
+                                <div class="item_image ">
+                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_3" name="PaymentMethodId" #payment_method_3
+                                        id="visa" data-check-id="3">
+                                </div>
+                                <div class="item_desc ">
+                                    <div class="item_title ">
+                                        Thanh toán qua thẻ VISA
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="aside-item sidebar_feature_products ">
+                        <div class="module-header">
+                            <h2 class="module-title title-style-3 padding-right-0 ">
+                                <span>Thông tin đơn hàng</span>
+                            </h2>
+                        </div>
+                        <div class="module-content">
+                            <div class="summary-section">
+                                <!--<div class="summary-section-heading">Thông tin đơn hàng</div>-->
+                                <div class="summary-section-content">
+                                    <div class=" checkout-summary">
+                                        <div class="checkout-summary-rows">
+                                            <div class="checkout-summary-row">
+                                                <div class="checkout-summary-label">Tạm tính</div>
+                                                <div class="checkout-summary-value">{{totalCost | number}}₫</div>
+                                            </div>
+                                            <div class="checkout-summary-row">
+                                                <div class="checkout-summary-label">Phí giao hàng </div>
+                                                <div class="checkout-summary-value">MIỄN PHÍ</div>
+                                            </div>
+                                        </div>
+                                        <div class="voucher-input">
+                                            <div class="voucher-input-inner">
+                                                <div style="float:left;width:52%;" class="voucher-input-col">
+                                                    <span class="next-input next-input-single next-input-medium clear voucher-input-control">
+                                                        <input id="voucherCode" name="voucherCode" #voucherCode type="text" id="automation-voucher-input" alt="Nhập mã giảm giá" placeholder="Mã giảm giá"
+                                                            value="" height="100%">
+                                                    </span>
+                                                </div>
+                                                <div style="float:right;width:45%;" class="voucher-input-col">
+                                                    <button (click)="checkVoucherCode()" id="automation-voucher-input-button" type="button" class="next-btn next-btn-normal next-btn-large voucher-input-button">Áp dụng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="voucherError" name="voucherError" #voucherError style="margin-top: -15px; width: 100%; color:red;">
+                                            
+                                        </div>
+                                        <div class=" checkout-order-total">
+                                            <div class="checkout-order-total-row">
+                                                <div class="checkout-order-total-title">Tổng cộng</div>
+                                                <div class="checkout-order-total-fee">{{currentCost | number}}₫
+                                                    <small class="checkout-order-total-fee-tip">Đã bao gồm VAT (nếu có)</small>
+                                                </div>
+                                            </div>
+                                            <button (click)="addOrder(customerEmail.value,customerName.value, customerPhone.value,customerTaxCode.value,customerAddress.value,customerCity.value,customerDistrict.value, customerWard.value)" [disabled]="enabled == 1" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN HÀNH THANH TOÁN</button>
+                                        </div>
+                                        <div class="checkout-login-btn">
+                                            <button type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">ĐĂNG NHẬP ĐỂ THANH TOÁN NHANH</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <!-- Kiểm tra số sản phẩm trong collection hiển thị -->
+
+
+
+                    <!-- end kiểm tra -->
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

@@ -45,7 +45,7 @@ export class PhoneService {
     public http: HttpClient,
     private messageService: MessageService,
     private angularFirestore: AngularFirestore
-  ) {}
+  ) { }
   /** Set main image of product in product-detail */
   setImage(imageUrl: string) {
     this.mainImageUrl = imageUrl;
@@ -193,7 +193,7 @@ export class PhoneService {
   /** GET popular accessories from server */
   getPopularAccessories(): Observable<Phone[]> {
     this.laptopCol = this.angularFirestore.collection(
-      "category/accessories/accessories-list", ref => ref.orderBy("sold","desc")
+      "category/accessories/accessories-list", ref => ref.orderBy("sold", "desc")
     );
     this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -445,13 +445,14 @@ export class PhoneService {
   }
 
   /** PUT: update the hero on the server */
-  updatePhone(phone: Phone): Observable<any> {
-    return this.http
-      .put(this.phoneUrl, phone, httpOptions)
-      .pipe(
-        tap(_ => this.log(`updated phone id=${phone.id}`)),
-        catchError(this.handleError<any>("updatePhone"))
-      );
+  updatePhone(phone: Phone, category: string) {
+    this.angularFirestore
+      .collection("category").doc(category).collection(category+"-list").doc(phone.id)
+      .set({
+        name: phone.name, snippet: phone.snippet,
+        price: phone.price, sale_price: phone.sale_price,
+        inStock: phone.inStock, colors: phone.colors, brand: phone.brand
+      });
   }
 
   /**

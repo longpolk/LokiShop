@@ -49,17 +49,17 @@ export class ProductsComponent implements OnInit {
   }
   getAllProducts(): Phone[] {
     let products = [];
-    this.phoneService.getPopularPhones().subscribe(data => {
+    this.phoneService.getPhones().subscribe(data => {
       data.forEach(element => {
         products.push(element);
       });
     });
-    this.phoneService.getPopularLaptops().subscribe(data => {
+    this.phoneService.getLaptops().subscribe(data => {
       data.forEach(element => {
         products.push(element);
       });
     });
-    this.phoneService.getPopularAccessories().subscribe(data => {
+    this.phoneService.getAccessories().subscribe(data => {
       data.forEach(element => {
         products.push(element);
       });
