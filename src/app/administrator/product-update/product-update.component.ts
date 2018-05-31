@@ -7,30 +7,39 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { CartService } from '../../services/cart.service';
 import { Brand } from '../../brand';
 import { Category } from '../../category';
-import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-product-update',
   templateUrl: './product-update.component.html',
   styleUrls: ['./product-update.component.css',
-  './LokiShop-2018_files/bootstrap.min.css',
-	'./LokiShop-2018_files/font-awesome.min.css',
-	'./LokiShop-2018_files/owl.carousel.min.css',
-	'./LokiShop-2018_files/base.scss.css',
-	'./LokiShop-2018_files/style.scss.css',
-	'./LokiShop-2018_files/update.scss.css',
-	'./LokiShop-2018_files/module.scss.css',
-	'./LokiShop-2018_files/responsive.scss.css',
-  './LokiShop-2018_files/update_stylesheets.scss.css',
-  './LokiShop-2018_files/css.css',
-  './LokiShop-2018_files/menu-stylesheets.scss.css',
-  './LokiShop-2018_files/popup-cart.scss.css'
-]
+    './LokiShop-2018_files/bootstrap.min.css',
+    './LokiShop-2018_files/font-awesome.min.css',
+    './LokiShop-2018_files/owl.carousel.min.css',
+    './LokiShop-2018_files/base.scss.css',
+    './LokiShop-2018_files/style.scss.css',
+    './LokiShop-2018_files/update.scss.css',
+    './LokiShop-2018_files/module.scss.css',
+    './LokiShop-2018_files/responsive.scss.css',
+    './LokiShop-2018_files/update_stylesheets.scss.css',
+    './LokiShop-2018_files/css.css',
+    './LokiShop-2018_files/menu-stylesheets.scss.css',
+    './LokiShop-2018_files/popup-cart.scss.css'
+  ]
 })
 export class ProductUpdateComponent implements OnInit {
   @Input() phone: Phone;
   @Input() brands: Brand[];
   @Input() categories: Category[];
+
+  @ViewChild("phoneName") phoneName: any;
+  @ViewChild("phoneDes") phoneDes: any;
+  @ViewChild("phonePrice") phonePrice: any;
+  @ViewChild("phoneSalePrice") phoneSalePrice: any;
+  @ViewChild("phoneInStock") phoneInStock: any;
+  @ViewChild("phoneColors") phoneColors: any;
+  @ViewChild("phoneBrand") phoneBrand: any;
+  @ViewChild("phoneType") phoneType: any;
+
   public enabled: number;
   constructor(private route: ActivatedRoute,
     private phoneService: PhoneService,
@@ -51,18 +60,55 @@ export class ProductUpdateComponent implements OnInit {
         .subscribe(_ => this.phone = _)
     });
   }
-  getBrands(): void{
+  getBrands(): void {
     this.phoneService.getBrands().subscribe(_ => this.brands = _);
   }
-  getCategories(): void{
+  getCategories(): void {
     this.phoneService.getCategories().subscribe(_ => this.categories = _);
   }
   goBack(): void {
     this.location.back();
   }
-  update(): void {
-    alert("hello!");
-    //this.phoneService.updatePhone(this.phone, category);
+  update(): boolean {
+    var category = document.getElementById("phoneType").getAttribute("value");
+    this.phoneService.updatePhone(this.phone, category);
+    return true;
+  }
+
+  validateForm(): boolean {
+    var formElement = [
+      this.phoneName,
+      this.phoneDes,
+      this.phonePrice,
+      this.phoneSalePrice,
+      this.phoneInStock,
+      this.phoneColors,
+      this.phoneBrand,
+      this.phoneType
+    ];
+    var count = 0;
+    for (var i = 0; i < formElement.length; i++) {
+      var element = formElement[i];
+      if (element.invalid && (element.dirty || element.touched)) {
+        if (
+          (element.errors && element.errors.pattern)
+        ) {
+          count++;
+        }
+        count++;
+      }
+    }
+    if (count !== 0) {
+      alert("Lỗi! Vui lòng kiểm tra lại thông tin sản phẩm!");
+      return false;
+    } else {
+      //this.saveButton.nativeElement.hidden = true;
+      //this.updateButton.nativeElement.hidden = false;
+      //this.setStateElement("save");
+      this.update();
+      alert("Đã lưu thông tin sản phẩm!");
+      return true;
+    }
   }
 
 }
