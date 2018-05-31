@@ -88,18 +88,24 @@ export class ProductUpdateComponent implements OnInit {
   phonePrice: number,
   phoneSalePrice: number,
   phoneInStock: number,
-  phoneColors: Array<string>,
-  phoneBrand: string
+  phoneColors: string,
+  phoneBrand: string,
+  phone: Phone
   ): boolean {
-    this.phone.name = phoneName;
-    this.phone.snippet = phoneDes;
-    this.phone.price = phonePrice;
-    this.phone.sale_price = phoneSalePrice;
-    this.phone.inStock = phoneInStock;
-    this.phone.colors = phoneColors;
-    this.phone.brand = phoneBrand;
-    this.phoneService.updatePhone(this.phone, this.categoryName[0]["data"].name);
+    phone.name = phoneName;
+    phone.snippet = phoneDes;
+    phone.price = phonePrice;
+    phone.sale_price = phoneSalePrice;
+    phone.inStock = phoneInStock;
+    var list = [];
+    var colors = phoneColors.split(",");
+    for(var i = 0; i< phoneColors.length; i++){
+    list.push(colors[i]);
+    }
+    phone.colors = list;
+    phone.brand = phoneBrand;
     console.log(this.categoryName[0]["data"].name);
+    this.phoneService.updatePhone(phone, this.categoryName[0]["data"].name);
     alert("Đã lưu thông tin sản phẩm!");
     return true;
   }

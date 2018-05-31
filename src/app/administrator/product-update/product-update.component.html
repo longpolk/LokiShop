@@ -93,7 +93,7 @@
                                                                     phoneInStock.value,
                                                                     phoneColors.value,
                                                                     phoneBrand.value,
-                                                                    phoneType.value
+                                                                    phone
                                                                     )" class="mod-address-form-btn">CẬP NHẬT</button>
                                                                 </div>
                                                             </div>
@@ -112,6 +112,7 @@
                                                                     <label style="margin-bottom: 5px;">Màu sắc</label>
                                                                     <input [disabled]="enabled !== 1" id="phoneColors" name="phoneColors" type="text" [(ngModel)]="phone.colors" class="form-control" required #phoneColors="ngModel"
                                                                        />
+                                                                    <input type="color" id="color" name="color" value="blue">
                                                                     <div style="margin-top: -15px;" *ngIf="phoneColors.invalid && (phoneColors.dirty || phoneColors.touched)" class="alert alert-danger">
                                                                         <div *ngIf="phoneColors.errors.required"> Bạn chưa nhập tên màu sắc</div>
                                                                         <div *ngIf="phoneColors.errors && phoneColors.errors.pattern">
@@ -135,7 +136,7 @@
                                                                     <label style="margin-bottom: 5px;">Loại sản phẩm</label>
                                                                     <select [disabled]="false" id="phoneType" name="phoneType" [(ngModel)]="phone.category_id" class="form-control" required #phoneType="ngModel"
                                                                     >
-                                                                    <option *ngFor="let category of categories" [selected]="category.data.id == phone.category_id" value="{{category.data.name}}">{{category.data.description}}</option>
+                                                                    <option *ngFor="let category of categories" [selected]="category.data.id !== phone.category_id" value="{{category.data.name}}">{{category.data.description}}</option>
                                                                     </select>
                                                                     <div style="margin-top: -15px;" *ngIf="phoneType.invalid && (phoneType.dirty || phoneType.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerWard.errors.required"> Bạn chưa nhập</div>

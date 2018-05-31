@@ -461,9 +461,11 @@ export class PhoneService {
 
   /** PUT: update the hero on the server */
   updatePhone(phone: Phone, category: string) {
+    var list = category.replace(category[category.lastIndexOf('s')], '')+"-list";
+    console.log(list+" - "+phone.id);
     this.angularFirestore
-      .collection("category").doc(category).collection(category.replace(category[category.lastIndexOf('s')], '')+"-list").doc(phone.id)
-      .set({
+      .collection("category").doc(category).collection(list).doc(phone.id)
+      .update({
         name: phone.name, snippet: phone.snippet,
         price: phone.price, sale_price: phone.sale_price,
         inStock: phone.inStock, colors: phone.colors, brand: phone.brand
