@@ -82,11 +82,19 @@
                                                                             Giá sản phẩm không hợp lệ</div>
                                                                     </div>
                                                                 </div>
-                                                                <div #save class="mod-address-form-action">
-                                                                    <button tabindex="8" type="submit" (click)="validateForm()" class="mod-address-form-btn">LƯU</button>
+                                                                <div #verify class="mod-address-form-action">
+                                                                    <button tabindex="8" type="submit" (click)="validateForm(phone.category_id)" class="mod-address-form-btn">KIỂM TRA</button>
                                                                 </div>
                                                                 <div #update hidden="true" class="mod-address-form-action">
-                                                                    <button tabindex="8" type="submit" (click)="updateForm()" class="mod-address-form-btn">SỬA</button>
+                                                                    <button tabindex="8" type="submit" (click)="updateForm(phoneName.value,
+                                                                    phoneDes.value,
+                                                                    phonePrice.value,
+                                                                    phoneSalePrice.value,
+                                                                    phoneInStock.value,
+                                                                    phoneColors.value,
+                                                                    phoneBrand.value,
+                                                                    phoneType.value
+                                                                    )" class="mod-address-form-btn">CẬP NHẬT</button>
                                                                 </div>
                                                             </div>
                                                             <div class="mod-address-form-right">
@@ -125,9 +133,9 @@
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
                                                                     <label style="margin-bottom: 5px;">Loại sản phẩm</label>
-                                                                    <select [disabled]="enabled !== 1" id="phoneType" name="phoneType" [(ngModel)]="phone.category_id" class="form-control" required #phoneType="ngModel"
+                                                                    <select [disabled]="false" id="phoneType" name="phoneType" [(ngModel)]="phone.category_id" class="form-control" required #phoneType="ngModel"
                                                                     >
-                                                                    <option *ngFor="let category of categories" [selected]="category.data.id == phone.category_id" value="{{category.data.id}}">{{category.data.description}}</option>
+                                                                    <option *ngFor="let category of categories" [selected]="category.data.id == phone.category_id" value="{{category.data.name}}">{{category.data.description}}</option>
                                                                     </select>
                                                                     <div style="margin-top: -15px;" *ngIf="phoneType.invalid && (phoneType.dirty || phoneType.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerWard.errors.required"> Bạn chưa nhập</div>

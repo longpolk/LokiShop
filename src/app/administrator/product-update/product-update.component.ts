@@ -39,6 +39,18 @@ export class ProductUpdateComponent implements OnInit {
   @ViewChild("phoneColors") phoneColors: any;
   @ViewChild("phoneBrand") phoneBrand: any;
   @ViewChild("phoneType") phoneType: any;
+  @ViewChild("verify") verifyButton: any;
+  @ViewChild("update") updateButton: any;
+  categoryName: Category[] = [];
+
+  /*phoneName: string;
+  phoneDes: string;
+  phonePrice: number;
+  phoneSalePrice: number;
+  phoneInStock: number;
+  phoneColors: Array<string>;
+  phoneBrand: string;
+  phoneType: string;*/
 
   public enabled: number;
   constructor(private route: ActivatedRoute,
@@ -51,6 +63,7 @@ export class ProductUpdateComponent implements OnInit {
     this.enabled = 1;
     this.getCategories();
     this.getBrands();
+    //this.getCategoryByID();
   }
   getPhone(): void {
     this.route.params.subscribe(params => {
@@ -69,13 +82,29 @@ export class ProductUpdateComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  update(): boolean {
-    var category = document.getElementById("phoneType").getAttribute("value");
-    this.phoneService.updatePhone(this.phone, category);
+  updateForm(
+  phoneName: string,
+  phoneDes: string,
+  phonePrice: number,
+  phoneSalePrice: number,
+  phoneInStock: number,
+  phoneColors: Array<string>,
+  phoneBrand: string
+  ): boolean {
+    this.phone.name = phoneName;
+    this.phone.snippet = phoneDes;
+    this.phone.price = phonePrice;
+    this.phone.sale_price = phoneSalePrice;
+    this.phone.inStock = phoneInStock;
+    this.phone.colors = phoneColors;
+    this.phone.brand = phoneBrand;
+    this.phoneService.updatePhone(this.phone, this.categoryName[0]["data"].name);
+    console.log(this.categoryName[0]["data"].name);
+    alert("Đã lưu thông tin sản phẩm!");
     return true;
   }
 
-  validateForm(): boolean {
+  validateForm(catID: string): boolean {
     var formElement = [
       this.phoneName,
       this.phoneDes,
@@ -102,13 +131,15 @@ export class ProductUpdateComponent implements OnInit {
       alert("Lỗi! Vui lòng kiểm tra lại thông tin sản phẩm!");
       return false;
     } else {
-      //this.saveButton.nativeElement.hidden = true;
-      //this.updateButton.nativeElement.hidden = false;
-      //this.setStateElement("save");
-      this.update();
-      alert("Đã lưu thông tin sản phẩm!");
+      this.verifyButton.nativeElement.hidden = true;
+      this.updateButton.nativeElement.hidden = false;
+      this.getCategoryByID(catID);
+      console.log(catID);
+      alert("Thông tin sản phẩm hợp lệ!");
       return true;
     }
   }
-
+  getCategoryByID(id: string){
+    this.phoneService.getCategoryByID(id).subscribe(_ => this.categoryName = _);
+  }
 }

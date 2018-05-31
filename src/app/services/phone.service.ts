@@ -65,6 +65,21 @@ export class PhoneService {
       catchError(this.handleError("getCategories", []))
     );
   }
+  /** GET category by id */
+  getCategoryByID(id: string): Observable<Category[]> {
+    this.catCol = this.angularFirestore.collection("category", ref => ref.where("name","==",id));
+    this.catPosts = this.catCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Category;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.catPosts.pipe(
+      tap(phone => this.log(`fetched categories`)),
+      catchError(this.handleError("getCategories", []))
+    );
+  }
   /** GET brands */
   getBrands(): Observable<Brand[]> {
     this.brandCol = this.angularFirestore.collection("brands", ref =>
@@ -447,7 +462,7 @@ export class PhoneService {
   /** PUT: update the hero on the server */
   updatePhone(phone: Phone, category: string) {
     this.angularFirestore
-      .collection("category").doc(category).collection(category+"-list").doc(phone.id)
+      .collection("category").doc(category).collection(category.replace(category[category.lastIndexOf('s')], '')+"-list").doc(phone.id)
       .set({
         name: phone.name, snippet: phone.snippet,
         price: phone.price, sale_price: phone.sale_price,
