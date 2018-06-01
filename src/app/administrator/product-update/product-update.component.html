@@ -112,7 +112,6 @@
                                                                     <label style="margin-bottom: 5px;">Màu sắc</label>
                                                                     <input [disabled]="enabled !== 1" id="phoneColors" name="phoneColors" type="text" [(ngModel)]="phone.colors" class="form-control" required #phoneColors="ngModel"
                                                                        />
-                                                                    <input type="color" id="color" name="color" value="blue">
                                                                     <div style="margin-top: -15px;" *ngIf="phoneColors.invalid && (phoneColors.dirty || phoneColors.touched)" class="alert alert-danger">
                                                                         <div *ngIf="phoneColors.errors.required"> Bạn chưa nhập tên màu sắc</div>
                                                                         <div *ngIf="phoneColors.errors && phoneColors.errors.pattern">
@@ -136,7 +135,7 @@
                                                                     <label style="margin-bottom: 5px;">Loại sản phẩm</label>
                                                                     <select [disabled]="false" id="phoneType" name="phoneType" [(ngModel)]="phone.category_id" class="form-control" required #phoneType="ngModel"
                                                                     >
-                                                                    <option *ngFor="let category of categories" [selected]="category.data.id !== phone.category_id" value="{{category.data.name}}">{{category.data.description}}</option>
+                                                                    <option *ngFor="let category of categories" [selected]="category.data.id == phone.category_id" value="{{category.data.name}}">{{category.data.description}}</option>
                                                                     </select>
                                                                     <div style="margin-top: -15px;" *ngIf="phoneType.invalid && (phoneType.dirty || phoneType.touched)" class="alert alert-danger">
                                                                         <div *ngIf="customerWard.errors.required"> Bạn chưa nhập</div>
@@ -181,7 +180,7 @@
                             <div class="module-header">
                                 <div class="module-title title-style-3">
 
-                                    <span>Đơn hàng</span>
+                                    <span>Hình ảnh</span>
                                 </div>
                             </div>
                             <div class="module-content" style="width: 115%">
@@ -249,7 +248,7 @@
                     <div class="aside-item sidebar_support ">
                         <div class="module-header ">
                             <h2 class="module-title title-style-3 padding-right-0 ">
-                                <span>Thanh toán</span>
+                                <span>Trạng thái</span>
                             </h2>
                         </div>
                         <div class="module-content ">
@@ -257,36 +256,24 @@
 
                             <div class="item ">
                                 <div class="item_image ">
-                                    <input class="input-radio" type="radio" value="payment_method_1" name="PaymentMethodId" #payment_method_1 id="cod" data-check-id="1"
+                                    <input class="input-radio" type="radio" value="payment_method_1" name="PaymentMethodId" #show id="cod" data-check-id="1"
                                         checked>
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
-                                        Thanh toán khi giao hàng (COD)
+                                        Hiển thị
                                     </div>
                                 </div>
                             </div>
 
                             <div class="item ">
                                 <div class="item_image ">
-                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_2" name="PaymentMethodId" #payment_method_2
+                                    <input [disabled]="false" class="input-radio" type="radio" value="payment_method_2" name="PaymentMethodId" #hidden
                                         id="paypal" data-check-id="2">
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
-                                        Thanh toán qua Paypal
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-                                <div class="item_image ">
-                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_3" name="PaymentMethodId" #payment_method_3
-                                        id="visa" data-check-id="3">
-                                </div>
-                                <div class="item_desc ">
-                                    <div class="item_title ">
-                                        Thanh toán qua thẻ VISA
+                                        Ẩn
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +284,7 @@
                     <div class="aside-item sidebar_feature_products ">
                         <div class="module-header">
                             <h2 class="module-title title-style-3 padding-right-0 ">
-                                <span>Thông tin đơn hàng</span>
+                                <span>Thông tin</span>
                             </h2>
                         </div>
                         <div class="module-content">

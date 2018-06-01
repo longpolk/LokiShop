@@ -67,7 +67,7 @@ export class PhoneService {
   }
   /** GET category by id */
   getCategoryByID(id: string): Observable<Category[]> {
-    this.catCol = this.angularFirestore.collection("category", ref => ref.where("name","==",id));
+    this.catCol = this.angularFirestore.collection("category", ref => ref.where("id","==",id));
     this.catPosts = this.catCol.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Category;

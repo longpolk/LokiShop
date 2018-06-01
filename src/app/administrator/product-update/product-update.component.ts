@@ -42,6 +42,7 @@ export class ProductUpdateComponent implements OnInit {
   @ViewChild("verify") verifyButton: any;
   @ViewChild("update") updateButton: any;
   categoryName: Category[] = [];
+  //colors: Array<string>;
 
   /*phoneName: string;
   phoneDes: string;
@@ -88,7 +89,7 @@ export class ProductUpdateComponent implements OnInit {
   phonePrice: number,
   phoneSalePrice: number,
   phoneInStock: number,
-  phoneColors: string,
+  phoneColors: Array<string>,
   phoneBrand: string,
   phone: Phone
   ): boolean {
@@ -98,9 +99,9 @@ export class ProductUpdateComponent implements OnInit {
     phone.sale_price = phoneSalePrice;
     phone.inStock = phoneInStock;
     var list = [];
-    var colors = phoneColors.split(",");
+    phoneColors = phoneColors.toString().split(',');
     for(var i = 0; i< phoneColors.length; i++){
-    list.push(colors[i]);
+    list.push(phoneColors[i]);
     }
     phone.colors = list;
     phone.brand = phoneBrand;
