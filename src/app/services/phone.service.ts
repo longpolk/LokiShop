@@ -485,7 +485,7 @@ export class PhoneService {
         'price': phone.price, 'sale_price': phone.sale_price,
         'inStock': phone.inStock, 'colors': phone.colors, 'brand': phone.brand,
         'category_id': phone.category_id, 'postDate': new Date(), 'sold': 0,
-        'imageUrl': new Array, 'thunb': ''
+        'imageUrl': new Array, 'thumb': ''
       }).then(function () {
         console.log("Product Added ");
         window.location.href = "/admin/products";
