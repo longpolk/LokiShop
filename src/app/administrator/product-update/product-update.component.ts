@@ -173,7 +173,11 @@ export class ProductUpdateComponent implements OnInit {
   }
   changeImage(catID: string) {
     this.hidden = 0;
-    this.getCategoryByID(catID);
+    if (catID.startsWith("cat-")) {
+      this.getCategoryByID(catID);
+    } else {
+      this.getCategoryByName(catID);
+    }
     console.log(catID);
   }
   startUpload(event: FileList) {
@@ -196,7 +200,11 @@ export class ProductUpdateComponent implements OnInit {
   /** Call the click event of Child upload */
   addImage(catID: string) {
     document.getElementById("newImage").click();
-    this.getCategoryByID(catID);
+    if (catID.startsWith("cat-")) {
+      this.getCategoryByID(catID);
+    } else {
+      this.getCategoryByName(catID);
+    }
     console.log(catID);
   }
   addImageUrl(thumb: string) {
@@ -206,7 +214,11 @@ export class ProductUpdateComponent implements OnInit {
     alert("Thêm ảnh sản phẩm thành công!");
   }
   callAddImageByURL(catID: string) {
-    this.getCategoryByID(catID);
+    if(catID.startsWith('cat-')){
+      this.getCategoryByID(catID);
+    }else{
+      this.getCategoryByName(catID);
+    }
     console.log(catID);
   }
   addImageByURL(event: any, url: string) {

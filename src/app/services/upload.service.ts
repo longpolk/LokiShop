@@ -87,7 +87,15 @@ export class UploadService {
     var images = phone.imageUrl;
     const itemsWithoutRemoved = images.filter(_ => _ !== url);
     images = itemsWithoutRemoved;
-    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    if(category == 'phone' || category == 'laptop'){
+      category = category+"s";
+    }
+    var list = '';
+    if(category == 'accessories'){
+      list = category+"-list";
+    }else{
+      list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    }
     console.log(list + " - " + phone.id);
     this.angularFirestore
       .collection("category").doc(category).collection(list).doc(phone.id)

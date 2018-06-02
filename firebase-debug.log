@@ -1,0 +1,122 @@
+[debug] [2018-06-02T21:01:58.377Z] ----------------------------------------------------------------------
+[debug] [2018-06-02T21:01:58.380Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-06-02T21:01:58.380Z] CLI Version:   3.17.7
+[debug] [2018-06-02T21:01:58.380Z] Platform:      win32
+[debug] [2018-06-02T21:01:58.380Z] Node Version:  v8.10.0
+[debug] [2018-06-02T21:01:58.382Z] Time:          Sun Jun 03 2018 04:01:58 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:01:58.382Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-02T21:01:58.403Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-02T21:01:58.404Z] > authorizing via signed-in user
+[debug] [2018-06-02T21:01:58.408Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/lokishop-2018  
+  
+ Sun Jun 03 2018 04:01:58 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:01:59.763Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-02T21:01:59.766Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/lokishop-2018/tokens  
+  
+ Sun Jun 03 2018 04:01:59 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:00.690Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'lokishop-2018'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script.
+[info] i  database: checking rules syntax...
+[debug] [2018-06-02T21:02:14.160Z] >>> HTTP REQUEST PUT https://lokishop-2018.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "true",
+    ".write": "true"
+  }
+}
+ 
+ Sun Jun 03 2018 04:02:14 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:15.173Z] <<< HTTP RESPONSE 200
+[info] +  database: rules syntax for database lokishop-2018 is valid
+[debug] [2018-06-02T21:02:15.176Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/lokishop-2018  
+  
+ Sun Jun 03 2018 04:02:15 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:16.715Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2018-06-02T21:02:16.719Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/lokishop-2018:test  
+ { source: { files: [ [Object] ] } } 
+ Sun Jun 03 2018 04:02:16 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:18.292Z] <<< HTTP RESPONSE 200
+[info] +  storage: rules file storage.rules compiled successfully
+[info] i  firestore: checking firestore.rules for compilation errors...
+[debug] [2018-06-02T21:02:18.299Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/lokishop-2018:test  
+ { source: { files: [ [Object] ] } } 
+ Sun Jun 03 2018 04:02:18 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:19.715Z] <<< HTTP RESPONSE 200
+[info] +  firestore: rules file firestore.rules compiled successfully
+[debug] [2018-06-02T21:02:19.719Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1"
+  },
+  "devDependencies": {
+    "tslint": "^5.8.0",
+    "typescript": "^2.5.3"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-02T21:02:19.724Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/lokishop-2018?view=CONSUMER_VIEW  
+  
+ Sun Jun 03 2018 04:02:19 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:19.725Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/lokishop-2018?view=CONSUMER_VIEW  
+  
+ Sun Jun 03 2018 04:02:19 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:21.853Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-02T21:02:21.922Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2018-06-02T21:02:21.924Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/lokishop-2018  
+  
+ Sun Jun 03 2018 04:02:21 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:23.235Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-02T21:02:23.237Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/997142550057:getServerAppConfig  
+  
+ Sun Jun 03 2018 04:02:23 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:25.183Z] <<< HTTP RESPONSE 200
+[info] i  storage: uploading rules storage.rules...
+[debug] [2018-06-02T21:02:25.192Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/lokishop-2018/rulesets  
+ { source: { files: [ [Object] ] } } 
+ Sun Jun 03 2018 04:02:25 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:26.699Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-02T21:02:26.699Z] [rules] created ruleset projects/lokishop-2018/rulesets/64ee7d1b-9046-408d-8d35-2aa4baaf743e
+[info] i  firestore: uploading rules firestore.rules...
+[debug] [2018-06-02T21:02:26.702Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/lokishop-2018/rulesets  
+ { source: { files: [ [Object] ] } } 
+ Sun Jun 03 2018 04:02:26 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:26.704Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/lokishop-2018/databases/(default)/indexes  
+  
+ Sun Jun 03 2018 04:02:26 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:28.205Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-02T21:02:28.206Z] [rules] created ruleset projects/lokishop-2018/rulesets/6a551f67-41d2-4647-b435-01ce22b8b29f
+[debug] [2018-06-02T21:02:29.599Z] <<< HTTP RESPONSE 200
+[info] 
+[info] NOTE: The following indexes are already deployed but not present in the specified indexes file:
+[info] [READY] (phone-list) -- (sold,ASCENDING) (postDate,DESCENDING) 
+[info] 
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-02T21:02:29.609Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/lokishop-2018/configs  
+  
+ Sun Jun 03 2018 04:02:29 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-06-02T21:02:30.209Z] <<< HTTP RESPONSE 200
+[info] i  hosting: preparing public directory for upload...
+[debug] [2018-06-02T21:02:35.788Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/lokishop-2018/uploads/-LE1IjaO_bq1-UtO9hjt?fileCount=2095&message=  
+  
+ Sun Jun 03 2018 04:02:35 GMT+0700 (SE Asia Standard Time)
