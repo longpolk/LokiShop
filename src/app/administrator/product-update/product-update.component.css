@@ -4931,3 +4931,16 @@ input.fixAKeyboard:focus, textarea.fixAndroidKeyboard:focus {
   border-color: #fc9208;
   color: #000;
 }
+.list-items {
+  display: flex;
+
+  justify-content: left;
+
+  flex-flow: row wrap;
+  align-content: flex-end;
+}
+
+.list-item {
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -1,0 +1,374 @@
+<section class="awe-section-3" style="margin-top: 20px;">
+  <section class="section-main">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-md-push-3 col-md-push-3">
+
+
+
+
+
+
+          <!-- Kiểm tra số sản phẩm trong collection hiển thị -->
+
+
+
+          <!-- end kiểm tra -->
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 module_new_products">
+              <div class="module-header">
+                <div class="module-title title-style-3">
+                  <span>Thông tin sản phẩm</span>
+                </div>
+              </div>
+              <div class="module-content" style="width: 100%">
+                <!--Hiển thị phones mới nhất-->
+                <div class="list-items">
+                  <!--div class="owl-item" style="width:212px;" *ngFor="let phone of phones">
+                                            <div class="owl-item"-->
+
+                  <div class="list-item">
+                    <div class="item">
+
+                      <div class="product-box product-grid-item">
+
+                        <form>
+                          <div class="mod-address-form mod-vn">
+                            <div class="mod-address-form-bd">
+                              <div class="mod-address-form-left">
+                                <div class="mod-input mod-input-email">
+                                  <label>Tên sản phẩm</label>
+                                  <input [disabled]="enabled !== 1" id="phoneName" name="phoneName" type="text" class="form-control" required #phoneName="ngModel"
+                                    [(ngModel)]="phone.name" value="" />
+                                  <div *ngIf="phoneName.invalid && (phoneName.dirty || phoneName.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneName.errors.required"> Bạn chưa nhập tên sản phẩm</div>
+                                    <div *ngIf="phoneName.errors && phoneName.errors.pattern">
+                                      Không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div class="mod-input mod-input-name">
+                                  <label>Nội dung mô tả</label>
+                                  <textarea [disabled]="enabled !== 1" id="phoneDes" name="phoneDes" style="height: 200px; scroll-behavior: auto; text-align: start;"
+                                    class="form-control" required #phoneDes="ngModel" [(ngModel)]="phone.snippet" value=""></textarea>
+                                  <div *ngIf="phoneDes.invalid && (phoneDes.dirty || phoneDes.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneDes.errors.required"> Bạn chưa nhập mô tả sản phẩm</div>
+                                    <div *ngIf="phoneDes.errors && phoneDes.errors.pattern">
+                                      Không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div class="mod-input mod-input-phone">
+                                  <label>Giá</label>
+                                  <input [disabled]="enabled !== 1" id="phonePrice" name="phonePrice" type="number" class="form-control" ng-pattern="/^[0-9]*$/"
+                                    required #phonePrice="ngModel" [(ngModel)]="phone.price" />
+                                  <div *ngIf="phonePrice.invalid && (phonePrice.dirty || phonePrice.touched)" class="alert alert-danger">
+                                    <div *ngIf="phonePrice.errors.required"> Bạn chưa nhập giá sản phẩm</div>
+                                    <div *ngIf="phonePrice.errors && phonePrice.errors.pattern">
+                                      Giá sản phẩm không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div class="mod-input mod-input-taxId">
+                                  <label>Giá so sánh</label>
+                                  <input [disabled]="enabled !== 1" id="phoneSalePrice" name="phoneSalePrice" type="number" class="form-control" ng-pattern="/^[0-9]*$/"
+                                    required #phoneSalePrice="ngModel" [(ngModel)]="phone.sale_price" />
+                                  <div *ngIf="phoneSalePrice.invalid && (phoneSalePrice.dirty || phoneSalePrice.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneSalePrice.errors.required"> Bạn chưa nhập giá sản phẩm</div>
+                                    <div *ngIf="phoneSalePrice.errors && phoneSalePrice.errors.pattern">
+                                      Giá sản phẩm không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div #verify class="mod-address-form-action">
+                                  <button tabindex="8" type="submit" (click)="validateForm(phone.category_id)" class="mod-address-form-btn">KIỂM TRA</button>
+                                </div>
+                                <div #update hidden="true" class="mod-address-form-action">
+                                  <button tabindex="8" type="submit" (click)="updateForm(phoneName.value,
+                                                                    phoneDes.value,
+                                                                    phonePrice.value,
+                                                                    phoneSalePrice.value,
+                                                                    phoneInStock.value,
+                                                                    phoneColors.value,
+                                                                    phoneBrand.value,
+                                                                    phone
+                                                                    )" class="mod-address-form-btn">TẠO MỚI</button>
+                                </div>
+                              </div>
+                              <div class="mod-address-form-right">
+                                <div class="mod-input mod-input-detailAddress">
+                                  <label>Số lượng</label>
+                                  <input [disabled]="enabled !== 1" id="phoneInStock" name="phoneInStock" type="number" [(ngModel)]="phone.inStock" class="form-control"
+                                    required #phoneInStock="ngModel" />
+                                  <div *ngIf="phoneInStock.invalid && (phoneInStock.dirty || phoneInStock.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneInStock.errors.required"> Bạn chưa nhập số lượng</div>
+                                    <div *ngIf="phoneInStock.errors && phoneInStock.errors.pattern">
+                                      Số lượng không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div class="mod-select mod-address-form-select mod-select-location-tree-1">
+                                  <label style="margin-bottom: 5px;">Màu sắc</label>
+                                  <input [disabled]="enabled !== 1" id="phoneColors" name="phoneColors" type="text" [(ngModel)]="phone.colors" class="form-control"
+                                    required #phoneColors="ngModel" />
+                                  <div style="margin-top: -15px;" *ngIf="phoneColors.invalid && (phoneColors.dirty || phoneColors.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneColors.errors.required"> Bạn chưa nhập tên màu sắc</div>
+                                    <div *ngIf="phoneColors.errors && phoneColors.errors.pattern">
+                                      Tên màu không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-2">
+                                  <label style="margin-bottom: 5px;">Nhãn hiệu</label>
+                                  <select [disabled]="enabled !== 1" id="phoneBrand" name="phoneBrand" [(ngModel)]="phone.brand" class="form-control" required
+                                    #phoneBrand="ngModel">
+                                    <option *ngFor="let brand of brands" [selected]="brand.data.name == phone.brand" value="{{brand.data.name}}">{{brand.data.name}}</option>
+                                  </select>
+                                  <div style="margin-top: -15px;" *ngIf="phoneBrand.invalid && (phoneBrand.dirty || phoneBrand.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneBrand.errors.required"> Bạn chưa chọn</div>
+                                    <div *ngIf="phoneBrand.errors && phoneBrand.errors.pattern">
+                                      Không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
+                                  <label style="margin-bottom: 5px;">Loại sản phẩm</label>
+                                  <select [disabled]="false" id="phoneType" name="phoneType" [(ngModel)]="phone.category_id" class="form-control" required
+                                    #phoneType="ngModel">
+                                    <option *ngFor="let category of categories; let i = index" [selected] value="{{category.data.name}}">{{category.data.description}}</option>
+                                  </select>
+                                  <div style="margin-top: -15px;" *ngIf="phoneType.invalid && (phoneType.dirty || phoneType.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneType.errors.required"> Bạn chưa nhập</div>
+                                    <div *ngIf="phoneType.errors && phoneType.errors.pattern">
+                                      Không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
+                                  <label style="margin-bottom: 5px;">Ảnh đại diện</label>
+                                  <img alt="Sản phẩm chưa có ảnh đại diện nào" style="width: 250%; height: 250%;" src="" id="phoneThumb" name="phoneThumb"
+                                    class="form-control" required #phoneThumb>
+                                  <div style="margin-top: -15px;" *ngIf="phoneThumb.invalid && (phoneThumb.dirty || phoneThumb.touched)" class="alert alert-danger">
+                                    <div *ngIf="phoneThumb.errors.required"> Bạn chưa nhập</div>
+                                    <div *ngIf="phoneThumb.errors && phoneThumb.errors.pattern">
+                                      Không hợp lệ</div>
+                                  </div>
+                                </div>
+                                <div class="mod-address-form-action">
+                                  <input class="mod-address-form-btn" (click)="changeImage(phone.category_id)" (change)="startUpload($event.target.files)"
+                                    accept=".png,.jpg" type="file" name="mainImage" id="mainImage" #mainImage>
+                                </div>
+                                <div *ngIf="downloadURL | async as url" class="mod-address-form-action">
+
+                                  <h3>Ảnh tải lên: </h3>
+                                  <img [src]="url" style="width: 250%; height: 250%;">
+                                  <button tabindex="8" type="submit" (click)="saveChangeImage(url)" class="mod-address-form-btn">THAY ĐỔI ẢNH ĐẠI DIỆN</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!--/div-->
+                  <!--/div-->
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+          <!-- Kiểm tra số sản phẩm trong collection hiển thị -->
+
+
+
+          <!-- end kiểm tra -->
+
+          <div *ngIf="neverBeDisplayed" class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 module_feature_products">
+              <div class="module-header">
+                <div class="module-title title-style-3">
+
+                  <span>Hình ảnh chi tiết</span>
+                </div>
+              </div>
+              <div class="module-content" style="width: 115%">
+
+                <div id="leftContainer_10009" class="container" style="width: 800px; float: left;">
+                  <div id="listHeader_1" class="list-header" style="width: 100%;">
+                    <span class="list-header-middle" style="width: 100%;">
+                      <input (mousedown)="callAddImageByURL(phone.category_id)" (keydown)="addImageByURL($event,imagefromURL.value); imagefromURL.value = ''"
+                        #imagefromURL id="imagefromURL" name="imagefromURL" type="url" class="form-control" style="width: 100%;"
+                        placeholder="Nhập url ảnh bạn cần thêm mới, nhấn Enter để thêm...">
+                      <!--  <button style="width: 250px;" (click)="callAddImageByURL(phone.category_id)" #addImagefromURL id="addImagefromURL" name="addImagefromURL" type="button" class="next-btn next-btn-primary next-btn-large
+                                                checkout-order-total-button automation-checkout-order-total-button-button">Thêm ảnh từ URL</button>
+                                          -->
+                    </span>
+                    <span class="list-header-right">&nbsp;</span>
+                  </div>
+                  <div class="package">
+                    <div  class="list-items">
+                      <div class="list-item">
+                        <button (click)="addImage(phone.category_id)">
+                          <img style="height: 120px;width: 120px;" title="Thêm mới hình ảnh" alt="Thêm mới hình ảnh" src="https://firebasestorage.googleapis.com/v0/b/lokishop-2018.appspot.com/o/API%2Faddmore.png?alt=media&token=6edd8ffe-e5ba-465f-9983-db7d8cf981f6">
+                        </button>
+                        <input style="visibility:hidden;position:absolute;top:0;left:0" class="mod-address-form-btn" (change)="startUploadChild($event.target.files)"
+                          accept=".png,.jpg" type="file" name="newImage" id="newImage" #newImage>
+                      </div>
+                      <div *ngIf="imageUrl | async as childUrl" class="list-item">
+                        <img [src]="childUrl" style="height: 120px;width: 120px;">
+                        <br>
+                        <button style="width: 50px; margin-top: 10px; margin-left: 35px;" (click)="addImageUrl(childUrl)" class="mod-address-form-btn">Lưu</button>
+                      </div>
+                      <div *ngFor="let image of phone.imageUrl" class="list-item">
+                        <img src="{{image}}" style="height: 120px;width: 120px;">
+                        <br>
+                        <button (mouseover)="callAddImageByURL(phone.category_id)" (click)="deleteImageUrl(image)" style="width: 50px; margin-top: 10px; margin-left: 35px;"
+                          class="mod-address-form-btn">Xóa</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-md-pull-9 ">
+
+
+          <!--
+                    <div class="aside-item sidebar_support ">
+                        <div class="module-header ">
+                            <h2 class="module-title title-style-3 padding-right-0 ">
+                                <span>Trạng thái</span>
+                            </h2>
+                        </div>
+                        <div class="module-content ">
+
+
+                            <div class="item ">
+                                <div class="item_image ">
+                                    <input class="input-radio" type="radio" value="payment_method_1" name="PaymentMethodId" #show id="cod" data-check-id="1"
+                                        checked>
+                                </div>
+                                <div class="item_desc ">
+                                    <div class="item_title ">
+                                        Hiển thị
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item ">
+                                <div class="item_image ">
+                                    <input [disabled]="false" class="input-radio" type="radio" value="payment_method_2" name="PaymentMethodId" #hidden id="paypal"
+                                        data-check-id="2">
+                                </div>
+                                <div class="item_desc ">
+                                    <div class="item_title ">
+                                        Ẩn
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                -->
+          <div class="aside-item sidebar_feature_products ">
+            <div class="module-header">
+              <h2 class="module-title title-style-3 padding-right-0 ">
+                <span>Thông tin bổ sung</span>
+              </h2>
+            </div>
+            <div class="module-content">
+              <div class="summary-section">
+                <!--<div class="summary-section-heading">Thông tin đơn hàng</div>-->
+                <div class="summary-section-content">
+                  <div class=" checkout-summary">
+                    <div class="checkout-summary-rows">
+                      <div class="checkout-summary-row">
+                        <div class="checkout-summary-label">Nhãn hiệu</div>
+                      </div>
+                    </div>
+                    <div class="voucher-input">
+                      <div class="voucher-input-inner">
+                        <div style="float:left;width:62%;" class="voucher-input-col">
+                          <span class="next-input next-input-single next-input-medium clear voucher-input-control">
+                            <input id="newPhoneBrand" name="newPhoneBrand" #newPhoneBrand type="text" id="automation-voucher-input" alt="newPhoneBrand"
+                              placeholder="Tên nhãn hiệu" value="" height="100%">
+                          </span>
+                        </div>
+                        <div style="float:right;width:35%;" class="voucher-input-col">
+                          <button (click)="addBrand(newPhoneBrand.value); newPhoneBrand.value=''" id="automation-voucher-input-button" type="button"
+                            class="next-btn next-btn-normal next-btn-large voucher-input-button">Thêm</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="checkout-summary-rows">
+                      <div class="checkout-summary-row">
+                        <div class="checkout-summary-label">Loại sản phẩm</div>
+                      </div>
+                    </div>
+                    <div class="voucher-input">
+                      <div class="voucher-input-inner">
+                        <div style="float:left;width:100%;" class="voucher-input-col">
+                          <span class="next-input next-input-single next-input-medium clear voucher-input-control">
+                            <input id="newPhoneTypeDes" name="newPhoneTypeDes" #newPhoneTypeDes type="text" id="automation-voucher-input" alt="newPhoneTypeDes"
+                              placeholder="Tên loại sản phẩm" value="" height="100%">
+                          </span>
+                        </div>
+                        <div style="float:left;width:100%;" class="voucher-input-col">
+                          <span class="next-input next-input-single next-input-medium clear voucher-input-control">
+                            <input id="newPhoneTypeName" name="newPhoneTypeName" #newPhoneTypeName type="text" id="automation-voucher-input" alt="newPhoneTypeName"
+                              placeholder="Tên loại sản phẩm (English)" value="" height="100%">
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="voucherError" name="voucherError" #voucherError style="margin-top: -15px; width: 100%; color:red;">
+
+                    </div>
+                    <div class="checkout-login-btn">
+                      <button (click)="addCategory(newPhoneTypeName.value, newPhoneTypeDes.value); newPhoneTypeDes.value='';newPhoneTypeName.value=''"
+                        type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">Thêm loại sản phẩm</button>
+                    </div>
+                  </div>
+                  <div class="checkout-login-btn">
+                    <button (click)="deletePhone(phone)" type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">Xóa sản phẩm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+          <!-- Kiểm tra số sản phẩm trong collection hiển thị -->
+
+
+
+          <!-- end kiểm tra -->
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

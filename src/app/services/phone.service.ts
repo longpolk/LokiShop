@@ -67,7 +67,7 @@ export class PhoneService {
   }
   /** GET category by id */
   getCategoryByID(id: string): Observable<Category[]> {
-    this.catCol = this.angularFirestore.collection("category", ref => ref.where("id","==",id));
+    this.catCol = this.angularFirestore.collection("category", ref => ref.where("id", "==", id));
     this.catPosts = this.catCol.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Category;
@@ -79,6 +79,33 @@ export class PhoneService {
       tap(phone => this.log(`fetched categories`)),
       catchError(this.handleError("getCategories", []))
     );
+  }
+  getCategoryByName(name: string): Observable<Category[]> {
+    this.catCol = this.angularFirestore.collection("category", ref => ref.where("name", "==", name));
+    this.catPosts = this.catCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Category;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.catPosts.pipe(
+      tap(phone => this.log(`fetched categories`)),
+      catchError(this.handleError("getCategories", []))
+    );
+  }
+  /**ADD new category */
+  addCategory(
+    id: string,
+    sid: string,
+    name: string,
+    description: string
+  ) {
+    this.angularFirestore
+      .collection("category").doc(id)
+      .set({ id: sid, description: description, name: name });
+    this.angularFirestore
+      .collection("category").doc(id).collection(id + "-list").doc("placeholder").set({ name: "placeholder" });
   }
   /** GET brands */
   getBrands(): Observable<Brand[]> {
@@ -96,6 +123,17 @@ export class PhoneService {
       tap(phone => this.log(`fetched phone`)),
       catchError(this.handleError("getPhones", []))
     );
+  }
+  /** ADD new brand */
+  addBrand(
+    id: string,
+    name: string,
+    active: boolean,
+    imageUrl: string
+  ) {
+    this.angularFirestore
+      .collection("brands").doc(id)
+      .set({ id: id, imageUrl: imageUrl, name: name, active: active });
   }
   /** GET most sold phones */
   getPopularPhones(): Observable<Phone[]> {
@@ -434,35 +472,53 @@ export class PhoneService {
       catchError(this.handleError<Phone>('addPhone'))
     );
   }*/
-  addPhone(
-    id: string,
-    name: string,
-    age: number,
-    image: string,
-    snippet: string
-  ) {
+  addPhone(phone: Phone, category: string) {
+    if(category == 'phone' || category == 'laptop'){
+      category = category+"s";
+    }
+    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    console.log(list + " - " + phone.id);
     this.angularFirestore
-      .collection("phones")
-      .add({ age: age, id: id, imageUrl: image, name: name, snippet: snippet });
+      .collection("category").doc(category).collection(list).doc(phone.id)
+      .set({
+        'id': phone.id, 'name': phone.name, 'snippet': phone.snippet,
+        'price': phone.price, 'sale_price': phone.sale_price,
+        'inStock': phone.inStock, 'colors': phone.colors, 'brand': phone.brand,
+        'category_id': phone.category_id, 'postDate': new Date(), 'sold': 0,
+        'imageUrl': new Array, 'thunb': ''
+      }).then(function () {
+        console.log("Product Added ");
+        window.location.href = "/admin/products";
+      })
+      .catch(function (error) {
+        console.error("Error adding product: ", error);
+      });
   }
 
   /** DELETE: delete the hero from the server */
-  deletePhone(phone: Phone | number): Observable<Phone> {
-    const id = typeof phone === "number" ? phone : phone.id;
-    const url = `${this.phoneUrl}/${id}`;
-
-    return this.http
-      .delete<Phone>(url, httpOptions)
-      .pipe(
-        tap(_ => this.log(`deleted phone id=${id}`)),
-        catchError(this.handleError<Phone>("deletePhone"))
-      );
+  deletePhone(phone: Phone, category: string) {
+    if(category == 'phone' || category == 'laptop'){
+      category = category+"s";
+    }
+    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    this.angularFirestore.collection("category")
+    .doc(category).collection(list).doc(phone.id).delete()
+    .then(function () {
+      console.log("Product Removed ");
+      window.location.href = "/admin/products";
+    })
+    .catch(function (error) {
+      console.error("Error removing product: ", error);
+    });;
   }
 
   /** PUT: update the hero on the server */
   updatePhone(phone: Phone, category: string) {
-    var list = category.replace(category[category.lastIndexOf('s')], '')+"-list";
-    console.log(list+" - "+phone.id);
+    if(category == 'phone' || category == 'laptop'){
+      category = category+"s";
+    }
+    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    console.log(list + " - " + phone.id);
     this.angularFirestore
       .collection("category").doc(category).collection(list).doc(phone.id)
       .update({

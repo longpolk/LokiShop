@@ -1,0 +1,134 @@
+﻿html {
+    -webkit-touch-callout: none;
+    background: #191919;
+}
+
+body {
+    margin: 0;
+    line-height: 18px;
+    font-size: 13px;
+    color: #808080;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    max-width: 1620px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.admin-bar__item {
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    color: #808080;
+    padding: 0 15px 0 0;
+}
+
+.admin-bar__item:hover {
+    color: white;
+    background-color: #333333;
+    text-decoration: none;
+}
+
+.admin-bar__item:hover .ico-16.ico-view-storefront {
+    background-position: -16px -273px;
+}
+
+.logo {
+    height: 40px;
+    width: 120px;
+    background: url(//bizweb.dktcdn.net/assets/admin/logo-live.png) no-repeat center;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.store-password {
+    display: block;
+    float: right;
+    margin-right: 50px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.ico {
+    display: inline-block;
+    line-height: 0;
+    vertical-align: top;
+    text-indent: 999em;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url(//bizweb.dktcdn.net/assets/admin/ico-sprite-small.png);
+}
+
+.ico-16 {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+
+.ico-16.ico-view-storefront {
+    background-position: 0 -273px;
+}
+
+.ico-view-storefront {
+    margin: 12px 14px;
+}
+
+.admin-bar__actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-bar__close {
+    cursor: pointer;
+    background: url(//bizweb.dktcdn.net/assets/admin/bizweb2-admin-bar-toggle.png) no-repeat -40px -40px;
+    height: 40px;
+    width: 40px;
+    margin-right: 0;
+    display: block;
+    text-indent: -99999px;
+}
+
+.admin-bar__close:hover {
+    background-position: -40px 0;
+}
+
+.admin-bar--minimized {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.admin-bar--minimized span {
+    cursor: pointer;
+    background: url(//bizweb.dktcdn.net/assets/admin/bizweb2-admin-bar-toggle.png) no-repeat 0 -40px;
+    height: 40px;
+    width: 40px;
+    margin-right: 0;
+    display: block;
+    text-indent: -99999px;
+}
+
+.admin-bar--minimized span:hover {
+    background-position: 0 0;
+}
+
+.collapsed {
+    display: none;
+}
+
+@media (max-width:768px){
+    .hide-bar-on-mobile{
+        display:none;
+    }
+}

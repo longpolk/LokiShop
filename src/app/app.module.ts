@@ -51,6 +51,8 @@ import { AuthService } from "./core/auth.service";
 import { AuthGuard } from "./core/auth.guard";
 import { ProductsComponent } from './administrator/products/products.component';
 import { ProductUpdateComponent } from './administrator/product-update/product-update.component';
+import { UploadService } from "./services/upload.service";
+import { ProductAddComponent } from './administrator/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import { ProductUpdateComponent } from './administrator/product-update/product-u
     PopularProductsComponent,
     AccountComponent,
     ProductsComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +114,8 @@ import { ProductUpdateComponent } from './administrator/product-update/product-u
     MockDataService,
     OrderService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UploadService
   ],
   entryComponents: [PopupCartComponent],
   bootstrap: [AppComponent]

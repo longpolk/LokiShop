@@ -16,6 +16,7 @@ import { PopupCartComponent } from './popup-cart/popup-cart.component';
 import { NewProductsComponent } from './new-products/new-products.component';
 import { PopularProductsComponent } from './popular-products/popular-products.component';
 import { AuthGuard } from './core/auth.guard';
+import { ProductAddComponent } from './administrator/product-add/product-add.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'admin', component: AdministratorComponent },
   { path: 'admin/products', component: ProductsComponent },
   { path: 'admin/products/:id', component: ProductUpdateComponent },
+  { path: 'admin/new-products', component: ProductAddComponent },
   { path: 'account', component: AccountComponent, /*canActivate: [AuthGuard]*/ },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/logout', component: LoginComponent },

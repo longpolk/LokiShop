@@ -7,6 +7,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { CartService } from '../../services/cart.service';
 import { Brand } from '../../brand';
 import { Category } from '../../category';
+import { UploadService } from '../../services/upload.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-product-update',
@@ -30,6 +32,7 @@ export class ProductUpdateComponent implements OnInit {
   @Input() phone: Phone;
   @Input() brands: Brand[];
   @Input() categories: Category[];
+  @Input() mainImageUrl: string;
 
   @ViewChild("phoneName") phoneName: any;
   @ViewChild("phoneDes") phoneDes: any;
@@ -41,7 +44,13 @@ export class ProductUpdateComponent implements OnInit {
   @ViewChild("phoneType") phoneType: any;
   @ViewChild("verify") verifyButton: any;
   @ViewChild("update") updateButton: any;
+  @ViewChild("mainImage") mainImage: any;
+
   categoryName: Category[] = [];
+  downloadURL: Observable<string>;
+  imageUrl: Observable<string>;
+  thumb: string;
+  thumbChild: string;
   //colors: Array<string>;
 
   /*phoneName: string;
@@ -54,14 +63,18 @@ export class ProductUpdateComponent implements OnInit {
   phoneType: string;*/
 
   public enabled: number;
+  public hidden: number;
   constructor(private route: ActivatedRoute,
     private phoneService: PhoneService,
     private location: Location,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private uploadService: UploadService
+  ) { }
 
   ngOnInit() {
     this.getPhone();
     this.enabled = 1;
+    this.hidden = 0;
     this.getCategories();
     this.getBrands();
     //this.getCategoryByID();
@@ -84,14 +97,14 @@ export class ProductUpdateComponent implements OnInit {
     this.location.back();
   }
   updateForm(
-  phoneName: string,
-  phoneDes: string,
-  phonePrice: number,
-  phoneSalePrice: number,
-  phoneInStock: number,
-  phoneColors: Array<string>,
-  phoneBrand: string,
-  phone: Phone
+    phoneName: string,
+    phoneDes: string,
+    phonePrice: number,
+    phoneSalePrice: number,
+    phoneInStock: number,
+    phoneColors: Array<string>,
+    phoneBrand: string,
+    phone: Phone
   ): boolean {
     phone.name = phoneName;
     phone.snippet = phoneDes;
@@ -100,13 +113,14 @@ export class ProductUpdateComponent implements OnInit {
     phone.inStock = phoneInStock;
     var list = [];
     phoneColors = phoneColors.toString().split(',');
-    for(var i = 0; i< phoneColors.length; i++){
-    list.push(phoneColors[i]);
+    for (var i = 0; i < phoneColors.length; i++) {
+      list.push(phoneColors[i]);
     }
     phone.colors = list;
     phone.brand = phoneBrand;
+    console.log(this.categoryName);
     console.log(this.categoryName[0]["data"].name);
-    this.phoneService.updatePhone(phone, this.categoryName[0]["data"].name);
+    this.phoneService.updatePhone(phone, this.categoryName[0].id);
     alert("Đã lưu thông tin sản phẩm!");
     return true;
   }
@@ -140,13 +154,146 @@ export class ProductUpdateComponent implements OnInit {
     } else {
       this.verifyButton.nativeElement.hidden = true;
       this.updateButton.nativeElement.hidden = false;
-      this.getCategoryByID(catID);
+      console.log(this.phone);
+      if (catID.startsWith("cat-")) {
+        this.getCategoryByID(catID);
+      } else {
+        this.getCategoryByName(catID);
+      }
       console.log(catID);
       alert("Thông tin sản phẩm hợp lệ!");
       return true;
     }
   }
-  getCategoryByID(id: string){
+  getCategoryByID(id: string) {
     this.phoneService.getCategoryByID(id).subscribe(_ => this.categoryName = _);
+  }
+  getCategoryByName(name: string) {
+    this.phoneService.getCategoryByName(name).subscribe(_ => this.categoryName = _);
+  }
+  changeImage(catID: string) {
+    this.hidden = 0;
+    this.getCategoryByID(catID);
+    console.log(catID);
+  }
+  startUpload(event: FileList) {
+    this.uploadService.startUpload(event);
+    this.downloadURL = this.uploadService.uploadTask.downloadURL();
+    this.downloadURL.subscribe(_ => this.thumb = _);
+  }
+  /** Start replace value of phone's thumb */
+  saveChangeImage(thumb: string) {
+    console.log(thumb);
+    this.uploadService.changeThumb(this.phone, this.categoryName[0]["data"].name, thumb);
+    this.downloadURL = null;
+  }
+  startUploadChild(event: FileList) {
+    this.uploadService.startUpload(event);
+    this.imageUrl = this.uploadService.uploadTask.downloadURL();
+    this.imageUrl.subscribe(_ => this.thumbChild = _);
+    this.downloadURL = null;
+  }
+  /** Call the click event of Child upload */
+  addImage(catID: string) {
+    document.getElementById("newImage").click();
+    this.getCategoryByID(catID);
+    console.log(catID);
+  }
+  addImageUrl(thumb: string) {
+    console.log(thumb);
+    this.uploadService.addImageUrl(this.phone, this.categoryName[0]["data"].name, thumb);
+    this.imageUrl = null;
+    alert("Thêm ảnh sản phẩm thành công!");
+  }
+  callAddImageByURL(catID: string) {
+    this.getCategoryByID(catID);
+    console.log(catID);
+  }
+  addImageByURL(event: any, url: string) {
+    if (event.keyCode == 13) {
+      url = url.toString().trim();
+      if (url == null || url == '') {
+        alert('Vui lòng nhập đúng URL!');
+        return;
+      } else {
+        this.uploadService.addImageUrl(this.phone, this.categoryName[0]["data"].name, url);
+      }
+    } else {
+    }
+  }
+  deleteImageUrl(url: string) {
+    this.uploadService.deleteImageUrl(this.phone, this.categoryName[0]["data"].name, url);
+  }
+  getBrandID(): number {
+    var max = parseInt(this.brands[0].id.replace("brand-", ""));
+    for (var i = 0; i < this.brands.length; i++) {
+      var temp = parseInt(this.brands[i].id.replace("brand-", ""));
+      if (temp > max) {
+        max = temp;
+      }
+    }
+    return (max + 1);
+  }
+  getCategoryID(): number {
+    var max = parseInt(this.categories[0]["data"].id.replace("cat-", ""));
+    for (var i = 0; i < this.categories.length; i++) {
+      var temp = parseInt(this.categories[i]["data"].id.replace("cat-", ""));
+      if (temp > max) {
+        max = temp;
+      }
+    }
+    return (max + 1);
+  }
+  addBrand(name: string) {
+    var d = 0;
+    console.log(this.brands);
+    for (var i = 0; i < this.brands.length; i++) {
+      if (this.brands[i]["data"].name.toLowerCase() == name.toLowerCase()) {
+        d++;
+      }
+    }
+    if (d == 0) {
+      var id = "brand-" + this.getBrandID().toString();
+      this.phoneService.addBrand(id, name, true, "placeholder");
+      alert("Thêm nhãn hiệu thành công");
+    } else {
+      alert("Nhãn hiệu này đã tồn tại");
+    }
+  }
+  addCategory(name: string, description: string) {
+    var d = 0;
+    for (var i = 0; i < this.categories.length; i++) {
+      if (this.categories[i]["data"].name.toLowerCase() == name.toLowerCase() || this.categories[i]["data"].description.toLowerCase() == description.toLowerCase()) {
+        d++;
+      }
+    }
+    if (d == 0) {
+      var sid = "cat-" + this.getCategoryID().toString();
+      this.phoneService.addCategory(name.toLowerCase().replace(' ', ''), sid, name.toLowerCase().replace(' ', ''), description);
+      alert("Thêm loại sản phẩm thành công");
+    } else {
+      alert("Loại sản phẩm này đã tồn tại");
+    }
+  }
+  confirmDelete(phone: Phone, category: string) {
+    if (confirm("Bạn có thực sự muốn xóa sản phẩm này khỏi hệ thống?")) {
+      console.log(this.phone);
+      if (category.startsWith("cat-")) {
+        this.getCategoryByID(category);
+      } else {
+        this.getCategoryByName(category);
+      }
+      console.log(category);
+      this.deletePhone(phone, category);
+      return true;
+    } else {
+      return false;
+    }
+  }
+  deletePhone(phone: Phone, category: string) {
+    console.log(this.categoryName);
+    console.log(this.categoryName[0]["data"].name);
+    this.phoneService.deletePhone(phone, this.categoryName[0].id);
+    alert("Đã xóa sản phẩm!");
   }
 }
