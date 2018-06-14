@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
  
   getPhones(): void {
     this.phoneService.getPhones()
-      .subscribe(phones => this.phones = phones.slice(0, 5));
+      .subscribe(phones => this.phones = phones.slice(0, 8));
   }
   getLaptops(): void {
     this.phoneService.getLaptops()
