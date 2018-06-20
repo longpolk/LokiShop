@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../services/user.service";
+import { AuthService } from "../core/auth.service";
 
 @Component({
   selector: "app-signup",
@@ -18,7 +19,10 @@ import { UserService } from "../services/user.service";
   ]
 })
 export class SignupComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private auth: AuthService
+  ) {}
 
   signup(lastName: string, firstName: string, email: string, password: string) {
     if (
@@ -31,7 +35,10 @@ export class SignupComponent implements OnInit {
       password.toLowerCase().trim() !== null &&
       password.toLowerCase().trim() !== ''
     ) {
-      this.userService.addUser(email, lastName + " " + firstName, password);
+      this.auth.emailSignUp(lastName+" "+firstName, email, password)
+      .then(function (){
+      //window.location.href = "/account/login";
+    });
     } else {
       alert("Thông tin nhập chưa đúng");
     }

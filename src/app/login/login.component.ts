@@ -31,7 +31,18 @@ export class LoginComponent implements OnInit {
       password.toLowerCase().trim() !== null &&
       password.toLowerCase().trim() !== ""
     ) {
-      this.userService.userLogin(email, password);
+      //this.userService.userLogin(email, password);
+      this.authService.Login(email, password)
+    .then(function () {
+      console.log("Login successful ");
+      window.location.href = "/account";
+    })
+    .catch(function (error) {
+      switch(error.code){
+      case 'auth/wrong-password': alert("Sai mật khẩu"); break;
+      case 'auth/user-not-found': alert("Tài khoản không tồn tại"); break;
+      }
+    });
     } else {
       alert("Vui lòng nhập email và mật khẩu");
     }

@@ -22,6 +22,7 @@
       </div>
     </div>
   </section>
+  <!--Google account-->
   <section *ngIf="auth.user | async as user" class="signup page_customer_account">
     <div class="container">
       <div class="row">
@@ -36,8 +37,9 @@
               <div class="form-signup name-account m992">
                 <p>
                   <strong>Xin chào,
-                    <a routerLink="/account/addresses" style="color:#f02b2b;">{{ user.displayName }}</a>&nbsp;!</strong>
+                    <a routerLink="/account/addresses" style="color:#f02b2b;">{{ user.name }}</a>&nbsp;!</strong>
                     <input (click)="auth.signOut()" type="button" value="Đăng xuất"/>
+                    <button type="button" (click)="getOrders(user.orderIDs)">Xem đơn hàng</button>
                 </p>
               </div>
               <div class="col-xs-12 col-sm-12 col-lg-12 no-padding">
@@ -46,7 +48,7 @@
                   <div class="dashboard">
 
                     <div class="recent-orders">
-                      <div class="table-responsive tab-all" style="overflow-x:auto;">
+                      <div *ngIf="user.orderIDs==null || user.orderIDs==''" class="table-responsive tab-all" style="overflow-x:auto;">
                         <table class="table table-cart" id="my-orders-table">
                           <thead class="thead-default">
                             <tr>
@@ -67,12 +69,50 @@
                                 <p>Không có đơn hàng nào.</p>
                               </td>
                             </tr>
-
                           </tbody>
 
 
                         </table>
+                      </div>
+                      <div *ngIf="user.orderIDs!=null && user.orderIDs!=''"  class="table-responsive tab-all" style="overflow-x:auto;">
+                        <table class="table table-cart" id="my-orders-table">
+                          <thead class="thead-default">
+                            <tr>
+                              <th>Đơn hàng</th>
+                              <th>Ngày</th>
 
+                              <th>Địa chỉ</th>
+                              <th>Giá trị đơn hàng</th>
+                              <th>Tình trạng thanh toán</th>
+                              <th>Trạng thái</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr style="align-content:initial;" *ngFor="let order of orders">
+                              <td >
+                                <a routerLink="/buy-successful/{{order.id}}">{{order.id}}</a>
+                              </td>
+                              <td >
+                                {{order.data.createdDate}}
+                              </td>
+                              <td >
+                                {{order.data.customerAddress}}
+                              </td>
+                              <td >
+                                {{order.data.currentCost | number}}
+                              </td>
+                              <td >
+                                Chưa thanh toán
+                              </td>
+                              <td >
+                                {{order.data.status}}
+                              </td>
+                            </tr>
+                          </tbody>
+
+
+                        </table>
                       </div>
 
                       <div class="paginate-pages pull-right page-account text-right col-xs-12 col-sm-12 col-md-12 col-lg-12">

@@ -37,12 +37,18 @@
             </form>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 account">
+        <div *ngIf="auth.check==false" class="col-xs-12 col-sm-5 col-md-4 col-lg-4 account">
 
           <a routerLink="/account/login">Đăng nhập</a>
           <span>hoặc</span>
           <a routerLink="/account/signup">Đăng ký</a>
 
+        </div>
+        <div *ngIf="auth.user | async as user" class="col-xs-12 col-sm-5 col-md-4 col-lg-4 account">
+
+          <a routerLink="/account">{{user.name | slice:0:9}}</a>
+          <span>|</span>
+          <a (click)="auth.signOut()" href="javascript:void(0)">Đăng xuất</a>
         </div>
       </div>
     </div>

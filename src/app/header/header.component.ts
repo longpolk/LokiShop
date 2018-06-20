@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
     private cartService: CartService,
     public auth: AuthService
   ) {
-
     this.shoppingCartItems$ = this.cartService.getItems();
     this.shoppingCartItems$.subscribe(_ => _);
     
@@ -45,6 +44,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  
   }
 
 }

@@ -15,7 +15,6 @@ import "rxjs/add/operator/map";
 import { Order } from "../order";
 import { MessageService } from "./messages.service";
 import { Phone } from "../phone";
-import { } from "googlemaps";
 import { MapsAPILoader } from "@agm/core";
 import { Http } from "@angular/http";
 
@@ -29,6 +28,7 @@ export class OrderService {
   orders: Order[] = [];
   phones: Phone[] = [];
   orders$: Observable<Order>;
+  listOrders: Observable<Order[]>;
   orderID: string;
   orderProducts: Phone[];
   products: AngularFirestoreCollection<Phone[]>;
@@ -132,7 +132,21 @@ export class OrderService {
         console.error("Error adding product: ", error);
       });
   }
-
+  /**ADD orderID to user */
+  addOrderUser(uid: string, orderID: string) {
+    var user = this.angularFirestore.collection("users").doc(uid);
+    user.ref.get().then(doc =>{
+      console.log(doc.data()["orderIDs"]);
+      var orderIDs = doc.data()["orderIDs"];
+      orderIDs.push(orderID);
+      doc.ref.update({
+        "orderIDs": orderIDs
+      });
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
+    });
+    
+  }
   /** GET order by id. Will 404 if id not found */
   getOrder(id: string): Observable<Order> {
     this.orderDoc = this.angularFirestore.doc(
@@ -156,6 +170,23 @@ export class OrderService {
     return this.phonePosts.pipe(
       tap(phone => this.log(`fetched items`)),
       catchError(this.handleError("getProductsOrder", []))
+    );
+  }
+  /**GET orders of a user */
+  getOrdersOfUser(id: string): Observable<Order[]> {
+    this.orderCol = this.angularFirestore.collection("orders", ref =>
+      ref.where("id", "==", id)
+    );
+    this.orderPosts = this.orderCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Order;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.orderPosts.pipe(
+      tap(phone => this.log(`fetched order`)),
+      catchError(this.handleError("getOrders", []))
     );
   }
   /*

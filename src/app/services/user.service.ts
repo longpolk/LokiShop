@@ -14,7 +14,6 @@ import {
 } from "angularfire2/firestore";
 import "rxjs/add/operator/map";
 import { Router } from "@angular/router";
-import { AuthService } from "../core/auth.service";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -31,8 +30,7 @@ export class UserService {
     public http: HttpClient,
     private messageService: MessageService,
     private angularFirestore: AngularFirestore,
-    private router: Router,
-    public authService: AuthService
+    private router: Router
   ) {}
 
   /** GET heroes from the server */
@@ -73,6 +71,18 @@ export class UserService {
       catchError(this.handleError<User>(`getUser id=${id}`))
     );
   }
+  /**UPDATE user by id or email */
+  updateUser(user: User){
+    this.angularFirestore.collection("users").doc(user.email).update({
+      id: user.email,
+      name: user.name,
+      active: true,
+      orderIDs: new Array<string>(),
+      lastLoginDate: new Date(),
+      role: "customer"
+    }
+    );
+  }
   /** Login user */
   userLogin(id: string, password: string) {
     let hash = Md5.hashStr(password);
@@ -82,7 +92,11 @@ export class UserService {
       .ref.get()
       .then(function(doc) {
         if (doc.exists && doc.data()["password"] == hash) {
-          window.location.href = '/account';
+          if(doc.data()["role"] == "admin"){
+          window.location.href = '/admin';
+          }else{
+            window.location.href = '/account';
+          }
           console.log("Document data:", doc.data());
         } else {
           console.log("No such document!");
@@ -94,45 +108,21 @@ export class UserService {
       });
   }
   /** Signup user */
-  userSignup(email: string): Observable<User[]> {
-    this.postsCol = this.angularFirestore
-      .collection("users", ref => ref.where("email","==",email));
-      this.posts = this.postsCol.snapshotChanges().map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as User;
-          const id = a.payload.doc.id;
-          return { id, data };
-        });
-      });
-      return this.posts.pipe(
-        tap(User => this.log(`fetched User`)),
-        catchError(this.handleError("getUsers", []))
-      );
-  }
-  addUser(email: string, name: string, password: string) {
-    if (this.userSignup(email).isEmpty) {
-      let hash = Md5.hashStr(password);
-      this.authService.emailSignUp(email, password);
-      this.angularFirestore.collection("users").add({
+  userSignup(uid: string, name: string, email: string, password: string){
+    let hash = Md5.hashStr(password);
+    this.angularFirestore.collection("users").doc(uid).set({
+        id: uid,
         email: email,
         password: hash,
         name: name,
         active: true,
         role: "customer",
+        photoURL: "test",
         registeredDate: new Date(),
         orderIDs: new Array<string>()
-      })
-      .then(function () {
-        console.log("User Added ");
-        window.location.href = "/";
-      })
-      .catch(function (error) {
-        console.error("Error adding user: ", error);
-      });
-    }else{
-      alert("Email này đã được sử dụng");
-    }
+    });
   }
+
   /** DELETE: delete the hero from the server */
   deleteUser(User: User | number): Observable<User> {
     const id = typeof User === "number" ? User : User.id;
@@ -143,16 +133,6 @@ export class UserService {
       .pipe(
         tap(_ => this.log(`deleted User id=${id}`)),
         catchError(this.handleError<User>("deleteUser"))
-      );
-  }
-
-  /** PUT: update the hero on the server */
-  updateUser(User: User): Observable<any> {
-    return this.http
-      .put(this.UserUrl, User, httpOptions)
-      .pipe(
-        tap(_ => this.log(`updated User id=${User.id}`)),
-        catchError(this.handleError<any>("updateUser"))
       );
   }
 

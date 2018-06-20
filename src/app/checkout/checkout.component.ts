@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, Input } from "@angular/core";
 import { PhoneService } from "../services/phone.service";
 import { ActivatedRoute } from "@angular/router";
 import { CartService } from "../services/cart.service";
@@ -11,6 +11,8 @@ import { Voucher } from "../voucher";
 import { Order } from "../order";
 import { Timestamp } from "rxjs";
 import { OrderService } from "../services/order.service";
+import { AuthService } from "../core/auth.service";
+import { User } from "../user";
 
 @Component({
   selector: "app-checkout",
@@ -47,6 +49,7 @@ export class CheckoutComponent implements OnInit {
   @ViewChild("voucherCode") voucherCode: any;
   @ViewChild("save") saveButton: any;
   @ViewChild("update") updateButton: any;
+  @Input() user: User;
 
   constructor(
     private phoneService: PhoneService,
@@ -54,7 +57,8 @@ export class CheckoutComponent implements OnInit {
     public location: Location,
     private cartService: CartService,
     private mockDataService: MockDataService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    public auth: AuthService
   ) {}
 
   ngOnInit() {
@@ -65,6 +69,9 @@ export class CheckoutComponent implements OnInit {
     this.loadcurrentCost();
     this.getvouchers();
     this.enabled = 1;
+    if(this.auth.user){
+      this.auth.user.subscribe(_ => (this.user = _));
+      }
   }
 
   getOrders() {
@@ -110,6 +117,9 @@ export class CheckoutComponent implements OnInit {
       "Đơn hàng #" + this.orderID,
       "Đang xử lí"
     );
+    if(this.user){
+      this.orderService.addOrderUser(this.user.id, this.orderID);
+    }
     this.addOrderProducts(this.orderID);
     /** Chuyển sang trang thông tin mua thành công */
     //window.location.href="/buy-successful";//?orderID="+this.orderID;

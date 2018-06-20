@@ -1,4 +1,5 @@
 export class User {
+  
   email: string;
   password: string;
   active: boolean;
@@ -6,4 +7,9 @@ export class User {
   name: string;
   role: string;
   orderIDs: Array<string>;
+  photoURL: string;
+  
+  constructor(){
+
+  }
 }
