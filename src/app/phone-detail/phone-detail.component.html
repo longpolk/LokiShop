@@ -152,7 +152,7 @@
 
 
 
-                                    <button [disabled]="phone.inStock < 1" (click)="addToCart(phone)" type="submit" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart" title="Thêm vào giỏ hàng">
+                                    <button [disabled]="phone.inStock < 1" (mouseover)="getCategory(phone.category_id)" (click)="addToCart(phone)" type="submit" class="btn btn-buy btn-transition btn-cart btn_buy add_to_cart" title="Thêm vào giỏ hàng">
                                         <span>
                                             <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</span>
                                     </button>

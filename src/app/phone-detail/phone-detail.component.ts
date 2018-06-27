@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { PhoneService } from '../services/phone.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { CartService } from '../services/cart.service';
+import { Category } from '../category';
 
 
 declare var Jarallax: any;
@@ -34,6 +35,7 @@ export class PhoneDetailComponent implements OnInit {
   @Input() mainImageUrl: string;
   @ViewChild('selectedColor') selectedColor: any;
   @ViewChild('qty') qtyinCart: any;
+  category: Category[];
   constructor(
     private route: ActivatedRoute,
     private phoneService: PhoneService,
@@ -59,9 +61,13 @@ export class PhoneDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  getCategory(id: string){
+    this.phoneService.getCategoryByID(id).subscribe(_ => this.category = _)
+  }
   public addToCart(product: Phone) {
     var index = this.cartService.checkExistItems(product.id);
     console.log(product);
+    product.category = this.category[0].name;
     product.index = index;
     product.selectedColor = this.selectedColor.nativeElement.value;
     product.qtyinCart = parseInt(this.qtyinCart.nativeElement.value); 

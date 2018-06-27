@@ -527,7 +527,19 @@ export class PhoneService {
         inStock: phone.inStock, colors: phone.colors, brand: phone.brand
       });
   }
-
+/** UPDATE instock when buying successfully */
+  updateInStock(phone: Phone, category: string){
+    if(category == 'phone' || category == 'laptop'){
+      category = category+"s";
+    }
+    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    console.log(list + " - " + phone.id);
+    this.angularFirestore
+      .collection("category").doc(category).collection(list).doc(phone.id)
+      .update({
+        inStock: (phone.inStock - phone.qtyinCart)
+      });
+  }
   /**
    * Handle Http operation that failed.
    * Let the app continue.

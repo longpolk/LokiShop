@@ -121,8 +121,10 @@ export class CheckoutComponent implements OnInit {
       this.orderService.addOrderUser(this.user.id, this.orderID);
     }
     this.addOrderProducts(this.orderID);
-    /** Chuyển sang trang thông tin mua thành công */
-    //window.location.href="/buy-successful";//?orderID="+this.orderID;
+    //Cập nhật số lượng tồn kho sau khi mua thành công
+    this.shoppingCartItems.forEach(element => {
+      this.phoneService.updateInStock(element, element.category);
+    });
   }
   /** Thêm sản phẩm vào đơn hàng vừa tạo */
   addOrderProducts(orderID: string){
@@ -203,7 +205,13 @@ export class CheckoutComponent implements OnInit {
   }
 
   removeFromCart(phone: Phone) {
+    var code = this.voucherCode.nativeElement.value;
     this.cartService.removeFromCart(phone);
+    this.getTotalCost();
+    this.loadcurrentCost();
+    if(code!='' && code!=null){
+      this.checkVoucherCode();
+    }
   }
 
   validateForm(): boolean {

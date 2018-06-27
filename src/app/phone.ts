@@ -19,6 +19,7 @@ export class Phone {
   qtyinCart: number;
   selectedColor: string;
   index: number;
+  category: string;
 
   constructor(){
 
