@@ -44,7 +44,9 @@ export class PhoneDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPhone();
+    //this.getPhone();
+	this.start();
+	//this.getCategory(this.phone.id);
   }
   setImage(imageUrl: string) {
     this.mainImageUrl = imageUrl;
@@ -64,10 +66,18 @@ export class PhoneDetailComponent implements OnInit {
   getCategory(id: string){
     this.phoneService.getCategoryByID(id).subscribe(_ => this.category = _)
   }
+  start(){
+	  this.getPhone().then(function () {
+      this.getCategory(this.phone.id);
+    })
+    .catch(function (error) {
+      console.error("Error logging: ", error);
+    });
+  }
   public addToCart(product: Phone) {
     var index = this.cartService.checkExistItems(product.id);
-    console.log(product);
-    product.category = this.category[0].name;
+    console.log(this.category[0]);
+    product.category = this.category[0].id;
     product.index = index;
     product.selectedColor = this.selectedColor.nativeElement.value;
     product.qtyinCart = parseInt(this.qtyinCart.nativeElement.value); 
