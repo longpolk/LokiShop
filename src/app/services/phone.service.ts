@@ -537,7 +537,8 @@ export class PhoneService {
     this.angularFirestore
       .collection("category").doc(category).collection(list).doc(phone.id)
       .update({
-        inStock: (phone.inStock - phone.qtyinCart)
+        inStock: (phone.inStock - phone.qtyinCart),
+        sold: (phone.sold + phone.qtyinCart)
       });
   }
   /**
