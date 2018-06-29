@@ -1,4 +1,4 @@
 Login: Need to check if this user is an admin or not -> In-progress
 Checkout: When remove an item in cart, the current cost + total cost are not updated -> Fixed
 Checkout: Need to update the instock of product when buy successfully -> Fixed
-Product-details: Need to limit the quantity of product due to instock 
+Product-details: Need to limit the quantity of product due to instock -> In-progress

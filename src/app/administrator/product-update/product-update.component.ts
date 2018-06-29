@@ -81,9 +81,10 @@ export class ProductUpdateComponent implements OnInit {
   }
   getPhone(): void {
     this.route.params.subscribe(params => {
-      const id = params['id'];
+      const cat = params['cat'];
+	  const id = params['id'];
       this.phoneService
-        .getPhone(id)
+        .getPhone(id, cat)
         .subscribe(_ => this.phone = _)
     });
   }

@@ -3,6 +3,7 @@ import { Phone } from '../phone';
 import { PhoneService } from '../services/phone.service';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { Laptop } from '../laptop';
+import { Category } from '../category';
 import { CartService } from '../services/cart.service';
 import { Location } from '@angular/common'; 
 import { MatDialog, MatDialogRef } from '@angular/material';
@@ -37,6 +38,7 @@ export class DashboardComponent implements OnInit {
   phoneAccessories: Phone[] = [];
   laptopAccessories: Phone[] = [];
   discountProducts: Phone[] = [];
+  category: Category[];
 
   fileNameDialogRef: MatDialogRef<PopupCartComponent>;
   constructor(

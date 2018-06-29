@@ -21,7 +21,7 @@ import { ProductAddComponent } from './administrator/product-add/product-add.com
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: PhoneDetailComponent },
+  { path: 'detail/:cat/:id', component: PhoneDetailComponent },
   { path: 'phones', component: LokiShopComponent },
   { path: 'admin', component: ProductsComponent, /*canActivate: [AuthGuard]*/ /*AdministratorComponent*/ },
   { path: 'admin/products', component: ProductsComponent, /*canActivate: [AuthGuard]*/ },

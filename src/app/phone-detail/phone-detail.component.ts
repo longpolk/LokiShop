@@ -55,9 +55,10 @@ export class PhoneDetailComponent implements OnInit {
   }
   getPhone(): void {
     this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.phoneService
-        .getPhone(id)
+      const cat = params['cat'];
+	  const id = params['id'];
+	  this.phoneService
+        .getPhone(id, cat)
         .subscribe(_ => this.phone = _)
     });
   }

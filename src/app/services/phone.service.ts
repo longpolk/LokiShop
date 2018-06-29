@@ -424,11 +424,15 @@ export class PhoneService {
   }
 
   /** GET phone by id. Will 404 if id not found */
-  getPhone(id: string): Observable<Phone> {
-    this.postDoc = this.angularFirestore
+  getPhone(id: string, category: string): Observable<Phone> {
+    if(category == 'phone' || category == 'laptop'){
+      category = category+"s";
+    }
+    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+	this.postDoc = this.angularFirestore
       .collection("category")
-      .doc("phones")
-      .collection("phone-list")
+      .doc(category)
+      .collection(list)
       .doc(id);
     this.post = this.postDoc.valueChanges();
     return this.post.pipe(
