@@ -288,15 +288,9 @@ export class ProductUpdateComponent implements OnInit {
       alert("Loại sản phẩm này đã tồn tại");
     }
   }
-  confirmDelete(phone: Phone, category: string) {
+  confirmDelete(phone: Phone) {
     if (confirm("Bạn có thực sự muốn xóa sản phẩm này khỏi hệ thống?")) {
       console.log(this.phone);
-      if (category.startsWith("cat-")) {
-        this.getCategoryByID(category);
-      } else {
-        this.getCategoryByName(category);
-      }
-      console.log(category);
       this.deletePhone(phone);
       return true;
     } else {
