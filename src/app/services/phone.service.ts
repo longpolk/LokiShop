@@ -428,7 +428,12 @@ export class PhoneService {
     if(category == 'phone' || category == 'laptop'){
       category = category+"s";
     }
-    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    var list = '';
+    if(category!='accessories'){
+    list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    }else{
+    list = category+'-list';
+    }
 	this.postDoc = this.angularFirestore
       .collection("category")
       .doc(category)
@@ -480,7 +485,12 @@ export class PhoneService {
     if(category == 'phone' || category == 'laptop'){
       category = category+"s";
     }
-    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    var list = '';
+    if(category!='accessories'){
+    list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    }else{
+    list = category+'-list';
+    }
     console.log(list + " - " + phone.id);
     this.angularFirestore
       .collection("category").doc(category).collection(list).doc(phone.id)
@@ -488,7 +498,7 @@ export class PhoneService {
         'id': phone.id, 'name': phone.name, 'snippet': phone.snippet,
         'price': phone.price, 'sale_price': phone.sale_price,
         'inStock': phone.inStock, 'colors': phone.colors, 'brand': phone.brand,
-        'category_id': phone.category_id, 'postDate': new Date(), 'sold': 0,
+        'category': phone.category,'category_id': phone.category_id, 'postDate': new Date(), 'sold': 0,
         'imageUrl': new Array, 'thumb': ''
       }).then(function () {
         console.log("Product Added ");
@@ -504,7 +514,12 @@ export class PhoneService {
     if(category == 'phone' || category == 'laptop'){
       category = category+"s";
     }
-    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    var list = '';
+    if(category!='accessories'){
+    list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    }else{
+    list = category+'-list';
+    }
     this.angularFirestore.collection("category")
     .doc(category).collection(list).doc(phone.id).delete()
     .then(function () {
@@ -521,7 +536,12 @@ export class PhoneService {
     if(category == 'phone' || category == 'laptop'){
       category = category+"s";
     }
-    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    var list = '';
+    if(category!='accessories'){
+    list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    }else{
+    list = category+'-list';
+    }
     console.log(list + " - " + phone.id);
     this.angularFirestore
       .collection("category").doc(category).collection(list).doc(phone.id)
@@ -536,7 +556,12 @@ export class PhoneService {
     if(category == 'phone' || category == 'laptop'){
       category = category+"s";
     }
-    var list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    var list = '';
+    if(category!='accessories'){
+    list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+    }else{
+    list = category+'-list';
+    }
     console.log(list + " - " + phone.id);
     this.angularFirestore
       .collection("category").doc(category).collection(list).doc(phone.id)

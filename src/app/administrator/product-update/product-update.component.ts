@@ -121,7 +121,7 @@ export class ProductUpdateComponent implements OnInit {
     phone.brand = phoneBrand;
     console.log(this.categoryName);
     console.log(this.categoryName[0]["data"].name);
-    this.phoneService.updatePhone(phone, this.categoryName[0].id);
+    this.phoneService.updatePhone(phone, phone.category);
     alert("Đã lưu thông tin sản phẩm!");
     return true;
   }
@@ -297,16 +297,15 @@ export class ProductUpdateComponent implements OnInit {
         this.getCategoryByName(category);
       }
       console.log(category);
-      this.deletePhone(phone, category);
+      this.deletePhone(phone);
       return true;
     } else {
       return false;
     }
   }
-  deletePhone(phone: Phone, category: string) {
-    console.log(this.categoryName);
-    console.log(this.categoryName[0]["data"].name);
-    this.phoneService.deletePhone(phone, this.categoryName[0].id);
+  deletePhone(phone: Phone) {
+    console.log(phone.category);
+    this.phoneService.deletePhone(phone, phone.category);
     alert("Đã xóa sản phẩm!");
   }
 }

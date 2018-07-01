@@ -140,10 +140,10 @@
                                     <label class="form-control-label">Số lượng</label>
                                     <button [disabled]="phone.inStock < 1" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
                                         class="reduced btn btn-ipnb" type="button">-</button>
-                                    <input [disabled]="phone.inStock < 1" type="text" class="form-control text-xs-center qty" title="Số lượng" value="1" maxlength="3" id="qty" #qty name="quantity"
-                                        onkeyup="valid(this,'numbers')" onblur="valid(this,'numbers')">
-                                    <button [disabled]="phone.inStock < 1" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                                        class="increase btn btn-ipnb" type="button">+</button>
+                                    <input [disabled]="phone.inStock < 1" type="number" min="1" max="{{phone.inStock}}" class="form-control text-xs-center qty" title="Số lượng" value="1" maxlength="3" id="qty" #qty name="quantity"
+                                        (keyup)="checkInStock(qty.value)" (blur)="checkInStock(qty.value)" (change)="checkInStock(qty.value)">
+                                    <button #plusButton [disabled]="phone.inStock < 1 || qty.value == phone.inStock" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                       (click)="checkInStock(qty.value)" class="increase btn btn-ipnb" type="button">+</button>
                                 </div>
 
                                 <!-- BUTTON ACTIONS -->
@@ -682,7 +682,7 @@
                                 var pageCartCheckout = '<div class="col-lg-5">'
                                     + '<div class="form-cart-button mtb">'
                                     + '<div class="">'
-                                    + '<a href="/collections/all" class="form-cart-continue">Tiếp tục mua hàng</a>'
+                                    + '<a routerLink="/" class="form-cart-continue">Tiếp tục mua hàng</a>'
                                     + '</div>'
                                     + '</div>'
                                     + '</div>'
@@ -750,7 +750,7 @@
                                 jQuery('<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">'
                                     + '<div class="style-form">'
                                     + '<p>Không có sản phẩm nào trong giỏ hàng</p>'
-                                    + '<a href="/collections/all" class="form-cart-continue">Tiếp tục mua hàng</a>'
+                                    + '<a routerLink="/" class="form-cart-continue">Tiếp tục mua hàng</a>'
                                     + '</div>'
                                     + '</div>').appendTo(table);
                                 jQuery('.bg-cart-page').css('min-height', 'auto');
@@ -785,7 +785,7 @@
                                     + '<div class="col-lg-5">'
                                     + '<div class="form-cart-button mta">'
                                     + '<div class="">'
-                                    + '<a href="/collections/all" class="form-cart-continue">Tiếp tục mua hàng</a>'
+                                    + '<a routerLink="/" class="form-cart-continue">Tiếp tục mua hàng</a>'
                                     + '</div>'
                                     + '</div>'
                                     + '</div>'
@@ -1086,7 +1086,7 @@
                                     <span class="total-price"></span>
                                 </p>
                             </div>
-                            <a href="/collections/all" class="button btn-continue" title="Tiếp tục mua hàng">
+                            <a routerLink='/' class="button btn-continue" title="Tiếp tục mua hàng">
                                 <span>
                                     <i class="fa fa-caret-left" aria-hidden="true"></i> Tiếp tục mua hàng</span>
                             </a>

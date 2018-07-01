@@ -108,7 +108,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="mod-select mod-address-form-select mod-select-location-tree-1">
-                                                                    <label style="margin-bottom: 5px;">Màu sắc</label>
+                                                                    <label style="margin-bottom: 5px;">Màu sắc (Nhập tên màu theo định dạng: màu 1, màu 2,...)</label>
                                                                     <input [disabled]="enabled !== 1" id="phoneColors" name="phoneColors" type="text" [(ngModel)]="phone.colors" class="form-control"
                                                                         required #phoneColors="ngModel" />
                                                                     <div style="margin-top: -15px;" *ngIf="phoneColors.invalid && (phoneColors.dirty || phoneColors.touched)" class="alert alert-danger">
@@ -131,9 +131,9 @@
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
                                                                     <label style="margin-bottom: 5px;">Loại sản phẩm</label>
-                                                                    <select [disabled]="false" id="phoneType" name="phoneType" [(ngModel)]="phone.category_id" class="form-control" required
+                                                                    <select [disabled]="true" id="phoneType" name="phoneType" [(ngModel)]="phone.category" class="form-control" required
                                                                         #phoneType="ngModel">
-                                                                        <option *ngFor="let category of categories" [selected]="category.data.id == phone.category_id" value="{{category.data.name}}">{{category.data.description}}</option>
+                                                                        <option *ngFor="let category of categories" [selected]="category.id == phone.category" value="{{category.id}}">{{category.data.description}}</option>
                                                                     </select>
                                                                     <div style="margin-top: -15px;" *ngIf="phoneType.invalid && (phoneType.dirty || phoneType.touched)" class="alert alert-danger">
                                                                         <div *ngIf="phoneType.errors.required"> Bạn chưa nhập</div>
@@ -346,7 +346,7 @@
                                         </div>
                                     </div>
                                     <div class="checkout-login-btn">
-                                            <button (click)="confirmDelete(phone, phone.category_id)" type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">Xóa sản phẩm</button>
+                                            <button (click)="confirmDelete(phone)" type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">Xóa sản phẩm</button>
                                         </div>
                                 </div>
                             </div>

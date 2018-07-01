@@ -16,17 +16,17 @@ declare var Jarallax: any;
   styleUrls: [
     './phone-detail.component.css',
     './LokiShop-2018_files/bootstrap.min.css',
-	'./LokiShop-2018_files/font-awesome.min.css',
-	'./LokiShop-2018_files/owl.carousel.min.css',
-	'./LokiShop-2018_files/base.scss.css',
-	'./LokiShop-2018_files/style.scss.css',
-	'./LokiShop-2018_files/update.scss.css',
-	'./LokiShop-2018_files/module.scss.css',
-	'./LokiShop-2018_files/responsive.scss.css',
-  './LokiShop-2018_files/update_stylesheets.scss.css',
-  './LokiShop-2018_files/css.css',
-  './LokiShop-2018_files/menu-stylesheets.scss.css',
-  './LokiShop-2018_files/popup-cart.scss.css'
+    './LokiShop-2018_files/font-awesome.min.css',
+    './LokiShop-2018_files/owl.carousel.min.css',
+    './LokiShop-2018_files/base.scss.css',
+    './LokiShop-2018_files/style.scss.css',
+    './LokiShop-2018_files/update.scss.css',
+    './LokiShop-2018_files/module.scss.css',
+    './LokiShop-2018_files/responsive.scss.css',
+    './LokiShop-2018_files/update_stylesheets.scss.css',
+    './LokiShop-2018_files/css.css',
+    './LokiShop-2018_files/menu-stylesheets.scss.css',
+    './LokiShop-2018_files/popup-cart.scss.css'
   ]
 })
 export class PhoneDetailComponent implements OnInit {
@@ -35,6 +35,7 @@ export class PhoneDetailComponent implements OnInit {
   @Input() mainImageUrl: string;
   @ViewChild('selectedColor') selectedColor: any;
   @ViewChild('qty') qtyinCart: any;
+  @ViewChild('plusButton') plusButton: any;
   category: Category[];
   constructor(
     private route: ActivatedRoute,
@@ -45,9 +46,9 @@ export class PhoneDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPhone();
-  //this.start();
+    //this.start();
     this.getCategory(this.phone.id);
-    
+
   }
   setImage(imageUrl: string) {
     this.mainImageUrl = imageUrl;
@@ -56,8 +57,8 @@ export class PhoneDetailComponent implements OnInit {
   getPhone(): void {
     this.route.params.subscribe(params => {
       const cat = params['cat'];
-	  const id = params['id'];
-	  this.phoneService
+      const id = params['id'];
+      this.phoneService
         .getPhone(id, cat)
         .subscribe(_ => this.phone = _)
     });
@@ -65,7 +66,7 @@ export class PhoneDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  getCategory(id: string){
+  getCategory(id: string) {
     this.phoneService.getCategoryByID(id).subscribe(_ => this.category = _)
   }
   public addToCart(product: Phone) {
@@ -78,6 +79,18 @@ export class PhoneDetailComponent implements OnInit {
     //product.sold = product.sold + product.qtyinCart; 
     this.cartService.addToCart(product);
     console.log(product);
+  }
+  checkInStock(qty) {
+    if (qty == 0 || qty == '' || qty == NaN) {
+      this.qtyinCart.nativeElement.value = 1;
+    } else {
+      qty = parseInt(qty);
+      if (qty == this.phone.inStock) {
+        this.plusButton.nativeElement.disabled;
+      } else if (qty > this.phone.inStock) {
+        this.qtyinCart.nativeElement.value = this.phone.inStock;
+      }
+    }
   }
 
 }

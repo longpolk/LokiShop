@@ -112,6 +112,7 @@ export class ProductAddComponent implements OnInit {
     phone.name = phoneName;
     phone.snippet = phoneDes;
     phone.category_id = this.categoryName[0]["data"].id;
+    phone.category = this.categoryName[0].id;
     phone.price = phonePrice;
     phone.sale_price = phoneSalePrice;
     phone.inStock = phoneInStock;

@@ -413,7 +413,7 @@
 
                                         <div *ngFor="let product of laptopAccessories"  class="product-box product-list-item item-small ">
                                             <div class="product-thumbnail ">
-                                                <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
+                                                <a routerLink="detail/{{product.data.category}}/{{product.data.id}}" title="{{product.data.name}}">
                                                     <picture class="dp-flex ">
                                                         <img class="img-responsive " src="{{product.data.thumb}}" alt="{{product.data.name}}">
 
@@ -422,7 +422,7 @@
                                             </div>
                                             <div class="product-info ">
                                                 <h3 class="product-name text2line ">
-                                                    <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
+                                                    <a routerLink="detail/{{product.data.category}}/{{product.data.id}}" title="{{product.data.name}}">
                                                         {{product.data.name}}
                                                     </a>
                                                 </h3>
@@ -522,7 +522,7 @@
 
                                         <div *ngFor="let product of phoneAccessories" class="product-box product-list-item item-small ">
                                             <div class="product-thumbnail ">
-                                                <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
+                                                <a routerLink="detail/{{product.data.category}}/{{product.data.id}}" title="{{product.data.name}}">
                                                     <picture class="dp-flex ">
 
                                                         <img class="img-responsive " src="{{product.data.thumb}}"
@@ -533,7 +533,7 @@
                                             </div>
                                             <div class="product-info ">
                                                 <h3 class="product-name text2line ">
-                                                    <a routerLink="detail/{{product.data.id}}" title="{{product.data.name}}">
+                                                    <a routerLink="detail/{{product.data.category}}/{{product.data.id}}" title="{{product.data.name}}">
                                                         {{product.data.name}}
                                                     </a>
                                                 </h3>
