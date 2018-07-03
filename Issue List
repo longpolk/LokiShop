@@ -2,3 +2,7 @@ Login: Need to check if this user is an admin or not -> Fixed
 Checkout: When remove an item in cart, the current cost + total cost are not updated -> Fixed
 Checkout: Need to update the instock of product when buy successfully -> Fixed
 Product-details: Need to limit the quantity of product due to instock -> Fixed
+Page divide -> In progress
+Search products in the header -> In progress
+Search by custom criteria -> In progress
+Port app to android app (or iOS app) -> In progress
