@@ -17,6 +17,7 @@ import { NewProductsComponent } from './new-products/new-products.component';
 import { PopularProductsComponent } from './popular-products/popular-products.component';
 import { AuthGuard } from './core/auth.guard';
 import { ProductAddComponent } from './administrator/product-add/product-add.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'popup-cart', component: PopupCartComponent},
   { path: 'san-pham-moi', component: NewProductsComponent },
   { path: 'san-pham-noi-bat', component: PopularProductsComponent },
+  { path: 'tim-kiem/:q', component: SearchComponent },
   // Trường hợp error #404
   { path: '**', component: DashboardComponent }
   

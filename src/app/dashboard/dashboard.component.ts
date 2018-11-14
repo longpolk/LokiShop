@@ -13,8 +13,8 @@ import { PopupCartComponent } from '../popup-cart/popup-cart.component';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [ './dashboard.component.css'
-    /*'./LokiShop-2018_files/bootstrap.min.css',
+  styleUrls: [ './dashboard.component.css',
+  './LokiShop-2018_files/bootstrap.min.css',
 	'./LokiShop-2018_files/font-awesome.min.css',
 	'./LokiShop-2018_files/owl.carousel.min.css',
 	'./LokiShop-2018_files/base.scss.css',
@@ -25,7 +25,7 @@ import { PopupCartComponent } from '../popup-cart/popup-cart.component';
   './LokiShop-2018_files/update_stylesheets.scss.css',
   './LokiShop-2018_files/css.css',
   './LokiShop-2018_files/menu-stylesheets.scss.css',
-  './LokiShop-2018_files/popup-cart.scss.css'*/
+  './LokiShop-2018_files/popup-cart.scss.css'
 ]
 })
 

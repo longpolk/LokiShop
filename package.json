@@ -33,6 +33,7 @@
     "firebase-admin": "^5.10.0",
     "json-stringify-safe": "^5.0.1",
     "ng2-search-filter": "^0.4.7",
+    "node": "^8.9.4",
     "npm": "^5.8.0",
     "rxjs": "^5.5.6",
     "ts-md5": "^1.2.4",
@@ -53,7 +54,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.1.2",
+    "protractor": "^5.4.1",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"

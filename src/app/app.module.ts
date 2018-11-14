@@ -53,6 +53,7 @@ import { ProductsComponent } from './administrator/products/products.component';
 import { ProductUpdateComponent } from './administrator/product-update/product-update.component';
 import { UploadService } from "./services/upload.service";
 import { ProductAddComponent } from './administrator/product-add/product-add.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { ProductAddComponent } from './administrator/product-add/product-add.com
     AccountComponent,
     ProductsComponent,
     ProductUpdateComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
