@@ -9,6 +9,8 @@
 - Thêm chức năng thanh toán qua paypal
 - Thêm chức năng chat trực tuyến cùng LokiShop
 - Thêm chức năng authorize/login bằng Google/Facebook account.
+- Tìm kiếm sản phẩm
+- Phân trang
 - <Các chức năng khác đang nghiên cứu...>
 
 => Process_1: Người dùng anonymous: Truy cập homepage: nhấn mua 1 món hàng -> Trang thông tin: chọn thông tin (màu sắc, số lượng...), thêm vào giỏ hàng -> Đến trang giỏ hàng: kiểm tra lại sản phẩm và điều chỉnh số lượng, xóa hàng -> Đến trang thanh toán: Cung cấp địa chỉ email, sdt, 1 vài thông tin khác, nhập mã giảm giá... -> Tiến hành thanh toán -> Trang hóa đơn: Hiển thị thông tin người dùng và sản phẩm đã mua -> Email xác nhận sẽ dc gửi đến người mua.
