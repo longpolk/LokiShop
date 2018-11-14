@@ -1,3 +1,366 @@
-<p>
-  search works!
-</p>
+<section class="bread-crumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" routerLink="/">
+              <span itemprop="title">Trang chủ</span>
+            </a>
+            <span>
+              <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </span>
+          </li>
+
+
+          <li>
+            <strong>
+              <span itemprop="title"> Tìm Kiếm</span>
+            </strong>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <section class="main_container collection margin-bottom-30 col-lg-12">
+      <div class="text-sm-left">
+        <h1 class="title-head margin-top-0">Kết quả tìm kiếm: </h1>
+      </div>
+      <aside class="row-filter">
+        <!--div class="filter-container">
+            <div class="filter-container__selected-filter" style="display: none;">
+              <div class="filter-container__selected-filter-header clearfix">
+                <span class="filter-container__selected-filter-header-title">
+                  <i class="fa fa-arrow-left hidden-sm-up"></i> Bạn chọn</span>
+                <a href="javascript:void(0)" onclick="clearAllFiltered()" class="filter-container__clear-all">Bỏ hết
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </div>
+              <div class="filter-container__selected-filter-list">
+                <ul></ul>
+              </div>
+            </div>
+          </div-->
+        <div class="sortPagiBar">
+          <div class="srt">
+            <div class="wr_sort col-sm-12">
+              <div class="text-sm-right">
+                <!--button class="collection-filter-btn hidden-xs hidden-sm">Lọc theo
+                    <span class="icon-drop"></span>
+                  </button-->
+
+                <!--div class="view-mode">
+                    <a class="grid_h" href="javascript:;" data-view="grid" onclick="switchView('grid')">
+                      <b class="btn button-view-mode view-mode-grid active ">
+                        <i class="fa fa-th" aria-hidden="true"></i> Bảng
+                      </b>
+                    </a>
+                    <a class="list_h" href="javascript:;" data-view="list" onclick="switchView('list')">
+                      <b class="btn button-view-mode view-mode-list ">
+                        <i class="fa fa-bars" aria-hidden="true"></i> Danh sách
+                      </b>
+                    </a>
+
+                  </div-->
+                <div class="collection-filter-panel">
+
+                  <div *ngIf="brands" class="filter-category btn-group">
+                    <button [disabled]="true" class="btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Danh mục
+                      <i class="icon-chevron-down"></i>
+                    </button>
+
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+                      <li>
+                        <a href="/san-pham-noi-bat">Sản phẩm nổi bật</a>
+                      </li>
+
+                      <!--li>
+                          <a href="/san-pham-khuyen-mai">Sản phẩm khuyến mãi</a>
+                        </li-->
+
+                      <!--li>
+                          <a href="/frontpage">Trang chủ</a>
+                        </li-->
+
+                      <li>
+                        <a href="/san-pham-moi">Sản phẩm mới</a>
+                      </li>
+
+                    </ul>
+                  </div>
+
+
+                  <div *ngIf="brands" class="filter-vendor btn-group">
+                    <button [disabled]="true" class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Nhà sản xuất
+                      <i class="icon-chevron-down"></i>
+                    </button>
+
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+
+                      <li *ngFor="let brand of brands; i as index" class="filter-item filter-item--check-box filter-item--green ">
+                        <span>
+                          <label class="label_relative" for="filter-{{brand.id}}">
+                            <input type="checkbox" id="filter-{{brand.id}}" onchange="toggleFilter(this)" data-group="Hãng" data-field="vendor" value="({{brand.data.name}})"
+                              data-operator="OR">
+                            <i class="fa"></i>
+                            <span class="filter_tt">{{brand.data.name}}</span>
+                          </label>
+                        </span>
+                      </li>
+
+                    </ul>
+
+                  </div>
+
+
+
+                  <div *ngIf="categories" class="filter-type btn-group">
+                    <button [disabled]="true" class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Loại sản phẩm
+                      <i class="icon-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+
+                      <li *ngFor="let category of categories; i as index" class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-{{category.data.id}}">
+                            <input class="product_type" type="checkbox" id="filter-{{category.data.id}}" (click)="filterCategories(category.data.id)" data-group="Loại" data-field="product_type"
+                              value="({{category.data.description}})" #filter{{i+1}} data-operator="OR">
+                            <i class="fa"></i>
+                            {{category.data.description}}
+                          </label>
+                        </span>
+                      </li>
+
+
+                    </ul>
+                  </div>
+                  <div style="margin-top: 20px;" class="filter-tag btn-group">     
+                    <input type="text" placeholder="Nhập tên sản phẩm..." [(ngModel)]="term">
+                  </div>
+                  <!--div class="filter-tag btn-group">
+                    <button class="aside-title btn btn-2 dropdown-toggle" type="button" data-toggle="dropdown">
+                      <i class="icon-exchange"></i>Tags
+                      <i class="icon-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu aside-content" role="menu">
+
+
+
+
+                      <li class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-hot">
+                            <input type="checkbox" id="filter-hot" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="hot"
+                              value="(hot)" data-operator="OR">
+                            <i class="fa"></i>
+                            hot
+                          </label>
+                        </span>
+                      </li>
+
+
+
+                      <li class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-moi">
+                            <input type="checkbox" id="filter-moi" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="moi"
+                              value="(moi)" data-operator="OR">
+                            <i class="fa"></i>
+                            moi
+                          </label>
+                        </span>
+                      </li>
+
+
+
+                      <li class="filter-item filter-item--check-box filter-item--green">
+                        <span>
+                          <label class="label_relative" for="filter-khuyen-mai">
+                            <input type="checkbox" id="filter-khuyen-mai" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="khuyen mai"
+                              value="(khuyen mai)" data-operator="OR">
+                            <i class="fa"></i>
+                            khuyen mai
+                          </label>
+                        </span>
+                      </li>
+
+                    </ul>
+                  </div-->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--script>
+
+          $('.btn-group .dropdown-menu').hide();
+
+          $('.btn-group .btn-2').click(function (e) {
+
+            e.preventDefault();
+            var $this = $(this).parent().find('ul');
+            $(".btn-group .dropdown-menu").not($this).hide();
+
+            $this.toggle();
+          });
+
+          $('.collection-filter-panel').hide();
+
+          $('.collection-filter-btn').click(function (e) {
+
+            e.preventDefault();
+            var $this = $(this).parent().find('.collection-filter-panel');
+            $(".collection-filter-panel").not($this).hide();
+
+            $this.toggle();
+          });
+
+          $('body').click(function (e) {
+            if ($(e.target).closest('.btn-group').length === 0) {
+              $('.btn-group .dropdown-menu').hide();
+            }
+          });
+        </script-->
+      </aside>
+      <div class="category-products products">
+
+
+
+
+        <section class="products-view products-view-grid collection_reponsive">
+
+          <div class="row" *ngIf="phones">
+
+
+
+
+
+
+
+
+
+
+
+            <div *ngFor="let phone of phones" class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+              <div class="product-col">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="product-box">
+                  <div class="product-thumbnail display_flex">
+
+                    <div class="product_image_list owl_product_item_content owl-carousel not-dot2 owl-loaded owl-drag" data-loop="true" data-dot="false"
+                      data-nav='false' data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-margin='0'>
+                      <div class="product-label">
+
+                        <strong class="label">Sale</strong>
+
+
+                      </div>
+                      <div class="owl-stage-outer owl-height" style="height: 200px;">
+                        <div class="owl-stage" style="transform: translate3d(-540px, 0px, 0px); transition: 0s; width: 2160px;">
+
+                          <div class="owl-item cloned" style="width: 270px; height: 200px;">
+                            <div class="item">
+                              <a class="image_link" routerLink="/detail/{{phone.id}}" title="{{phone.data.name}}">
+                                <img src="{{phone.data.thumb}}" alt="{{phone.data.name}}">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="owl-item cloned" style="width: 270px; height: 200px;">
+                            <div class="item">
+                              <a class="image_link" routerLink="/detail/{{phone.id}}" title="{{phone.data.name}}">
+                                <img src="{{phone.data.thumb}}" alt="{{phone.data.name}}">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="owl-item active" style="width: 182px; height: 200px;">
+                            <div class="item">
+                              <a style="height: 200px;" class="image_link" routerLink="/detail/{{phone.id}}" title="{{phone.data.name}}">
+                                <img src="{{phone.data.thumb}}" alt="{{phone.data.name}}">
+                              </a>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    <div style="align-content: center; align-self: center;" class="product-action-grid clearfix">
+                      <div *ngIf="phone.data.inStock !== 0" class="action_btn" style="color: #fff; margin: 10px 100px 10px 80px;">
+                        Số lượng: {{phone.data.inStock}}
+                      </div>
+                      <div *ngIf="phone.data.inStock == 0" class="action_btn" style="color: #fff; margin: 10px 100px 10px 80px;">
+                        Hết hàng
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info a-left">
+                    <h3 class="product-name">
+                      <a routerLink="/detail/{{phone.id}}" title="{{phone.data.name}}">{{phone.data.name}}</a>
+                    </h3>
+
+
+                    <div class="price-box clearfix">
+                      <span class="price product-price">{{phone.data.sale_price | number}}₫</span>
+
+                      <span *ngIf="phone.data.sale_price < phone.data.price" class="price product-price-old">
+                        {{phone.data.price | number}}₫
+                      </span>
+
+                    </div>
+
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          
+          <div class="text-center">
+
+          </div>
+        </section>
+
+
+      </div>
+    </section>
+  </div>
+</div>
+<div class="bizweb-product-reviews-module"></div>

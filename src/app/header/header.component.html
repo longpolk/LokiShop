@@ -27,9 +27,9 @@
             <form action="/tim-kiem" method="get">
               <div class="input-group search_form_action">
                 <i class="fa fa-search"></i>
-                <input type="text" class="form-control" maxlength="70" name="query" id="search" placeholder="Tìm kiếm ...">
+                <input [(ngModel)]="queryString" type="text" class="form-control" maxlength="70" name="query" id="search" placeholder="Tìm kiếm ...">
                 <span class="input-group-btn">
-                  <button routerLink="/tim-kiem/q=" class="btn btn-default btn-search" type="submit">
+                  <button routerLink="/tim-kiem/{{queryString}}" class="btn btn-default btn-search" type="submit">
                     Tìm kiếm
                   </button>
                 </span>

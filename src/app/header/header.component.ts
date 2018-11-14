@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Phone } from '../phone';
 import { CartService } from '../services/cart.service';
@@ -26,6 +26,8 @@ import { AuthService } from '../core/auth.service';
 export class HeaderComponent implements OnInit {
   public shoppingCartItems$: Observable<Phone[]>;
   public shoppingCartItems_local$: Observable<Phone[]>;
+  @Input() public queryString: string;
+  
   constructor(
     private route: ActivatedRoute,
     public location: Location, 
