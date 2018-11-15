@@ -471,25 +471,6 @@ export class PhoneService {
       catchError(this.handleError<Phone[]>('searchPhones', []))
     );
   }*/
-
-  /** GET phones whose name contains search term  */
-  searchPhones(name: string): Observable<Phone[]> {
-    this.phoneCol = this.angularFirestore.collection(
-      "category/phones/phone-list",
-      ref => ref.orderBy('name').where("id","==",name)
-    );
-    this.phonePosts = this.phoneCol.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Phone;
-        const id = a.payload.doc.id;
-        return { id, data };
-      });
-    });
-    return this.phonePosts.pipe(
-      tap(phone => this.log(`fetched phone`)),
-      catchError(this.handleError("getPhones", []))
-    );
-  }
   //////// Save methods //////////
 
   /** POST: add a new hero to the server 

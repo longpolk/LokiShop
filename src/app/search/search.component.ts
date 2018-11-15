@@ -12,26 +12,23 @@ import { Location } from "@angular/common";
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: [ './search.component.css',
-  './LokiShop-2018_files/bootstrap.min.css',
-	'./LokiShop-2018_files/font-awesome.min.css',
-	'./LokiShop-2018_files/owl.carousel.min.css',
-	'./LokiShop-2018_files/base.scss.css',
-	'./LokiShop-2018_files/style.scss.css',
-	'./LokiShop-2018_files/update.scss.css',
-	'./LokiShop-2018_files/module.scss.css',
-	'./LokiShop-2018_files/responsive.scss.css',
-  './LokiShop-2018_files/update_stylesheets.scss.css',
-  './LokiShop-2018_files/css.css',
-  './LokiShop-2018_files/menu-stylesheets.scss.css',
-  './LokiShop-2018_files/popup-cart.scss.css'
-]
+  styleUrls: ['./search.component.css',
+    "/base.scss.css",
+    "./responsive.scss.css",
+    "./bootstrap.css",
+    "./themify-icons.css",
+    "./bootstrap.min.css",
+    "./font-awesome.min.css",
+    "./style.scss.css",
+    "./module.scss.css",
+    "./bpr-products-module.css"
+  ]
 })
 export class SearchComponent implements OnInit {
-  @Input() phones: Phone[];
+  @Input() results: Phone[] = [];
+  @Input() keyword: String;
   categories: Category[] = [];
   products: Phone[] = [];
-  //phones: Phone[] = [];
   laptops: Phone[] = [];
   accessories: Phone[] = [];
   phoneAccessories: Phone[] = [];
@@ -52,16 +49,19 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     //this.getCategories();
-    this.products = this.getAllProducts();
+    //this.products = this.getAllProducts();
     //this.getBrandName();
+    this.searchPhones();
+    this.results = this.getAllProducts();
+    //this.searchPhones();
   }
   searchPhones(): void {
+    var products = this.getAllProducts();
+    console.log(products);
     this.route.params.subscribe(params => {
-      //const cat = params['cat'];
-      const q = params['q'];
-      this.phoneService
-        .searchPhones(q)
-        .subscribe(_ => this.phones = _)
+    const query = params['q'];
+    this.keyword = query;
+    console.log(this.keyword);
     });
   }
   getCategories() {
@@ -90,11 +90,11 @@ export class SearchComponent implements OnInit {
   }
   filterCategories(catID: string) {
     //this.filteredList = this.getAllProducts();
-    var filter = document.getElementById("filter-"+catID).getAttribute("checked");
+    var filter = document.getElementById("filter-" + catID).getAttribute("checked");
     if (filter == "true") {
-    this.filteredList = this.products.filter(
-      (product: Phone) => product["data"]["category_id"] == catID
-    );
+      this.filteredList = this.products.filter(
+        (product: Phone) => product["data"]["category_id"] == catID
+      );
     }
     if (this.products == this.getAllProducts()) {
       this.products = this.filteredList;

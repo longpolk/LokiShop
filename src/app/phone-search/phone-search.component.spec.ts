@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroSearchComponent } from './hero-search.component';
 
@@ -22,4 +22,4 @@ describe('HeroSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/
