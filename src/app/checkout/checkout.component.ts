@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from "@angular/core";
+import { Component, OnInit, ViewChild, Input, AfterViewChecked } from "@angular/core";
 import { PhoneService } from "../services/phone.service";
 import { ActivatedRoute } from "@angular/router";
 import { CartService } from "../services/cart.service";
@@ -13,13 +13,60 @@ import { Timestamp } from "rxjs";
 import { OrderService } from "../services/order.service";
 import { AuthService } from "../core/auth.service";
 import { User } from "../user";
+declare let paypal: any;
 
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
   styleUrls: ["./checkout.component.css"]
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit, AfterViewChecked {
+  addScript: boolean = false;
+  paypalLoad: boolean = true;
+  finalAmount: number = 1;
+
+  paypalConfig = {
+    env: 'sandbox',
+    client: {
+      sandbox: 'AXnbbRwTa5GUU93RGcuSS5PpSBtdPUG9rDtNMmtlNIRq8Pn5NJQzZnRUOJO_UfOhlhVXdowizYELWHks',
+      production: '<To be updated>'
+    },
+    commit: true,
+    payment: (data, actions) => {
+      return actions.payment.create({
+        payment: {
+          transactions: [
+            { amount: { total: this.finalAmount, currency: 'USD' } }
+          ]
+        }
+      });
+    },
+    onAuthorize: (data, actions) => {
+      return actions.payment.execute().then((payment) => {
+        alert("Thanh toán thành công!");
+      })
+    }
+  };
+
+  ngAfterViewChecked(): void {
+    if (!this.addScript) {
+      this.addPaypalScript().then(() => {
+        paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
+        this.paypalLoad = false;
+      })
+    }
+  }
+
+  addPaypalScript() {
+    this.addScript = true;
+    return new Promise((resolve, reject) => {
+      let scripttagElement = document.createElement('script');    
+      scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
+      scripttagElement.onload = resolve;
+      document.body.appendChild(scripttagElement);
+    })
+  }
+
   public totalCost: number;
   public currentCost: number;
   public order: Order;
@@ -283,5 +330,12 @@ export class CheckoutComponent implements OnInit {
     console.log(city);
     this.districts = this.mockDataService.getDistricts(city);
     console.log(this.districts);
+  }
+  convertFromVNDToUSD(money: number): number{
+    var totalCost = 0;
+    //var iframe = document.getElementsByTagName("iframe");
+    //var usd = iframe.getElementById("VIETCOMUSD-c2-v").innerHTML;
+    
+    return totalCost;
   }
 }
