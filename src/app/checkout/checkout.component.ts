@@ -338,4 +338,12 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
     
     return totalCost;
   }
+  callPayPalPopup(){
+    var popup = document.getElementById("paypalPopup");
+    popup.setAttribute("style", "text-align: center; position: absolute; background-color: rgba(0, 0, 0, 0.75); background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,1) 1%, rgba(0,0,0,0.75) 100%);z-index: 2147483647; top: 0;left: 0; width: 100%; height: 100%;");
+  }
+  dismissPayPalPopup(){
+    var popup = document.getElementById("paypalPopup");
+    popup.setAttribute("style", "display:none;");
+  }
 }

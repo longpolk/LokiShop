@@ -1,16 +1,44 @@
-<!--Test Paypal-->
-<iframe id="frame1" src="https://www.tygia.com/api.php?column=1&title=0&chart=0&gold=0&rate=1&ngoaite=usd,jpy,chf,eur,gbp,hkd&expand=0&color=333333&nganhang=VIETCOM&fontsize=80&ngay"></iframe>
-<input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
-<h2 *ngIf="paypalLoad">Paypal button is loading</h2>
-<div id="paypal-checkout-btn"></div>
-<!--Test Paypal-->
+<!--Paypay-->
+<div id="paypalPopup" style="display: none;"><a
+        href="#" class="paypal-checkout-close" aria-label="close" role="button"></a>
+    <div draggable="true" class="paypal-checkout-modal">
+        <div class="paypal-checkout-logo">
+            <iframe id="frame1" src="https://www.tygia.com/api.php?column=1&title=0&chart=0&gold=0&rate=1&ngoaite=usd,jpy,chf,eur,gbp,hkd&expand=0&color=333333&nganhang=VIETCOM&fontsize=80&ngay"></iframe>
+        </div>
+        <div class="paypal-checkout-message" style="size: 8px; margin-left: 2px; margin-right: 2px;">
+            <b>Lưu ý:</b> Tổng tiền đơn hàng đã được chuyển đổi sang đơn vị Đô la Mỹ(USD) khi giao dịch qua Paypal. Xin vui lòng tham khảo bảng tỷ giá hối đoái VND - USD và kiểm tra lại tổng tiền trước khi thanh toán.<br/> 
+            (Nguồn: Bảng tỷ giá hoái đoái trực tuyến từ Ngân hàng VIETCOMBANK)
+        </div>
+        <br/>
+        <div class="paypal-checkout-continue" style="text-align: center;">
+                <h3><b>TỔNG TIỀN (USD): </b></h3>
+                <input type="number" [(ngModel)]="finalAmount" style="display: inline-block; width: 200px;">
+                <br/><br/>
+                <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
+                <div id="paypal-checkout-btn" style="display: inline-block"></div>
+                <button (click)="dismissPayPalPopup()" [disabled]="false" type="button" id="dismissPaypay" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">
+                    Quay lại
+                </button>
+        </div>
+        <!--div class="paypal-checkout-loader">
+            <div class="paypal-spinner"></div>
+        </div-->
+    </div>
+    <div class="paypal-checkout-iframe-container">
+        <div class="zoid-outlet"></div>
+    </div>
+</div>
+
+<!--end Paypal-->
 <section class="awe-section-3" style="margin-top: 20px;">
     <section class="section-main">
         <div *ngIf="shoppingCartItems.length==0" class="container">
             <div class="row">
                 <div class="checkout-error">
-                    <img class="checkout-error-icon" src="//laz-img-cdn.alicdn.com/tfs/TB1hE2pir_I8KJjy1XaXXbsxpXa-110-120.png" alt="">
-                    <p style="word-wrap: break-word" class="checkout-error-tips">Xin lỗi, giỏ hàng của bạn trống. Vui lòng thêm sản phẩm vào giỏ hàng và tiến hành thanh toán</p>
+                    <img class="checkout-error-icon" src="//laz-img-cdn.alicdn.com/tfs/TB1hE2pir_I8KJjy1XaXXbsxpXa-110-120.png"
+                        alt="">
+                    <p style="word-wrap: break-word" class="checkout-error-tips">Xin lỗi, giỏ hàng của bạn trống. Vui
+                        lòng thêm sản phẩm vào giỏ hàng và tiến hành thanh toán</p>
                     <a routerLink="/">
                         <p class="checkout-error-btn">TRANG CHỦ</p>
                     </a>
@@ -57,87 +85,115 @@
                                                             <div class="mod-address-form-left">
                                                                 <div class="mod-input mod-input-email">
                                                                     <label>Địa chỉ email</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerEmail" name="customerEmail" type="text" [(ngModel)]="Email" class="form-control" pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
-                                                                        required #customerEmail="ngModel" placeholder="Vui lòng nhập địa chỉ email"
-                                                                    />
-                                                                    <div *ngIf="customerEmail.invalid && (customerEmail.dirty || customerEmail.touched)" class="alert alert-danger">
-                                                                        <div *ngIf="customerEmail.errors.required"> Bạn chưa nhập địa chỉ email</div>
+                                                                    <input [disabled]="enabled !== 1" id="customerEmail"
+                                                                        name="customerEmail" type="text" [(ngModel)]="Email"
+                                                                        class="form-control" pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                                                                        required #customerEmail="ngModel" placeholder="Vui lòng nhập địa chỉ email" />
+                                                                    <div *ngIf="customerEmail.invalid && (customerEmail.dirty || customerEmail.touched)"
+                                                                        class="alert alert-danger">
+                                                                        <div *ngIf="customerEmail.errors.required"> Bạn
+                                                                            chưa nhập địa chỉ email</div>
                                                                         <div *ngIf="customerEmail.errors && customerEmail.errors.pattern">
                                                                             Địa chỉ email không hợp lệ</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="mod-input mod-input-name">
                                                                     <label>Tên</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerName" name="customerName" type="text" [(ngModel)]="Name" class="form-control" required
-                                                                        #customerName="ngModel" placeholder="Vui lòng nhập họ tên"
-                                                                    />
-                                                                    <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)" class="alert alert-danger">
-                                                                        <div *ngIf="customerName.errors.required"> Bạn chưa nhập họ tên</div>
+                                                                    <input [disabled]="enabled !== 1" id="customerName"
+                                                                        name="customerName" type="text" [(ngModel)]="Name"
+                                                                        class="form-control" required #customerName="ngModel"
+                                                                        placeholder="Vui lòng nhập họ tên" />
+                                                                    <div *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)"
+                                                                        class="alert alert-danger">
+                                                                        <div *ngIf="customerName.errors.required"> Bạn
+                                                                            chưa nhập họ tên</div>
                                                                         <div *ngIf="customerName.errors && customerName.errors.pattern">
                                                                             Không hợp lệ</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="mod-input mod-input-phone">
                                                                     <label>Số điện thoại</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerPhone" name="customerPhone" type="text" [(ngModel)]="Phone" class="form-control" pattern="[0-9]+" required
-                                                                        #customerPhone="ngModel" placeholder="Vui lòng nhập số điện thoại"
-                                                                    />
-                                                                    <div *ngIf="customerPhone.invalid && (customerPhone.dirty || customerPhone.touched)" class="alert alert-danger">
-                                                                        <div *ngIf="customerPhone.errors.required"> Bạn chưa nhập số điện thoại</div>
+                                                                    <input [disabled]="enabled !== 1" id="customerPhone"
+                                                                        name="customerPhone" type="text" [(ngModel)]="Phone"
+                                                                        class="form-control" pattern="[0-9]+" required
+                                                                        #customerPhone="ngModel" placeholder="Vui lòng nhập số điện thoại" />
+                                                                    <div *ngIf="customerPhone.invalid && (customerPhone.dirty || customerPhone.touched)"
+                                                                        class="alert alert-danger">
+                                                                        <div *ngIf="customerPhone.errors.required"> Bạn
+                                                                            chưa nhập số điện thoại</div>
                                                                         <div *ngIf="customerPhone.errors && customerPhone.errors.pattern">
                                                                             Số điện thoại không hợp lệ</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="mod-input mod-input-taxId">
                                                                     <label>Mã số thuế</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerTaxCode" name="customerTaxCode" type="text" [(ngModel)]="TaxCode" class="form-control" #customerTaxCode="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerTaxCode"
+                                                                        name="customerTaxCode" type="text" [(ngModel)]="TaxCode"
+                                                                        class="form-control" #customerTaxCode="ngModel"
                                                                         placeholder="Nhập mã số thuế của bạn" />
                                                                 </div>
                                                                 <div #save class="mod-address-form-action">
-                                                                    <button tabindex="8" type="submit" (click)="validateForm()" class="mod-address-form-btn">LƯU</button>
+                                                                    <button tabindex="8" type="submit" (click)="validateForm()"
+                                                                        class="mod-address-form-btn">LƯU</button>
                                                                 </div>
                                                                 <div #update hidden="true" class="mod-address-form-action">
-                                                                    <button tabindex="8" type="submit" (click)="updateForm()" class="mod-address-form-btn">SỬA</button>
+                                                                    <button tabindex="8" type="submit" (click)="updateForm()"
+                                                                        class="mod-address-form-btn">SỬA</button>
                                                                 </div>
                                                             </div>
                                                             <div class="mod-address-form-right">
                                                                 <div class="mod-input mod-input-detailAddress">
                                                                     <label>Địa chỉ nhận hàng</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerAddress" name="customerAddress" type="text" [(ngModel)]="Address" class="form-control" required #customerAddress="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerAddress"
+                                                                        name="customerAddress" type="text" [(ngModel)]="Address"
+                                                                        class="form-control" required #customerAddress="ngModel"
                                                                         placeholder="Vui lòng nhập địa chỉ của bạn" />
-                                                                    <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)" class="alert alert-danger">
-                                                                        <div *ngIf="customerAddress.errors.required"> Bạn chưa nhập địa chỉ</div>
+                                                                    <div *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)"
+                                                                        class="alert alert-danger">
+                                                                        <div *ngIf="customerAddress.errors.required">
+                                                                            Bạn chưa nhập địa chỉ</div>
                                                                         <div *ngIf="customerAddress.errors && customerAddress.errors.pattern">
                                                                             Địa chỉ không hợp lệ</div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="mod-select mod-address-form-select mod-select-location-tree-1">
                                                                     <label style="margin-bottom: 5px;">Tỉnh/Thành phố</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerCity" name="customerCity" type="text" [(ngModel)]="City" class="form-control" required #customerCity="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerCity"
+                                                                        name="customerCity" type="text" [(ngModel)]="City"
+                                                                        class="form-control" required #customerCity="ngModel"
                                                                         placeholder="Vui lòng nhập tên tỉnh/thành phố" />
-                                                                    <div style="margin-top: -15px;" *ngIf="customerCity.invalid && (customerCity.dirty || customerCity.touched)" class="alert alert-danger">
-                                                                        <div *ngIf="customerCity.errors.required"> Bạn chưa nhập tên tỉnh/thành phố</div>
+                                                                    <div style="margin-top: -15px;" *ngIf="customerCity.invalid && (customerCity.dirty || customerCity.touched)"
+                                                                        class="alert alert-danger">
+                                                                        <div *ngIf="customerCity.errors.required"> Bạn
+                                                                            chưa nhập tên tỉnh/thành phố</div>
                                                                         <div *ngIf="customerCity.errors && customerCity.errors.pattern">
                                                                             Tên tỉnh/thành phố không hợp lệ</div>
                                                                     </div>
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-2">
                                                                     <label style="margin-bottom: 5px;">Quận/Huyện</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerDistrict" name="customerDistrict" type="text" [(ngModel)]="District" class="form-control" required #customerDistrict="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerDistrict"
+                                                                        name="customerDistrict" type="text" [(ngModel)]="District"
+                                                                        class="form-control" required #customerDistrict="ngModel"
                                                                         placeholder="Vui lòng nhập tên quận/huyện" />
                                                                     <div style="margin-top: -15px;" *ngIf="customerDistrict.invalid && (customerDistrict.dirty || customerDistrict.touched)"
                                                                         class="alert alert-danger">
-                                                                        <div *ngIf="customerDistrict.errors.required"> Bạn chưa nhập tên quận/huyện</div>
+                                                                        <div *ngIf="customerDistrict.errors.required">
+                                                                            Bạn chưa nhập tên quận/huyện</div>
                                                                         <div *ngIf="customerDistrict.errors && customerDistrict.errors.pattern">
                                                                             Tên quận/huyện không hợp lệ</div>
                                                                     </div>
                                                                 </div>
                                                                 <div style="margin-top: -20px;" class="mod-select disable mod-address-form-select mod-select-location-tree-3">
                                                                     <label style="margin-bottom: 5px;">Phường/Xã</label>
-                                                                    <input [disabled]="enabled !== 1" id="customerWard" name="customerWard" type="text" [(ngModel)]="Ward" class="form-control" required #customerWard="ngModel"
+                                                                    <input [disabled]="enabled !== 1" id="customerWard"
+                                                                        name="customerWard" type="text" [(ngModel)]="Ward"
+                                                                        class="form-control" required #customerWard="ngModel"
                                                                         placeholder="Vui lòng nhập tên phường/xã" />
-                                                                    <div style="margin-top: -15px;" *ngIf="customerWard.invalid && (customerWard.dirty || customerWard.touched)" class="alert alert-danger">
-                                                                        <div *ngIf="customerWard.errors.required"> Bạn chưa nhập tên phường/xã</div>
+                                                                    <div style="margin-top: -15px;" *ngIf="customerWard.invalid && (customerWard.dirty || customerWard.touched)"
+                                                                        class="alert alert-danger">
+                                                                        <div *ngIf="customerWard.errors.required"> Bạn
+                                                                            chưa nhập tên phường/xã</div>
                                                                         <div *ngIf="customerWard.errors && customerWard.errors.pattern">
                                                                             Tên phường/xã không hợp lệ</div>
                                                                     </div>
@@ -192,7 +248,8 @@
                                     </div>
                                     <div class="package">
                                         <div *ngIf="shoppingCartItems" style="padding-left: 10px; padding-right: 10px;">
-                                            <div *ngFor="let shoppingCartItem of shoppingCartItems" id="item_0655afccaaad83bdfd0ac29298235361" class="cart-item">
+                                            <div *ngFor="let shoppingCartItem of shoppingCartItems" id="item_0655afccaaad83bdfd0ac29298235361"
+                                                class="cart-item">
                                                 <div class="cart-item-inner">
                                                     <div class="cart-item-left">
                                                         <div class="img-wrap">
@@ -202,19 +259,21 @@
                                                             </a>
                                                         </div>
                                                         <div class="content">
-                                                            <a id="automation-link-from-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
-                                                                class="automation-link-from-title-to-prod title">{{shoppingCartItem.name}}</a>
-                                                            <a id="automation-link-from-sub-title-to-prod-item_0655afccaaad83bdfd0ac29298235361" routerLink="detail/{{shoppingCartItem.id}}"
-                                                                class="automation-link-from-sub-title-to-prod sku">{{shoppingCartItem.selectedColor}}</a>
+                                                            <a id="automation-link-from-title-to-prod-item_0655afccaaad83bdfd0ac29298235361"
+                                                                routerLink="detail/{{shoppingCartItem.id}}" class="automation-link-from-title-to-prod title">{{shoppingCartItem.name}}</a>
+                                                            <a id="automation-link-from-sub-title-to-prod-item_0655afccaaad83bdfd0ac29298235361"
+                                                                routerLink="detail/{{shoppingCartItem.id}}" class="automation-link-from-sub-title-to-prod sku">{{shoppingCartItem.selectedColor}}</a>
                                                             <div class="operations">
                                                                 <span class="automation-btn-delete">
-                                                                    <span class="lazada lazada-ic-Delete lazada-icon icon delete" (click)="checkToRemove(shoppingCartItem)"></span>
+                                                                    <span class="lazada lazada-ic-Delete lazada-icon icon delete"
+                                                                        (click)="checkToRemove(shoppingCartItem)"></span>
                                                                 </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="cart-item-middle">
-                                                        <p class="current-price">{{shoppingCartItem.sale_price | number}}₫</p>
+                                                        <p class="current-price">{{shoppingCartItem.sale_price |
+                                                            number}}₫</p>
                                                         <p class="origin-price">{{shoppingCartItem.price | number}}₫</p>
                                                         <p class="promotion-ratio"></p>
                                                     </div>
@@ -223,7 +282,8 @@
                                                             <span class="item-quantity-prefix">Số lượng: </span>
                                                             <span class="item-quantity-value">{{shoppingCartItem.qtyinCart}}</span>
                                                         </div>
-                                                        <p class="stock-tip" style="color: rgb(30, 30, 30);">Chỉ còn {{shoppingCartItem.inStock}} sản phẩm</p>
+                                                        <p class="stock-tip" style="color: rgb(30, 30, 30);">Chỉ còn
+                                                            {{shoppingCartItem.inStock}} sản phẩm</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,8 +315,8 @@
 
                             <div class="item ">
                                 <div class="item_image ">
-                                    <input class="input-radio" type="radio" value="payment_method_1" name="PaymentMethodId" #payment_method_1 id="cod" data-check-id="1"
-                                        checked>
+                                    <input class="input-radio" type="radio" value="payment_method_1" name="PaymentMethodId"
+                                        #payment_method_1 id="cod" data-check-id="1" checked>
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
@@ -267,8 +327,8 @@
 
                             <div class="item ">
                                 <div class="item_image ">
-                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_2" name="PaymentMethodId" #payment_method_2
-                                        id="paypal" data-check-id="2">
+                                    <input (click)="callPayPalPopup()" [disabled]="false" class="input-radio" type="radio" value="payment_method_2"
+                                        name="PaymentMethodId" #payment_method_2 id="paypal" data-check-id="2">
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
@@ -279,12 +339,12 @@
 
                             <div class="item ">
                                 <div class="item_image ">
-                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_3" name="PaymentMethodId" #payment_method_3
-                                        id="visa" data-check-id="3">
+                                    <input [disabled]="true" class="input-radio" type="radio" value="payment_method_3"
+                                        name="PaymentMethodId" #payment_method_3 id="visa" data-check-id="3">
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
-                                        Thanh toán qua thẻ VISA
+                                        Thanh toán qua ví điện tử
                                     </div>
                                 </div>
                             </div>
@@ -317,17 +377,20 @@
                                             <div class="voucher-input-inner">
                                                 <div style="float:left;width:52%;" class="voucher-input-col">
                                                     <span class="next-input next-input-single next-input-medium clear voucher-input-control">
-                                                        <input id="voucherCode" name="voucherCode" #voucherCode type="text" id="automation-voucher-input" alt="Nhập mã giảm giá" placeholder="Mã giảm giá"
-                                                            value="" height="100%">
+                                                        <input id="voucherCode" name="voucherCode" #voucherCode type="text"
+                                                            id="automation-voucher-input" alt="Nhập mã giảm giá"
+                                                            placeholder="Mã giảm giá" value="" height="100%">
                                                     </span>
                                                 </div>
                                                 <div style="float:right;width:45%;" class="voucher-input-col">
-                                                    <button (click)="checkVoucherCode()" id="automation-voucher-input-button" type="button" class="next-btn next-btn-normal next-btn-large voucher-input-button">Áp dụng</button>
+                                                    <button (click)="checkVoucherCode()" id="automation-voucher-input-button"
+                                                        type="button" class="next-btn next-btn-normal next-btn-large voucher-input-button">Áp
+                                                        dụng</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="voucherError" name="voucherError" #voucherError style="margin-top: -15px; width: 100%; color:red;">
-                                            
+
                                         </div>
                                         <div class=" checkout-order-total">
                                             <div class="checkout-order-total-row">
@@ -336,10 +399,13 @@
                                                     <small class="checkout-order-total-fee-tip">Đã bao gồm VAT (nếu có)</small>
                                                 </div>
                                             </div>
-                                            <button (click)="addOrder(customerEmail.value,customerName.value, customerPhone.value,customerTaxCode.value,customerAddress.value,customerCity.value,customerDistrict.value, customerWard.value)" [disabled]="enabled == 1" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN HÀNH THANH TOÁN</button>
+                                            <button (click)="addOrder(customerEmail.value,customerName.value, customerPhone.value,customerTaxCode.value,customerAddress.value,customerCity.value,customerDistrict.value, customerWard.value)"
+                                                [disabled]="enabled == 1" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN
+                                                HÀNH THANH TOÁN</button>
                                         </div>
                                         <div class="checkout-login-btn">
-                                            <button type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">ĐĂNG NHẬP ĐỂ THANH TOÁN NHANH</button>
+                                            <button type="button" class="next-btn next-btn-secondary next-btn-large checkout-order-total-button">ĐĂNG
+                                                NHẬP ĐỂ THANH TOÁN NHANH</button>
                                         </div>
                                     </div>
                                 </div>
