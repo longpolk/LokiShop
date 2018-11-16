@@ -22,7 +22,17 @@ import { Observable } from "rxjs/Observable";
 @Component({
   selector: "app-buy-successful",
   templateUrl: "./buy-successful.component.html",
-  styleUrls: ["./buy-successful.component.css"]
+  styleUrls: ["./buy-successful.component.css",
+  "/base.scss.css",
+    "./responsive.scss.css",
+    "./bootstrap.css",
+    "./themify-icons.css",
+    "./bootstrap.min.css",
+    "./font-awesome.min.css",
+    "./style.scss.css",
+    "./module.scss.css",
+    "./bpr-products-module.css"
+  ]
 })
 export class BuySuccessfulComponent implements OnInit {
   @Input() order: Order;

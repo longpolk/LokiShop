@@ -88,7 +88,8 @@ export class OrderService {
     currentCost: number,
     createdDate: Date,
     description: string,
-    status: string
+    status: string,
+    payment_method: string
   ) {
     this.angularFirestore.collection("orders").doc(orderID).set({
       id: orderID,
@@ -104,7 +105,8 @@ export class OrderService {
       currentCost: currentCost,
       createdDate: createdDate,
       description: description,
-      status: status
+      status: status,
+      payment_method: payment_method
     });
   }
   addOrderProducts(orderID: string, product: Phone) {

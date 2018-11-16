@@ -72,11 +72,11 @@
         <div class="col-md-5 col-sm-12 order-info">
           <div class="order-summary order-summary--custom-background-color ">
             <div class="order-summary-header summary-header--thin summary-header--border">
-              <h2>
+              <h3>
                 <label style="position: relative; float: left;" class="control-label">Đơn hàng</label>
                 &nbsp;#{{order.id}}
                 <label style="position: relative; float: right;" class="control-label unprint">({{phones.length}})</label>
-              </h2>
+              </h3>
               <a class="underline-none expandable expandable--pull-right mobile unprint" routerLink="/">
                 Xem chi tiết
               </a>
@@ -149,7 +149,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-7 col-sm-12 customer-info">
+        <div style="margin-top:-150px;" class="col-md-7 col-sm-12 customer-info">
           <!--Hiển thị vị trí người mua trên Google map-->
           <div>
             <div id="map" style="height: 300px; width: 100%;">
@@ -165,9 +165,9 @@
               <div class="col-md-6 col-sm-6">
                 <div class="order-summary order-summary--white no-border no-padding-top">
                   <div class="order-summary-header">
-                    <h2>
+                    <h3>
                       <label class="control-label">Thông tin nhận hàng</label>
-                    </h2>
+                    </h3>
                   </div>
                   <div class="summary-section no-border no-padding-top">
                     <p class="address-name">
@@ -204,9 +204,9 @@
               <div class="col-md-6 col-sm-6">
                 <div class="order-summary order-summary--white no-border">
                   <div class="order-summary-header">
-                    <h2>
+                    <h3>
                       <label class="control-label">Hình thức vận chuyển</label>
-                    </h2>
+                    </h3>
                   </div>
                   <div class="summary-section no-border no-padding-top">
 
@@ -264,12 +264,13 @@
               <div class="col-md-6 col-sm-6">
                 <div class="order-summary order-summary--white no-border">
                   <div class="order-summary-header">
-                    <h2>
+                    <h3>
                       <label class="control-label">Hình thức thanh toán</label>
-                    </h2>
+                    </h3>
                   </div>
                   <div class="summary-section no-border no-padding-top">
-                    <span>Thanh toán khi giao hàng (COD)</span>
+                    <span *ngIf="order.payment_method == 'cod'">Thanh toán khi giao hàng (COD)</span>
+                    <span *ngIf="order.payment_method == 'paypal'">Đã thanh toán qua Paypal (Paypal)</span>
                   </div>
                 </div>
               </div>
@@ -294,7 +295,7 @@
             </div>
           </div>
           <div class="order-success unprint">
-            <a routerLink="/" class="btn btn-primary">
+            <a routerLink="/" class="btn btn-primary" style="text-align: justify;">
               Tiếp tục mua hàng
             </a>
             <a onclick="window.print()" class="nounderline print-link" href="javascript:void(0)">

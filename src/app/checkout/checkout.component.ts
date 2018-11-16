@@ -36,7 +36,19 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
       return actions.payment.create({
         payment: {
           transactions: [
-            { amount: { total: this.finalAmount, currency: 'USD' } }
+            { 
+              amount: { total: this.finalAmount, currency: 'USD' }
+              ,
+              item_list: {
+                items: [
+                {
+                  description: "<a href='https://lokishop-2018.firebaseapp.com/buy-successful/"+"order-" +this.getOrderID().toString()+"'>Link to order details.</a>",
+                  quantity: "1",
+                  currency: "USD",
+                  price: this.finalAmount
+                }
+                ]}
+            }
           ]
         }
       });
@@ -44,6 +56,7 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
     onAuthorize: (data, actions) => {
       return actions.payment.execute().then((payment) => {
         alert("Thanh toán thành công!");
+        document.getElementById("BtnBuy").click();
       })
     }
   };
@@ -84,20 +97,21 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
   discount: number;
   latestOrder: string;
   orderID: string;
-
+  payment_method = "cod";
   @ViewChild("customerEmail") customerEmail: any;
   @ViewChild("customerName") customerName: any;
   @ViewChild("customerPhone") customerPhone: any;
   @ViewChild("customerAddress") customerAddress: any;
   @ViewChild("customerCity") customerCity: any;
   @ViewChild("customerDistrict") customerDistrict: any;
+  @ViewChild("customerTaxCode") customerTaxCode: any;
   @ViewChild("customerWard") customerWard: any;
   @ViewChild("voucherError") voucherErrot: any;
   @ViewChild("voucherCode") voucherCode: any;
   @ViewChild("save") saveButton: any;
   @ViewChild("update") updateButton: any;
   @Input() user: User;
-
+  @ViewChild("BtnBuy") BtnBuy : any;
   constructor(
     private phoneService: PhoneService,
     private route: ActivatedRoute,
@@ -119,6 +133,8 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
     if(this.auth.user){
       this.auth.user.subscribe(_ => (this.user = _));
       }
+    this.convertFromVNDToUSD();
+    console.log(this.payment_method);
   }
 
   getOrders() {
@@ -144,7 +160,8 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
     customerAddress: string,
     customerCity: string,
     customerDistrict: string,
-    customerWard: string
+    customerWard: string,
+    payment_method : string
   ) {
     this.orderID = "order-" + this.getOrderID().toString();
     console.log(this.orderID);
@@ -162,7 +179,8 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
       this.currentCost,
       new Date(),
       "Đơn hàng #" + this.orderID,
-      "Đang xử lí"
+      "Đang xử lí",
+      payment_method
     );
     if(this.user){
       this.orderService.addOrderUser(this.user.id, this.orderID);
@@ -331,18 +349,23 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
     this.districts = this.mockDataService.getDistricts(city);
     console.log(this.districts);
   }
-  convertFromVNDToUSD(money: number): number{
-    var totalCost = 0;
+  convertFromVNDToUSD(){
     //var iframe = document.getElementsByTagName("iframe");
     //var usd = iframe.getElementById("VIETCOMUSD-c2-v").innerHTML;
-    
-    return totalCost;
+    this.finalAmount = Math.round(this.currentCost/23000);
   }
   callPayPalPopup(){
+    this.payment_method = "paypal";
+    console.log(this.payment_method);
+    //this.validateForm();
+    this.convertFromVNDToUSD();
     var popup = document.getElementById("paypalPopup");
     popup.setAttribute("style", "text-align: center; position: absolute; background-color: rgba(0, 0, 0, 0.75); background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,1) 1%, rgba(0,0,0,0.75) 100%);z-index: 2147483647; top: 0;left: 0; width: 100%; height: 100%;");
   }
   dismissPayPalPopup(){
+    var cod = document.getElementById("cod").click();
+    this.payment_method = "cod";
+    console.log(this.payment_method);
     var popup = document.getElementById("paypalPopup");
     popup.setAttribute("style", "display:none;");
   }

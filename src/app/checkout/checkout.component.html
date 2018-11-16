@@ -12,7 +12,7 @@
         <br/>
         <div class="paypal-checkout-continue" style="text-align: center;">
                 <h3><b>TỔNG TIỀN (USD): </b></h3>
-                <input type="number" [(ngModel)]="finalAmount" style="display: inline-block; width: 200px;">
+                <input readonly="true" [disabled]="true" type="number" [(ngModel)]="finalAmount" style="display: inline-block; width: 200px;">
                 <br/><br/>
                 <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
                 <div id="paypal-checkout-btn" style="display: inline-block"></div>
@@ -316,7 +316,7 @@
                             <div class="item ">
                                 <div class="item_image ">
                                     <input class="input-radio" type="radio" value="payment_method_1" name="PaymentMethodId"
-                                        #payment_method_1 id="cod" data-check-id="1" checked>
+                                        #payment_method_1 id="cod" data-check-id="1" checked="true">
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
@@ -340,7 +340,7 @@
                             <div class="item ">
                                 <div class="item_image ">
                                     <input [disabled]="true" class="input-radio" type="radio" value="payment_method_3"
-                                        name="PaymentMethodId" #payment_method_3 id="visa" data-check-id="3">
+                                        name="PaymentMethodId" #payment_method_3 id="epay" data-check-id="3">
                                 </div>
                                 <div class="item_desc ">
                                     <div class="item_title ">
@@ -399,7 +399,7 @@
                                                     <small class="checkout-order-total-fee-tip">Đã bao gồm VAT (nếu có)</small>
                                                 </div>
                                             </div>
-                                            <button (click)="addOrder(customerEmail.value,customerName.value, customerPhone.value,customerTaxCode.value,customerAddress.value,customerCity.value,customerDistrict.value, customerWard.value)"
+                                            <button id="BtnBuy" (click)="addOrder(customerEmail.value,customerName.value, customerPhone.value,customerTaxCode.value,customerAddress.value,customerCity.value,customerDistrict.value, customerWard.value, payment_method)"
                                                 [disabled]="enabled == 1" type="button" class="next-btn next-btn-primary next-btn-large checkout-order-total-button automation-checkout-order-total-button-button">TIẾN
                                                 HÀNH THANH TOÁN</button>
                                         </div>
