@@ -197,31 +197,33 @@
 	
 
 <app-root></app-root>
+<div class="fb-customerchat" page_id="193963548153430">
+</div>
+<!--Facebook SDK-->
+<script>
+	window.fbAsyncInit = function() {
+	  FB.init({
+		appId            : '746133739104848',
+		autoLogAppEvents : true,
+		xfbml            : false,
+		version          : 'v3.2'
+	  });
+	  FB.XFBML.parse();
 
-
-	
-
-	<!-- Bizweb javascript -->
-	<script src='https://bizweb.dktcdn.net/100/305/798/themes/650335/assets/option-selectors.js?1522816147817' type='text/javascript'></script>
-	<!--script src='https://bizweb.dktcdn.net/assets/themes_support/api.jquery.js?4' type='text/javascript'></script-->
+	};
+  
+	(function(d, s, id){
+	   var js, fjs = d.getElementsByTagName(s)[0];
+	   if (d.getElementById(id)) {return;}
+	   js = d.createElement(s); js.id = id;
+	   js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+	   fjs.parentNode.insertBefore(js, fjs);
+	 }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 	<!-- Plugin JS -->
-	<script src='https://bizweb.dktcdn.net/100/305/798/themes/650335/assets/owl.carousel.min.js?1522816147817' type='text/javascript'></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	 crossorigin="anonymous"></script>
-
-
-
-	
-	<!--script src='https://bizweb.dktcdn.net/100/305/798/themes/650335/assets/cs.script.js?1522816147817' type='text/javascript'></script-->
-
-
-	<!-- Main JS -->
-	<script src='https://bizweb.dktcdn.net/100/305/798/themes/650335/assets/main.js?1522816147817' type='text/javascript'></script>
-	<script src='https://bizweb.dktcdn.net/100/305/798/themes/650335/assets/update_scripts.js?1522816147817' type='text/javascript'></script>
-
-	<!--- Product detail JS,CSS -->
-
+	<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	 crossorigin="anonymous"></script-->
 </body>
 
 </html>
