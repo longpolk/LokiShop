@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:cat/:id', component: PhoneDetailComponent },
   { path: 'phones', component: LokiShopComponent },
-  { path: 'admin', component: ProductsComponent, canActivate: [AuthGuard] /*AdministratorComponent*/ },
+  { path: 'admin', component: AdministratorComponent, canActivate: [AuthGuard] /*AdministratorComponent*/ },
   { path: 'admin/products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'admin/products/:cat/:id', component: ProductUpdateComponent, canActivate: [AuthGuard] },
   { path: 'admin/new-products', component: ProductAddComponent, canActivate: [AuthGuard] },

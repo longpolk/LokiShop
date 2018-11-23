@@ -4,7 +4,17 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-administrator',
   templateUrl: './administrator.component.html',
-  styleUrls: ['./administrator.component.css']
+  styleUrls: ['./administrator.component.css',
+  "/base.scss.css",
+  "./responsive.scss.css",
+  "./bootstrap.css",
+  "./themify-icons.css",
+  "./bootstrap.min.css",
+  "./font-awesome.min.css",
+  "./style.scss.css",
+  "./module.scss.css",
+  "./bpr-products-module.css"
+]
 })
 export class AdministratorComponent implements OnInit {
   users: User[];

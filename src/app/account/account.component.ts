@@ -17,7 +17,12 @@ import { User } from '../user';
     "./font-awesome.min.css",
     "./style.scss.css",
     "./module.scss.css",
-    "./bpr-products-module.css"
+    "./bpr-products-module.css",
+    './owl.carousel.min.css',
+    './update.scss.css',
+    './update_stylesheets.scss.css',
+    './css.css',
+    './menu-stylesheets.scss.css',
 ]
 })
 export class AccountComponent implements OnInit {
