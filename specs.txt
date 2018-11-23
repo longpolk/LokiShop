@@ -7,10 +7,11 @@
 
 Đồ án chuyên ngành:
 - Thêm chức năng thanh toán qua paypal --> OK
-- Thêm chức năng chat trực tuyến cùng LokiShop
+- Thêm chức năng chat trực tuyến cùng LokiShop --> OK
 - Thêm chức năng authorize/login bằng Google/Facebook account --> OK
 - Tìm kiếm sản phẩm --> OK
 - Phân trang
+- Paypal --> OK
 - Xử lí đơn hàng cho nhân viên --> In-progress
 - <Các chức năng khác đang nghiên cứu...>
 
