@@ -20,7 +20,8 @@ import { concat } from "rxjs/observable/concat";
     "../font-awesome.min.css",
     "../style.scss.css",
     "../module.scss.css",
-    "../bpr-products-module.css"
+    "../bpr-products-module.css",
+    "../main.min.css"
 ]
 })
 export class ProductsComponent implements OnInit {

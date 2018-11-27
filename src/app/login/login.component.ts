@@ -36,10 +36,10 @@ export class LoginComponent implements OnInit {
         .then(function () {
           if (email == "admin@lokishop.com") {
             console.log("Admin login successful ");
-            window.location.href = "/admin";
+            window.location.href = "/";
           } else {
             console.log("Customer login successful ");
-            window.location.href = "/account";
+            window.location.href = "/";
           }
         })
         .catch(function (error) {

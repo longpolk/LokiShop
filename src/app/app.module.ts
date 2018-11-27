@@ -54,6 +54,8 @@ import { ProductUpdateComponent } from './administrator/product-update/product-u
 import { UploadService } from "./services/upload.service";
 import { ProductAddComponent } from './administrator/product-add/product-add.component';
 import { SearchComponent } from './search/search.component';
+import { OrdersComponent } from './administrator/orders/orders.component';
+import { OrderDetailComponent } from './administrator/order-detail/order-detail.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,9 @@ import { SearchComponent } from './search/search.component';
     ProductsComponent,
     ProductUpdateComponent,
     ProductAddComponent,
-    SearchComponent
+    SearchComponent,
+    OrdersComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,

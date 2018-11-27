@@ -18,6 +18,8 @@ import { PopularProductsComponent } from './popular-products/popular-products.co
 import { AuthGuard } from './core/auth.guard';
 import { ProductAddComponent } from './administrator/product-add/product-add.component';
 import { SearchComponent } from './search/search.component';
+import { OrdersComponent } from './administrator/orders/orders.component';
+import { OrderDetailComponent } from './administrator/order-detail/order-detail.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'phones', component: LokiShopComponent },
   { path: 'admin', component: AdministratorComponent, canActivate: [AuthGuard] /*AdministratorComponent*/ },
   { path: 'admin/products', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: 'admin/orders', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'admin/order-detail/:id', component: OrderDetailComponent, canActivate: [AuthGuard] },
   { path: 'admin/products/:cat/:id', component: ProductUpdateComponent, canActivate: [AuthGuard] },
   { path: 'admin/new-products', component: ProductAddComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },

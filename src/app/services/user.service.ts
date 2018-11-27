@@ -93,9 +93,9 @@ export class UserService {
       .then(function(doc) {
         if (doc.exists && doc.data()["password"] == hash) {
           if(doc.data()["role"] == "admin"){
-          window.location.href = '/admin';
+          window.location.href = '/';
           }else{
-            window.location.href = '/account';
+            window.location.href = '/';
           }
           console.log("Document data:", doc.data());
         } else {

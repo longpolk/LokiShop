@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../core/auth.service';
 @Component({
   selector: 'app-administrator',
   templateUrl: './administrator.component.html',
@@ -13,12 +14,16 @@ import { UserService } from '../services/user.service';
   "./font-awesome.min.css",
   "./style.scss.css",
   "./module.scss.css",
-  "./bpr-products-module.css"
+  "./bpr-products-module.css",
+  "./main.min.css"
 ]
 })
 export class AdministratorComponent implements OnInit {
-  users: User[];
-  constructor(private userService: UserService) { }
+  @Input() user: User;
+  constructor(
+    private userService: UserService,
+    public auth: AuthService,
+    ) { }
   
   login(id: string, password: string): void {
   id = id.trim();
@@ -27,6 +32,9 @@ export class AdministratorComponent implements OnInit {
   //this.userService.userLogin(id, password);
 }
   ngOnInit() {
+    if(this.auth.user){
+      this.auth.user.subscribe(_ => (this.user = _));
   }
 
+}
 }
