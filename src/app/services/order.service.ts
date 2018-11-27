@@ -17,6 +17,7 @@ import { MessageService } from "./messages.service";
 import { Phone } from "../phone";
 import { MapsAPILoader } from "@agm/core";
 import { Http } from "@angular/http";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class OrderService {
@@ -54,7 +55,8 @@ export class OrderService {
   constructor(
     private messageService: MessageService,
     private angularFirestore: AngularFirestore,
-    private http: Http
+    private http: Http,
+    private route: Router
   ) { }
   /** GET orders from the server */
   getOrders(): Observable<Order[]> {
@@ -137,7 +139,7 @@ export class OrderService {
   /**ADD orderID to user */
   addOrderUser(uid: string, orderID: string) {
     var user = this.angularFirestore.collection("users").doc(uid);
-    user.ref.get().then(doc =>{
+    user.ref.get().then(doc => {
       console.log(doc.data()["orderIDs"]);
       var orderIDs = doc.data()["orderIDs"];
       orderIDs.push(orderID);
@@ -147,7 +149,7 @@ export class OrderService {
     }).catch(function (error) {
       console.log("Error getting document:", error);
     });
-    
+
   }
   /** GET order by id. Will 404 if id not found */
   getOrder(id: string): Observable<Order> {
@@ -190,6 +192,40 @@ export class OrderService {
       tap(phone => this.log(`fetched order`)),
       catchError(this.handleError("getOrders", []))
     );
+  }
+  /** UPDATE instock of products when cancel the order */
+  updateInStockIfOrderIsCanceled(phones: Phone[]) {
+    phones.forEach(phone => {
+      var category = phone.category;
+      if (category == 'phone' || category == 'laptop') {
+        category = category + "s";
+      }
+      var list = '';
+      if (category != 'accessories') {
+        list = category.replace(category[category.lastIndexOf('s')], '') + "-list";
+      } else {
+        list = category + '-list';
+      }
+      console.log(list + " - " + phone.id);
+      this.angularFirestore
+        .collection("category").doc(category).collection(list).doc(phone.id)
+        .update({
+          inStock: (phone.inStock + phone.qtyinCart),
+          sold: (phone.sold - phone.qtyinCart)
+        });
+    });
+  }
+  /** DELETE: delete the order from the server */
+  deleteOrder(order: Order) {
+    this.angularFirestore.collection("orders")
+    .doc(order.id).delete()
+    .then(t => {
+      console.log("order Removed ");
+      this.route.navigate(['/admin/orders']);
+    })
+    .catch(function (error) {
+      console.error("Error removing order: ", error);
+    });;
   }
   /*
   setCurrentPosition(customerAddress: string, customerCity: string, 

@@ -43,6 +43,7 @@ export class OrderDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getOrder();
+    this.getProductsOrder();
   }
   getOrder(): void {
     this.route.params.subscribe(params => {
@@ -50,6 +51,14 @@ export class OrderDetailComponent implements OnInit {
       this.orderService
         .getOrder(id)
         .subscribe(_ => this.order = _)
+    });
+  }
+  getProductsOrder(): void {
+    this.route.params.subscribe(params => {
+	  const id = params['id'];
+      this.orderService
+        .getProductsOrder(id)
+        .subscribe(_ => this.phones = _)
     });
   }
   goBack(): void {
@@ -66,7 +75,7 @@ export class OrderDetailComponent implements OnInit {
   }
   deleteOrder(order: Order) {
     console.log(order);
-    //this.orderService.deleteOrder(order);
+    this.orderService.deleteOrder(order);
     alert("Đã xóa đơn hàng!");
   }
 }

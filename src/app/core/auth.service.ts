@@ -33,6 +33,7 @@ interface googleUser {
 export class AuthService {
   user: Observable<User>;
   check: boolean;
+  isSuperAdmin: boolean;
   token: string;
   constructor(
     private afAuth: AngularFireAuth,
@@ -44,6 +45,9 @@ export class AuthService {
     this.user = this.afAuth.authState.switchMap(user => {
       if (user) {
         this.check = true;
+        if(user.email == "admin@lokishop.com"){
+          this.isSuperAdmin = true;
+        }
         return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
         this.check = false;
@@ -112,6 +116,7 @@ export class AuthService {
 
   signOut() {
     this.check = false;
+    this.isSuperAdmin = false;
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(["/"]);
     });

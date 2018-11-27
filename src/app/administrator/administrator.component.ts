@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../core/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-administrator',
   templateUrl: './administrator.component.html',
@@ -23,6 +24,7 @@ export class AdministratorComponent implements OnInit {
   constructor(
     private userService: UserService,
     public auth: AuthService,
+    private route: Router
     ) { }
   
   login(id: string, password: string): void {
@@ -33,7 +35,11 @@ export class AdministratorComponent implements OnInit {
 }
   ngOnInit() {
     if(this.auth.user){
-      this.auth.user.subscribe(_ => (this.user = _));
+      if(this.auth.isSuperAdmin){
+        this.auth.user.subscribe(_ => (this.user = _));
+      }
+      else
+      this.route.navigate[('/')];
   }
 
 }

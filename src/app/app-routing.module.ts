@@ -45,8 +45,6 @@ const routes: Routes = [
   { path: 'tim-kiem/:q', component: SearchComponent },
   // Trường hợp error #404
   { path: '**', component: DashboardComponent }
-  
-  //{ path: 'adminDashboard', component: AdministratorComponent}
   ];
 
 @NgModule({

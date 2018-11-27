@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, NgZone } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Rx";
 import { of } from "rxjs/observable/of";
@@ -15,6 +15,7 @@ import {
 } from "angularfire2/firestore";
 import "rxjs/add/operator/map";
 import { Brand } from "../brand";
+import { Route, Router } from "@angular/router";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -44,7 +45,8 @@ export class PhoneService {
   constructor(
     public http: HttpClient,
     private messageService: MessageService,
-    private angularFirestore: AngularFirestore
+    private angularFirestore: AngularFirestore,
+    private route: Router
   ) { }
   /** Set main image of product in product-detail */
   setImage(imageUrl: string) {
@@ -499,9 +501,9 @@ export class PhoneService {
         'inStock': phone.inStock, 'colors': phone.colors, 'brand': phone.brand,
         'category': phone.category,'category_id': phone.category_id, 'postDate': new Date(), 'sold': 0,
         'imageUrl': new Array, 'thumb': ''
-      }).then(function () {
+      }).then(t => {
         console.log("Product Added ");
-        window.location.href = "/admin/products";
+        this.route.navigate(['/admin/products']);
       })
       .catch(function (error) {
         console.error("Error adding product: ", error);
@@ -521,9 +523,9 @@ export class PhoneService {
     }
     this.angularFirestore.collection("category")
     .doc(category).collection(list).doc(phone.id).delete()
-    .then(function () {
+    .then( t => {
       console.log("Product Removed ");
-      window.location.href = "/admin/products";
+      this.route.navigate(['/admin/products']);
     })
     .catch(function (error) {
       console.error("Error removing product: ", error);
