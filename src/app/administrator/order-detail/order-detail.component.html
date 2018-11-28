@@ -1,35 +1,35 @@
 <section class="bread-crumb">
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <li class="home">
-              <a itemprop="url" routerLink="/">
-                <span itemprop="title">&nbsp;&nbsp;&nbsp; Trang chủ</span>
-              </a>
-              <span>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-              </span>
-            </li>
-  
-  
-            <li>
-              <strong>
-                <span itemprop="title"> Trang quản trị </span>
-              </strong>
-            </li>
-  
-  
-          </ul>
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <li class="home">
+                        <a itemprop="url" routerLink="/">
+                            <span itemprop="title">&nbsp;&nbsp;&nbsp; Trang chủ</span>
+                        </a>
+                        <span>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        </span>
+                    </li>
+
+
+                    <li>
+                        <strong>
+                            <span itemprop="title"> Trang quản trị </span>
+                        </strong>
+                    </li>
+
+
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-  
-  <div class="container" *ngIf="order">
+</section>
+
+<div class="container" *ngIf="order">
     <div class="row">
         <aside style="width: 180px;" id="AppFrameAside" class="ui-app-frame__aside">
-  
+
             <div class="ui-scrollable__container">
                 <aside class="sidebar sidebar-default" style="width: 180px; margin-top: -50px;">
                     <div id="sidebar--nav" class="">
@@ -40,8 +40,7 @@
                                         <ul class="nav nav-pills nav-stacked next-nav__list next-nav__list--primary"
                                             style="overflow: hidden; width: auto; height: 635px;">
                                             <li class="">
-                                                <a routerLink="/admin" title="Tổng quan"
-                                                    id="nav__link_home">
+                                                <a routerLink="/admin" title="Tổng quan" id="nav__link_home">
                                                     <svg class="next-icon">
                                                         <use xlink:href="#icon-home" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                                     </svg>
@@ -50,8 +49,7 @@
                                                 </a>
                                             </li>
                                             <li class="active menu-is-selected">
-                                                <a routerLink="/admin/orders" class="menu-parent " (click)="navDrawer.showSubMenu(this)"
-                                                    data-name="orders">
+                                                <a routerLink="/admin/orders" class="menu-parent ">
                                                     <svg class="next-icon">
                                                         <use xlink:href="#icon-order" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                                     </svg> <span class="menu-name">Đơn hàng</span>
@@ -68,8 +66,7 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a routerLink="/admin/customers" title="Danh sách khách hàng"
-                                                    id="nav__link_customers">
+                                                <a routerLink="/admin/customers" title="Danh sách khách hàng" id="nav__link_customers">
                                                     <svg class="next-icon">
                                                         <use xlink:href="#icon-customer" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                                     </svg> <span class="menu-name">Khách hàng</span>
@@ -77,8 +74,7 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a routerLink="/admin/discounts" title="Khuyến mãi"
-                                                    id="nav__link_price_rules">
+                                                <a routerLink="/admin/discounts" title="Khuyến mãi" id="nav__link_price_rules">
                                                     <svg class="next-icon">
                                                         <use xlink:href="#icon-discount" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                                     </svg> <span class="menu-name">Khuyến mãi</span>
@@ -103,17 +99,17 @@
                                                     <span class="tooltip-menu"><i></i>Website</span>
                                                 </a>
                                             </li-->
-  
-  
-  
-  
+
+
+
+
                                             <style>
                                                 .hideSaleChannel {
         display: none !important;
     }
   </style>
-  
-  
+
+
                                             <li class="separate hidden-sm hidden-xs"></li>
                                             <!--li class="hidden-sm hidden-xs">
                                                 <a href="javascript:void(0);" title="Góp ý" class="feedback-btn">
@@ -122,21 +118,21 @@
                                                     <span class="tooltip-menu"><i></i>Góp ý</span>
                                                 </a>
                                             </li-->
-  
+
                                         </ul>
                                         <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 635px;"></div>
                                         <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
                                     </div>
-  
-  
+
+
                                 </nav>
                             </div>
                             <div class="next-nav__panel next-nav__panel--secondary  ">
                                 <ol class="next-nav__list next-nav__list--secondary " data-nav-section="orders" id="NextNavOrders">
-                                    <li routerLink="/admin/orders" class="next-nav__item next-nav__item--header" aria-hidden="true">
-                                        <h3 class="next-heading--callout clearfix">Đơn hàng <a style="float:right" routerLink="/admin"
-                                                ><span><i class="fa fa-bars close-submenu"
-                                                        aria-hidden="true"></i></span></a></h3>
+                                    <li routerLink="/admin/orders" class="next-nav__item next-nav__item--header"
+                                        aria-hidden="true">
+                                        <h3 class="next-heading--callout clearfix">Đơn hàng
+                                        </h3>
                                     </li>
                                     <li class="next-nav__item">
                                         <a class="next-nav__link " href="https://test0919.bizwebvietnam.net/admin/orders"
@@ -161,8 +157,8 @@
                                 </ol>
                                 <ol class="next-nav__list next-nav__list--secondary " data-nav-section="products" id="NextNavProducts">
                                     <li class="next-nav__item next-nav__item--header" aria-hidden="true">
-                                        <h3 class="next-heading--callout clearfix">Sản phẩm <a style="float:right" routerLink="/admin"
-                                                (click)="navDrawer.closeSubMenu()"><span><i class="fa fa-bars close-submenu"
+                                        <h3 class="next-heading--callout clearfix">Sản phẩm <a style="float:right"
+                                                routerLink="/admin" (click)="navDrawer.closeSubMenu()"><span><i class="fa fa-bars close-submenu"
                                                         aria-hidden="true"></i></span></a></h3>
                                     </li>
                                     <li class="next-nav__item">
@@ -205,18 +201,17 @@
                         </div>
                         <div class="nav-user ">
                             <div class="account-info">
-                                <a href="#" id="submenu__link_settings"
-                                    class="clearfix">
+                                <a href="#" id="submenu__link_settings" class="clearfix">
                                     <svg class="next-icon">
                                         <use xlink:href="#icon-setting" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                     </svg><span class="menu-name">Cấu hình</span>
-  
+
                                 </a>
                             </div>
                         </div>
                     </div>
-  
-  
+
+
                 </aside>
             </div>
             <div class="ui-app-frame__aside-closer"><button class="ui-button ui-button--transparent ui-button--icon-only"
@@ -224,7 +219,7 @@
                     name="button"><svg class="next-icon next-icon--color-white next-icon--size-20">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-remove"></use>
                     </svg></button></div>
-  
+
             <div id="sidebar-icon-symbols" data-tg-refresh="sidebar-icon-symbols" data-tg-refresh-always="true" style="display: none;">
                 <svg xmlns="http://www.w3.org/2000/svg">
                     <symbol id="next-chevron" class="icon-symbol--loaded"><svg xmlns="http://www.w3.org/2000/svg"
@@ -301,7 +296,7 @@
                             <path id="aXMLID_251_" class="ast0" d="M379.9 594c-29.3-.2-51.3-22.2-51.3-51.4 0-28.9 22.6-51.2 51.7-51.1 29 .1 51.7 22.8 51.5 51.4-.3 29.1-22.8 51.2-51.9 51.1z"></path>
                         </svg>
                     </symbol>
-  
+
                     <symbol id="icon-zalo">
                         <svg viewBox="107.1 156 488.7 193" xmlns="http://www.w3.org/2000/svg">
                             <path fill="#FFF" d="M394.5 218.8c-3.7-3.8-8.5-5.8-14.3-5.8-8.5 0-14.8 4.1-18.7 12.2-8.4-9.8-19.8-14.7-34.3-14.7-17.4 0-32 6.7-43.8 20.1-11.9 13.4-17.8 29.8-17.8 49.1s5.9 35.7 17.8 49.1c11.8 13.4 26.5 20.1 43.8 20.1 14.5 0 25.9-4.9 34.3-14.7 3.9 8.2 10.2 12.3 18.7 12.3 5.8 0 10.6-1.9 14.3-5.8 3.8-3.8 5.6-8.5 5.6-14.1v-93.7c0-5.6-1.9-10.3-5.6-14.1M352.9 303c-4.9 6.3-11.6 9.4-20.1 9.4s-15.2-3.1-20.1-9.4c-4.8-6.3-7.3-14-7.3-23.2s2.4-17 7.3-23.2c4.9-6.3 11.6-9.4 20.1-9.4s15.2 3.1 20.1 9.4 7.3 14 7.3 23.2-2.4 16.9-7.3 23.2M445.3 340.8c-3.7 3.8-8.5 5.8-14.3 5.8s-10.6-1.9-14.3-5.8c-3.7-3.8-5.6-8.5-5.6-14.1V175.9c0-5.5 1.9-10.3 5.6-14.1 3.7-3.9 8.5-5.8 14.3-5.8s10.6 1.9 14.3 5.8c3.8 3.8 5.6 8.6 5.6 14.1v150.7c0 5.6-1.9 10.3-5.6 14.2M577.4 230.7c-12.8-13.4-29.1-20.1-48.9-20.1-19.8 0-35.9 6.6-48.4 19.9-12.6 13.3-18.8 29.7-18.8 49.3 0 19.6 6.3 36.1 18.8 49.3 12.5 13.2 28.7 19.9 48.4 19.9 19.8 0 36-6.7 48.9-20.1 12.3-13.1 18.4-29.5 18.4-49.1 0-19.7-6.1-36-18.4-49.1M548.6 303c-4.8 6.3-11.6 9.4-20.1 9.4s-15.2-3.1-20.1-9.4-7.3-14-7.3-23.2 2.5-17 7.3-23.2c4.8-6.3 11.5-9.4 20.1-9.4 8.5 0 15.2 3.1 20.1 9.4 4.9 6.3 7.3 14 7.3 23.2s-2.4 16.9-7.3 23.2"></path>
@@ -317,131 +312,160 @@
                 </svg>
             </div>
         </aside>
-      <section class="ui-card">
-  
-        <div style="margin-top: -40px; margin-left: 50px;" class="ui-card__section has-bulk-actions products" refresh="products" id="products-refresh">
-          <div class="ui-type-container clearfix">
-              <h1 _ngcontent-c4="" class="title-head margin-top-0">&nbsp;&nbsp; Đơn hàng #{{order.id}}</h1>
-            <div class="table-wrapper" define="{bulkActions: new Bizweb.ProductBulkActions(this,{&quot;type&quot;:&quot;sản phẩm&quot;})}"
-              context="bulkActions">
-              <form define="{form: new Bizweb.Forms(this, {disabledUntilDirty: true})}" class="js-tags-form" id="edit_order_5160220" action="/admin/orders/5160220" accept-charset="UTF-8" method="post">
-                <input type="hidden" name="AuthenticityToken" value="yO/kyvUpp4TMJmKGziUMUssP1ZbLbNKF/6nQqJmXL5mW4aD3H/UJe/Cjy0DJSmSYSR6KIEx5cIFI9kgrD/JHmQ==">
-        
-        
-                <div class="ui-layout">
-                    <div class="ui-layout__sections">
-                                        <div class="ui-layout__section ui-layout__section--primary">
-                            <div class="ui-layout__item">
-                                <section class="ui-card" id="order_card">
-                                    <header class="ui-card__header">
-                                        <div class="ui-stack ui-stack--wrap">
-                                            <div class="ui-stack-item ui-stack-item--fill">
-                                                <h2 class="ui-heading">
-                                                    <div class="ui-stack ui-stack--wrap ui-stack--alignment-center">
-                                                        <h2 class="ui-heading">Chi tiết đơn hàng</h2>
-                                                        
-                                                            <span class="badge badge--status-attention badge--progress-incomplete"><span class="badge__pip"></span>Chưa chuyển</span>
-                                                    </div>
-                                                </h2>
-                                            </div>
-                                            <div class="ui-stack-item">
-                                                <div class="ui-stack ui-stack--wrap">
-                                                    <div class="ui-stack-item">
-                                                        <div class="hide-when-printing">
-                                                            <p class="">
-                                                                <span class="text-emphasis-subdued">
-                                                                    Nguồn
-                                                                </span>
-        
-                                                                Quản trị
-        
-                                                            </p>
+        <section class="ui-card">
+
+            <div style="margin-top: -40px; margin-left: 50px;" class="ui-card__section has-bulk-actions products"
+                refresh="products" id="products-refresh">
+                <div class="ui-type-container clearfix">
+                    <h1 _ngcontent-c4="" class="title-head margin-top-0">&nbsp;&nbsp; Đơn hàng #{{order.id}}</h1>
+                    <div class="table-wrapper" define="{bulkActions: new Bizweb.ProductBulkActions(this,{&quot;type&quot;:&quot;sản phẩm&quot;})}"
+                        context="bulkActions">
+                        <form define="{form: new Bizweb.Forms(this, {disabledUntilDirty: true})}" class="js-tags-form"
+                            id="edit_order_5160220" action="/admin/orders/5160220" accept-charset="UTF-8" method="post">
+                            <input type="hidden" name="AuthenticityToken" value="yO/kyvUpp4TMJmKGziUMUssP1ZbLbNKF/6nQqJmXL5mW4aD3H/UJe/Cjy0DJSmSYSR6KIEx5cIFI9kgrD/JHmQ==">
+
+
+                            <div class="ui-layout">
+                                <div class="ui-layout__sections">
+                                    <div class="ui-layout__section ui-layout__section--primary">
+                                        <div class="ui-layout__item">
+                                            <section class="ui-card" id="order_card">
+                                                <header style="background: #fff; width: 80%" class="ui-card__header">
+                                                    <div class="ui-stack ui-stack--wrap">
+                                                        <div class="ui-stack-item ui-stack-item--fill">
+                                                            <h2 class="ui-heading">
+                                                                <div class="ui-stack ui-stack--wrap ui-stack--alignment-center">
+                                                                    <h2 class="ui-heading">Chi tiết đơn hàng</h2>
+
+                                                                    <span *ngIf="order.status == 'Đã giao hàng'" class="badge badge--status-attention badge--progress-incomplete"><span
+                                                                            class="badge__pip"></span>Đã giao hàng</span>
+                                                                            <span *ngIf="order.status != 'Đã giao hàng'" class="badge badge--status-attention badge--progress-incomplete"><span
+                                                                                class="badge__pip"></span>Chưa giao hàng</span>
+                                                                </div>
+                                                            </h2>
                                                         </div>
-        
+                                                        <div class="ui-stack-item">
+                                                            <div class="ui-stack ui-stack--wrap">
+                                                                <div class="ui-stack-item">
+                                                                    <div class="hide-when-printing">
+                                                                        <span *ngIf="order.payment_method=='cod' && order.status=='Đã thanh toán'"
+                                                                            class="badge badge--status-complete badge--progress-complete">Đã
+                                                                            thanh toán</span>
+                                                                        <span *ngIf="order.payment_method=='paypal'"
+                                                                            class="badge badge--status-complete badge--progress-complete">Đã
+                                                                            thanh toán qua Palpal</span>
+                                                                        <span *ngIf="order.payment_method=='cod' && order.status=='Đang xử lí'"
+                                                                            class="badge badge--status-warning badge--progress-incomplete"><span
+                                                                                class="badge__pip"></span>Chưa thanh
+                                                                            toán</span>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </header>
+
+                                                <div id="order-line-items">
+                                                    <br />
+                                                    <div class="next-card__section">
+                                                        <h3 style="text-align:left; width: 80%" class="ui-subheading">Ngày
+                                                            tạo: {{order.createdDate | date:'medium'}}</h3>
+                                                    </div>
+                                                    <div class="next-card__section next-card__section--no-vertical-spacing">
+                                                        <table class="table--no-side-padding table--divided">
+                                                            <tbody>
+
+
+                                                                <tr *ngFor="let phone of phones" class="orders-line-item">
+                                                                    <td class="orders-line-item__image hide-when-printing">
+                                                                        <div class="aspect-ratio aspect-ratio--square aspect-ratio--square--50">
+                                                                            <img title="{{phone.data.name}}" class="aspect-ratio__content"
+                                                                                src="{{phone.data.thumb}}">
+                                                                        </div>
+                                                                    </td>
+
+                                                                    <td style="text-align: left" class="orders-line-item__description">
+                                                                        <a routerLink="/admin/products/{{phone.data.category}}/{{phone.data.id}}"
+                                                                            target="_blank" rel="noreferrer noopener">{{phone.data.name}}</a>
+                                                                        <p class="type--subdued">Màu :
+                                                                            {{phone.data.color}}</p>
+                                                                    </td>
+                                                                    <td class="orders-line-item__price">
+                                                                        {{phone.data.sale_price | number}}₫
+                                                                    </td>
+
+                                                                    <td class="orders-line-item__times-sign">
+                                                                        ×
+                                                                    </td>
+
+                                                                    <td class="orders-line-item__quantity">
+                                                                        {{phone.data.quantity}}
+                                                                    </td>
+
+                                                                    <td class="orders-line-item__total">
+                                                                        {{phone.data.sale_price*phone.data.quantity |
+                                                                        number}}₫ </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                                <div class="ui-card__section">
+                                                    <div class="ui-stack ui-stack--wrap ui-stack--distribution-fill">
+                                                        <div id="transaction_summary">
+                                                            <table class="table--nested table--no-border type--right">
+                                                                <tbody>
+
+
+                                                                    <tr>
+                                                                        <td class="type--subdued" style="text-align: right">Giá</td>
+                                                                        <td style="text-align: right">{{order.totalCost
+                                                                            | number}}₫</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="type--subdued" style="text-align: right">Khuyến
+                                                                            mãi</td>
+                                                                        <td style="text-align: right">{{order.totalCost-order.currentCost
+                                                                            | number}}₫</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="text-align: right"><strong>Tổng cộng</strong></td>
+                                                                        <td style="text-align: right"><strong>{{order.currentCost
+                                                                                | number}}₫</strong></td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </header>
-        
-                                    <div id="order-line-items">
-                                                <div class="next-card__section hide-when-printing">
-                                                    <h3 class="ui-subheading">Chưa giao</h3>
-                                                </div>
-                                                <div class="next-card__section next-card__section--no-vertical-spacing">
-                                                    <table class="table--no-side-padding table--divided">
-                                                        <tbody>
-        
-        
-        <tr class="orders-line-item">
-            <td class="orders-line-item__image hide-when-printing">
-                <div class="aspect-ratio aspect-ratio--square aspect-ratio--square--50">
-                        <img title="Nước hoa DG" class="aspect-ratio__content" src="//bizweb.dktcdn.net/thumb/thumb/100/339/921/products/12.jpg?v=1543039478950">
-                </div>
-            </td>
-        
-            <td class="orders-line-item__description">
-                        <a href="/admin/products/13228855" target="_blank" rel="noreferrer noopener">Nước hoa DG</a>
-                                    <p class="type--subdued">SKU : NH01</p>
-            </td>
-            <td class="orders-line-item__price">
-                100,000₫
-            </td>
-        
-            <td class="orders-line-item__times-sign">
-                ×
-            </td>
-        
-            <td class="orders-line-item__quantity">
-                1
-            </td>
-        
-            <td class="orders-line-item__total">
-        100,000₫    </td>
-        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-        
-                                    </div>
-                                    <div class="ui-card__section">
-                                        <div class="ui-stack ui-stack--wrap ui-stack--distribution-fill">
-                                            <div id="transaction_summary">
-                                                <table class="table--nested table--no-border type--right">
-                                                    <tbody>
-        
-        
-                                                        <tr>
-                                                                <td class="type--subdued">Giá</td>
-                                                            <td>100,000₫</td>
-                                                        </tr>
-        
-                                                        <tr>
-                                                            <td><strong>Tổng cộng</strong></td>
-                                                            <td><strong>100,000₫</strong></td>
-                                                        </tr>
-        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-                                    <div class="ui-card__section hide-when-printing" id="order-payment-callout">
-                                        <div class="ui-stack ui-stack--wrap ui-stack--distribution-trailing ui-stack--alignment-center">
-                                            <div class="ui-stack-item ui-stack-item--fill">
-                                                <div class="ui-stack ui-stack--alignment-center">
-                                                    <div>
-                                                        <svg class="next-icon next-icon--24 next-icon--color-blue next-icon--no-nudge"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-credit-card"></use> </svg>
-                                                    </div>
-                                                    <div class="ui-stack-item ui-stack-item--fill">
-                                                        <h3 class="ui-subheading">
-        Thủ công                                                </h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                <div class="ui-stack-item" context="paymentProcessing" define="{paymentProcessing: new Bizweb.OrderPaymentProcessing(this, { orderId: 5160220, cultureCode: 'vi-VN' })}">
-                                                        <script id="modal-mark-as-paid" class="modal_source" define="{markAsPaidModal: new Bizweb.Modal(this)}" type="text/html">
+
+                                                <div class="ui-card__section hide-when-printing" id="order-payment-callout">
+                                                    <div class="ui-stack ui-stack--wrap ui-stack--distribution-trailing ui-stack--alignment-center">
+                                                        <div class="ui-stack-item ui-stack-item--fill" style="flex: 1 1 auto">
+                                                            <div class="ui-stack ui-stack--alignment-center">
+                                                                <div>
+                                                                    <svg class="next-icon next-icon--24 next-icon--color-blue next-icon--no-nudge">
+                                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                            xlink:href="#next-credit-card"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="ui-stack-item ui-stack-item--fill">
+                                                                    <h3 *ngIf="order.payment_method=='cod' && order.status=='Đang xử lí'"
+                                                                        class="ui-subheading">
+                                                                        Xử lí đơn hàng: </h3>
+                                                                    <h3 *ngIf="order.status=='Đã thanh toán' || order.payment_method=='paypal'"
+                                                                        class="ui-subheading">
+                                                                        Đơn hàng đã xác nhận thanh toán {{order.currentCost | number}}₫ </h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="flex: 0 0 auto" class="ui-stack-item" context="paymentProcessing"
+                                                            define="{paymentProcessing: new Bizweb.OrderPaymentProcessing(this, { orderId: 5160220, cultureCode: 'vi-VN' })}">
+                                                            <script id="modal-mark-as-paid" class="modal_source" define="{markAsPaidModal: new Bizweb.Modal(this)}"
+                                                                type="text/html">
                                                             <form action="/admin/orders/markaspaid?OrderId=5160220&amp;Amount=100000.0000&amp;ParentId=5430409&amp;Kind=capture" method="post">
                                                                 <input type="hidden" name="AuthenticityToken" value="yO/kyvUpp4TMJmKGziUMUssP1ZbLbNKF/6nQqJmXL5mW4aD3H/UJe/Cjy0DJSmSYCTuYieYPXFxJ+EHTneBXpw==" />
                                                                 <div class="modal-dialog">
@@ -481,190 +505,224 @@
                                                                 </div>
                                                             </form>
                                                         </script>
-                                                        <button class="ui-button btn-save" type="button" (click)="markAsPaidModal.show()">Xác nhận</button>
-                                                                                                        <a type="text/html" style="display: none" href="/admin/orders/refund?orderId=5160220" define="{refundModal: new Bizweb.Modal(this)}" class="modal_source"></a>
+                                                            <button *ngIf="order.payment_method=='cod' && order.status=='Đang xử lí'"
+                                                                class="ui-button btn-save" type="button" (click)="confirmMarkAsPaid(order)">Xác
+                                                                nhận thanh toán</button>
+                                                            <!--button *ngIf="order.payment_method=='cod' && order.status=='Đã thanh toán'"
+                                                                class="ui-button btn-save" type="button" (click)="confirmMarkAsUnPaid(order)">Hoàn
+                                                                tác thanh toán</button-->
                                                             <button class="ui-button" type="button" (click)="refundModal.show()">
-                                                                    Hoàn kho
+                                                                Hoàn kho
                                                             </button>
-                                                                                            </div>
-                                        </div>
-                                    </div>
-        
-                                        <div class="ui-card__section" id="shipping-label-card" refresh="order-actions">
-                                            <div class="ui-stack ui-stack--wrap ui-stack--alignment-center">
-        
-                                                <div class="ui-stack-item">
-                                                    <svg class="next-icon next-icon--color-slate-lighter next-icon--size-20 next-icon--no-nudge">
-                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-shipping"></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="ui-stack-item ui-stack-item--fill">
-                                                    <h3 class="ui-subheading">
-                                                            Giao hàng
-                                                    </h3>
-                                                </div>
-                                                    <div class="ui-stack-item">
-                                                        <a type="text/html" style="display: none" href="/admin/orders/5160220/fulfillments/create" define="{editFulfillItemsModal: new Bizweb.Modal(this)}" class="modal_source"></a>
-                                                        <a class="btn btn-primary" (click)="editFulfillItemsModal.show()" href="#">Giao hàng</a>
+                                                        </div>
                                                     </div>
-                                            </div>
-                                        </div>
-                                </section>
-        
-                                
-        
-                                <div id="timeline-desktop-container" class="timeline">
-                                    <div class="timeline__pane">
-                                        <header class="timeline__header hide-when-printing">
-                                            <div class="next-grid next-grid--no-outside-padding next-grid--space-between">
-                                                <div class="next-grid__cell">
-                                                    <h3 class="next-heading next-heading--no-margin">Hoạt động</h3>
+                                                </div>
+
+                                                <div class="ui-card__section" id="shipping-label-card" refresh="order-actions">
+                                                    <div class="ui-stack ui-stack--wrap ui-stack--alignment-center">
+
+                                                        <div class="ui-stack-item">
+                                                            <svg class="next-icon next-icon--color-slate-lighter next-icon--size-20 next-icon--no-nudge">
+                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    xlink:href="#next-shipping"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div style="flex: 1 1 auto" class="ui-stack-item ui-stack-item--fill">
+                                                            <h3 class="ui-subheading">
+                                                                Giao hàng
+                                                            </h3>
+                                                        </div>
+                                                        <div class="ui-stack-item">
+                                                            <a type="text/html" style="display: none" href="/admin/orders/5160220/fulfillments/create"
+                                                                define="{editFulfillItemsModal: new Bizweb.Modal(this)}"
+                                                                class="modal_source"></a>
+                                                            <a class="btn btn-primary" (click)="editFulfillItemsModal.show()"
+                                                                href="#">Giao hàng</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+
+
+                                            <div id="timeline-desktop-container" class="timeline" style="display:none">
+                                                <div class="timeline__pane">
+                                                    <header class="timeline__header hide-when-printing">
+                                                        <div class="next-grid next-grid--no-outside-padding next-grid--space-between">
+                                                            <div class="next-grid__cell">
+                                                                <h3 class="next-heading next-heading--no-margin">Hoạt
+                                                                    động</h3>
+                                                            </div>
+                                                        </div>
+                                                    </header>
+                                                    <div id="entire_timeline" refresh="entire_timeline" class="timeline__entire">
+                                                        <div class="timeline__new-comment-container hide-when-printing">
+                                                            <div class="timeline__avatar timeline__avatar--new-comment">
+                                                                <span class="user-avatar user-avatar--style-1">
+                                                                    <span class="user-avatar__initials">
+                                                                        <img class="profile-pic img-circle" data-name="Nguyen "
+                                                                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iNDYiIGhlaWdodD0iNDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjYsIDE4OCwgMTU2KTsgd2lkdGg6IDQ2cHg7IGhlaWdodDogNDZweDsgYm9yZGVyLXJhZGl1czogMHB4OyI+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeT0iNTAlIiB4PSI1MCUiIGR5PSIwLjM1ZW0iIHBvaW50ZXItZXZlbnRzPSJhdXRvIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iSGVsdmV0aWNhTmV1ZS1MaWdodCxIZWx2ZXRpY2EgTmV1ZSBMaWdodCxIZWx2ZXRpY2EgTmV1ZSxIZWx2ZXRpY2EsIEFyaWFsLEx1Y2lkYSBHcmFuZGUsIHNhbnMtc2VyaWYiIHN0eWxlPSJmb250LXdlaWdodDogNDAwOyBmb250LXNpemU6IDIwcHg7Ij5OPC90ZXh0Pjwvc3ZnPg==">
+                                                                    </span>
+                                                                    <img alt="" class="gravatar gravatar--size-thumb"
+                                                                        src="https://secure.gravatar.com/avatar/fd57abc68308c08465aba3674673550b.jpg?s=45&amp;d=blank">
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="ui-feed">
+                                                            <div id="timeline_container" refresh="timeline_container"
+                                                                class="ui-feed__section">
+
+                                                                <div class="ui-feed__item ui-feed__item--date">
+                                                                    <span class="timeline__date-heading">24/11/2018</span>
+                                                                </div>
+                                                                <span class="timeline__event-anchor" id="timeline__event-anchor_62840584"></span>
+                                                                <div id="event_62840584" class="ui-feed__timeline ui-accordion__toggler timeline-content"
+                                                                    define="{event62840584: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}"
+                                                                    context="event62840584">
+                                                                    <div class="ui-feed__item ui-feed__item--message  ui-feed__item--accordion-activator">
+                                                                        <span class="ui-feed__marker ui-feed__marker--user-action"></span>
+
+                                                                        <span class="ui-feed__message">
+                                                                            <div class="timeline__message-container">
+                                                                                <span class="timeline__inner-message">
+                                                                                    <span (click)="expanDetail(this,'62840584')">
+                                                                                        Nhận 100,000 VND đang chờ xác
+                                                                                        nhận, đơn hàng <a href="/admin/orders/5160220">#1002</a>.
+                                                                                        <span class="timeline__collapse-icon-wrapper">
+                                                                                            <svg class="next-icon next-icon--rotate-270 next-icon--color-blue next-icon--size-20">
+                                                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                    xlink:href="#next-disclosure"></use>
+                                                                                            </svg>
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </span>
+                                                                                <time id="timeline__time-62840584"
+                                                                                    class="timeline__time" refresh="timeline__time">
+                                                                                    <a class="timeline__time-link">
+                                                                                        1:06 PM
+                                                                                    </a>
+                                                                                </time>
+                                                                            </div>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div id="event_detail_62840584"
+                                                                        data-accordion-expanded="false" class="ui-accordion ui-feed__item ui-feed__item--accordion">
+                                                                        <div class="ui-feed__item__accordion-content">
+                                                                            <div class="ui-accordion__panel" id="ui-accordion__panel--62840584"
+                                                                                aria-hidden="true">
+                                                                                <section class="timeline__titled-section">
+                                                                                    <h3 class="next-heading helper--visually-hidden">#1002</h3>
+                                                                                    <dl class="description-list description-list--specifications">
+                                                                                        <dt>Đơn hàng</dt>
+                                                                                        <dd class=""><a href="/admin/orders/5160220">#1002</a></dd>
+
+                                                                                        <dt>Tin nhắn</dt>
+                                                                                        <dd>Nhận 100,000 VND đang chờ
+                                                                                            xác nhận, đơn hàng <a href="/admin/orders/5160220">#1002</a></dd>
+                                                                                        <dt>Số tiền</dt>
+                                                                                        <dd>100,000₫</dd>
+                                                                                        <dt>Cổng thanh toán</dt>
+                                                                                        <dd>
+                                                                                            Thủ công
+                                                                                        </dd>
+                                                                                        <dt>Trạng thái</dt>
+                                                                                        <dd>Chờ</dd>
+                                                                                        <dt>Loại</dt>
+                                                                                        <dd>Thanh toán</dd>
+                                                                                        <dt>Ngày tạo</dt>
+                                                                                        <dd>24/11/2018 13:06</dd>
+                                                                                    </dl>
+                                                                                </section>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <span class="timeline__event-anchor" id="timeline__event-anchor_62840583"></span>
+                                                                <div id="event_62840583" class="ui-feed__timeline ui-accordion__toggler timeline-content"
+                                                                    define="{event62840583: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}"
+                                                                    context="event62840583">
+                                                                    <div class="ui-feed__item ui-feed__item--message ">
+                                                                        <span class="ui-feed__marker"></span>
+
+                                                                        <span class="ui-feed__message">
+                                                                            <div class="timeline__message-container">
+                                                                                <span class="timeline__inner-message">
+                                                                                    <span>Có một đơn hàng mới <a href="/admin/orders/5160220">#1002</a>.
+                                                                                        <span class="timeline__collapse-icon-wrapper"></span></span>
+                                                                                </span>
+                                                                                <time id="timeline__time-62840583"
+                                                                                    class="timeline__time" refresh="timeline__time">
+                                                                                    <a class="timeline__time-link">
+                                                                                        1:06 PM
+                                                                                    </a>
+                                                                                </time>
+                                                                            </div>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <span class="timeline__event-anchor" id="timeline__event-anchor_62840582"></span>
+                                                                <div id="event_62840582" class="ui-feed__timeline ui-accordion__toggler timeline-content"
+                                                                    define="{event62840582: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}"
+                                                                    context="event62840582">
+                                                                    <div class="ui-feed__item ui-feed__item--message ">
+                                                                        <span class="ui-feed__marker"></span>
+
+                                                                        <span class="ui-feed__message">
+                                                                            <div class="timeline__message-container">
+                                                                                <span class="timeline__inner-message">
+                                                                                    <span>Đơn hàng được tạo từ đơn hàng
+                                                                                        nháp <a href="/admin/draft_orders/141495">#D2</a>.
+                                                                                        <span class="timeline__collapse-icon-wrapper"></span></span>
+                                                                                </span>
+                                                                                <time id="timeline__time-62840582"
+                                                                                    class="timeline__time" refresh="timeline__time">
+                                                                                    <a class="timeline__time-link">
+                                                                                        1:06 PM
+                                                                                    </a>
+                                                                                </time>
+                                                                            </div>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div id="show-timeline-pagination-buttons" refresh-always="">
+                                                        </div>
+
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </header>
-                                        <div id="entire_timeline" refresh="entire_timeline" class="timeline__entire">
-                                            <div class="timeline__new-comment-container hide-when-printing">
-                                                <div class="timeline__avatar timeline__avatar--new-comment">
-                                                    <span class="user-avatar user-avatar--style-1">
-                                                        <span class="user-avatar__initials">
-                                                            <img class="profile-pic img-circle" data-name="Nguyen " src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iNDYiIGhlaWdodD0iNDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjYsIDE4OCwgMTU2KTsgd2lkdGg6IDQ2cHg7IGhlaWdodDogNDZweDsgYm9yZGVyLXJhZGl1czogMHB4OyI+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeT0iNTAlIiB4PSI1MCUiIGR5PSIwLjM1ZW0iIHBvaW50ZXItZXZlbnRzPSJhdXRvIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iSGVsdmV0aWNhTmV1ZS1MaWdodCxIZWx2ZXRpY2EgTmV1ZSBMaWdodCxIZWx2ZXRpY2EgTmV1ZSxIZWx2ZXRpY2EsIEFyaWFsLEx1Y2lkYSBHcmFuZGUsIHNhbnMtc2VyaWYiIHN0eWxlPSJmb250LXdlaWdodDogNDAwOyBmb250LXNpemU6IDIwcHg7Ij5OPC90ZXh0Pjwvc3ZnPg==">
-                                                        </span>
-                                                        <img alt="" class="gravatar gravatar--size-thumb" src="https://secure.gravatar.com/avatar/fd57abc68308c08465aba3674673550b.jpg?s=45&amp;d=blank">
-                                                    </span>
-                                                </div>
-                                            </div>
-        
-                                            <div class="ui-feed">
-                                                <div id="timeline_container" refresh="timeline_container" class="ui-feed__section">
-                                                    
-                <div class="ui-feed__item ui-feed__item--date">
-                    <span class="timeline__date-heading">24/11/2018</span>
-                </div>
-            <span class="timeline__event-anchor" id="timeline__event-anchor_62840584"></span>
-            <div id="event_62840584" class="ui-feed__timeline ui-accordion__toggler timeline-content" define="{event62840584: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}" context="event62840584">
-                    <div class="ui-feed__item ui-feed__item--message  ui-feed__item--accordion-activator">
-                        <span class="ui-feed__marker ui-feed__marker--user-action"></span>
-        
-                        <span class="ui-feed__message">
-                            <div class="timeline__message-container">
-                                <span class="timeline__inner-message">
-                                        <span (click)="expanDetail(this,'62840584')">
-                                            Nhận 100,000 VND đang chờ xác nhận, đơn hàng <a href="/admin/orders/5160220">#1002</a>.
-                                            <span class="timeline__collapse-icon-wrapper">
-                                                <svg class="next-icon next-icon--rotate-270 next-icon--color-blue next-icon--size-20"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-disclosure"></use> </svg>
-                                            </span>
-                                        </span>
-                                </span>
-                                <time id="timeline__time-62840584" class="timeline__time" refresh="timeline__time">
-                                    <a class="timeline__time-link">
-                                        1:06 PM
-                                    </a>
-                                </time>
-                            </div>
-                        </span>
-                    </div>
-                        <div id="event_detail_62840584" data-accordion-expanded="false" class="ui-accordion ui-feed__item ui-feed__item--accordion">
-                            <div class="ui-feed__item__accordion-content">
-                                <div class="ui-accordion__panel" id="ui-accordion__panel--62840584" aria-hidden="true">
-            <section class="timeline__titled-section">
-                <h3 class="next-heading helper--visually-hidden">#1002</h3>
-                <dl class="description-list description-list--specifications">
-                    <dt>Đơn hàng</dt>
-                    <dd class=""><a href="/admin/orders/5160220">#1002</a></dd>
-        
-                    <dt>Tin nhắn</dt>
-                    <dd>Nhận 100,000 VND đang chờ xác nhận, đơn hàng <a href="/admin/orders/5160220">#1002</a></dd>
-                    <dt>Số tiền</dt>
-                    <dd>100,000₫</dd>
-                    <dt>Cổng thanh toán</dt>
-                    <dd>
-                            Thủ công
-                    </dd>
-                    <dt>Trạng thái</dt>
-                    <dd>Chờ</dd>
-                    <dt>Loại</dt>
-                    <dd>Thanh toán</dd>
-                    <dt>Ngày tạo</dt>
-                    <dd>24/11/2018 13:06</dd>
-                </dl>
-            </section>
-                                </div>
-                            </div>
-                        </div>
-            </div>
-            <span class="timeline__event-anchor" id="timeline__event-anchor_62840583"></span>
-            <div id="event_62840583" class="ui-feed__timeline ui-accordion__toggler timeline-content" define="{event62840583: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}" context="event62840583">
-                    <div class="ui-feed__item ui-feed__item--message ">
-                        <span class="ui-feed__marker"></span>
-        
-                        <span class="ui-feed__message">
-                            <div class="timeline__message-container">
-                                <span class="timeline__inner-message">
-                                    <span>Có một đơn hàng mới <a href="/admin/orders/5160220">#1002</a>.
-                                    <span class="timeline__collapse-icon-wrapper"></span></span>
-                                </span>
-                                <time id="timeline__time-62840583" class="timeline__time" refresh="timeline__time">
-                                    <a class="timeline__time-link">
-                                        1:06 PM
-                                    </a>
-                                </time>
-                            </div>
-                        </span>
-                    </div>
-            </div>
-            <span class="timeline__event-anchor" id="timeline__event-anchor_62840582"></span>
-            <div id="event_62840582" class="ui-feed__timeline ui-accordion__toggler timeline-content" define="{event62840582: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}" context="event62840582">
-                    <div class="ui-feed__item ui-feed__item--message ">
-                        <span class="ui-feed__marker"></span>
-        
-                        <span class="ui-feed__message">
-                            <div class="timeline__message-container">
-                                <span class="timeline__inner-message">
-                                    <span>Đơn hàng được tạo từ đơn hàng nháp <a href="/admin/draft_orders/141495">#D2</a>.
-                                    <span class="timeline__collapse-icon-wrapper"></span></span>
-                                </span>
-                                <time id="timeline__time-62840582" class="timeline__time" refresh="timeline__time">
-                                    <a class="timeline__time-link">
-                                        1:06 PM
-                                    </a>
-                                </time>
-                            </div>
-                        </span>
-                    </div>
-            </div>
-        
-                                                </div>
-                                            </div>
-        
-                                            <div id="show-timeline-pagination-buttons" refresh-always="">
-                                            </div>
-        
-        
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui-layout__section ui-layout__section--secondary" id="order-sidebar">
-                            <div class="ui-layout__item">
-            <section class="ui-card ">
-                <div class="ui-card__section hide-when-printing" id="order-notes" data-tg-refresh="order-notes">
-                    <div class="ui-stack ui-stack--wrap ui-stack--vertical">
-                        <div class="ui-stack-item">
-                            <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
-                                <div class="ui-stack-item ui-stack-item--fill">
-                                    <h2 class="ui-heading">Ghi chú</h2>
-                                </div>
-                                <div class="ui-stack-item">
-                                    <button class="ui-button btn--link hide-when-printing" data-(click)="orderNotesModal.show()" type="button" name="button">Sửa</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui-stack-item">
-                            <p class="order-notes__default-text type--subdued">Không có ghi chú</p>
-                        </div>
-                    </div>
-                    <script data-define="{orderNotesModal: new Bizweb.Modal(this)}" type="text/html" class="modal_source">
+                                    <div class="ui-layout__section ui-layout__section--secondary" id="order-sidebar">
+                                        <div style="display:none" class="ui-layout__item">
+                                            <section class="ui-card ">
+                                                <div class="ui-card__section hide-when-printing" id="order-notes"
+                                                    data-tg-refresh="order-notes">
+                                                    <div class="ui-stack ui-stack--wrap ui-stack--vertical">
+                                                        <div class="ui-stack-item">
+                                                            <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
+                                                                <div class="ui-stack-item ui-stack-item--fill">
+                                                                    <h2 class="ui-heading">Ghi chú</h2>
+                                                                </div>
+                                                                <div class="ui-stack-item">
+                                                                    <button class="ui-button btn--link hide-when-printing"
+                                                                        data-(click)="orderNotesModal.show()" type="button"
+                                                                        name="button">Sửa</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ui-stack-item">
+                                                            <p class="order-notes__default-text type--subdued">Không có
+                                                                ghi chú</p>
+                                                        </div>
+                                                    </div>
+                                                    <script data-define="{orderNotesModal: new Bizweb.Modal(this)}"
+                                                        type="text/html" class="modal_source">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <form class="edit_order" id="order-note-edit-form" autocomplete="off" data-tg-refresh="order-notes-edit" data-tg-remote="patch" data-tg-refresh-on-success="order-notes order-title-bar modal" data-define="{orderNotesForm: new Bizweb.Forms(this, {
@@ -716,32 +774,34 @@
                             </div>
                         </div>
                     </script>
-                </div>
-            </section>
-        </div>
-        
-                            <div class="ui-layout__item">
-                                <section class="ui-card" id="customer-card" data-tg-refresh="customer-card">
-                                    <header class="ui-card__header">
-                                        <div class="ui-stack ui-stack--wrap">
-                                            <div class="ui-stack-item ui-stack-item--fill">
-                                                <h2 class="ui-heading">Khách hàng</h2>
-                                            </div>
-                                        </div>
-                                    </header>
-                                    <div class="ui-card__section">
-                                        <div class="ui-type-container ui-type-container--spacing-tight">
-                                                <p class="type--subdued">Không có khách hàng</p>
-                                        </div>
-                                    </div>
-                                    <div class="ui-card__section">
-                                        <div class="ui-type-container">
-                                            <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
-                                                <div class="ui-stack-item ui-stack-item--fill">
-                                                    <h3 class="ui-subheading">Liên hệ</h3>
                                                 </div>
-                                                <div class="ui-stack-item">
-                                                    <script id="modal-edit-order-email" class="modal_source" define="{editOrderEmailModal: new Bizweb.Modal(this)}" type="text/html">
+                                            </section>
+                                        </div>
+
+                                        <div class="ui-layout__item">
+                                            <section class="ui-card" id="customer-card" data-tg-refresh="customer-card">
+                                                <header style="background: #fff; width: 80%" class="ui-card__header">
+                                                    <div class="ui-stack ui-stack--wrap">
+                                                        <div class="ui-stack-item ui-stack-item--fill">
+                                                            <h2 class="ui-heading">Khách hàng</h2>
+                                                        </div>
+                                                    </div>
+                                                </header>
+                                                <div class="ui-card__section">
+                                                    <div class="ui-type-container ui-type-container--spacing-tight">
+                                                        <p class="type--subdued">{{order.customerName}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="ui-card__section">
+                                                    <div class="ui-type-container">
+                                                        <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
+                                                            <div class="ui-stack-item ui-stack-item--fill">
+                                                                <h3 class="ui-subheading">Liên hệ</h3>
+                                                            </div>
+                                                            <div class="ui-stack-item">
+                                                                <script id="modal-edit-order-email" class="modal_source"
+                                                                    define="{editOrderEmailModal: new Bizweb.Modal(this)}"
+                                                                    type="text/html">
                                                         <form define="{updateEmail: new Bizweb.Form(this, {node_change: &quot;.update-order-email&quot;}) }" action="/admin/orders/updateorderemail" method="post">
                                                             <input type="hidden" name="AuthenticityToken" value="yO/kyvUpp4TMJmKGziUMUssP1ZbLbNKF/6nQqJmXL5mW4aD3H/UJe/Cjy0DJSmSYCTuYieYPXFxJ+EHTneBXpw==" />
                                                             <div class="modal-dialog">
@@ -791,32 +851,35 @@
                                                             </div>
                                                         </form>
                                                     </script>
-                                                    <button class="ui-button btn--link" (click)="editOrderEmailModal.show()" type="button" name="button">Sửa</button>
+                                                                <button class="ui-button btn--link" (click)="editOrderEmailModal.show()"
+                                                                    type="button" name="button">Sửa</button>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="ui-type-container ui-type-container--spacing-extra-tight">
+                                                                <p>
+                                                                    <span>{{order.customerEmail}}</span>
+                                                                </p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div>
-                                                <div class="ui-type-container ui-type-container--spacing-extra-tight">
-                                                    <p>
-                                                            <span>Không có email</span>
-                                                    </p>
-        
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-                                    <div class="ui-card__section">
-                                        <div class="ui-type-container">
-                                            <div class="hide">
-                                            </div>
-        
-                                            <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
-                                                <div class="ui-stack-item ui-stack-item--fill">
-                                                    <h3 class="ui-subheading">Địa chỉ giao hàng</h3>
-                                                </div>
-                                                <div class="ui-stack-item">
-        
-        <script id="modal-edit-shipping-address" class="modal_source" define="{editShippingAddressModal: new Bizweb.Modal(this)}" type="text/html">
+
+                                                <div class="ui-card__section">
+                                                    <div class="ui-type-container">
+                                                        <div class="hide">
+                                                        </div>
+
+                                                        <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
+                                                            <div class="ui-stack-item ui-stack-item--fill">
+                                                                <h3 class="ui-subheading">Địa chỉ giao hàng</h3>
+                                                            </div>
+                                                            <div class="ui-stack-item">
+
+                                                                <script id="modal-edit-shipping-address" class="modal_source"
+                                                                    define="{editShippingAddressModal: new Bizweb.Modal(this)}"
+                                                                    type="text/html">
             <form define="{updateShippingAddress: new Bizweb.OldForm(this,'.order--account-info') }" action="/admin/orders/updateshippingaddress" method="post" id="formUpdateShippingAddress">
                 <input type="hidden" name="AuthenticityToken" value="yO/kyvUpp4TMJmKGziUMUssP1ZbLbNKF/6nQqJmXL5mW4aD3H/UJe/Cjy0DJSmSYzjF5IpLAMhMLRYAaVrbQUw==" />
                 <div class="modal-dialog" define="{customerAddressCreate: new Bizweb.CustomerAddress(this,{&quot;district_slt&quot;:&quot;#districtSlt&quot;,&quot;province_slt&quot;:&quot;#provinceSlt&quot;,&quot;have_city&quot;:true})}" context="customerAddressCreate">
@@ -1266,374 +1329,157 @@
                 </div>
             </form>
         </script>
-        <script type="text/javascript">
-            function sumbitForm() {
-                var address = "";
-                $('#submitAddressForm').addClass('is-loading');
-                var cusAddress = $('#Address1').val();
-                if (cusAddress != null && cusAddress != "" && cusAddress != undefined) {
-                    address += cusAddress + ", ";
-                }
-        
-                var provinceName = $("#provinceSlt").find(":selected").text();
-                var districtName = $("#districtSlt").find(":selected").text();
-                var countryName = $("#CountryId").find(":selected").text();
-        
-                if (districtName != null && districtName != "" && districtName != undefined) {
-                    address += districtName + ", ";
-                }
-        
-                if (provinceName != null && provinceName != "" && provinceName != undefined) {
-                    address += provinceName + ", ";
-                }
-        
-                if (countryName != null && countryName != "" && countryName != undefined) {
-                    address += countryName;
-                }
-        
-                var $form = $("#formUpdateShippingAddress");
-                var listAPIKey = 'AIzaSyDWReBlPxFt-i145Gsd502wOqRS0KXFHW4;AIzaSyAbtwApDToQWn7snVio3Y9PWFbcpdnOWdk;AIzaSyA5rJOu8wci0li24bnZ1WogMEH93p-DGlM';
-        
-                if (listAPIKey !== null && listAPIKey !== "" && listAPIKey !== 'undefined') {
-                    listAPIKey = listAPIKey.split(";");
-                    var apiKey = listAPIKey[Math.floor(Math.random() * listAPIKey.length)];
-                    var urlGoogleMapsApi = "https://maps.googleapis.com/maps/api/js?key=" + apiKey;
-        
-                    loadScriptGoogleMapApi(urlGoogleMapsApi, function (resultLoadApi) {
-        
-                        if (resultLoadApi === true) {
-                            getLatitudeLongitude(address, function (latlngResult) {
-                                if (latlngResult == false) {
-                                    $form.submit();
-                                }
-                                else {
-                                    $form.append('<input type="hidden" type="text" class="form-control" name="Latitude" value="' + latlngResult.geometry.location.lat() + '" />');
-                                    $form.append('<input type="hidden" type="text" class="form-control" name="Longitude" value="' + latlngResult.geometry.location.lng() + '" />');
-                                    $form.submit();
-                                }
-                            })
-                        }
-                        else {
-                            $form.submit();
-                        }
-                    })
-                }
-                else {
-                    $form.submit();
-                }
-            }
-        
-            function loadScriptGoogleMapApi(url, callback) {
-                jQuery.ajax({
-                    url: url,
-                    dataType: 'script',
-                    async: true,
-                    success: function () {
-                        callback(true);
-                    },
-                    error: function () {
-                        callback(false);
-                    }
-                });
-            }
-        
-            function getLatitudeLongitude(address, callback) {
-                // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
-                address = address || '266 Đội Cấn, Ba Đình, Hà Nội';
-                // Initialize the Geocoder
-                if (typeof google !== 'undefined') {
-                    geocoder = new google.maps.Geocoder();
-                    if (geocoder && geocoder.geocode) {
-                        geocoder.geocode({
-                            'address': address
-                        }, function (results, status) {
-                            if (status == google.maps.GeocoderStatus.OK) {
-                                callback(results[0]);
-                            }
-                            else {
-                                callback(false);
-                            }
-                        });
-                    }
-                    else {
-                        callback(false);
-                    }
-                }
-                else {
-                    callback(false);
-                }
-            }
-        </script>                                                    <button class="ui-button btn--link" type="button" (click)="editShippingAddressModal.show()">Thêm</button>
-        
+                                                                <script type="text/javascript">
+                                                                    function sumbitForm() {
+                                                                        var address = "";
+                                                                        $('#submitAddressForm').addClass('is-loading');
+                                                                        var cusAddress = $('#Address1').val();
+                                                                        if (cusAddress != null && cusAddress != "" && cusAddress != undefined) {
+                                                                            address += cusAddress + ", ";
+                                                                        }
+
+                                                                        var provinceName = $("#provinceSlt").find(":selected").text();
+                                                                        var districtName = $("#districtSlt").find(":selected").text();
+                                                                        var countryName = $("#CountryId").find(":selected").text();
+
+                                                                        if (districtName != null && districtName != "" && districtName != undefined) {
+                                                                            address += districtName + ", ";
+                                                                        }
+
+                                                                        if (provinceName != null && provinceName != "" && provinceName != undefined) {
+                                                                            address += provinceName + ", ";
+                                                                        }
+
+                                                                        if (countryName != null && countryName != "" && countryName != undefined) {
+                                                                            address += countryName;
+                                                                        }
+
+                                                                        var $form = $("#formUpdateShippingAddress");
+                                                                        var listAPIKey = 'AIzaSyDWReBlPxFt-i145Gsd502wOqRS0KXFHW4;AIzaSyAbtwApDToQWn7snVio3Y9PWFbcpdnOWdk;AIzaSyA5rJOu8wci0li24bnZ1WogMEH93p-DGlM';
+
+                                                                        if (listAPIKey !== null && listAPIKey !== "" && listAPIKey !== 'undefined') {
+                                                                            listAPIKey = listAPIKey.split(";");
+                                                                            var apiKey = listAPIKey[Math.floor(Math.random() * listAPIKey.length)];
+                                                                            var urlGoogleMapsApi = "https://maps.googleapis.com/maps/api/js?key=" + apiKey;
+
+                                                                            loadScriptGoogleMapApi(urlGoogleMapsApi, function (resultLoadApi) {
+
+                                                                                if (resultLoadApi === true) {
+                                                                                    getLatitudeLongitude(address, function (latlngResult) {
+                                                                                        if (latlngResult == false) {
+                                                                                            $form.submit();
+                                                                                        }
+                                                                                        else {
+                                                                                            $form.append('<input type="hidden" type="text" class="form-control" name="Latitude" value="' + latlngResult.geometry.location.lat() + '" />');
+                                                                                            $form.append('<input type="hidden" type="text" class="form-control" name="Longitude" value="' + latlngResult.geometry.location.lng() + '" />');
+                                                                                            $form.submit();
+                                                                                        }
+                                                                                    })
+                                                                                }
+                                                                                else {
+                                                                                    $form.submit();
+                                                                                }
+                                                                            })
+                                                                        }
+                                                                        else {
+                                                                            $form.submit();
+                                                                        }
+                                                                    }
+
+                                                                    function loadScriptGoogleMapApi(url, callback) {
+                                                                        jQuery.ajax({
+                                                                            url: url,
+                                                                            dataType: 'script',
+                                                                            async: true,
+                                                                            success: function () {
+                                                                                callback(true);
+                                                                            },
+                                                                            error: function () {
+                                                                                callback(false);
+                                                                            }
+                                                                        });
+                                                                    }
+
+                                                                    function getLatitudeLongitude(address, callback) {
+                                                                        // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
+                                                                        address = address || '266 Đội Cấn, Ba Đình, Hà Nội';
+                                                                        // Initialize the Geocoder
+                                                                        if (typeof google !== 'undefined') {
+                                                                            geocoder = new google.maps.Geocoder();
+                                                                            if (geocoder && geocoder.geocode) {
+                                                                                geocoder.geocode({
+                                                                                    'address': address
+                                                                                }, function (results, status) {
+                                                                                    if (status == google.maps.GeocoderStatus.OK) {
+                                                                                        callback(results[0]);
+                                                                                    }
+                                                                                    else {
+                                                                                        callback(false);
+                                                                                    }
+                                                                                });
+                                                                            }
+                                                                            else {
+                                                                                callback(false);
+                                                                            }
+                                                                        }
+                                                                        else {
+                                                                            callback(false);
+                                                                        }
+                                                                    }
+                                                                </script> <button class="ui-button btn--link" type="button" (click)="editShippingAddressModal.show()">Thêm</button>
+
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="ui-type-container ui-type-container--spacing-extra-tight">
+                                                                <p>
+                                                                    <span>{{order.customerAddress}}</span>
+                                                                </p>
+
+                                                            </div>
+                                                        </div>
+                                                        <p class="type--subdued word_break__content">
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <p class="type--subdued word_break__content">
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="ui-card__section">
-                                        <div class="ui-type-container">
-        
-                                            <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
-                                                <div class="ui-stack-item ui-stack-item--fill">
-                                                    <h3 class="ui-subheading">Địa chỉ thanh toán</h3>
+                                                <div class="ui-card__section">
+                                                    <div class="ui-type-container">
+                                                        <p class="type--subdued">Phương thức vận chuyển: <span class="bold">Giao
+                                                                hàng tận nơi</span></p>
+
+                                                    </div>
                                                 </div>
+                                            </section>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="delete-order">
+                                <div class="ui-page-actions ">
+                                    <div class="ui-page-actions__container">
+                                        <div class="ui-page-actions__actions ui-page-actions__actions--primary">
+                                            <div class="ui-page-actions__button-group">
+                                                <button class="ui-button ui-button--primary js-btn-loadable js-btn-primary btn-primary has-loading"
+                                                    type="submit" name="commit" disabled="disabled">Lưu</button>
                                             </div>
-                                            <p class="type--subdued word_break__content">
-                                                    <span>Chưa có địa chỉ thanh toán</span>
-        
-                                            </p>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                            
-                            <div class="ui-layout__item">
-            <div class="next-card next-card--aside">
-                <header class="next-card__header">
-                    <div class="wrappable wrappable--half-spacing wrappable--vertically-centered">
-                        <div class="wrappable__item">
-                            <h3 class="ui-heading">
-                                Tag
-                            </h3>
-                        </div>
-                        <div class="wrappable__item wrappable__item--no-flex">
-                            <a (click)="tagDisplay.showAllTagsModal.show()">Xem toàn bộ tag</a>
-                        </div>
-                    </div>
-                </header>
-                <script type="text/template" id="display-one-tag" data-input-name="Tags">
-                    <li class="next-token">
-                        <span class="next-token__label">{{= tag }}</span>
-        
-                        <a (click)="removeTag(this)" class="next-token__remove">
-                            <input type="hidden" name="{{= inputName }}" value="{{= tag }}">
-                            <span class="next-token__remove__icon">
-                                <svg class="next-icon next-icon--size-10 next-icon--no-nudge">
-                                    <use xlink:href="#next-remove"></use>
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </script>
-                <section class="next-card__section">
-                    <div define="{tagDisplay: new Bizweb.TagDisplay(this)}" context="tagDisplay" id="tags-event-bus">
-                        <a href="/admin/orders/tags" data-define="{showAllTagsModal: new Bizweb.Modal(this)}" type="text/html" class="modal_source" style="display: none"></a>
-                        <script type="text/template" id="autocomplete-header-suggestion-template">
-                            <li>
-                                <a class="next-list__item next-list__item--promoted-action"
-                                   selectable
-                                   data-(click)="selectHeader(event)">
-                                    <div class="next-grid next-grid--no-outside-padding next-grid--compact">
-                                        <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--vertically-centered">
-                                            <svg style="overflow: visible; /* fixes clipping in Chrome */" class="next-icon next-icon--size-12 next-icon next-icon--12 block"> <use xlink:href="#next-add-circle" /> </svg>
-                                        </div>
-                                        <div class="next-grid__cell">
-                                            <strong>Add</strong> {{= input }}
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </script>
-                        <script type="text/template" id="autocomplete-suggestions-list-template">
-                            {{ _.each(suggestions, function(suggestion, index) { }}
-                            <li>
-                                <a class="next-list__item"
-                                   selectable>
-                                    {{= suggestion }}
-                                </a>
-                            </li>
-                            {{ }) }}
-                        </script>
-                        <script type="text/template" id="autocomplete-no-suggestions-template">
-                            <li>
-                                <div class="ui-popover__section">
-                                    <p class="type--subdued tc">No results found</p>
-                                </div>
-                            </li>
-                        </script>
-                        <script type="text/template" id="country-autocomplete-list-template">
-                            {{ _.each(suggestions, function(suggestion, index) { }}
-                            <li>
-                                <a class="next-list__item"
-                                   selectable>
-                                    {{= suggestion.name }}
-                                </a>
-                            </li>
-                            {{ }) }}
-                        </script>
-                        <script type="text/template" id="autocomplete-v2-suggestions-list-with-toggle-template">
-                            {{ _.each(suggestions, function(suggestion, index) { }}
-                            <li>
-                                <a class="next-list__item"
-                                   selectable>
-                                    <div class="next-grid next-grid--no-outside-padding next-grid--compact">
-                                        <div class="next-grid__cell next-grid__cell--no-flex">
-                                            <svg class="next-icon next-icon--size-12"> <use xlink:href="#next-checkmark" /> </svg>
-                                        </div>
-                                        <div class="next-grid__cell">
-                                            {{= suggestion[displayKey] }}
-        
-                                            {{ if(detailsKey || secondaryDetailsKey) { }}
-                                            <span class="type--subdued"> {{= suggestion[detailsKey] || suggestion[secondaryDetailsKey]}}</span>
-                                            {{ } }}
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            {{ }) }}
-                        </script>
-                        <script type="text/template" id="autocomplete-v2-no-results-template">
-                            {{ if (input) { }}
-                            <li>
-                                <a class="next-list__item next-list__item--promoted-action"
-                                   selectable
-                                   data-(click)="selectHeader(event)">
-                                    <div class="next-grid next-grid--no-outside-padding next-grid--compact">
-                                        <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--vertically-centered">
-                                            <svg style="overflow: visible; /* fixes clipping in Chrome */" class="next-icon next-icon--size-12 next-icon next-icon--12 block"> <use xlink:href="#next-add-circle" /> </svg>
-                                        </div>
-                                        <div class="next-grid__cell">
-                                            <strong>Add</strong> {{= input }}
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-        
-                            {{ } }}
-                        </script>
-                        <script type="text/template" id="autocomplete-v2-results-template">
-                            {{ if (firstPage && !hasMatchingSuggestion && input) { }}
-                            <li>
-                                <a class="next-list__item next-list__item--promoted-action"
-                                   selectable
-                                   data-(click)="selectHeader(event)">
-                                    <div class="next-grid next-grid--no-outside-padding next-grid--compact">
-                                        <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--vertically-centered">
-                                            <svg style="overflow: visible; " class="next-icon next-icon--size-12 next-icon next-icon--12 block"> <use xlink:href="#next-add-circle" /> </svg>
-                                        </div>
-                                        <div class="next-grid__cell">
-                                            <strong>Add</strong> {{= input }}
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-        
-                            {{ } }}
-        
-                            {{ _.each(suggestions, function(suggestion) { }}
-                            <li>
-                                <a class="next-list__item"
-                                   selectable
-                                   data-(click)="selectSuggestion({{= JSON.stringify(suggestion) }}, event)">
-                                    {{= suggestion }}
-                                </a>
-                            </li>
-                            {{ }) }}
-                        </script>
-                        <script type="text/template" id="autocomplete-v2-tag-results-template">
-                            {{ if (firstPage && !input) { }}
-                            <li>
-                                <h3 class="next-heading next-heading--micro-uppercase-bordered">Tag gần đây</h3>
-                            </li>
-                            {{ } }}
-                            {{ if (firstPage && !hasMatchingSuggestion && input) { }}
-                            <li>
-                                <a class="next-list__item next-list__item--promoted-action"
-                                   selectable
-                                   data-(click)="selectHeader(event)">
-                                    <div class="next-grid next-grid--no-outside-padding next-grid--compact">
-                                        <div class="next-grid__cell next-grid__cell--no-flex next-grid__cell--vertically-centered">
-                                            <svg style="overflow: visible; " class="next-icon next-icon--size-12 next-icon next-icon--12 block"> <use xlink:href="#next-add-circle" /> </svg>
-                                        </div>
-                                        <div class="next-grid__cell">
-                                            <strong>Add</strong> {{= input }}
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-        
-                            {{ } }}
-        
-                            {{ _.each(suggestions, function(suggestion) { }}
-                            <li>
-                                <a class="next-list__item"
-                                   selectable
-                                   data-(click)="selectSuggestion({{= JSON.stringify(suggestion) }}, event)">
-                                    {{= suggestion }}
-                                </a>
-                            </li>
-                            {{ }) }}
-                        </script>
-                        <div class="ui-popover__container ui-popover__container--full-width-container" data-context="tagsAutocomplete" data-define="{ 'tagsAutocomplete': new Bizweb.AutocompleteV2.TagsAutocomplete(this, &quot;\/admin\/orders\/tags&quot;, $node, {&quot;values&quot;:[],&quot;maxLengthError&quot;:&quot;Tag vượt quá 249 kí tự&quot;,&quot;maxLength&quot;:249,&quot;duplicateError&quot;:&quot;Bạn đã sử dụng tag \&quot;%s\&quot; rồi&quot;}) }">
-                            <div>
-                                <div class="">
-                                    <input class="next-input js-no-dirty" placeholder="Nhập tag cho đơn hàng" id="tags" size="30" type="text" aria-expanded="false" aria-haspopup="false" aria-owns="popover-dropdown-14" aria-controls="popover-announce-selected" role="combobox" aria-autocomplete="list" aria-activedescendant="selected-option-4">
-                                </div>
-        
-                                <div class="tooltip-error attached-to-bottom hide">
-                                    <ul class="error-list">
-                                        <li></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="ui-popover ui-popover--full-width ui-popover--no-focus" data-popover-horizontally-relative-to-closest=".next-card" data-popover-css-vertical-margin="13" data-popover-css-horizontal-margin="0" data-popover-css-max-height="300" data-popover-css-max-width="10000" id="ui-popover--7" aria-labelledby="tags" aria-expanded="false" role="dialog" data-popover-preferred-position="top" style="margin-right: 0px; margin-left: 0px;">
-                                <div class="ui-popover__tooltip"></div>
-                                <div class="ui-popover__content-wrapper">
-                                    <div class="ui-popover__content">
-                                        <div class="ui-popover__pane">
-                                            <ul class="js-autocomplete-suggestions next-list next-list--compact next-list--toggles" role="listbox" id="popover-dropdown-14"></ul>
-                                            <div class="ui-popover__section hide">
-                                                <p class="type--subdued tc">
-                                                    <span class="next-spinner">
-                                                        <svg class="next-icon next-icon--size-16">
-                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-spinner"></use>
-                                                        </svg>
-                                                    </span>
-                                                    Loading…
-                                                </p>
-                                            </div>
-        
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <input type="hidden" name="Tags" (click)="hasTags()">
-                        <ul class="js-tag-list next-token-list st"></ul>
+
+                        </form>
                     </div>
-                </section>
-            </div>
-        </div>
-        
-        
-                        </div>
-                    </div>
-                </div>
-        
-                <div id="delete-order">
-                    <div class="ui-page-actions ">
-                        <div class="ui-page-actions__container">
-                            <div class="ui-page-actions__actions ui-page-actions__actions--primary">
-                                <div class="ui-page-actions__button-group">
-                                    <button class="ui-button ui-button--primary js-btn-loadable js-btn-primary btn-primary has-loading" type="submit" name="commit" disabled="disabled">Lưu</button>
-                                </div>
+                    <div class="t-grid-pager-boder">
+                        <div class="t-pager t-reset clearfix fix-margin-pager">
+                            <div class="col-md-6 col-lg-6 hidden-xs hidden-sm no-padding">
+                                <!---div class="t-status-text dataTables_info">Hiển thị kết quả từ 1 - 20 trên tổng {{products.count}} </div-->
                             </div>
                         </div>
                     </div>
                 </div>
-        
-            </form>
             </div>
-            <div class="t-grid-pager-boder">
-              <div class="t-pager t-reset clearfix fix-margin-pager">
-                <div class="col-md-6 col-lg-6 hidden-xs hidden-sm no-padding">
-                  <!---div class="t-status-text dataTables_info">Hiển thị kết quả từ 1 - 20 trên tổng {{products.count}} </div-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </div>
-  </div>
+</div>

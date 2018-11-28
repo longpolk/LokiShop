@@ -227,6 +227,14 @@ export class OrderService {
       console.error("Error removing order: ", error);
     });;
   }
+   /** UPDATE status of order */
+   updateStatus(order: Order, orderStatus: string) {
+      this.angularFirestore
+        .collection("orders").doc(order.id)
+        .update({
+          status: orderStatus
+        });
+  }
   /*
   setCurrentPosition(customerAddress: string, customerCity: string, 
     customerDistrict: string, customerWard: string) {

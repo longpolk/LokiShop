@@ -102,7 +102,7 @@
                               <td >
                                 {{order.data.currentCost | number}}
                               </td>
-                              <td *ngIf="order.data.payment_method=='cod' && order.data.status=='Đã giao hàng'">
+                              <td *ngIf="order.data.payment_method=='cod' && (order.data.status=='Đã thanh toán' || order.data.status=='Đã giao hàng')">
                                 Đã thanh toán
                               </td>
                               <td *ngIf="order.data.payment_method=='cod' && order.data.status=='Đang xử lí'">
@@ -112,7 +112,8 @@
                                 Đã thanh toán qua Palpal
                               </td>
                               <td >
-                                {{order.data.status}}
+                                  <span *ngIf="order.data.status=='Đã giao hàng'">Đã giao hàng</span>
+                                  <span *ngIf="order.data.status!='Đã giao hàng'">Đang xử lí</span>
                               </td>
                             </tr>
                           </tbody>

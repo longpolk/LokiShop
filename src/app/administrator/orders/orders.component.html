@@ -50,7 +50,7 @@
                                                 </a>
                                             </li>
                                             <li class="active menu-is-selected">
-                                                <a routerLink="/admin/orders" class="menu-parent " (click)="navDrawer.showSubMenu(this)"
+                                                <a routerLink="/admin/orders" class="menu-parent "
                                                     data-name="orders">
                                                     <svg class="next-icon">
                                                         <use xlink:href="#icon-order" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
@@ -483,17 +483,18 @@
                         </div>
                       </div>
                     </td>
-                    <td style="text-align: inherit;" class="total" *ngIf="order.data.payment_method=='cod' && order.data.status=='Đã giao hàng'">
+                    <td style="text-align: inherit;" class="total" *ngIf="(order.data.status=='Đã thanh toán' || order.data.status=='Đã giao hàng') && order.data.payment_method=='cod'">
                         <span class="badge badge--status-complete badge--progress-complete">Đã thanh toán</span>
                       </td>
-                      <td style="text-align: inherit;" class="total" *ngIf="order.data.payment_method=='cod' && order.data.status=='Đang xử lí'">
+                      <td style="text-align: inherit;" class="total" *ngIf="order.data.status=='Đang xử lí' && order.data.payment_method == 'cod'">
                         <span class="badge badge--status-warning badge--progress-incomplete" >Chưa thanh toán</span>
                       </td>
                       <td style="text-align: inherit;" class="total" *ngIf="order.data.payment_method=='paypal'">
                         <span class="badge badge--status-complete badge--progress-complete">Đã thanh toán qua Palpal</span>
                       </td>
                     <td style="text-align: inherit;" class="type">
-                      <span class="badge badge--status-attention badge--progress-incomplete">{{order.data.status}}</span>
+                      <span class="badge badge--status-attention badge--progress-incomplete" *ngIf="order.data.status=='Đã giao hàng'">Đã giao hàng</span>
+                      <span class="badge badge--status-attention badge--progress-incomplete" *ngIf="order.data.status!='Đã giao hàng'">Đang xử lí</span>
                     </td>
                     <td style="text-align: inherit;" class="vendor">
                       <p>{{order.data.currentCost | number}}₫</p>

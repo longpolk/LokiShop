@@ -78,4 +78,16 @@ export class OrderDetailComponent implements OnInit {
     this.orderService.deleteOrder(order);
     alert("Đã xóa đơn hàng!");
   }
+  confirmMarkAsPaid(order: Order) {
+    if (confirm("Xác nhận khách hàng đã thanh toán số tiền "+(order.currentCost)+"₫ bằng phương thức thanh toán thủ công cho đơn hàng này?")) {
+      this.markAsPaid(this.order);
+      return true;
+    } else {
+      return false;
+    }
+  }
+  markAsPaid(order: Order) {
+    this.orderService.updateStatus(order, "Đã thanh toán");
+    alert("Đơn hàng đã được thanh toán thành công, tổng tiền: "+Number(order.currentCost)+"₫ !");
+  }
 }
