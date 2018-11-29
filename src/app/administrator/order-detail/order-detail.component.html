@@ -348,7 +348,7 @@
                                                             <div class="ui-stack ui-stack--wrap">
                                                                 <div class="ui-stack-item">
                                                                     <div class="hide-when-printing">
-                                                                        <span *ngIf="order.payment_method=='cod' && order.status=='Đã thanh toán'"
+                                                                        <span *ngIf="order.status=='Đã thanh toán' || order.status=='Đã giao hàng'"
                                                                             class="badge badge--status-complete badge--progress-complete">Đã
                                                                             thanh toán</span>
                                                                         <span *ngIf="order.payment_method=='paypal'"
@@ -453,12 +453,12 @@
                                                                     </svg>
                                                                 </div>
                                                                 <div class="ui-stack-item ui-stack-item--fill">
-                                                                    <h3 *ngIf="order.payment_method=='cod' && order.status=='Đang xử lí'"
+                                                                    <h3 *ngIf="order.payment_method=='cod' && (order.status=='Đang xử lí')"
                                                                         class="ui-subheading">
                                                                         Xử lí đơn hàng: </h3>
-                                                                    <h3 *ngIf="order.status=='Đã thanh toán' || order.payment_method=='paypal'"
+                                                                    <h3 *ngIf="order.status=='Đã thanh toán' || order.payment_method=='paypal' || order.status=='Đã giao hàng'"
                                                                         class="ui-subheading">
-                                                                        Đơn hàng đã xác nhận thanh toán {{order.currentCost | number}}₫ </h3>
+                                                                        ĐƠN HÀNG ĐÃ XÁC NHẬN THANH TOÁN {{order.currentCost | number}}₫ </h3>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -528,255 +528,24 @@
                                                             </svg>
                                                         </div>
                                                         <div style="flex: 1 1 auto" class="ui-stack-item ui-stack-item--fill">
-                                                            <h3 class="ui-subheading">
+                                                            <h3 *ngIf="order.status != 'Đã giao hàng'" class="ui-subheading">
                                                                 Giao hàng
+                                                            </h3>
+                                                            <h3 *ngIf="order.status == 'Đã giao hàng'" class="ui-subheading">
+                                                                TẤT CẢ SẢN PHẨM ĐÃ ĐƯỢC GIAO
                                                             </h3>
                                                         </div>
                                                         <div class="ui-stack-item">
-                                                            <a type="text/html" style="display: none" href="/admin/orders/5160220/fulfillments/create"
-                                                                define="{editFulfillItemsModal: new Bizweb.Modal(this)}"
-                                                                class="modal_source"></a>
-                                                            <a class="btn btn-primary" (click)="editFulfillItemsModal.show()"
-                                                                href="#">Giao hàng</a>
+                                                            <a *ngIf="order.status != 'Đã giao hàng'" class="btn btn-primary" (click)="callShippingDialog()"
+                                                                href="javascript:void(0);">Giao hàng</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </section>
-
-
-
-                                            <div id="timeline-desktop-container" class="timeline" style="display:none">
-                                                <div class="timeline__pane">
-                                                    <header class="timeline__header hide-when-printing">
-                                                        <div class="next-grid next-grid--no-outside-padding next-grid--space-between">
-                                                            <div class="next-grid__cell">
-                                                                <h3 class="next-heading next-heading--no-margin">Hoạt
-                                                                    động</h3>
-                                                            </div>
-                                                        </div>
-                                                    </header>
-                                                    <div id="entire_timeline" refresh="entire_timeline" class="timeline__entire">
-                                                        <div class="timeline__new-comment-container hide-when-printing">
-                                                            <div class="timeline__avatar timeline__avatar--new-comment">
-                                                                <span class="user-avatar user-avatar--style-1">
-                                                                    <span class="user-avatar__initials">
-                                                                        <img class="profile-pic img-circle" data-name="Nguyen "
-                                                                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iNDYiIGhlaWdodD0iNDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjYsIDE4OCwgMTU2KTsgd2lkdGg6IDQ2cHg7IGhlaWdodDogNDZweDsgYm9yZGVyLXJhZGl1czogMHB4OyI+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeT0iNTAlIiB4PSI1MCUiIGR5PSIwLjM1ZW0iIHBvaW50ZXItZXZlbnRzPSJhdXRvIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iSGVsdmV0aWNhTmV1ZS1MaWdodCxIZWx2ZXRpY2EgTmV1ZSBMaWdodCxIZWx2ZXRpY2EgTmV1ZSxIZWx2ZXRpY2EsIEFyaWFsLEx1Y2lkYSBHcmFuZGUsIHNhbnMtc2VyaWYiIHN0eWxlPSJmb250LXdlaWdodDogNDAwOyBmb250LXNpemU6IDIwcHg7Ij5OPC90ZXh0Pjwvc3ZnPg==">
-                                                                    </span>
-                                                                    <img alt="" class="gravatar gravatar--size-thumb"
-                                                                        src="https://secure.gravatar.com/avatar/fd57abc68308c08465aba3674673550b.jpg?s=45&amp;d=blank">
-                                                                </span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="ui-feed">
-                                                            <div id="timeline_container" refresh="timeline_container"
-                                                                class="ui-feed__section">
-
-                                                                <div class="ui-feed__item ui-feed__item--date">
-                                                                    <span class="timeline__date-heading">24/11/2018</span>
-                                                                </div>
-                                                                <span class="timeline__event-anchor" id="timeline__event-anchor_62840584"></span>
-                                                                <div id="event_62840584" class="ui-feed__timeline ui-accordion__toggler timeline-content"
-                                                                    define="{event62840584: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}"
-                                                                    context="event62840584">
-                                                                    <div class="ui-feed__item ui-feed__item--message  ui-feed__item--accordion-activator">
-                                                                        <span class="ui-feed__marker ui-feed__marker--user-action"></span>
-
-                                                                        <span class="ui-feed__message">
-                                                                            <div class="timeline__message-container">
-                                                                                <span class="timeline__inner-message">
-                                                                                    <span (click)="expanDetail(this,'62840584')">
-                                                                                        Nhận 100,000 VND đang chờ xác
-                                                                                        nhận, đơn hàng <a href="/admin/orders/5160220">#1002</a>.
-                                                                                        <span class="timeline__collapse-icon-wrapper">
-                                                                                            <svg class="next-icon next-icon--rotate-270 next-icon--color-blue next-icon--size-20">
-                                                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                                    xlink:href="#next-disclosure"></use>
-                                                                                            </svg>
-                                                                                        </span>
-                                                                                    </span>
-                                                                                </span>
-                                                                                <time id="timeline__time-62840584"
-                                                                                    class="timeline__time" refresh="timeline__time">
-                                                                                    <a class="timeline__time-link">
-                                                                                        1:06 PM
-                                                                                    </a>
-                                                                                </time>
-                                                                            </div>
-                                                                        </span>
-                                                                    </div>
-                                                                    <div id="event_detail_62840584"
-                                                                        data-accordion-expanded="false" class="ui-accordion ui-feed__item ui-feed__item--accordion">
-                                                                        <div class="ui-feed__item__accordion-content">
-                                                                            <div class="ui-accordion__panel" id="ui-accordion__panel--62840584"
-                                                                                aria-hidden="true">
-                                                                                <section class="timeline__titled-section">
-                                                                                    <h3 class="next-heading helper--visually-hidden">#1002</h3>
-                                                                                    <dl class="description-list description-list--specifications">
-                                                                                        <dt>Đơn hàng</dt>
-                                                                                        <dd class=""><a href="/admin/orders/5160220">#1002</a></dd>
-
-                                                                                        <dt>Tin nhắn</dt>
-                                                                                        <dd>Nhận 100,000 VND đang chờ
-                                                                                            xác nhận, đơn hàng <a href="/admin/orders/5160220">#1002</a></dd>
-                                                                                        <dt>Số tiền</dt>
-                                                                                        <dd>100,000₫</dd>
-                                                                                        <dt>Cổng thanh toán</dt>
-                                                                                        <dd>
-                                                                                            Thủ công
-                                                                                        </dd>
-                                                                                        <dt>Trạng thái</dt>
-                                                                                        <dd>Chờ</dd>
-                                                                                        <dt>Loại</dt>
-                                                                                        <dd>Thanh toán</dd>
-                                                                                        <dt>Ngày tạo</dt>
-                                                                                        <dd>24/11/2018 13:06</dd>
-                                                                                    </dl>
-                                                                                </section>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <span class="timeline__event-anchor" id="timeline__event-anchor_62840583"></span>
-                                                                <div id="event_62840583" class="ui-feed__timeline ui-accordion__toggler timeline-content"
-                                                                    define="{event62840583: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}"
-                                                                    context="event62840583">
-                                                                    <div class="ui-feed__item ui-feed__item--message ">
-                                                                        <span class="ui-feed__marker"></span>
-
-                                                                        <span class="ui-feed__message">
-                                                                            <div class="timeline__message-container">
-                                                                                <span class="timeline__inner-message">
-                                                                                    <span>Có một đơn hàng mới <a href="/admin/orders/5160220">#1002</a>.
-                                                                                        <span class="timeline__collapse-icon-wrapper"></span></span>
-                                                                                </span>
-                                                                                <time id="timeline__time-62840583"
-                                                                                    class="timeline__time" refresh="timeline__time">
-                                                                                    <a class="timeline__time-link">
-                                                                                        1:06 PM
-                                                                                    </a>
-                                                                                </time>
-                                                                            </div>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <span class="timeline__event-anchor" id="timeline__event-anchor_62840582"></span>
-                                                                <div id="event_62840582" class="ui-feed__timeline ui-accordion__toggler timeline-content"
-                                                                    define="{event62840582: new Bizweb.OrderEvent(this,{&quot;order_id&quot;:5160220})}"
-                                                                    context="event62840582">
-                                                                    <div class="ui-feed__item ui-feed__item--message ">
-                                                                        <span class="ui-feed__marker"></span>
-
-                                                                        <span class="ui-feed__message">
-                                                                            <div class="timeline__message-container">
-                                                                                <span class="timeline__inner-message">
-                                                                                    <span>Đơn hàng được tạo từ đơn hàng
-                                                                                        nháp <a href="/admin/draft_orders/141495">#D2</a>.
-                                                                                        <span class="timeline__collapse-icon-wrapper"></span></span>
-                                                                                </span>
-                                                                                <time id="timeline__time-62840582"
-                                                                                    class="timeline__time" refresh="timeline__time">
-                                                                                    <a class="timeline__time-link">
-                                                                                        1:06 PM
-                                                                                    </a>
-                                                                                </time>
-                                                                            </div>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <div id="show-timeline-pagination-buttons" refresh-always="">
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="ui-layout__section ui-layout__section--secondary" id="order-sidebar">
-                                        <div style="display:none" class="ui-layout__item">
-                                            <section class="ui-card ">
-                                                <div class="ui-card__section hide-when-printing" id="order-notes"
-                                                    data-tg-refresh="order-notes">
-                                                    <div class="ui-stack ui-stack--wrap ui-stack--vertical">
-                                                        <div class="ui-stack-item">
-                                                            <div class="ui-stack ui-stack--wrap ui-stack--alignment-baseline">
-                                                                <div class="ui-stack-item ui-stack-item--fill">
-                                                                    <h2 class="ui-heading">Ghi chú</h2>
-                                                                </div>
-                                                                <div class="ui-stack-item">
-                                                                    <button class="ui-button btn--link hide-when-printing"
-                                                                        data-(click)="orderNotesModal.show()" type="button"
-                                                                        name="button">Sửa</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ui-stack-item">
-                                                            <p class="order-notes__default-text type--subdued">Không có
-                                                                ghi chú</p>
-                                                        </div>
-                                                    </div>
-                                                    <script data-define="{orderNotesModal: new Bizweb.Modal(this)}"
-                                                        type="text/html" class="modal_source">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form class="edit_order" id="order-note-edit-form" autocomplete="off" data-tg-refresh="order-notes-edit" data-tg-remote="patch" data-tg-refresh-on-success="order-notes order-title-bar modal" data-define="{orderNotesForm: new Bizweb.Forms(this, {
-                      disabledUntilDirty: true,
-                      disableContextBar: true
-                    })}"  action="/admin/orders/5160220" accept-charset="UTF-8" method="post">
-                                    <div class="ui-modal__header">
-                                        <div class="ui-modal__header-title">
-                                            <h2 class="ui-title">Sửa ghi chú</h2>
-                                        </div>
-                                        <div class="ui-modal__header-actions">
-                                            <div class="ui-modal__close-button">
-                                                <button class="ui-button ui-button--transparent close-modal" data-dismiss="modal" aria-label="Close modal" type="button" name="button">
-                                                    <svg class="next-icon next-icon--color-ink-lighter next-icon--size-20">
-                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cancel-small-minor">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ui-modal__body">
-                                        <div class="ui-modal__section">
-                                            <input type="hidden" name="_method" value="patch">
-                                            <input type="hidden" name="AuthenticityToken" value="yO/kyvUpp4TMJmKGziUMUssP1ZbLbNKF/6nQqJmXL5mW4aD3H/UJe/Cjy0DJSmSYCTuYieYPXFxJ+EHTneBXpw==" />
-                                            <div>
-                                                <div class="next-input-wrapper">
-                                                    <label class="next-label" for="order_note">Ghi chú</label>
-                                                    <textarea maxlength="5000" class="ui-text-area" name="note" id="order_note"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ui-modal__footer">
-                                        <div class="ui-modal__footer-actions">
-                                            <div class="ui-modal__secondary-actions">
-                                                <div class="button-group">
-                                                    <button class="ui-button close-modal" data-dismiss="modal" type="button" name="button">Hủy</button>
-                                                </div>
-                                            </div>
-                                            <div class="ui-modal__primary-actions">
-                                                <div class="button-group button-group--right-aligned">
-                                                    <button class="ui-button btn-primary js-btn-primary js-btn-loadable" type="submit" name="button">Lưu</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </script>
-                                                </div>
-                                            </section>
-                                        </div>
+                                    
 
                                         <div class="ui-layout__item">
                                             <section class="ui-card" id="customer-card" data-tg-refresh="customer-card">
@@ -1481,5 +1250,127 @@
                 </div>
             </div>
         </section>
+    </div>
+</div>
+<div *ngIf="order" class="modal" data-tg-refresh="modal" id="shipping_modal_container" style="display: none;" aria-hidden="false" aria-labelledby="ModalTitle" tabindex="-1">
+    <div>
+    <form context="fulfillContext" define="{fulfillContext: new Bizweb.Fulfilment(this, {&quot;order_id&quot;:5179578,&quot;grams&quot;:[{&quot;quantity&quot;:1,&quot;grams&quot;:0}]})}" action="/admin/orders/5179578/fulfillments/fulfillitems/5179578" method="post" class="fulfill-item-form">
+        <input type="hidden" name="AuthenticityToken" value="yO/kyvUpp4TMJmKGziUMUp5fZwwZJuwBqUloFAUxez9rXg0/X7wM2jyJ1+OtTv+I0K8PccBd705TEKeYEVWjrg==">
+        <div class="modal-dialog">
+            <div class="modal-content shipping-address-error-refresh">
+                <div class="ui-modal__header">
+                    <div class="ui-modal__header-title">
+                        <h2 class="ui-title" id="ModalTitle">Giao hàng</h2>
+                    </div>
+                    <div class="ui-modal__header-actions">
+                        <div class="ui-modal__close-button">
+                            <button class="ui-button ui-button--transparent close-modal" data-dismiss="modal" aria-label="Close modal" type="button" name="button"><svg class="next-icon next-icon--color-ink-lighter next-icon--size-20"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cancel-small-minor"></use> </svg></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-modal__body">
+                    <div class="ui-modal__section">
+                        <div>
+                            <input data-val="true" data-val-number="The field OrderId must be a number." id="OrderId" name="OrderId" type="hidden" value="5179578">
+                            <table class="table refund-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                        </th>
+                                        <th width="50%">Sản phẩm</th>
+                                        <th width="25%">Số lượng còn</th>
+                                        <th width="25%">Số lượng giao</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                            <tr *ngFor="let product of phones">
+                                                <td width="50px">
+                                                    <div class="aspect-ratio aspect-ratio--square aspect-ratio--square--50">
+                                                            <img class="aspect-ratio__content" title="{{product.data.name}}" src="{{product.data.thumb}}">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                            <a routerLink="/admin/products/{{product.category}}/{{product.data.id}}">
+                                                                {{product.data.name}}
+                                                            </a>
+                                                    <br>{{product.data.color}}                                            </td>
+                                                <td>
+                                                    {{product.inStock}}
+                                                </td>
+                                                <td>
+                                                    <input data-val="true" data-val-number="The field Id must be a number." id="LineItems_0__Id" name="LineItems[0].Id" type="hidden" value="6736506">
+    
+                                                    <input class="next-input" id="LineItems_0__Quantity" max="1" min="0" name="LineItems[0].Quantity" type="number" value="{{product.data.quantity}}">
+                                                </td>
+                                            </tr>
+                                </tbody>
+                            </table>
+                            <div context="shippingMethod">
+                                <div class="next-grid next-grid--no-outside-padding">
+                                    <div class="next-grid__cell">
+                                        <div class="next-input-wrapper">
+                                            <label class="next-label label-strong">Giao hàng qua</label>
+                                            <div class="ui-select__wrapper">
+                                                <select id="shippingProviderId" bind="shippingProviderId" name="shippingProviderId" class="ui-select">
+                                                    <option value="0">Khác</option>
+                                                </select>
+                                                <svg class="next-icon next-icon--size-16"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use> </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="next-grid__cell">
+                                        <div class="next-input-wrapper">
+                                            <label class="next-label label-strong">Mã vận đơn</label>
+                                            <input class="next-input" data-val="true" data-val-length="Mã vận đơn không được vượt quá 50 ký tự" data-val-length-max="50" id="TrackingNumber" name="TrackingNumber" type="text" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shipping-provider-html-0 shipping-provider-html manual-provider-context">
+                                    <div class="next-grid next-grid--no-outside-padding">
+                                        <div class="next-grid__cell">
+                                            <div class="next-input-wrapper">
+                                                <label class="next-label label-strong">Kho lấy hàng</label>
+                                                <div class="ui-select__wrapper">
+                                                    <select class="ui-select" id="StoreAddressId" name="StoreAddressId"><option selected="selected" value="243615">Cửa hàng chính</option>
+    </select>
+                                                    <svg class="next-icon next-icon--size-16"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use> </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="next-grid__cell">
+                                            <div class="next-input-wrapper">
+                                                <label class="next-label label-strong">Tiền thu hộ(COD)</label>
+                                                <div class="next-input--stylized next-input--has-content">
+                                                    <input name="CodAmount" type="text" class="next-input next-input--invisible js-money-field" value="{{order.currentCost | number}}" data-autonumeric="autoNumeric">
+                                                    <span class="next-input__add-on next-input__add-on--before">₫</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-modal__footer">
+                    <div class="ui-modal__footer-actions ui-modal__footer-no-wrap">
+                        <div class="ui-modal__tertiary-actions">
+                            <div class="next-input-wrapper">
+                                <label class="next-label" style="margin-left:25px" for="send-notification-email">Gửi email tới khách hàng</label>
+                                <input checked="checked" class="next-checkbox" id="send-notification-email" name="SendNotificationEmail" type="checkbox" value="true"><input name="SendNotificationEmail" type="hidden" value="false">
+                                <span class="next-checkbox--styled"><svg class="next-icon next-icon--size-10 checkmark"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark-thick"></use> </svg></span>
+                            </div>
+                        </div>
+                        <div class="ui-modal__primary-actions">
+                            <div class="button-group button-group--right-aligned ui-modal__item-no-wrap">
+                                <button (click)="dismissShippingDialog()" class="ui-button close-modal" type="button" name="button">Hủy</button>
+                                <button class="ui-button ui-button--primary js-btn-loadable has-loading" type="button" name="commit">Lưu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
     </div>
 </div>

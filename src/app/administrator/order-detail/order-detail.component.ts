@@ -32,6 +32,7 @@ import { UserService } from '../../services/user.service';
 export class OrderDetailComponent implements OnInit {
   @Input() order: Order;
   @Input() phones: Phone[];
+  @Input() systemPhone: Phone[];
   constructor(
     private route: ActivatedRoute,
     private phoneService: PhoneService,
@@ -44,6 +45,7 @@ export class OrderDetailComponent implements OnInit {
   ngOnInit() {
     this.getOrder();
     this.getProductsOrder();
+    this.getProductsSystem();
   }
   getOrder(): void {
     this.route.params.subscribe(params => {
@@ -59,6 +61,22 @@ export class OrderDetailComponent implements OnInit {
       this.orderService
         .getProductsOrder(id)
         .subscribe(_ => this.phones = _)
+    });
+  }
+  getProductsSystem(): void {
+      this.phoneService
+        .getPhones()
+        .subscribe(_ => this.systemPhone = _)
+    }
+  getProductsInfoFromSystem(): void {
+    this.phones.forEach(phone => {
+      for(var i = 0; i< this.systemPhone.length; i++){
+        if(this.systemPhone[i].id == phone.id){
+          console.log(this.systemPhone[i]);
+          phone.category = this.systemPhone[i]["data"].category;
+          phone.inStock = this.systemPhone[i]["data"].inStock;
+        }
+      }
     });
   }
   goBack(): void {
@@ -89,5 +107,15 @@ export class OrderDetailComponent implements OnInit {
   markAsPaid(order: Order) {
     this.orderService.updateStatus(order, "Đã thanh toán");
     alert("Đơn hàng đã được thanh toán thành công, tổng tiền: "+Number(order.currentCost)+"₫ !");
+  }
+  callShippingDialog(){
+    this.getProductsInfoFromSystem();
+    var shippingDialog = document.getElementById("shipping_modal_container");
+    shippingDialog.style.display = "block";
+    console.log(this.phones);
+  }
+  dismissShippingDialog(){
+    var shippingDialog = document.getElementById("shipping_modal_container");
+    shippingDialog.style.display = "none";
   }
 }
