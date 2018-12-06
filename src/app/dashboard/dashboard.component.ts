@@ -8,6 +8,7 @@ import { CartService } from '../services/cart.service';
 import { Location } from '@angular/common'; 
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { PopupCartComponent } from '../popup-cart/popup-cart.component';
+import { groupBy } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -38,6 +39,8 @@ export class DashboardComponent implements OnInit {
   phoneAccessories: Phone[] = [];
   laptopAccessories: Phone[] = [];
   discountProducts: Phone[] = [];
+  newproducts: Phone[] = [];
+  bestsellerProducts: Phone[] = [];
   category: Category[];
 
   fileNameDialogRef: MatDialogRef<PopupCartComponent>;
@@ -50,25 +53,16 @@ export class DashboardComponent implements OnInit {
   ) { }
  
   ngOnInit() {
-    this.getPhones();
-    this.getLaptops();
+    //this.getPhones();
+    this.getNewProduct();
+    this.getBestSellerProducts();
+    //this.getLaptops();
     this.getAccessories();
     this.getBanners();
     this.getSliders();
     this.getLaptopAccessories();
     this.getPhoneAccessories();
     this.getDiscountProduct();
-  }
- 
-  getPhones(): void {
-    this.phoneService.getPhones()
-      .subscribe(phones => this.phones = phones.slice(0, 8));
-  }
-  getLaptops(): void {
-    this.phoneService.getLaptops()
-      .subscribe(laptops => this.laptops = laptops.slice(0, 5));
-      //console.log('list laptops: ');
-      //console.log(this.laptops);
   }
   getAccessories(){
     this.phoneService.getAccessories()
@@ -98,9 +92,76 @@ export class DashboardComponent implements OnInit {
     //console.log(this.laptopAccessories);
   }
   getDiscountProduct(){
-    this.phoneService.getDiscountProduct()
-    .subscribe(discountProducts => this.discountProducts = discountProducts.slice(0, 10));
+      this.phoneService.getPhones().subscribe(data => {
+        data.forEach(element => {
+          if(element["data"].sale_price < element["data"].price)
+          this.discountProducts.push(element);
+        });
+      });
+      this.phoneService.getLaptops().subscribe(data => {
+        data.forEach(element => {
+          if(element["data"].sale_price < element["data"].price)
+          this.discountProducts.push(element);
+        });
+      });
+      this.phoneService.getAccessories().subscribe(data => {
+        data.forEach(element => {
+          if(element["data"].sale_price < element["data"].price)
+          this.discountProducts.push(element);
+        });
+      });
+      return this.discountProducts.slice(0, 10);
+    
   }
+
+  getNewProduct(){
+    var currentDate = new Date();
+    this.phoneService.getPhones().subscribe(data => {
+      data.slice(0, 5).forEach(element => {
+        if(element["data"].postDate == currentDate || (element["data"].postDate < currentDate && element["data"].sold == 0))
+        this.newproducts.push(element);
+      });
+    });
+    this.phoneService.getLaptops().subscribe(data => {
+      data.slice(0, 5).forEach(element => {
+        if(element["data"].postDate == currentDate || (element["data"].postDate < currentDate && element["data"].sold == 0))
+        this.newproducts.push(element);
+      });
+    });
+    this.phoneService.getAccessories().subscribe(data => {
+      data.slice(0, 5).forEach(element => {
+        if(element["data"].postDate == currentDate || (element["data"].postDate < currentDate && element["data"].sold == 0))
+        this.newproducts.push(element);
+      });
+    });
+    return this.newproducts;
+  
+}
+
+getBestSellerProducts(){
+  var currentDate = new Date();
+  this.phoneService.getPhones().subscribe(data => {
+    data.slice(0, 5).forEach(element => {
+      if(element["data"].sold > 0)
+      this.bestsellerProducts.push(element);
+    });
+  });
+  this.phoneService.getLaptops().subscribe(data => {
+    data.slice(0, 5).forEach(element => {
+      if(element["data"].sold > 0)
+      this.bestsellerProducts.push(element);
+    });
+  });
+  this.phoneService.getAccessories().subscribe(data => {
+    data.slice(0, 5).forEach(element => {
+      if(element["data"].sold > 0)
+      this.bestsellerProducts.push(element);
+    });
+  });
+  return this.bestsellerProducts;
+
+}
+
   public addToCart(product: Phone) {
     this.cartService.addToCart(product);
   }

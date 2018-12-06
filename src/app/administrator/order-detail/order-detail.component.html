@@ -511,9 +511,9 @@
                                                             <!--button *ngIf="order.payment_method=='cod' && order.status=='Đã thanh toán'"
                                                                 class="ui-button btn-save" type="button" (click)="confirmMarkAsUnPaid(order)">Hoàn
                                                                 tác thanh toán</button-->
-                                                            <button class="ui-button" type="button" (click)="refundModal.show()">
+                                                            <!---button class="ui-button" type="button" (click)="refundModal.show()">
                                                                 Hoàn kho
-                                                            </button>
+                                                            </button-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -620,7 +620,7 @@
                                                             </div>
                                                         </form>
                                                     </script>
-                                                                <button class="ui-button btn--link" (click)="editOrderEmailModal.show()"
+                                                                <button class="ui-button btn--link" (click)="editOrderEmail()"
                                                                     type="button" name="button">Sửa</button>
                                                             </div>
                                                         </div>
@@ -628,8 +628,8 @@
                                                             <div class="ui-type-container ui-type-container--spacing-extra-tight">
                                                                 <p>
                                                                     <span>{{order.customerEmail}}</span>
-                                                                </p>
-
+                                                                </p><br/>
+                                                                <input class="next-input" id="newCustomerEmail" #newCustomerEmail value="{{order.customerEmail}}" style="display: none;" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1195,7 +1195,7 @@
                                                                             callback(false);
                                                                         }
                                                                     }
-                                                                </script> <button class="ui-button btn--link" type="button" (click)="editShippingAddressModal.show()">Thêm</button>
+                                                                </script> <button class="ui-button btn--link" type="button" (click)="editShippingAddress()">Sửa</button>
 
                                                             </div>
                                                         </div>
@@ -1203,8 +1203,8 @@
                                                             <div class="ui-type-container ui-type-container--spacing-extra-tight">
                                                                 <p>
                                                                     <span>{{order.customerAddress}}</span>
-                                                                </p>
-
+                                                                </p><br/>
+                                                                <input class="next-input" id="newShippingAddress" #newShippingAddress value="{{order.customerAddress}}" style="display: none;" /> 
                                                             </div>
                                                         </div>
                                                         <p class="type--subdued word_break__content">
@@ -1230,8 +1230,10 @@
                                     <div class="ui-page-actions__container">
                                         <div class="ui-page-actions__actions ui-page-actions__actions--primary">
                                             <div class="ui-page-actions__button-group">
-                                                <button class="ui-button ui-button--primary js-btn-loadable js-btn-primary btn-primary has-loading"
-                                                    type="submit" name="commit" disabled="disabled">Lưu</button>
+                                                <button (click)="updateCustomerInformation(order, newCustomerEmail.value, newShippingAddress.value)" class="ui-button ui-button--primary js-btn-loadable js-btn-primary btn-primary has-loading"
+                                                    type="submit" name="commit" id="submitUpdateOrder" [disabled]="true">Lưu</button> &nbsp;&nbsp;
+                                                <button (click)="confirmDelete(order)" class="ui-button ui-button--primary js-btn-loadable js-btn-primary btn-primary has-loading"
+                                                    type="submit" name="commit">Hủy đơn hàng</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1298,9 +1300,7 @@
                                                     {{product.inStock}}
                                                 </td>
                                                 <td>
-                                                    <input data-val="true" data-val-number="The field Id must be a number." id="LineItems_0__Id" name="LineItems[0].Id" type="hidden" value="6736506">
-    
-                                                    <input class="next-input" id="LineItems_0__Quantity" max="1" min="0" name="LineItems[0].Quantity" type="number" value="{{product.data.quantity}}">
+                                                    <input [readonly]="true" class="next-input" id="QuantityInOrder_{{product.data.id}}" value="{{product.data.quantity}}">
                                                 </td>
                                             </tr>
                                 </tbody>
@@ -1321,7 +1321,7 @@
                                     <div class="next-grid__cell">
                                         <div class="next-input-wrapper">
                                             <label class="next-label label-strong">Mã vận đơn</label>
-                                            <input class="next-input" data-val="true" data-val-length="Mã vận đơn không được vượt quá 50 ký tự" data-val-length-max="50" id="TrackingNumber" name="TrackingNumber" type="text" value="">
+                                            <input class="next-input" id="TrackingNumber" name="TrackingNumber" type="text" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -1341,7 +1341,7 @@
                                             <div class="next-input-wrapper">
                                                 <label class="next-label label-strong">Tiền thu hộ(COD)</label>
                                                 <div class="next-input--stylized next-input--has-content">
-                                                    <input name="CodAmount" type="text" class="next-input next-input--invisible js-money-field" value="{{order.currentCost | number}}" data-autonumeric="autoNumeric">
+                                                    <input [readonly]="true" name="CodAmount" type="text" class="next-input next-input--invisible js-money-field" value="{{order.currentCost | number}}" data-autonumeric="autoNumeric">
                                                     <span class="next-input__add-on next-input__add-on--before">₫</span>
                                                 </div>
                                             </div>
@@ -1355,16 +1355,16 @@
                 <div class="ui-modal__footer">
                     <div class="ui-modal__footer-actions ui-modal__footer-no-wrap">
                         <div class="ui-modal__tertiary-actions">
-                            <div class="next-input-wrapper">
+                            <!--div class="next-input-wrapper">
                                 <label class="next-label" style="margin-left:25px" for="send-notification-email">Gửi email tới khách hàng</label>
                                 <input checked="checked" class="next-checkbox" id="send-notification-email" name="SendNotificationEmail" type="checkbox" value="true"><input name="SendNotificationEmail" type="hidden" value="false">
                                 <span class="next-checkbox--styled"><svg class="next-icon next-icon--size-10 checkmark"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark-thick"></use> </svg></span>
-                            </div>
+                            </div-->
                         </div>
                         <div class="ui-modal__primary-actions">
                             <div class="button-group button-group--right-aligned ui-modal__item-no-wrap">
                                 <button (click)="dismissShippingDialog()" class="ui-button close-modal" type="button" name="button">Hủy</button>
-                                <button class="ui-button ui-button--primary js-btn-loadable has-loading" type="button" name="commit">Lưu</button>
+                                <button (click)="confirmMarkAsDelivered(order)" class="ui-button ui-button--primary js-btn-loadable has-loading" type="button" name="commit">Lưu</button>
                             </div>
                         </div>
                     </div>

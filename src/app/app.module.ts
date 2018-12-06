@@ -56,6 +56,7 @@ import { ProductAddComponent } from './administrator/product-add/product-add.com
 import { SearchComponent } from './search/search.component';
 import { OrdersComponent } from './administrator/orders/orders.component';
 import { OrderDetailComponent } from './administrator/order-detail/order-detail.component';
+import { UsersComponent } from './administrator/users/users.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { OrderDetailComponent } from './administrator/order-detail/order-detail.
     ProductAddComponent,
     SearchComponent,
     OrdersComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

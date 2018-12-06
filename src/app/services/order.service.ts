@@ -235,6 +235,15 @@ export class OrderService {
           status: orderStatus
         });
   }
+  /**/
+  updateCustomerInformation(order: Order, email: string, address: string) {
+    this.angularFirestore
+      .collection("orders").doc(order.id)
+      .update({
+        customerEmail: email,
+        customerAddress: address
+      });
+}
   /*
   setCurrentPosition(customerAddress: string, customerCity: string, 
     customerDistrict: string, customerWard: string) {

@@ -361,56 +361,6 @@ export class PhoneService {
       catchError(this.handleError("getPhoneAccessories", []))
     );
   }
-  getDiscountProduct(): Observable<Phone[]> {
-    var currentDay = new Date();
-
-    this.phoneCol = this.angularFirestore.collection(
-      "category/phones/phone-list",
-      ref => ref.where("sold", "==", 0).orderBy("postDate", "desc")
-    );
-    this.phonePosts = this.phoneCol.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Phone;
-        const id = a.payload.doc.id;
-        return { id, data };
-      });
-    });
-
-    this.laptopCol = this.angularFirestore.collection(
-      "category/laptops/laptops-list",
-      ref => ref.where("postDate", "<", currentDay).orderBy("postDate", "desc")
-    );
-    this.laptopPosts = this.laptopCol.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Phone;
-        const id = a.payload.doc.id;
-        return { id, data };
-      });
-    });
-
-    this.accessoriesCol = this.angularFirestore.collection(
-      "category/accessories/accessories-list",
-      ref => ref.where("postDate", "<", currentDay).orderBy("postDate", "desc")
-    );
-    this.accessoriesPosts = this.accessoriesCol
-      .snapshotChanges()
-      .map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as Phone;
-          const id = a.payload.doc.id;
-          return { id, data };
-        });
-      });
-    /** Join all the observable into masterPosts */
-    /*this.masterPosts = Observable.of(this.phonePosts).merge(Observable.of(this.laptopPosts))
-    .merge(Observable.of(this.accessoriesPosts));*/
-    this.masterPosts = this.phonePosts;
-
-    return this.masterPosts.pipe(
-      tap(phone => this.log(`fetched phone`)),
-      catchError(this.handleError("getDiscountProduct", []))
-    );
-  }
 
   /** GET hero by id. Return `undefined` when id not found */
   getPhoneNo404<Data>(id: number): Observable<Phone> {

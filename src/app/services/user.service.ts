@@ -117,7 +117,7 @@ export class UserService {
         name: name,
         active: true,
         role: "customer",
-        photoURL: "test",
+        photoURL: "https://firebasestorage.googleapis.com/v0/b/lokishop-2018.appspot.com/o/API%2Fimages%2FNoavatar.jpg?alt=media&token=4767f2cb-eb0d-4703-8423-7112a91b434f",
         registeredDate: new Date(),
         orderIDs: new Array<string>()
     });

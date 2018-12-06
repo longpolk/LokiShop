@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterContentInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Phone } from '../../phone';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PhoneService } from '../../services/phone.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -33,13 +33,16 @@ export class OrderDetailComponent implements OnInit {
   @Input() order: Order;
   @Input() phones: Phone[];
   @Input() systemPhone: Phone[];
+  @Input() newCustomerEmail: string;
+  @Input() newShippingAddress: string;
   constructor(
     private route: ActivatedRoute,
     private phoneService: PhoneService,
     private location: Location,
     private cartService: CartService,
     private orderService: OrderService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -117,5 +120,42 @@ export class OrderDetailComponent implements OnInit {
   dismissShippingDialog(){
     var shippingDialog = document.getElementById("shipping_modal_container");
     shippingDialog.style.display = "none";
+  }
+  confirmMarkAsDelivered(order: Order) {
+    if (confirm("Xác nhận đã giao hàng cho đơn hàng: #"+(order.id)+" ?")) {
+      this.markAsDeliveried(this.order);
+      this.dismissShippingDialog();
+      this.router.navigate[("/admin/orders")];
+      return true;
+    } else {
+      return false;
+    }
+  }
+  markAsDeliveried(order: Order) {
+    this.orderService.updateStatus(order, "Đã giao hàng");
+    alert("Đơn hàng đã được chuyển sang trạng thái đã giao!");
+  }
+  editShippingAddress(){
+    var shippingAddress = document.getElementById("newShippingAddress");
+    shippingAddress.style.display = "initial";
+    var submitUpdateOrder = document.getElementById("submitUpdateOrder")
+    submitUpdateOrder.removeAttribute("disabled")
+    submitUpdateOrder.setAttribute("enabled","");
+  }
+  editOrderEmail(){
+    var customerEmail = document.getElementById("newCustomerEmail");
+    customerEmail.style.display = "initial";
+    var submitUpdateOrder = document.getElementById("submitUpdateOrder")
+    submitUpdateOrder.removeAttribute("disabled")
+    submitUpdateOrder.setAttribute("enabled","");
+  }
+  updateCustomerInformation(order: Order, email: string, address: string){
+    this.orderService.updateCustomerInformation(order, email, address);
+    var shippingAddress = document.getElementById("newShippingAddress");
+    shippingAddress.style.display = "none";
+    var customerEmail = document.getElementById("newCustomerEmail");
+    customerEmail.style.display = "none";
+    document.getElementById("submitUpdateOrder").setAttribute("disabled","");
+    alert("Cập nhật thông tin đơn hàng thành công!");
   }
 }
