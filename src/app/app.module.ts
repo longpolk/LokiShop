@@ -57,6 +57,10 @@ import { SearchComponent } from './search/search.component';
 import { OrdersComponent } from './administrator/orders/orders.component';
 import { OrderDetailComponent } from './administrator/order-detail/order-detail.component';
 import { UsersComponent } from './administrator/users/users.component';
+import { VouchersComponent } from './administrator/vouchers/vouchers.component';
+import { VoucherService } from './services/voucher.service';
+import { VoucherUpdateComponent } from './administrator/voucher-update/voucher-update.component';
+import { VoucherAddComponent } from './administrator/voucher-add/voucher-add.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +91,10 @@ import { UsersComponent } from './administrator/users/users.component';
     SearchComponent,
     OrdersComponent,
     OrderDetailComponent,
-    UsersComponent
+    UsersComponent,
+    VouchersComponent,
+    VoucherUpdateComponent,
+    VoucherAddComponent
   ],
   imports: [
     BrowserModule,
@@ -123,7 +130,8 @@ import { UsersComponent } from './administrator/users/users.component';
     OrderService,
     AuthService,
     AuthGuard,
-    UploadService
+    UploadService,
+    VoucherService
   ],
   entryComponents: [PopupCartComponent],
   bootstrap: [AppComponent]

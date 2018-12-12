@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { UserService } from "../services/user.service";
 import { AuthService } from "../core/auth.service";
+import { User } from "../user";
 
 @Component({
   selector: "app-login",
@@ -19,6 +20,7 @@ import { AuthService } from "../core/auth.service";
   ]
 })
 export class LoginComponent implements OnInit {
+  blockedUser: String[] = [];
   constructor(
     private userService: UserService,
     private authService: AuthService
@@ -31,7 +33,10 @@ export class LoginComponent implements OnInit {
       password.toLowerCase().trim() !== null &&
       password.toLowerCase().trim() !== ""
     ) {
-      //this.userService.userLogin(email, password);
+      if(this.blockedUser.includes(email)){
+        alert("Tài khoản này đã bị khóa, vui lòng liên hệ nhóm hỗ trợ để biết thêm thông tin!");
+      }
+      else{
       this.authService.Login(email, password)
         .then(function () {
           if (email == "admin@lokishop.com") {
@@ -48,6 +53,7 @@ export class LoginComponent implements OnInit {
             case 'auth/user-not-found': alert("Tài khoản không tồn tại"); break;
           }
         });
+      }
     } else {
       alert("Vui lòng nhập email và mật khẩu");
     }
@@ -56,11 +62,22 @@ export class LoginComponent implements OnInit {
     this.authService.googleLogin()
       .then(function () {
         console.log("Login successful ");
-        window.location.href = "/account";
       })
       .catch(function (error) {
         console.error("Error logging: ", error);
       });
   }
-  ngOnInit() { }
+
+  getBlockedUsers(){
+    this.userService.getBlockedUsers().subscribe(data => {
+      data.forEach(element => {
+        this.blockedUser.push(element["data"].email);
+      });
+    });
+  }
+
+  ngOnInit() {
+    this.getBlockedUsers();
+    this.authService.getBlockedUsers();
+   }
 }

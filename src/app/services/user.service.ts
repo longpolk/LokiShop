@@ -62,6 +62,26 @@ export class UserService {
     );
   }
 
+  /** Get list of blocked users */
+  getBlockedUsers(): Observable<User[]>{
+    this.postsCol = this.angularFirestore.collection(
+      "users",
+      ref => ref.where("active","==",false)
+    );
+    this.posts = this.postsCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as User;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
+    return this.posts.pipe(
+      tap(blockedUsers => this.log(`fetched blocked users`)),
+      catchError(this.handleError("getBlockedUsers", []))
+    );
+  }
+
+
   /** GET hero by id. Will 404 if id not found */
   getUser(id: string): Observable<User> {
     this.postDoc = this.angularFirestore.doc("users/" + id);
@@ -123,19 +143,35 @@ export class UserService {
     });
   }
 
-  /** DELETE: delete the hero from the server */
-  deleteUser(User: User | number): Observable<User> {
-    const id = typeof User === "number" ? User : User.id;
-    const url = `${this.UserUrl}/${id}`;
-
-    return this.http
-      .delete<User>(url, httpOptions)
-      .pipe(
-        tap(_ => this.log(`deleted User id=${id}`)),
-        catchError(this.handleError<User>("deleteUser"))
-      );
+  /** DELETE: delete the user from the server */
+  blockUser(user: User){
+    this.angularFirestore.collection("users")
+    .doc(user.id).update({
+      active: false
+    }
+    )
+    .then( t => {
+      console.log("User Blocked ");
+      this.router.navigate(['/admin/customers']);
+    })
+    .catch(function (error) {
+      console.error("Error blocking user: ", error);
+    });
   }
-
+  unblockUser(user: User){
+    this.angularFirestore.collection("users")
+    .doc(user.id).update({
+      active: true
+    }
+    )
+    .then( t => {
+      console.log("User Unblocked ");
+      this.router.navigate(['/admin/customers']);
+    })
+    .catch(function (error) {
+      console.error("Error unblocking user: ", error);
+    });
+  }
   /**
    * Handle Http operation that failed.
    * Let the app continue.

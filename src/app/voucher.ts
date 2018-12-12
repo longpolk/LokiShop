@@ -7,5 +7,6 @@ export class Voucher {
       expired: boolean,
       endDate: string,
       startDate: string,
+      inStock: number
       };
   }

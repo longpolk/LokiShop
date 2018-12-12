@@ -30,22 +30,18 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.users = this.getAllUsers();
+    //this.users = this.getAllUsers();
+    this.getAllUsers();
   }
 
-  getAllUsers(): User[] {
-    let users = [];
-    this.userService.getUsers().subscribe(data => {
-      data.forEach(user => {
-        if(user["data"].role != "admin")
-        users.push(user);
-      });
-    });
-    console.log(users);
-    return users;
+  getAllUsers(){
+    //let users = [];
+    this.userService.getUsers().subscribe(users => this.users = users);
+    //console.log(users);
+    //return users;
   }
 
-  confirmDelete(user: User) {
+  /*confirmDelete(user: User) {
     if (confirm("Bạn có thực sự muốn xóa người dùng này khỏi hệ thống?")) {
       console.log(user);
       this.deleteUser(user);
@@ -58,10 +54,10 @@ export class UsersComponent implements OnInit {
     console.log(user);
     this.userService.deleteUser(user);
     alert("Đã xóa người dùng khỏi hệ thống!");
-  }
+  }*/
 
 
-  confirmBlock(user: User) {
+  confirmBlock(user: User, isBlocked: boolean) {
     if (confirm("Bạn có thực sự muốn khóa người dùng này?")) {
       console.log(user);
       this.blockUser(user);
@@ -72,7 +68,12 @@ export class UsersComponent implements OnInit {
   }
   blockUser(user: User) {
     console.log(user);
-    this.userService.deleteUser(user);
+    this.userService.blockUser(user);
     alert("Đã khóa người dùng!");
+  }
+  unblockUser(user: User) {
+    console.log(user);
+    this.userService.unblockUser(user);
+    alert("Đã mở khóa người dùng!");
   }
 }

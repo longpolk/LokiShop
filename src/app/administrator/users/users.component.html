@@ -419,9 +419,10 @@
                     <p>{{(customer.data.orderIDs).length}}</p>
                   </td>
                   <td style="text-align: inherit;" class="vendor">
-                    <p><a href="javascript:void()" (click)="confirmDelete(user)"> Xóa </a></p>
-                    <p><a href="javascript:void()" (click)="confirmBlock(user)"> Khóa </a></p>
-                  </td>
+                    <!----p><a href="javascript:void()" (click)="confirmDelete(user)"> Xóa </a></p-->
+                    <p id="btnDeactive" *ngIf="customer.data.active == true"><button class="btn btn-subscribe" style="background: #f23534; color: #fff;"  (click)="confirmBlock(customer)"> Khóa tài khoản </button>
+                    <p id="btnActive" *ngIf="customer.data.active == false"><button class="btn btn-subscribe" style="background: #212b35; color: #fff;"  (click)="unblockUser(customer)"> Mở khóa </button>    
+                    </td>
                 </tr>
               </tbody>
             </table>

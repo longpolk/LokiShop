@@ -479,7 +479,7 @@ export class PhoneService {
     })
     .catch(function (error) {
       console.error("Error removing product: ", error);
-    });;
+    });
   }
 
   /** PUT: update the hero on the server */

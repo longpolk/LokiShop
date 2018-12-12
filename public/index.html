@@ -194,9 +194,16 @@
 	<!-- end getting default value -->
 
 	<!-- Main content -->
-<app-root></app-root>
-
+<app-root><div class="fb-customerchat" logged_in_greeting="Chào mừng đến với LokiShop" page_id="193963548153430" style="margin-bottom: 1000px;">
+</div></app-root>
+<style>
+	.fb_customer_chat_bounce_in_v2 iframe
+            {
+                margin-top: -1000px;
+            }
+</style>
 <!--Facebook SDK-->
+
 <script>
 	window.fbAsyncInit = function() {
 	  FB.init({
@@ -217,6 +224,7 @@
 	   fjs.parentNode.insertBefore(js, fjs);
 	 }(document, 'script', 'facebook-jssdk'));
   </script>
+
 
 	<!-- Plugin JS -->
 	<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

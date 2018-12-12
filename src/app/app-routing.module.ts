@@ -21,6 +21,9 @@ import { SearchComponent } from './search/search.component';
 import { OrdersComponent } from './administrator/orders/orders.component';
 import { OrderDetailComponent } from './administrator/order-detail/order-detail.component';
 import { UsersComponent } from './administrator/users/users.component';
+import { VouchersComponent } from './administrator/vouchers/vouchers.component';
+import { VoucherAddComponent } from './administrator/voucher-add/voucher-add.component';
+import { VoucherUpdateComponent } from './administrator/voucher-update/voucher-update.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -31,9 +34,12 @@ const routes: Routes = [
   { path: 'admin/products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'admin/orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'admin/customers', component: UsersComponent, canActivate: [AuthGuard] },
+  { path: 'admin/discounts', component: VouchersComponent, canActivate: [AuthGuard] },
   { path: 'admin/order-detail/:id', component: OrderDetailComponent, canActivate: [AuthGuard] },
+  { path: 'admin/discounts/:id', component: VoucherUpdateComponent, canActivate: [AuthGuard] },
   { path: 'admin/products/:cat/:id', component: ProductUpdateComponent, canActivate: [AuthGuard] },
   { path: 'admin/new-products', component: ProductAddComponent, canActivate: [AuthGuard] },
+  { path: 'admin/new-voucher', component: VoucherAddComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/logout', component: LoginComponent },
